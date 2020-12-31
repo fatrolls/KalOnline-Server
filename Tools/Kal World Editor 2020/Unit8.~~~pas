@@ -1,0 +1,132 @@
+unit Unit8;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TForm_Shutdown = class(TForm)
+    Label1: TLabel;
+    Button_SaveKCM: TButton;
+    Button_SaveKCMAs: TButton;
+    Button_SaveOPL: TButton;
+    Button_SaveOPLAs: TButton;
+    Button_SaveKSM: TButton;
+    Button_SaveKSMAs: TButton;
+    Button_SaveAll: TButton;
+    Button_AbortShutdown: TButton;
+    Button_Proceed: TButton;
+    procedure Button_AbortShutdownClick(Sender: TObject);
+    procedure Button_SaveAllClick(Sender: TObject);
+    procedure Button_ProceedClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Button_SaveKCMClick(Sender: TObject);
+    procedure Button_SaveOPLClick(Sender: TObject);
+    procedure Button_SaveKSMClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form_Shutdown: TForm_Shutdown;
+
+implementation
+
+uses Unit1;
+
+{$R *.dfm}
+
+procedure TForm_Shutdown.Button_AbortShutdownClick(Sender: TObject);
+begin
+  Form_Main.BringToFront;
+  Self.Close;
+end;
+
+procedure TForm_Shutdown.Button_SaveAllClick(Sender: TObject);
+begin
+  If Form_Main.KCM<>nil then
+  begin
+    Form_main.KCM.SaveToFile(Form_Main.KCM.FileLocation);
+    Form_main.KCM.Free;
+    Form_main.KCM.Destroy;
+  end;
+  If Form_Main.OPL<>nil then
+  begin
+    Form_main.OPL.SaveToFile(Form_Main.OPL.FileLocation);
+    Form_main.OPL.Free;
+    Form_main.OPL.Destroy;
+  end;
+  If Form_Main.KSM<>nil then
+  begin
+    Form_main.KSM.SaveToFile(Form_Main.KSM.FileLocation);
+    Form_main.KSM.Free;
+    Form_main.KSM.Destroy;
+  end;
+  Application.Terminate;
+end;
+
+procedure TForm_Shutdown.Button_ProceedClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
+procedure TForm_Shutdown.FormShow(Sender: TObject);
+begin
+  If Form_Main.KCM<>nil then
+  begin
+    Button_SaveKCM.Enabled:=True;
+    Button_SaveKCMAs.Enabled:=True;
+  end
+  else
+  begin
+    Button_SaveKCM.Enabled:=False;
+    Button_SaveKCMAs.Enabled:=False;
+  end;
+  If Form_Main.OPL<>nil then
+  begin
+    Button_SaveOPL.Enabled:=True;
+    Button_SaveOPLAs.Enabled:=True;
+  end
+  else
+  begin
+    Button_SaveOPL.Enabled:=False;
+    Button_SaveOPLAs.Enabled:=False;
+  end;
+  If Form_Main.KSM<>nil then
+  begin
+    Button_SaveKSM.Enabled:=True;
+    Button_SaveKSMAs.Enabled:=True;
+  end
+  else
+  begin
+    Button_SaveKSM.Enabled:=False;
+    Button_SaveKSMAs.Enabled:=False;
+  end;
+end;
+
+procedure TForm_Shutdown.Button_SaveKCMClick(Sender: TObject);
+begin
+  Form_main.KCM.SaveToFile(Form_Main.KCM.FileLocation);
+end;
+
+procedure TForm_Shutdown.Button_SaveOPLClick(Sender: TObject);
+begin
+  Form_main.OPL.SaveToFile(Form_Main.OPL.FileLocation);
+end;
+
+procedure TForm_Shutdown.Button_SaveKSMClick(Sender: TObject);
+begin
+  Form_main.KSM.SaveToFile(Form_Main.KSM.FileLocation);
+end;
+
+procedure TForm_Shutdown.FormClose(Sender: TObject;var Action: TCloseAction);
+begin
+  Self.Destroy;
+end;
+
+end.

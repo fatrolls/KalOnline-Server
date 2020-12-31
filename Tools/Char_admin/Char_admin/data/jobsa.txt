@@ -1,0 +1,4 @@
+1  Wondering Archer
+3  Aprentice Archer
+7  Expert Archer
+11 Imperial Commander

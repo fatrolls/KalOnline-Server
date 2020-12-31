@@ -1,0 +1,70 @@
+[1754 2006/10/20 23:06:32]: Dump Stack =======================
+start at 06/10/20 23:02:32
+Call Stack Information 0 (175c):
+
+Registers:
+EAX=14cc90dc CS=001b EIP=7c90eb94 EFLGS=00000246
+EBX=003850b8 SS=0023 ESP=01efff28 EBP=01efff54
+ECX=01effe80 DS=0023 ESI=003850b8 FS=003b
+EDX=01effe80 ES=0023 EDI=7c9140bb GS=0000
+
+Stack dump:
+01efff20: 00438ba2 0033d335 7c90e31b 7c80a746 00000110 01efff70 01efff6c 01efff4c
+01efff40: 00000000 00000002 00000003 01efff5c 00423c70 01efff80 00423eef 00000110
+01efff60: 01efff78 01efff70 01efff7c ffffffff 004e1930 00000001 00000000 00000000
+01efff80: 01efffb4 004a0c2a 00000000 7c9140bb 00000000 003850b8 00000000 01efff8c
+01efffa0: 804f9859 01efffdc 004a0820 004d29b0 00000000 01efffec 7c80b683 003850b8
+
+Call Stack:
+
+01efff54  7c90eb94 KiFastSystemCallRet +0
+C:\WINDOWS\system32\ntdll.dll KiFastSystemCallRet
+Params:   00000110 01efff78 01efff70 01efff7c
+
+01efff80  00423eef C:\Documents and Settings\Maikel.MAIKEL-9AA811CF\Desktop\server3\MainSvr\MainSvrT.exe 
+Params:   00000000 7c9140bb 00000000 003850b8
+
+01efffb4  004a0c2a C:\Documents and Settings\Maikel.MAIKEL-9AA811CF\Desktop\server3\MainSvr\MainSvrT.exe 
+Params:   003850b8 7c9140bb 00000000 003850b8
+01efffc0: 7c9140bb 00000000 003850b8 7ffdc000 898fc600 01efffc0 88b746a8 ffffffff
+01efffe0: 7c839a00 7c80b690 00000000 00000000 00000000 004a0bbb 003850b8 00000000
+
+01efffec  7c80b683 GetModuleFileNameA +1b4
+C:\WINDOWS\system32\kernel32.dll GetModuleFileNameA
+Params:   004a0bbb 003850b8 00000000 00000000
+
+Call Stack Information 1 (1760):
+
+Registers:
+EAX=00000000 CS=001b EIP=7c90eb94 EFLGS=00000246
+EBX=00385150 SS=0023 ESP=01ffff28 EBP=01ffff54
+ECX=0b9248e4 DS=0023 ESI=00385150 FS=003b
+EDX=004b8880 ES=0023 EDI=7c9140bb GS=0000
+
+Stack dump:
+01ffff20: 00438ba2 0033d9fb 7c90e31b 7c80a746 00000110 01ffff70 01ffff6c 01ffff4c
+01ffff40: 00000000 00000002 00000003 01ffff5c 00423c70 01ffff80 00423eef 00000110
+01ffff60: 01ffff78 01ffff70 01ffff7c ffffffff 004e1930 00000001 00000000 00000000
+01ffff80: 01ffffb4 004a0c2a 00000001 7c9140bb 00000000 00385150 00000000 01ffff8c
+01ffffa0: 804f9859 01ffffdc 004a0820 004d29b0 00000000 01ffffec 7c80b683 00385150
+
+Call Stack:
+
+01ffff54  7c90eb94 KiFastSystemCallRet +0
+C:\WINDOWS\system32\ntdll.dll KiFastSystemCallRet
+Params:   00000110 01ffff78 01ffff70 01ffff7c
+
+01ffff80  00423eef C:\Documents and Settings\Maikel.MAIKEL-9AA811CF\Desktop\server3\MainSvr\MainSvrT.exe 
+Params:   00000001 7c9140bb 00000000 00385150
+
+01ffffb4  004a0c2a C:\Documents and Settings\Maikel.MAIKEL-9AA811CF\Desktop\server3\MainSvr\MainSvrT.exe 
+Params:   00385150 7c9140bb 00000000 00385150
+01ffffc0: 7c9140bb 00000000 00385150 7ffdb000 898fc600 01ffffc0 889d3e30 ffffffff
+01ffffe0: 7c839a00 7c80b690 00000000 00000000 00000000 004a0bbb 00385150 00000000
+
+01ffffec  7c80b683 GetModuleFileNameA +1b4
+C:\WINDOWS\system32\kernel32.dll GetModuleFileNameA
+Params:   004a0bbb 00385150 00000000 00000008
+
+Module list:
+C:\Documents and Settings\Maikel.MAIKEL-9AA811CF\Desktop\server3\MainSvr\MainSvrT.exe, loaded at 0x00400000 - 06/06/01 11:11:32 (KR)

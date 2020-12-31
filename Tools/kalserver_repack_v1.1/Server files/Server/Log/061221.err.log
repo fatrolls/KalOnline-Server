@@ -1,0 +1,6 @@
+06/12/21 11:50:23 SELECT TOP 5 [PID], [Name], [Class], [Level], [GID], [Strength], [Health], [Intelligence], [Wisdom], [Dexterity], [Face], [Hair] FROM Player WHERE UID = 9 ORDER BY [Level]
+06/12/21 11:50:24 SELECT TOP 13 [Index] FROM Item WHERE [PID] = 521 AND ( [Info] & 17) = 1
+06/12/21 11:50:24 SELECT TOP 13 [Index] FROM Item WHERE [PID] = 518 AND ( [Info] & 17) = 1
+06/12/21 11:50:24 SELECT TOP 13 [Index] FROM Item WHERE [PID] = 517 AND ( [Info] & 17) = 1
+06/12/21 11:50:24 SELECT TOP 5 PlayerDeleted.PID, Name, [Level], Class, DayLeft = 14-datediff(dd, DeletedTime, getdate()) FROM PlayerDeleted, Player WHERE PlayerDeleted.UID = 9 AND PlayerDeleted.PID= Player.PID ORDER BY DayLeft DESC
+06/12/21 11:55:33 Connection closed from DB Server

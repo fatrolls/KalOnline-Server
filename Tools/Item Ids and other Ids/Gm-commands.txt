@@ -1,0 +1,111 @@
+/portuser <name>
+--Recalls a player.
+
+/get <itemid> <prefix> <amount>
+--Creates a bounded cheat item in your inventory.
+
+/notice <text>
+--Shows a notice.
+
+/hide
+--Hide yourself from everyone.
+
+/levelup
+--Level up by 1.
+
+/getexp <amount>
+--Increase your EXP by <amount>.
+
+/info <name>
+--Shows only you in order in notice: UID/PID/Class/Level of the player.
+
+/kick <name>
+--Kicks a player.
+
+/rage <amount>
+--Set your rage to <amount>.
+
+/move <mobid>
+--Teleports to closest monster specified by <mobid>.
+
+/gposition <specid>
+--Set your government position.
+
+/storage <playername> <itemid> <prefix> <amount>
+--Creates a normal item in <playername>'s storage.
+
+/resetlevel <level>
+--Sets your level to level
+
+/guildexp <amount>
+--Increases your guild's EXP.
+
+/egggrade <grade>
+--Set your egg's grade to grade. (Only 11, 21, 31, and 40 can be used)
+
+/rageexp <amount>
+--Add rage to your current rage by <amount>.
+
+/castleinfo
+--Tells about the castle and the tax.
+
+/active
+--Shows all active players on the server.
+
+/shutdown
+--Closes the server. Only server admins can use this.
+
+/addcp <amount>
+--Adds contribution points by <amount>.
+
+/addmp <amount>
+--Increase MP limit on your character by <amount>.
+
+/addhp <amount>
+--Increase HP limit on your character by <amount>.
+
+/addatk <amount>
+--Increase max and min physical damage by <amount>.
+
+/adddef <amount>
+--Increase defense by <amount>.
+
+/snow
+--Turns on snow event.
+
+/event
+--Turns on a specific event.
+;0 ------- Double EXP.
+;1 ------- Dice Event
+;2 ------- ??? Event
+;3 ------- Sponsor Event
+;4 ------- ??? Event
+;5 ------- ??? Event
+;6 ------- Snow Event
+
+/eventoff
+--Turns off all event.
+
+/eventon
+--Turns on all event.
+
+/resetquest
+--Restarts your current quest.
+
+/finishquest
+--Complete your current quest.
+
+/addquest <questid>
+--Obtain a quest.
+
+/queen
+--Summon Demon Queen.
+
+/nest - summon
+--Summon Demon Nest
+
+/lord
+--Summon Doggebi Lord
+
+/return
+--Teleports to the nearest "Stone of Return" monument.

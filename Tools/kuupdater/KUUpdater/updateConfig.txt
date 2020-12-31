@@ -1,0 +1,5 @@
+KAL = 19e40333
+ServerId = 1
+Country = 0
+Port=50003
+cmdport=50004

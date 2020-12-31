@@ -1,0 +1,193 @@
+-------------------------job Ids---------------------------------------
+1 - No Position
+
+2-3 - 1st Position
+
+4-7 - 2nd Position (Offense) *1
+8-11 - 2nd Position (Defense) *2
+
+19-26 - 3rd Position (Offense)*3
+27-38 - 3rd Position (Defense)*4
+
+
+
+*1 - Vagabond Swordsman, Hermit, or Expert Archer
+*2 - Commander, Chairperson of Joong-Bang, or Imperial Commander
+*3 - God of Sword, Ascetic, or God of Bow
+*4 - General, Military Adviser, Imperial General
+
+
+
+
+
+------------------------------Skils------------------------------------
+
+      0. Run
+      1. Behead
+      2. Weapon Mastery
+      3. Lightning Slash
+      4. Mockery
+      5. Transcendental Blow
+      6. Defense
+      7. Upward Slash
+      8. Provocation
+      9. Flashing Slash
+      10. Increasing Concentration
+      11. Rest
+      12. Critical Hit
+      13. Widening Wound
+      14. Protect
+      15. Shield Attack
+      16. Powerful Upward Slash
+      17. Brutal Attack
+      18. Force of Defense
+      19. Call of Defense
+      20. Parry
+      21. Rush
+      22. Shield Offense
+      23. Call of Recovery
+      24. Beserk
+      25. Half Swing
+      26. Sacrifice
+      27. Call of Lightning Defense
+      28. Call of Ice Defense
+      29. Call of Fire Defense
+      30. Life Extension
+      31. Call of On Target Point
+      32. Call of Physical Attack
+      33. Survival Instinct
+      34. Elastic Shield
+      35. Revival
+      36. Increase of Critical Hit
+
+      80. Artillery
+      81. Artillery
+
+      100. Baby Transformation
+      101. Young Transformation
+      102. Adult Transformation
+
+------>Mage
+
+      0. Run
+      1. Behead
+      2. Fire Magic
+      3. Ice Magic
+      4. Lightning Magic
+      5. Long-Range Protection
+      6. Ice Resistance
+      7. Lightning Resistance
+      8. Heal
+      9. Shock Wave
+      10. Cure
+      11. Rest
+      12. Magic Mastery: Lightning
+      13. Magic Mastery: Ice
+      14. Magic Mastery: Fire
+      15. Meditation
+      16. Revival
+      17. Defensive Incantation 1
+      18. Defensive Incantation 2
+      19. Defensive Incantation 3
+      20. Defensive Incantation 4
+      21. Defensive Incantation 5
+      22. Cure 2
+      23. Lightning Blow
+      24. Splashy Ice
+      25. Fire Blow
+      26. Speed Up
+      27. Frost
+      28. Group Cure
+      29. Restore
+      30. Life Extension
+      31. Lightning Summons
+      32. Hail
+      33. Flame Bomb
+      34. Summons
+      35. Cure 3
+      36. Hypnotism
+      37. Cold Binding
+      38. Refining Weapon
+      39. Defense Improvement
+      40. Soul Destruction
+      41. Chain Lightning
+      42. Thunder
+      43. Thunder Storm
+      44. Ice Restriction
+      45. ice Storm
+      46. Explosion
+      47. Explosive Burst
+      48. Fire Storm
+      49. Blessing of Strength
+      50. Blessing of Health
+      51. Blessing of Agility
+      52. Blessing of Intelligence
+      53. Increase of Critical Hit
+      54. Purification
+      55. Perfect Cure
+      56. Increase of Target Range
+      57. Group Cure 2
+      58. Perfect Group Cure 2
+      59. Perfect Healing
+      60. Distance Control
+      61. Amnesia
+
+      80. Artillery
+      81. Artillery
+
+      100. Baby Transformation
+      101. Young Transformation
+      102. Adult Transformation
+
+------>Archer [Thanks to Talking]
+ID - MaxGrade - Skill
+
+
+0 1 - Run
+1 1 - Behead
+2 10 - Bow Mastery
+3 10 - Staggering Blow
+4 3 - Passive Attack
+5 10 - Concentration
+6 5 - Flamy Arrow
+7 5 - Chance of Capture
+8 10 - Perfect Evasion
+9 5 - Heart Breaker
+10 1 - Muscle Solidation
+11 3 - Rest
+12 15 - Fatal Blow
+13 5 - Poison Arrow
+14 5 - Blow up Arrow
+15 1 - Arrow of Silence
+16 5 - Focus Shot
+17 3 - Range Extension
+18 3 - Life Absorption
+19 4 - Pain
+20 3 - Perfect Evasion 2
+21 3 - Mysterious Arrow
+22 2 - Speed of Attack Reducer
+23 3 - Sight Interruption
+24 2 - Lightning Resistance
+25 2 - Ice Resistance
+26 2 - Fire Resistance
+27 2 - Powerful Arrow of Silence
+28 2 - Curse Resistance
+29 2 - Non Attribution Resistance
+30 5 - Life Extention
+31 2 - Emergency Escape
+32 1 - Critical Hit
+33 1 - Decrease of Target Range
+34 2 - MP Vaporization
+35 2 - Curse of Critical Hit
+36 2 - Curse of Strengthr
+37 2 - Curse of Health
+38 2 - Curse of Agility
+39 2 - Curse of Intellegence
+40 2 - Curse of Wisdom
+41 2 - Curse of Defense
+42 2 - Poison Cloud
+43 1 - Loss of Confidence
+44 1 - Sight Blockade
+45 1 - Buff Remover
+80 1 - Artillery
+81 1 - Artillery

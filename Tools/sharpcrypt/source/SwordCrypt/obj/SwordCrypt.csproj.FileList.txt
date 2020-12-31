@@ -1,0 +1,10 @@
+obj\Release\ResolveAssemblyReference.cache
+bin\Release\SwordCrypt.dll
+bin\Release\SwordCrypt.pdb
+obj\Release\SwordCrypt.dll
+obj\Release\SwordCrypt.pdb
+bin\Debug\SwordCrypt.dll
+bin\Debug\SwordCrypt.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\SwordCrypt.dll
+obj\Debug\SwordCrypt.pdb

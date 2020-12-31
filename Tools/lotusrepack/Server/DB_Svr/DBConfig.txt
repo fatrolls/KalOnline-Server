@@ -1,0 +1,32 @@
+Title = "KAL DBSvr (Over18_1)"
+
+NumberOfThreads = 20
+ODBC = "KAL_DB"
+SubNet = (("127.0.0.1" "255.255.255.0"))
+
+System = "0 5 6 9 10 12 "
+Event = "0 5 6"
+Country = 252
+;MailServer = "127.0.0.1"
+;MailFrom = "KAL_DB18_3"
+;MailTo = ""
+
+
+
+;=======================================
+;System
+;0 ------- pk system
+;1 ------- cosmo server (only for a test server)
+;2 ------- pay system
+;3 ------- netmarble authsocket activate
+;4 ------- party system
+;5 ------- quest system
+;6 ------- storage system
+;7 ------- billing system
+;=======================================
+;Event
+;0 ------- double exp.
+;1 ------- pc room event
+;2 ------- 가위바위보 event
+;3 ------- sponsor event
+;=======================================

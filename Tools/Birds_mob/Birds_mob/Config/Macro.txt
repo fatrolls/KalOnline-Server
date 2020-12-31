@@ -1,0 +1,8 @@
+;Made by s0ul666
+( monsterinfo ( key 655) ( bone 914 ) (level 1) ( scale 5.5 5) ( motion "AAAAAAAAAA" ) (mspeed 1600 800) (attheight 20))
+( monsterinfo ( key 656) ( bone 915 ) (level 1) ( scale 5.5 5) ( motion "AAAAAAAAAA" ) (mspeed 1600 800) (attheight 20))
+( monsterinfo ( key 657) ( bone 916 ) (level 1) ( scale 5.5 5) ( motion "AAAAAAAAAA" ) (mspeed 1600 800) (attheight 20))
+;Made by s0ul666
+( monsterbone (key 914) ( bone 0 1 2 0 0 0 0 0) ( target -3.0 3.5 2.0 17) (motion 2 0 0 0 0 0) (part 1 0) (damage 0 0 0 0))
+( monsterbone (key 915) ( bone 0 1 2 0 0 0 0 0) ( target -3.0 3.5 2.0 17) (motion 2 0 0 0 0 0) (part 1 0) (damage 0 0 0 0))
+( monsterbone (key 916) ( bone 0 1 2 0 0 0 0 0) ( target -3.0 3.5 2.0 17) (motion 2 0 0 0 0 0) (part 1 0) (damage 0 0 0 0))

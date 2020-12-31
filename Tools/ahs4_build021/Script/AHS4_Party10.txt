@@ -1,0 +1,16 @@
+--This script is written by BakaBug
+--Changing stuff can stop AHS4 working !
+
+function StartScript ()
+   ShowInfo ("Active 10er party..")
+   InstallByte("0044DA11",10)
+end
+
+function EndScript ()
+   ShowInfo ("Deactice 10er party..")
+   InstallByte("0044DA11",6)
+end
+
+function Setup ()
+  --Not needen here
+end

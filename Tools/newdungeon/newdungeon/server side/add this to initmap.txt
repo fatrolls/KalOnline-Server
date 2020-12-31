@@ -1,0 +1,2 @@
+(initmap (index 5) (kind 1) (xy 42 0) (filename "n_042_000.ksm"))
+(initmap (index 5) (kind 1) (xy 42 1) (filename "n_042_001.ksm"))

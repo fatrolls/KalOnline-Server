@@ -1,0 +1,77 @@
+KalOnline Tools Pack by Xeon
+
+Version 1.0.0
+ 24-11-2008
+  - Admin Tool v1.02
+  - Admin Tool v1.03
+  - AHS 3 - Anti Hack System III
+  - AHS 4 - Anti Hack System IV Build 021
+  - Aweb's Full PK Editor
+  - BakaDecoder (INT Files)
+  - Buff Maker
+  - Change Drop Tool
+  - DAT2TXT Conveter
+  - DDS Conveter 2
+  - Drop Simulator
+  - Engine PK Password Encoder/Decoder
+  - GB Viewer v0.6
+  - GeneTiX Conveter
+  - Group Generator 2.0
+  - Groups Creator 1.2
+  - Groups Generator
+  - GTX Viewer
+  - GTX2DDS Conveter
+  - HOAX Mob Spawn v1.0
+  - Kal Luncher v1.02
+  - Kal Proxy Sniffer
+  - Kal Server Controller Fixed
+  - Kal Server-Loader
+  - KalAdvance Suite
+  - KalOnline (Auto) Itemlist Creator
+  - KalOnline Admin Panel v0.51
+  - KalOnline Admin Panel's SQL Part (Pre-Alpha)
+  - KalOnline Advanced Drop Editor
+  - KalOnline Advanced PK Editor
+  - KalOnline Auto Updater
+  - KalOnline Helper
+  - KalOnline ID's
+  - KalOnline ID's
+  - KalOnline International Updater
+  - KalOnline Luncher by Syko
+  - KalOnline Maps
+  - KalOnline Model Viewer
+  - KalOnline ServerMap Editor
+  - KaLua PacketProxy
+  - KOCP - KalOnline Client Protect
+  - KODM - KalOnline Database Manager
+  - KODM v0.2.1 - KalOnline Database Manager
+  - KOFET 1.0 - Kal Online File Extraction Tool
+  - KOSP + KOCP Update Final R10 (3.55.145.941)
+  - KOSP - KalOnline Server Protect
+  - KPL - Kal Player Locator
+  - KSM Editor v0.9
+  - KUUpdater
+  - MonsterExp
+  - New 8 GM Commands
+  - NPC Maker
+  - OBJ2GB8 Conveter
+  - Password Finder
+  - PK DAT Editor
+  - PK-Editor
+  - PSUpdater2.0
+  - QGen + QCalc
+  - ServerManager
+  - SFE v1.14a
+  - SharpCrypt + Source
+  - SharpGTX2DDS Conveter
+  - SpawnED
+  - Sword ClientMap Editor
+  - Sword Model Viewer
+  - Sword OPL Editor
+  - Swordcrypt
+  - Swordcrypt Delphi
+  - UnPacked Engine.exe
+  - Updater2
+  - UpdateSvr 2.1
+  - Windows Vista Fix
+  - XP'ed

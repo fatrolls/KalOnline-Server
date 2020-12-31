@@ -1,0 +1,9 @@
+0 no
+1 maybe
+2 maybe
+3 maybe
+4 maybe
+5 maybe
+6 maybe
+7 maybe
+8 yes

@@ -1,0 +1,51 @@
+procedure UpgreadeWeaponChance()
+{
+
+   -- Get the properties value out of the config.properties
+   _UpgreadeWeaponChanceRate = parseInt(GetProperties("UpgreadeWeaponChanceRate", "1"))
+
+   !s_start:
+
+      -- Get and set the G40/45 upgread weapon chance (default 10)
+      chance = ReadMemoryByte("0x46E6BF") * _UpgreadeWeaponChanceRate 
+      WriteMemoryByte("0x46E6BF", Max(chance, 100))
+
+      -- Get and set the G48/50 upgread weapon chance (default 7)
+      chance = ReadMemoryByte("0x46E6D7") * _UpgreadeWeaponChanceRate 
+      WriteMemoryByte("0x46E6D7", Max(chance, 100))
+
+      -- Get and set the G53 upgread weapon chance (default 5)
+      chance = ReadMemoryByte("0x46E6EF") * _UpgreadeWeaponChanceRate 
+      WriteMemoryByte("0x46E6EF", Max(chance, 100))
+
+      -- Get and set the G56 upgread weapon chance (default 4)
+      chance = ReadMemoryByte("0x46E707") * _UpgreadeWeaponChanceRate 
+      WriteMemoryByte("0x46E707", Max(chance, 100))
+
+      -- Get and set the G59/65 upgread weapon chance (default 3)
+      chance = ReadMemoryByte("0x46E71F") * _UpgreadeWeaponChanceRate 
+      WriteMemoryByte("0x46E71F", Max(chance, 100))
+
+   s_end:
+
+      -- Get and set the G40/45 upgread weapon chance (default 10)
+      chance = ReadMemoryByte("0x46E6BF") / _UpgreadeWeaponChanceRate 
+      WriteMemoryByte("0x46E6BF", Max(chance, 100))
+
+      -- Get and set the G48/50 upgread weapon chance (default 7)
+      chance = ReadMemoryByte("0x46E6D7") / _UpgreadeWeaponChanceRate 
+      WriteMemoryByte("0x46E6D7", Max(chance, 100))
+
+      -- Get and set the G53 upgread weapon chance (default 5)
+      chance = ReadMemoryByte("0x46E6EF") / _UpgreadeWeaponChanceRate 
+      WriteMemoryByte("0x46E6EF", Max(chance, 100))
+
+      -- Get and set the G56 upgread weapon chance (default 4)
+      chance = ReadMemoryByte("0x46E707") / _UpgreadeWeaponChanceRate 
+      WriteMemoryByte("0x46E707", Max(chance, 100))
+
+      -- Get and set the G59/65 upgread weapon chance (default 3)
+      chance = ReadMemoryByte("0x46E71F") / _UpgreadeWeaponChanceRate 
+      WriteMemoryByte("0x46E71F", Max(chance, 100))
+
+}

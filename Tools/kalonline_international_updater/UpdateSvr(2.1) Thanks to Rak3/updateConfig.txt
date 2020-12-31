@@ -1,0 +1,21 @@
+NumberOfThreads = 20
+
+KAL = 19e40333
+ServerId = 1
+Country = 0
+Key = 7cg166f8yghstwwvjdrsqxlkfeuiuh
+MainPort = 30001
+AuthPort = 50001
+DBPort = 40001
+Port = 50003
+cmdport=50004
+
+AuthServer = "127.0.0.1"
+DBServer = "127.0.0.1"
+MainServer = "127.0.0.1"
+UpdateServer = "127.0.0.1"
+
+;=======================================
+;0 ------- MainSvr
+;1 ------- TestSvr
+;=======================================

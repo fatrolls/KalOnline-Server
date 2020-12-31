@@ -1,0 +1,4 @@
+(initmap (index 5) (kind 1) (fog 2000 0.02 0.07 0.04 ) (xy 42 0) (orgPatch 0 0) (mapname "tombz"))
+(initmap (index 5) (kind 1) (fog 2000 0.02 0.07 0.04 ) (xy 42 1) (orgPatch 0 0) (mapname "tombz"))
+(initmap (index 5) (kind 1) (fog 2000 0.02 0.07 0.04 ) (xy 42 2) (orgPatch 0 0) (mapname "tombz"))
+(initmap (index 5) (kind 1) (fog 2000 0.02 0.07 0.04 ) (xy 42 3) (orgPatch 0 0) (mapname "tombz"))

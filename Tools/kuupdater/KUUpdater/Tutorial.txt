@@ -1,0 +1,30 @@
+KUUpdater Tutorial by Nuklear
+------------------------------
+Adding/Updating Files:
+1)Create a folder named New0
+2)Place files you want updated or added in this folder.
+3)Put in your own notice in notice.txt file.
+4)Run KUUpdater.exe
+5)Click Load > Load Notice
+6)Then click Load > (0) Cosmo
+7)Put in Comments (Not Necessary)
+8)Click Execute
+9)Wait for it to finish. It should create a folder named Zip0
+10)Click on File > Save
+11)Click File > Start and it should say 'Server is ready on port 50003'
+
+Deleting Files:
+1)Create a folder named Delete0
+2)Place files you want deleted in this folder.
+3)Run KUUpdater.exe and click on Load > (0) Cosmo
+4)Click Execute
+5)Wait for it to finish.
+
+Client Side:
+1)Open KalOnline.cfg file with Notepad and change all IPs there to your IP.
+2)Hex-edit KalOnline.exe. 
+4)Search for 'eupdate.kalonline.co.kr' and change it to your IP.
+Don't delete any byte, just space it out!
+
+
+Voila! You got the updater working!

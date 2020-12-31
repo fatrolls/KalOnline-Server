@@ -1,0 +1,377 @@
+-------------------------------------------------------------------------------
+--------------------------- >> COMMANDS << -------------------------------
+--------------------------------------------------------------------------------
+/dkdlxpadmfckdrhfh - storage item
+/get - Inventory Item
+----------------------------------------
+/move - tksid
+/portuser - Porting
+/tksid <id>
+/notice - Writes Notice
+/hide - invisible 50%
+------------------------------------------
+/resetlevel - level to <level>
+/levelup - makes you up 1 level
+/getexp - add exp <ammount>
+/guildexp - add guildexp
+/egggrade - upgrade egg 11 / 21 / 31
+/rage - add rage
+/rageexp - add rageexp
+---------------------------------------
+/castleinfo - info about castle and tax
+/info - playerinfo
+/active - active player on server
+/shutdown - close server.. only server admin can
+---------------------------------------
+/addcp - add contribution
+/addmp - add manapoints
+/addhp - add hppoints
+/addatk - add attackpoints
+/adddef - add defpoints
+----------------------------------------
+/snow - snow event on
+/event - add event
+/eventoff - all events off
+/eventon - all events on
+;Event's
+;0 ------- double exp.
+;1 ------- dice event
+;2 ------- °¡?§¹??§÷¸ event
+;3 ------- sponsor event
+;4 ------- ?¯·??&shy; event
+;5 ------- mlm event
+;6 ------- snow event
+--------------------------------------
+/resetquest - same
+/finishquest - complete quest
+/addquest - add quest nr
+------------------------------------
+/queen - summon
+/nest - summon
+/lord - summon
+/return - return to a portstone
+------------------------------------------
+/block - block player
+/unblock - unblock player
+/kick - kick player
+/maxuser - dont know xD
+----------------------------------------
+----------------------------------------------------------------------------------------------
+--------------------------------Koreanischen-------------------------------------------
+-----------------------------------------------------------------------------------------------
+/dlqpsxm <eventid> - Turns on a specific event.
+/dlqpsxm <eventid> - Turns on a specific event.
+/dhvmdlqpsxm - Turns off ALL events.
+/dhsdlqpsxm - Turns on ALL events.
+----------------------------------------------------------------------------------
+/dkdlxpadmfckdrhfh <plyr> <id> - Make item at storage.
+/dkdlxpadjerl <itemid> - Makes an item in your inventory.
+-----------------------------------------------------------------------------------
+/qnsshfidcodnrl <exp> - Sets your rage to <exp>.
+/fpqpfdmfwmdrkgkqslek - Levels yourself up by 1.
+/rudgjaclwmdrkgkrl <amount> - Increases your EXP by amount.
+-------------------------------------------------------------------------------------
+/djfmtlsthghks -DoggebieLord
+/tnadjdlTrl 1 - You see 50% of yourself, others don't see you.
+/shxlmt <text> - Displays notice.
+/rnlghks - Go to crow in the nearest town.
+/tltmxpawjdqh - Shows system information.
+------------------------------------------------------------------------------------
+/snrn <plyr> - Shows you in order: ID/PWD/Class/Level of the player.
+/thghksgkrl <plyr> - Recalls a player.
+/soqhsorl <Name> - kick expell
+/qmffjrgowp <Name> - Unblock
+/qmffjrgkrl <Name> - block
+------------------------------------------------------------------------------------
+/qkddjehfmfwmdrkgkqslek <DEF> - add defense
+/cpfurdmfwmdrkgkqslek <HP> - add hp
+/akskfmfwmdrkgkqslek <MP> - add mp
+/fpqpfdmfchrlghkgkqslek <lvl> - decrease lvl
+/wkahwjs - Currency
+/epalwlfmfwmdrkgkqslek - add physical attack
+/wjswlrdmfgkqslek - JoB quest befehl
+------------------------------------------------------------
+-------Teleports Commands------------------
+----------------------------------------------------------
+/tksid 288 - Doggebi Lord Place
+/tksid 190 - Dungeon 2 Place
+HIGHLANDS
+147:TRAITORS HANGOUT
+125 species archer
+highlands close to d4
+D1
+45: vorn D1
+162: Last Room
+D2
+119: D2 DOWNSTAIRS
+187: commanders room
+162: D2 2nd Floor Watcher
+163 Ausgang D2
+D3
+275: D3 FLOOR 7
+250: D3 FLOOR 4
+260: d3 FLOOR 5
+270: d3 FLOOR 6
+288: d3 FLOOR 8
+231: d3 DOGGI FLOOR
+D4
+300: FLOOR 2
+305: FLOOR 3
+307: FLOOR 4
+309: FLOOR 5
+311: FLOOR 6
+330: queen
+------------------------------------------------------------------------------------------------
+------------------- >> Commands on items / Items ID's <<-------------------
+------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+-------------------- Waffen --------- Armor's -----------------------------
+-------------------------------------------------------------------------------------
+-=[Armor's]=-
+-=[G46]=-
+251- G46 Knight Chest 256- G46 Archer Chest 261- G46 Mage Chest
+252- G46 Knight Helm 257- G46 Archer Helm 262- G46 Mage Deco
+253- G46 Knight Gloves 258- G46 Archer Gloves 263- G46 Mage Gloves
+254- G46 Knight Boots 259- G46 Archer Boots 264- G46 Mage Boots
+255- G46 Knight Shorts 260- G46 Archer Shorts 265- G46 Mage Shorts
+-=[G50]=-
+372- G50 Knight Chest 377- G50 Archer Chest 382- G50 Mage Chest
+373- G50 Knight Helm 378- G50 Archer Helm 383- G50 Mage Deco
+374- G50 Knight Gloves 379- G50 Archer Gloves 384- G50 Mage Gloves
+375- G50 Knight Boots 380- G50 Archer Boots 385- G50 Mage Boots
+376- G50 Knight Shorts 381- G50 Archer Shorts 386- G50 Mage Shorts
+-=[G55]=-
+621- G55 Knight Chest 626- G55 Archer Chest 631- G55 Mage Chest
+622- G55 Knight Helm 627- G55 Archer Helm 632- G55 Mage Deco
+623- G55 Knight Gloves 628- G55 Archer Gloves 633- G55 Mage Gloves
+624- G55 Knight Boots 629- G55 Archer Boots 634- G55 Mage Boots
+625- G55 Knight Shorts 630- G55 Archer Shorts 635- G55 Mage Shorts
+-=[G60]=-
+673- G60 Knight Chest 678- G60 Archer Chest 683- G60 Mage Chest
+674- G60 Knight Helm 679- G60 Archer Helm 684- G60 Mage Deco
+675- G60 Knight Gloves 680- G60 Archer Gloves 685- G60 Mage Gloves
+676- G60 Knight Boots 681- G60 Archer Boots 686- G60 Mage Boots
+677- G60 Knight Shorts 682- G60 Archer Shorts 687- G60 Mage Shorts
+429- G44 Shield 430- G48 Shield 431- G52 Shield
+-=[Waffen]=-
+-=[G48]=-
+572- G48 Savage Tribes Treasure Sword
+573- G48 Savage Tribes Tiger Teeth Sword
+574- G48 Savage Tribes Truth Sword
+578- G48 Savage Tribes ChulTae Bow
+579- G48 Savage Tribes Blue Bow
+580- G48 Savage Tribes Red Bow
+581- G48 Savage Tribes Religious Stick
+582- G48 Savage Tribes Big Stick
+583- G48 Savage Tribes Grand Stick
+-=[G50]=-
+242- G50 Golden Treasure Sword
+243- G50 Butterfly Shaped Treasure Sword
+244- G50 Black Golden Treasure Sword
+245- G50 Steel Bow
+246- G50 Steel Bow with Crows Feather
+247- G50 Steel Bow with Golden Crows Feather
+248- G50 Stick with Black Crows Feather
+249- G50 Line Pattern Stick with Crows Feather
+250- G50 Stick with Blue Crows Feather
+440- G50 Real Giant Sword
+441- G50 Revengful Giant Sword
+442- G50 Butterfly Shaped Giant Sword
+-=[G53]=-
+457- G53 Diamond Treasure 1H 460- G53 Diamond Giant 2H
+458- G53 Pain Treasure 1H 461- G53 Pain Giant 2H
+459- G53 Phantom Treasure 1H 462- G53 Phantom Giant 2H
+463- G53 Diamond Bow 466- G53 Diamond Stick
+464- G53 Pain Bow 467- G53 Pain Stick
+465- G53 Phantom Bow 468- G53 Phantom Stick
+-=[G56]=-
+560- G56 Ancient Treasure 1H 563- G56 Ancient Giant 2H
+561- G56 Generals Treasure 1H 564- G56 Generals Giant 2H
+562- G56 Ancient Dynasty Treasure 1H 565- G56 Ancient Dynasty Giant 2H
+566- G56 Ancient Tribal Mac Bow 569- G56 Ancient Stick
+567- G56 General Tribal Mac Bow 570- G56 General Stick
+568- G56 Ancient Dynasty Tribal Mac Bow 571- G56 Ancient Dynasty Stick
+-=[G59]=-
+584- G59 Treasure Sword of Doggebi 587- G59 Giant Sword of Doggebi
+585- G59 Treasure Sword of High Class Doggebi 588- G59 Giant Sword of High Class Doggebi
+586- G59 Treasure Sword of Doggebi Lord 589- G59 Giant Sword of Doggebi Lord
+590- G59 Bow of Doggebi 593- G59 Stick of Doggebi
+591- G59 Bow of High Class Doggebi 594- G59 Stick of High Class Doggebi
+592- G59 Bow of Doggebi Lord 595- G59 Stick of Doggebi Lord
+-=[Imperial]=-
+769- G40 Imperial Big Sword
+770- G40 Imperial ChulTae Bow
+771- G40 Imperial JoongBang Stick
+772- G45 Imperial PoL Sword
+773- G45 Imperial YeonLin Bow
+774- G45 Imperial WhiteStick
+775- G48 Imperial Tiger Teeth Sword
+776- G48 Imperial Savage Tribes Blue Bow
+777- G48 Imperial Savage Tribes Grand Stick
+778- G50 Imperial Black Golden Treasure Sword
+779- G50 Imperial Butterfly Shaped Giant Sword
+780- G50 Imperial SteelBow with Crows Feather
+781- G50 Imperial Stick with Blue Crows feather
+782- G53 Imperial Diamond Sword of Pain
+783- G53 Imperial Diamond Giant Sword of Pain
+784- G53 Imperial Diamond Bow of Phantom
+785- G53 Imperial Diamond Stick of Pain
+786- G56 Imperial Generals Treasure Sword
+787- G56 Imperial Generals Giant Sword
+788- G56 Imperial Generals Tribal Mac Bow
+789- G56 Imperial Generals Stick
+790- G59 Imperial Treasure Sword of Doggebi
+791- G59 Imperial Giant Sword of Doggebi
+792- G59 Imperial Bow of Doggebi
+793- G59 Imperial Stick of Doggebi
+794- G62 Imperial Sword of Darkness
+795- G62 Imperial Giant Sword of Darkness
+796- G62 Imperial Bow of Darkness
+797- G62 Imperial Stick of Darkness
+798- G65 Imperial Treasure Sword of Darkness
+799- G65 Imperial Treasure Giant Sword of Darkness
+800- G65 Imperial Treasure Bow of Darkness
+801- G65 Imperial Treasure Stick of Darkness
+
+
+Kal cash Item's
+
+
+895 - Stone Of Shadow
+896 - Stone of Holy
+897 - Stone of Flame
+898 - Stone of Ice
+899 - Stone of Lightening
+900 - Stone of Poison
+901 - Stone of Paralysis
+902 - Stone of Strength
+903 - Stone of Skill
+904 - Stone of Mystery
+905 - Stone of Demons Blood
+906 - Demon Sword
+
+532 = Scroll Medium Of Perfect Defense
+533 = Potion Of tiger claws
+534 = Potion Of Bear skin
+535 = Potion Of Wisdom
+536 = Potion Of Foresigt
+537 = Potion Of Eagle wings
+538 = Scroll Of Normal HP Absorb..
+539 = Scroll Of Medium HP Absorb..
+540 = Scroll Of High HP Absorb..
+541 = Scroll Of Power improvment
+542 = Scroll of Damage reduce
+543 = Scroll of Explosive improvment
+545 = Scroll of OTP
+546 = SCroll Of Evasion
+547 = Scroll of absorb enemy
+362 = Stone Of Chance
+501 = Stone of Birth
+509 = Saving Scroll
+512 = Moving Scroll
+662 = High Stone Of Chance
+639- Name List (Char) 640- Name List (Guild)
+513- Horns (low /y) 515- Horns (normal /s)
+509- Saving Scroll 511- Moving Scroll
+469- Stone of EXP 1 day 473- Stone of Wealth 1 day
+470- Stone of EXP 7 days 474- Stone of Wealth 7 days
+471- Stone of EXP 15 days 475- Stone of Wealth 15 days
+472- Stone of EXP 30 days 476- Stone of Wealth 30 days
+477- Stone of Fishery 1 day 481- Polishing Stones 661- High Grade Stone-
+478- Stone of Fishery 7 days 482- Scroll of Rebirth (high) of Chance
+479- Stone of Fishery 15 days 483- Scroll of Rebirth (low)
+480- Stone of Fishery 30 days 657- Stone of Job
+689- Gold Pot (event) 690- Silver Pot (event)
+758- Lucky Key (1day) 759- Lucky Stone (1day)
+760- Dungeon 4 Key
+(517 revisionstones )
+
+
+Accesories
+
+
+202 1 20 - Knight's trinket
+203 1 20 - Archer's trinket
+204 1 20 - Scholar's trinket
+206 1 20 - Protection talisman
+207 1 20 - Ring
+
+
+EGGS
+
+
+/dkdlxpadjerl 337 - Ancient Tiger G1
+/dkdlxpadjerl 338 - Ancient Bird G1
+/dkdlxpadjerl 339 - Ancient Panther G1
+Equip your egg G1 and write:
+/tlstnfpqpf 31
+
+
+teleports
+
+
+190 - Pub Of Giant Bird
+192 - Norouth
+193 - Cargo Station
+194 - Geum-oh-Mine
+195 - Pub Of Giant Bird
+196 - Tempory Fort
+
+
+talismans
+
+-=[ToP's]=-
+319- ToP Feathery 320- ToP Man´s 321- ToP Wisdom´s
+322- ToP Despotic 323- ToP Revenge 324- ToP Prideful
+325- ToP Ruinous 326- ToP Glorious
+-=[ToI's]=-
+523 - Toi King's
+297 - Toi Infinitly
+298 - Toi Diamond
+296 - Toi Limitable
+295 - Toi Steel's
+330 - Toi Decisional
+331 - Toi Magical Power's
+332 - Toi Legendary
+327 - Toi Distinct
+328 - Toi Steely
+329 - Toi Breaktrought's
+315- ToI PA 4/12 316- ToI PA 6/14
+317- ToI MA 4/12 318- ToI MA 6/14
+-=[ToW's]=-
+275-282 Strength Talis
+283-290 Intelligence Talis
+291-298 Health Talis <---- First 3 Are Vereytime TOW's ( 275,276,277 = TOW 3/1 STR - 4/1 STR - 5/1 STR
+299-306 Wisdom Talis
+307-314 Agility Talis
+-=[Sonstige]=-
+220- Talisman of Accuracy ToA
+221- Talisman of Defense ToD
+-=[Prefix Name's]=-
+zB.
+type: /dkdlxpadjerl ID 1 - Create forced ITEM
+type: /dkdlxpadjerl ID 2 - Create Unlawful ITEM
+Etc...
+
+
+
+641- 1.Mirror 642- 2.Mirror 643- 3.Mirror 644- 4.Mirror
+645- 5.Mirror 646- 6.Mirror 647- 7.Mirror 648- 8.Mirror
+
+270 1 - MEDICINES 446- SeaBream with Blood
+428 1 - G64 WATER 447- Speed Up´s
+503- Flag of Speed 504- Flag of Struggle 505- Flag of Magic
+506- Flag of Defense 507- Flag of Intelligence 508- Flag of Impregnableness
+363- Mask for Knight (OLD)
+364- Mask for Archer (OLD) 658-660 Assa Mask
+365- Mask for Magican (OLD)
+
+270- H/B Salmon 239- Mackerel
+271- Baked Eel 240- Salmon 237- Goby
+272- Eel Soup 241- Eel 238- Fish Trap
+204 = mage trinket 205 = Clean Trinket
+203 = archer trinket 207 = Clean ring
+202 = knight trinket 206 = Clean belt
+218- Talisman Of Attack
+232- Devil Sup Boss Head 219- Talisman Of Magic
+233- Devil Boss Head 224- Fixing Tools

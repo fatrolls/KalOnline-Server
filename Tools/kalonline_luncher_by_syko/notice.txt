@@ -1,0 +1,972 @@
+*** Regular Server Maintenance Time ***
+- Every Tuesday, 10:00 AM ~ 11:30 AM(Korean Time). 
+- Temporal server Inspection can be held for stabilization.
+=========================================================
+06/05/23
+
+[Game patch] 
+<<<Scenario 2: The Cave of The Giant Bird>>>
+
+1. There is the cave at the north of the Highland of Sky.
+2. The cave has the 6th underground tunnel. 
+3. New monsters in the cave, like 'Demon Worker', 'Demon Guard' and 'Insect' are waiting for your challenge.
+4. At the deepest tunnel, there is 'The Nest' which has manufactured Demons.
+5. Many items will be dropped at the cave, like G53, G56, G59 weapon, G50, G55 armor. In addition, G60 Armor will be dropped from the Boss 'Demon Queen' in the cave.
+6. The boss in the cave will be spawned once in a week.
+
+
+06/05/02
+
+[Game patch]
+
+-. Making Food/Speed up Medicine iterface update changed.
+
+
+06/04/10
+
+[Game patch]
+
+-. The castle siege will be changed
+
+1) Display of the players who died during the Castle Siege
+- Friendly forces¡¯ name will be displayed in gray.
+- If the players are not friendly forces, their name will not be displayed.
+
+2) Flag Setting and procedures changed
+- When the leader of the allies set the flag up, it becomes [Lord Proclamation Condition] for 5 minutes. And if the flag is protected for 5minutes, the lord of the castle will be changed.
+- The flag will be blinking during the [Lord Proclamation Condition]
+- Other players can attack the flag during the [Lord Proclamation Condition]
+- All players can see the message of time left (every minutes) on the screen during the [Lord Proclamation Condition]
+- If the flag is destroyed during the [Lord Proclamation Condition], the castle ownership will go to its original owner and it shows on the screen.
+- Even if the [Lord Proclamation Condition] is ended, HP of the flag still remains.
+- When the Castle Siege is ended during the leaders of offender is setting up the flag or it¡¯s [Lord Proclamation Condition], the Castle Siege time will be extended for 10 minutes and it will be printed on the screen.
+- Overtime can be held 3 times for maximum(total of 30 minutes).
+- After the time of overtime is ended, the allies who occupied the castle will be won.
+However, the [Lord Proclamation Condition] is not occupied condition.
+- After the end of the overtime and no one sets up the flag, the defender will be won.
+However, if there¡¯s the allies who in the [Lord Proclamation Condition], the allies will be won.
+
+3) Weapons of Castle Siege
+- The weapon of castle siege only can be handled by who learned the Artillery skill.
+- The Artillery only can be learned from the Master NPCs. And the players must be obtained 2nd class of job.
+- The weapon of castle siege only can be used by the guild members and they must be attended the castle siege.
+- The weapon of castle siege only can be set up on the cannon position and materials won¡¯t be back when is disassembled.
+- The materials are needed for setting up the weapons of castle siege and they can be bought from the Weapon Artisan NPC in Narootuh.
+- The weapon of castle siege has minimum and maximum range and the out of rage is indicated as red icon.
+- The weapon of castle siege shows the name of the guild that set up the weapon of castle siege and the name of the player who controls it.
+- The player must ride the weapon of castle siege for controlling it and the player who controls the weapon of castle siege is protected from the enemies¡¯ attacks
+
+
+
+06/03/16
+
+[Game patch]
+
+¡Øafter the update: The Hackshield for KalOnline was modified on March 16, 2006.
+
+
+06/02/14
+
+[Game patch] - Client Security Patch
+
+¡Øafter the update: in case of server connection problems wherein the user is unable to connect.
+Users are instructed to uninstall the existing KalOnline client and delete the existing folder as well
+Users can find the patched Full Client Download from our home page 
+(http://www.kalonline.com/Download/Client.asp?btn=1)
+
+
+06/01/17
+
+[Game patch]
+
+1. The Assassin List is modified. (Updating list)
+2. The dropping rate of items is increased. (only assassin)
+
+
+
+06/01/03
+[Change subject]
+
+The Gamble system will be closed after Regular Server Maintenance today.
+The following is detailed this information.
+
+=========================================================================================
+Because of some problem, We will exchange "Gold Coin" and "Gold and Silver Lucky Pouch" into Zamogeon in yours.
+
+- Gold Coin => Zamogeon as Amount of Gold Coin
+(Ex. 500 Gold Coin => 5000 Zamogeon)
+
+- Each Gold Lucky Pouch => 5000 Zamogeon
+Each Silver Lucky Pouch => 2500 Zamogeon
+==========================================================================================
+After solving problem, We'll set to The Gamble system again. 
+
+05/12/27
+
+[Game update]
+
+1. New Server Open
+-. Existing server name : Hanin
+-. New server name : Naraeha ( characters from existing server cannot be transferred to the new server)
+
+2. Scenario 1 update
+-. Addition of new monsters, dungeon, and items 
+(for more information please refer to the kalonline homepage¡¯s game information)
+
+
+[The King of Leveling Event (Limited to Nareaha server only)]
+1. Event Period:
+- December 27, 2005. 04:00 PM ~ January 24, 2006. 10:00 AM (4 weeks)
+
+2. Event Details:
+- The top 30 users, who level up the most during the event, will be selected to receive a prize. 
+(Normal item or Kalcash item)
+- The standard of selecting : select the users (Rank - 1~3 / 4~10 / 11~30) into Rank list(homepage) on January 24, 2006.
+- The Event Prize : 
+ Rank 1st grade 21 animal (corresponding class/ocupation) + Stone of EXP (15 days)
+ Rank 2nd grade 15 animal (corresponding class/ocupation) + Stone of EXP (15 days)
+ Rank 3rd 1,000,000 geon + Stone of EXP (15 days)
+ Rank 4th ~ 10th 500,000 geon
+ Rank 11th ~ 30th 300,000 geon
+- Announcement : January 31, 2006 (Homepage)
+==========================================================================================
+
+05/12/13
+
+[Game Update]
+
+1. Fishing System Modification
+1) Existing Fishing Ground Keeper NPC will be relocated to the uninhabited Islands.
+2) Fishing Grounds Manager will occupy the existing Fishing Grounds Keeper NPC¡¯s location.
+3) Upon clicking the Fishing Grounds Manager NPC and selecting the portal function, users will be teleported to the Uninhabited Island.
+¡ØThe portal function¡¯s destination is randomly selected on the uninhabited Island
+
+2. Uninhabited Island Addition
+1) The island can only be accessed through the Fishing Grounds Manager
+2) Each uninhabited island has a fishing ground keeper npc readily available. Fishing commences in the same manner prior to update.
+
+3. Relation of Character Deletion
+1) Upon deletion of a character, the ¡°select character¡± screen will now have a character restoration function available. 
+2) Once a character is deleted; the character restoration function will only be available to you for two weeks. For restoration of your character, you must do so before the two weeks allotted time expires.
+
+=========================================================
+05/12/06
+
+[Game Update]
+
+¡Ø Lucky pouch 
+
+Every time 5000 or more gold coins is traded for geons, you will recieve a lucky Pouch.
+
+- 5,000 gold coins: 1 Silver Lucky pouch 
+- 10,000 gold coins: 1 Gold Lucky pouch 
+
+The usage of lucky pouch(activate by mouse click) will give you a chance to obtain geons, 
+talismans, and other various different items.
+
+=========================================================
+05/11/29
+
+[Event]
+
+1. Event Period:
+- November 29, 2005. 14:00 ~ December 2, 2005. 14:00 (Korean Time)
+
+2. Event Details:
+- During the event period, you can get twice more EXPs and Items from the monsters.
+
+=========================================================
+05/11/16
+
+[Update]
+
+@ Gamble system
+ 
+- You can play the Gamble with Pair Maker Master in Temporary Fort of Geum-Ohee Castle, 
+The Pub of The Giant Bird and The City of Priest.
+- You need to be level 30 or higher to play the minigames.
+ 
+@ Game Process
+ 
+ 1. 30 gold coins are needed to play.
+ 
+ 2. When the game is started, 10 gold coins are used and 
+one card is given to the both of Pair Maker Master and the player.
+ 
+ 3. The player can bet gold coins(20 geons ~1,000 geons) or give up the game.
+ 
+ 4. When 2 cards are given to all, winner is decided by the rules.
+ 
+@ Rules of the Game
+ 
+ 1. You win if you have pair and higher number of pair is the better.
+ 
+ 2. If no one has the pair of the cards, add the numbers on your 2 cards 
+and higher first digit number is the better. But it the added number
+are same with the Pair Maker Master, the player loses.
+ 
+ 3. If your 2 cards are number 10, you win 3 times more gold coins from how much you bet. 
+
+@ Changing the Coin
+ 
+ - Value of gold coin: Zamogeon 1,000 geons = Gold coin 100 geons
+ 
+ - The amount that is able to change Zamogeon into coin
+ 100/ 300/ 500/ 1,000/ 5,000/ 10,000
+ 
+ - 10 % of service charge per change
+
+=========================================================
+05/11/02
+
+[Update]
+
+1. Update on the Character animations.
+
+-. Character animations update on each class characters.
+
+-. Player commands can be checked in the Action window.
+
+-. Player commands can be entered by typing "/command" in the chat window.
+
+=========================================================
+05/10/25
+
+[Update]
+
+1.Update on the Assassin Mask System 
+
+-. Durability will be added to the Assasin Mask. (Disposable)  
+-. The price of the assasin mask is now down to 15,000 from 35,000.
+-. The game can not be disconnected in the status of assassin.
+-. The experience loss will be doubled if the character is dead in the status of assassin.
+-. The old assasin mask can't be used anymore. (can be sold at the store at 35,000)  
+-. The assassin status remains for 3 hours.
+
+2. We are very sorry for causing this trouble.
+   We will check all the data of those who had a transactions on the assasin mask before the update, 19th of Oct. and put the data back.
+   And also, we will pay back the money(25,000 for each) on 26th. Oct.(Wednesday) which is our regular server check-up day .
+
+3. The security update on the client (Config. File update) 
+
+4. We fixed the bug that low-level monster(Blue color) doesn't drop the item.
+
+Please refer to the information of Event in Homepage. (www.KalOnline.com)
+
+=========================================================
+05/9/29
+
+[event]
+
+1. Event name : "Help the Birds!"
+
+2. Date : September 29 (Wednesday) 11:30 AM ~ October 19 (Wednesday) 10:00 (3weeks)
+
+3. Datails
+
+ - The Birds(NPC - Hawk, Owl and Crow) are appeared in village for Event time.
+
+ - If you agree with the request of Birds(one out of birds), they help for your hunting.
+
+  * The Birds are not attacked by Monsters but it disappears if your character is died.  
+    And also it disappears after 2hours automatically.
+  * The status of your character is increased if you are with the Birds.
+  * The character of 10 level or higher can only be joined on this Event.
+
+Please refer to the information of Event in Homepage. (www.KalOnline.com)
+
+=========================================================
+05/7/13
+
+[Game System Updates]
+
+Updates : Adding for second job skills
+
+1) Commander
+ - Survival Instinct : When remaining MP is converting MP to HP
+ - Call of Lightning Defense : Increase Lightning defense of all member of group
+ - Call of Ice Defense : Increase Ice defense of all member of group
+ - Call of Fire Defense : Increase Fire defense of all member of group
+ - Call of On Target Point : Increase On Target Point of all member of group
+ - Elastic Shield : Increase the Defense of all member of group instantly
+ - Revival : Revive one who is unable to fight with minimum health point, decreasing 50% EXP
+ - Call of Physical Attack : Increase the Max Attack Point of all member of group 
+ - Sacrifice : Using your HP to recover the target HP 
+
+2) Vagabond Swordman
+ - Berserk : Offensive power increases but Defensive power decreases
+ - Half Swing : Swing a weapon and attack the front of 180 degree enemies (Only two hand weapons are possible.)
+ - Increase of Critical Hit : Increase the damage of Critical Hit (The percentage of Critical Hit is not changeable)
+
+3) Imperial Commander
+ - Curse of Critical Hit : Decrease the activation percentage of Cirtical Hit temporally
+ - Curse of Strength : Decrease the target's strength temporally
+ - Curse of Health : Decrease the target's health temporally
+ - Curse of Agility : Decrease the target's Agility temporally
+ - Curse of Intellegence : Decrease the target's Intellegence temporally
+ - Curse of Wisdom : Decrease the target's Wisdom temporally
+ - Curse of Defense : Decrease the target's Defense temporally
+ - Poison Cloud : Spread the poison cloud and give continous damage to the all player in the poison cloud
+ - Loss of Confidence : Decrease the target's On-Target Point temporally
+ - Sight Blockade : Block the target's sight and make the target blind (reducing the moving speed)
+ - Buff Remover : Disable all the buffs from the target
+ - MP Vaporization : Vaporize the target's MP for certain amount of time 
+
+4) Expert Archer
+ - Lightning Resistance : Increase the resistance on Lightning temporally
+ - Ice Resistance : Increase the resistance on Ice temporally
+ - Fire Resistance : Increase the resistance on fire temporally
+ - Powerful Arrow of Silence : Block the opponent's magic, and consume the target's MP
+ - Curse Resistance : Increase the resistance on Curse
+ - Non-Attribution Resistance : Increase the resistance on Non-Attribution
+ - Emergency Escape : Run fastly to escape from the danger temporally 
+                      It effects on all your group members who are near you
+ - Critical Hit : The power of attack is increased
+
+5) Chairperson of Joong-Bang
+ - Purification : Disable all debuffs of the selected target
+ - Perfect Cure : Recover the health of the selected targe instantly
+ - Increase of Target Range : Increase the range of all kinds of cure magic
+ - Blessing of Strength : Increase the strength of the selected target
+ - Blessing of Health : Increase the health of the selected target
+ - Blessing of Agility : Increase the Agility of the selected target
+ - Blessing of Intelligence : Increase the Intelligence of the selected target
+ - Increase of Critical Hit : Increase the appearance of Critical Hit of the selected target
+ - Distance Control : Increase the range of [Soul Destruction]
+ - Group Cure : Recover the health point of all the group members
+ - Amnesia : Make the anger point of selected target to zero
+ - Perfect Group Cure : Recover the Health of your group memebers in the effective area instantly
+ - Perfect Healing : Recover 100% of HP of selected target
+
+6) Hermit
+ - Ice Restriction : Call the ice to the selected target and give the damage to the target and reduce the moving speed
+ - Chain Lightning : Deliver the lightning effect to the selected target and the near the target continuously
+ - Explosion : The selected target gets hot wind and it's exploded and burned
+ - Thunder : Drop thunderbolt to the selected target
+ - Explosive Burst : Big explosion is made on the selected area and all enemies get damages 
+ - Ice Storm : Ice and snow are droping for certain amount of time on the selected area and all enemies get damages
+ - Fire Storm : Fire is droping for certain amount of time on the selected area and all enemies get damages
+ - Thunder Storm : Thunderbolts are droping for certain amount of time on the selected area and all enemies get damages
+
+
+****************************
+Changing the Existing Skills
+****************************
+
+1. Details
+
+1) Hermit
+ - Lightning Summons : Decreasing the occurrence time and increasing the offensive power
+ - Hail : Increasing the offensive power  
+ - Flame Bomb : Decreasing the occurrence time and increasing the offensive power
+
+2) Chairperson of Joong-Bang
+ - Soul Destruction : Increasing the offensive power
+ - Hypnotism : Increasing the time of falling in a sleep
+
+3) Expert Archer
+ - Focus Shot : Decreasing the occurrence time of between 3 and 5 grade 
+
+4) Imperial Commander
+ - Life Absorption : Increasing the offensive power and the absorbing HP
+ - Pain : Increasing the demage of Pain
+
+5) Commander
+ - Shield Attack : Increasing the blocking time of the target and consuming MP
+
+=========================================================
+05/6/22
+
+[Game System Updates]
+
+Updates : Quests for the level between 51 and 60 are added
+
+1) Level 51: "One-Armed Man's Favor"
+
+2) Level 52: "Legend of the Oh-Do Canyon Bridge"
+
+3) Level 53: "The Dead People Around The Tomb(1)"
+
+4) Level 54: "The Dead People Around The Tomb(2)"
+
+5) Level 55: "The Dead People Around The Tomb(3)"
+
+6) Level 56: "The Dead People Around The Tomb(4)"
+
+7) Level 57: "The Dead People Around The Tomb(5)"
+
+8) Level 58: "The Dead People Around The Tomb(6)"
+
+9) Level 59: "The Dead People Around The Tomb(7)"
+
+10) Level 60: "The Dead People Around The Tomb(8)"
+
+=========================================================
+05/6/8
+
+[Game System Updates]
+
+Updates : Teacher & Student System
+ 
+Teacher & Student System is for the new players and the current players. All players can help each other with this system and all players can get economic interest through this system.
+ 
+ 
+1. Detailed Information
+ 
+ The relationship between teacher and student requires the following:
+ 
+ -Teacher: Teacher must be level 16 or higher.
+ -Student: Student must be level 15 or lower.
+ 
+ If your character is lower than level 16, talk to the Agent NPC in Narootuh. Select the Make A Relationship menu and Type the character name that you wish to have as your teacher.
+ (But the teacher must accept your request in order to make a relationship)
+Only 1 character in an account can make a relationship. However, the relationship can be cancelled any time and you have only 1 chance for receiving the armors from the server for making a relationship. 
+
+Teacher can have up to 20 students.
+ 
+When the relationship is made, the Grade 8 armors are given to the students automatically.
+ 
+The students who has the teacher can also be a teacher if it¡¯s higher than level 15.
+ 
+ 
+2. Reward
+ 
+- Students: Grade 8 armors are given and when the students reached at level 16, server gives you 20,000 geons if you keep the relationship with your teacher. When reached at level 30, 50,000 geons are given by the server to the students. (All the money is given to the storage in the game; you need to log out and log in again for checking your money in your storage.)
+ 
+- Teachers: Teachers receives the certain percentage of money that are earned by their students as tuitions. But all the money is given by the server, not from the students.
+The tuition rate is different and it depends on the students¡¯ level.
+         
+The tuition is only paid when the teacher is logged in to the game and it¡¯s paid when the tuition is gained 100 geons.
+ 
+Also when the student reaches at level 16, the teacher gets 20,000 geons and when the student reaches at level 30, the teacher gets 50,000 geons.
+ 
+-Tuition rates for the levels: 
+Student level 1 ~ 10 : Teacher(50 %), Grand Teacher(11 %)      
+  Student level 11 ~ 20 : Teacher (36 %), Grand Teacher (9 %)
+Student level 21 ~ 30 : Teacher (22 %), Grand Teacher (7 %)
+  Student level 31 or higher : Teacher (8 %), Grand Teacher (5 %)
+  
+¡Ø The tuition rate can be changed in any time with the notice on the official website.
+
+- All relationship can be checked by the interface in the game.
+Command for opening interface [/relation]
+
+
+=========================================================
+05/5/18
+
+[Game System Updates]
+
+1. Quests for the level between 42 and 50 are added.
+
+1) Level 42: "Favor of Gi-Jung, the Chief of the Volunteer Army of Justice"
+
+2) Level 42: "Eliminating Devil Troop of Greed"
+
+3) Level 43"Seoung-Gill Who is Wandering the World"
+
+4) Level 43: "Eliminating Devil Troop of Jealousy"
+
+5) Level 44: "Escape of Hak-Goo"
+
+6) Level 44: "Eliminating Devil Troop of Hatred"
+
+7) Level 45: "A Favor of the Doggebi Who Wants To Be a Friend with Humans"
+
+8) Level 45: "Eliminating Devil Troop of Madness"
+
+9) Level 46: "The Limper's Favor"
+
+10) Level 47: "The Blind Man's Favor"
+
+11) Level 48: "The Coward"
+
+12) Level 49: "The Hunchback's Favor"
+
+13) Level 50: "The Deaf Man's Favor"
+
+
+[Game System Patch]
+
+1. Making Time for food and speedup medicine get reduced.
+
+=========================================================
+05/5/18
+
+[Game System Patches]
+
+1. Adding an option for Bloom effect
+- You may select it to enable/disable in option menu.
+
+2. Increasing the amount of HP/MP recovery when reviving
+- The amount of Hp and Mp recovery are increased when using the High-Grade Scroll of Rebirth/Scroll of Rebirth or Revive/Summons Skills.
+
+3. Increasing the limit for the amount of Zamogeon
+- The maximum Zamogeon input is increased to 999,999,999 geons.
+
+4. Adding an indication of details when using Parcel and Message system
+- As using Parcel and Message system, the receiver and item name are shown on message window.
+
+5. Adding an indication of a cost when sending reply
+- The message cost is shown when sending reply.
+
+6. Adding a Scroll Bar Lock on chatting window
+- You may control the messages on the chatting window with wheel button of your mouse and you may lock the scroll bar by clicking the scroll bar icon on the chatting window.
+
+=========================================================
+05/5/11
+
+[Adding the new item shop Item]
+
+1. Adding Item
+
+ - Scroll of Power Improvement
+
+ - Scroll of Damage Reduction
+
+ - Explosive Blow Improvement
+
+ - Scroll of Accuracy Improvement
+
+ - Scroll of Evasion Improvement
+
+ - Scroll of Perfect Defense
+
+ - Potion of Tiger Claws
+
+ - Potion of Bear Skin
+
+ - Potion of Wisdom
+
+ - Potion of Foresight
+
+ - Potion of Eagle Wings
+
+ - Scroll of HP Absorption
+
+
+[Game System Updates]
+
+1. Dungeon is updated ; ¡®Royal Tomb of GuhBalHan (55 ~ 75 level)¡¯ are updated.
+
+2. Dungeon, ¡®Royal Tomb of GuhBalHan¡¯
+
+ - An entrance of Royal Tomb of GuhBalHan is located near the tower in the northwest of the Pub of The Giant Bird.
+
+ - Between level 55 and 75 of monsters appear in Royal Tomb of GuhBalHan.
+
+ - The monsters such as Skeleton Warrior, the Royal Tomb Keeper, Minister of the Royal Tomb, Commander of the Royal Tomb and Warrior of Shadow Troop appear in Royal Tomb of GuhBalHan.
+
+ - The new Talisman of Strength and Wonder are added in Royal Tomb of GuhBalHan.
+
+=========================================================
+05/5/4
+
+[<Event One> Looking for the Treasure Boxes!]
+
+1. Event Details
+
+- The Treasure Boxes are shown up randomly on the field and dungeons.
+
+- The Treasure Boxes do not move or attack.
+
+- The Treasure Box will be changed to the useful item such as weapons, armors, talisman or Zamogeons when it opened. 
+
+- The Treasure Box can be opened by the player who clicks it first.
+
+- Depends on the level of the field and dungeon, the grade of items from the Treasure Box are different (its effects and the shape of the bag is also different).
+ 
+
+[<Event Two> Launching the Lucky Finish!]
+
+1. Event Details
+
+- All players can purchase the Lucky Necklace from the merchant in the game during the event.
+
+- The Lucky Necklace may be equipped instead of Protection Talisman.
+  
+- When the Lucky Necklace is equipped, all abilities (Strength, Health, Intelligence, Wisdom and Agility) of a character go up by three points.
+
+- If the character hunts monsters with the Lucky Necklace equipped, Luck Finish can be occurred with the certain probability.
+
+- When the Lucky Finish is occurred, you can get Zamogeons up to 300 times more from the monsters.
+
+- You may determine weather the Lucky Finish is occurred or not by seeing the effects and shape of the bag when the monster is dead.
+
+- After the event is finished, the Lucky Necklace will be disappeared from the game.
+
+
+[Game System Updates]
+
+1. Dungeon is updated; ¡®Forsaken Royal Tomb (40 ~ 52 level)¡¯ is updated.
+
+2. Dungeon, ¡®Forsaken Royal Tomb¡¯
+
+ - An entrance of Forsaken Royal Tomb is located near the Ancestral Shrine of Doggebi in the east of the Forest of Statues.
+
+ - 50 level or higher monsters appear in Forsaken Royal Tomb.
+   Although those monsters look same as the Doggebis and the Evil Ghosts, their ability are totally different.
+
+ - Also the Doggebis and the Evil Ghosts in Forsaken Royal Tomb drop different items from the Doggebis and the Evil Ghosts in Forest of Statues.
+
+ - The new 45 level limited (Item Grade 48) one hand swords, bows and sticks are added.
+
+=========================================================
+05/4/27
+
+[Game System Patches]
+
+1. Character won¡¯t get attack from monsters for 10 seconds when using Scroll of Rebirth or receiving the Revive skill. But if the character moves, attacks, or launches skills, the character can be attacked even if the time didn¡¯t pass the 10 seconds advance.
+
+2. System message will show you about the specific talismans when you pick up the item. (ex : You got the Talisman of Intensification (Legendary/Rash).)
+
+3. The hotkeys are shown on the tooltip of the skill icons (Pick, Run and Rest).
+
+4. The voice effect of Beheading monsters in Highland of Sky is added.
+
+=========================================================
+05/4/20
+
+[Game System Updates]
+
+1. Friends List is updated.
+By pressing ¡®F¡¯ button on your keyboard or using the skill icon, you can open the Friends List window.
+
+1) Adding Friends
+You can add your friends up to 30 people on the list and you may see they¡¯re in the game or not.
+(ID in WHITE represents the ID is in the game and ID in GRAY represents the ID is NOT in the game)
+
+2) Deleting Friend
+By selecting the ID and pressing the DELETE button to delete the ID from the list.
+
+3) Sending Message
+You can send a message to your friend(s) by selecting the ID(s) and you can also attach an item on the message. But this system cost you some money.
+(Sending Message 5 geons / Sending Message with an item 100 geons)
+
+
+=========================================================
+05/4/13
+
+[Game System Updates]
+
+1. New Log-In Screen / Character Select Screen / Loading Screen will be updated.
+Back ground images, icons, method of character selection, and etc are renewed.
+
+2. 2nd Job Change System and Skills are updated.
+2nd job can be obtained by completing the quest. The quest can be started from Jae-Ga who¡¯s at Temporary Fort of Geum-Ohee Castle. When you completed the quest, you can choose your job among 2 types of job for each class.
+¡Ø The NPC scripts for the quest plan to update on April 27, 2005
+
+Jobs for Each Class
+Kight: Vagabond Swordman / Commander 
+Archer: Expert Archer / Imperial Commander
+Magician: Hermit / Chairperson of Joong-Bang
+
+Skills for Each Job
+Vagabond Swordman: Life Extension, Powerful Upward Slash, and Brutal Attack
+Commander: Life Extension, Force of Defense, and Call of Defense
+Expert Archer: Life Extension, Focus Shot, and Range Extension
+Imperial Commander: Life Extension, Life Absorption and Pain
+Hermit: Life Extension, Lightning Summons, Hail, and Flame Bomb
+Chairperson of Joong-Bang: Life Extension, Summons, Cure 3, and Hypnotism
+
+[Game System Patchs]
+
+1. Faint status remains when the character is dead even if the game is restarted. This patch will effect on 
+every situation like disconnection by bad internet connection.
+
+2. Character won¡¯t get attack from monsters for 10 seconds when the game is started (log in to the game). 
+But if the character moves, attacks, or launches skills, the character can be attacked even if the time 
+didn¡¯t pass the 10 seconds advance.
+
+
+3. The bug of the Archer is modified.(abnormal garaphic problem)
+But the problem can be occured to the low system continuously.
+We will make an effort to solve the problem continuously if you request the problem with your computer specification.
+(1 on 1 c/s => System Requirement)
+
+=========================================================
+[Openning KalOnline Item shop]
+
+Hello, This is KalOnline.
+As KalOnline is ready for a new service, KalOnline is informing the following information:
+This service is called Item shop and it is begun at 14:00 on Feb. 23(time is based on the starting page of KalOnline¡¯s official website).
+
+This service brings the player can purchase very useful items in KalOnline.
+Also playing the game is still FREE and there¡¯s no obligation to purchase any item.
+
+Purchasing Process and Information
+1. Register and Login : The registered users can log in and if not registered please register from the website.
+2. Charge Kal Cash : Kal cash can be charged by credit card from the item shop menu.
+Kal cash only can be charged through the standard of U.S. dollar by using credit card. 
+(It is not refundable and cancelable.)
+3. Purchase item : Item can be purchased with the charged Kal cash and you can recharge it if you don¡¯t have enough Kal cash.
+4. Purchase Completion : The purchased item will be added to your storage in the game and you can use it right away.
+(You must re-log in to the game after the purchasing and the purchased item can be traded with other players in the game.)
+
+*The information of each item can be seen from the Item shop of KalOnline¡¯s official website.
+
+We wish you to use and be interested about the item shop.
+Thank you.
+=========================================================
+05/3/2
+
+[Information of Updates: Castle Siege]
+
+Followings are the basic information about the Castle Siege System
+
+1. Procedure
+- Castle Siege System is divided into [declaration period, preparation period, and castle siege period] and during these terms, allying with other guilds is not allowed.
+
+- During the declaration period, offenders can declare a castle siege and the time is between[Thursday at 9:00PM ~ Friday at 9:00PM].
+
+- During the preparation period, declaration of castle siege can¡¯t be made and the time is between[Friday at 9:00PM ~ Saturday at 9:00PM].
+
+- The Castle Siege time is every Saturday from 9:00PM to 11:00PM.
+
+- Guild level must be 40 or higher to be joined the castle siege officially and below the guild level of 40 can be joined the castle siege but can¡¯t own the castle even if the guild won from the battle.
+
+2. Preparation of Castle Siege
+- Registration of attending at castle siege must be made for attending at the castle siege and if you¡¯re allied, only the guild leader can do it if the guild is not allied with the allied leader. If the guard NPC in the occupied area is clicked, information interface of castle siege can be seen if you¡¯re an allied leader or guild leader. With this interface, registering can be made when the declaration of castle siege is clicked. But the declaring must be made during the declaration period.
+
+- Guild level must be 40 or higher to join the castle siege.
+
+- Allying with guild can be made by [/ally name of the guild period].
+(ex-[ally A 3]= Allying with A guild for 3 days)
+
+- Unit for allying period represents as [day]
+
+- Allying can be made before the declaration of castle siege is made.
+
+- Price of declaring castle siege is [number of allied guild * 100,000 geons] and if there¡¯s no allied guild, the price will be 100,000 geons.
+
+3. Castle Siege
+- Every player except the allied ones and ones who in same guild.
+
+- Attacking Opponents is possible and assassin mask must be worn to attack allied players
+
+- Opponents will get damaged with Area-damaged attacks and allied players only get damaged by the assassins.
+
+- Defenders¡¯ character name will be in blue.
+
+- There¡¯s no penalty to get faint.
+
+- Winner is decided by the flag of the guild that is held in the castle at the end.
+
+- If the flag is not on the castle when the end, the defender is the winner.
+
+- When the castle siege is started, areas of inside and outside of the castle will be appointed as war area.
+
+- If the offenders are around the castle gate or in the castle, they will teleport to the saved place.
+
+- Period of castle siege is 2hours
+
+4. Usage and Location of declaration of Castle Siege
+- Starting place is Geum-On Main Castle at North-west of Narootuh.
+
+- Declaration of Castle Siege is made by clicking the guard NPC at the castle gate.
+
+5. Economic System
+- The guild leader who own the castle can control the tax rate with the [Manager of Occupied Area] NPC.
+
+- Tax rate can be set between [85% ~ 115%] and it only can be controlled by the guild leader who owns the castle.
+
+- Guild that own the castle collects the profit of the sale on Merchant NPCs [(Tax rate-85)*0.3%].
+
+[Information of Updates: Explosive Blow]
+
+1. Explosive Blow System is updating.
+[Collecting Stone of Revision]
+- During talking with the BlackSmith NPC, by selecting the menu [Destroy Item] (40 or higher level of items) to get the stone of revision except the shield.
+
+- When enchanting fails, you get numbers of stone of revision (higher the grade of the item gives you more the stone of revisions).
+
+[Increasing the Grade of Explosive Blow]
+- By Selecting the Applying Explosive Blow menu to increase the grade.
+
+- Price, successful percentage, failed percentage, and destroying percentage will be shown on the interface.
+
+- When increasing the grade of Explosive Blow, it can be increased but it also can be failed. When it failed, money for the increasing the grade and/or endurance of the item and/or item itself can be lost. However, by using the stone of revision, the successful percentage can be increased up to 100%.
+
+- Grade of Explosive Blow can be exceeded the grade of the item.
+
+[Efficiency of Explosive Blow]
+- The grade will be shown on the end of the item name.
+
+- The percentage of success and damage of Explosive Blow are shown on the item tool-tip.
+
+=========================================================
+04/12/15
+
+Hello.
+This is Customer Support Team of KalOnline.
+
+Thank you for your supports for KalOnline.
+
+Guild system is updating today.
+
+Please refer the Intermediate Guide for more information.
+
+Thank you.
+
+=========================================================
+04/12/01
+
+Hello.
+This is Customer Support Team of KalOnline.
+
+Followings are the information for the game systems [Storage System], [Blessing & Special Providence System], [Quests(tasks)].
+
+[Date for Updates]
+
+1. Time
+
+- Dec. 1, 2004(Wednesday) 10:00 AM ~ 11:30 AM(regular server maintenance time)
+
+
+[Information of Updates]
+
+1. Storage System
+
+- We fixed all the NPC scripts for storage keeper NPCs and it¡¯ll be able to use them.
+
+2. Blessing & Special Providence System
+
+[Blessing System]and [Special Providence System] are system that can help your play to reduce your EXP loss and make the death count not to accumulate when you get fainted.
+
+1) [Blessing System]
+- Talk to the Ascetic NPC in each Village for getting [Bless].
+- Getting [Bless] costs some money depending on your character level.
+- Types for [Bless] 1 hour, 3 hours, and 5 hours.
+- Your character must be level 6 or higher to use this system.
+- When getting fainted, EXP loss get 50% reduced (with Reviving skill, getting reduced additional 50% of EXP loss).
+- It can be used with [Special Providence System].
+
+2) [Special Providence System]
+- Talk to the Ascetic NPC in each Village for getting [Special Providence].
+- Getting [Special Providence] costs some money depending on your character level.
+- Types for [Special Providence] 1 hour, 3 hours, and 5 hours.
+- Your character must be level 6 or higher to use this system.
+- The death count doesn't accumulate
+- It can be used with [Blessing System].
+
+3. Quests System(Tasks)
+
+1. Quests(Tasks) from 30 to 42 level are added.
+
+- Information of Quests(Tasks) are as following:
+
+1) Moon-Hee Who Became a Ghost (Limitation: Level 30) 
+Starting NPC : Moon-Hee's mother in the Temporary Fort of Geum-Ohee Castle.
+
+2) Hunting Ghost (Limitation: Level 31)
+Starting NPC : Guard, Heung-Pae in the Temporary Fort of Geum-Ohee Castle.
+
+3) Bead of Ghost (Limitation: Level 32)
+Starting NPC : Chief Guard, Duk-Yoon in the Temporary Fort of Geum-Ohee Castle.
+
+4) Ghost of Blacksmith (Limitation: Level 34)
+Starting NPC : Guard, Soo-Go in the Temporary Fort of Geum-Ohee Castle.
+
+5) Ghost of Friends (Limitation: Level 35)
+Starting NPC : Guard, Dan-Bok in the Temporary Fort of Geum-Ohee Castle.
+
+6) Joong-Gwon's Disease (Limitation: Level 36)
+Starting NPC : Miner Gwee-Sik in the Geum-Oh Mine
+
+7) Undetected Ghost (Limitation: Level 37)
+Starting NPC : Guard, Ga-Gee in the Temporary Fort of Geum-Ohee Castle.
+
+8) Dilemma of Jae-Ga Troop's Scouts (Limitation: Level 38)
+Starting NPC : Guard, Soo-Sung in the Temporary Fort of Geum-Ohee Castle.
+
+9) Lim-Gang's Favor (Limitation: Level 39)
+Starting NPC : Soldier, Yoo-Sang in the Temporary Fort of Geum-Ohee Castle.
+
+10) Lim-Gang's Favor (Limitation: Level 40)
+Starting NPC : Soldier, Lim-Gang in the Temporary Fort of Geum-Ohee Castle.
+
+11) Dutiful Son and His Father (Limitation: Level 41)
+Starting NPC : To-Woo in the Temporary Fort of Geum-Ohee Castle.
+
+12) Favor of Gi-Jung, the Chief of the Volunteer Army of Justice (Limitation: Level 42)
+Starting NPC : Gi-Jung in the Temporary Fort of Geum-Ohee Castle.
+
+
+We're doing the best for better service.
+
+Thank you.
+
+=========================================================
+04/11/24
+
+[Paper-Rock-Scissors Event]
+
+1. Event Period:
+
+- November 24, 2004. 11:00 AM ~ December 8, 2004. 10:00 AM (2 weeks)
+
+2. Limitation:
+
+- Your character must be level 5 or higher to join the event
+
+3. Event Details:
+
+- During the event period, click on the NPC(Master of Paper-Rock-Scissors) to join the event. If you win the game, you get a prize. However, you can play once in 1 hour. 
+You may play it 24 times in one day for max(For each character).
+
+4. Event Prizes
+
+Win once -> 200 Zamogeon 
+Win 2 times in a row -> 300 Zamogeon / Total of 500 Zamogeon 
+Win 3 times in a row -> 500 Zamogeon / Total of 1,000 Zamogeon
+Win 4 times in a row -> 1000 Zamogeon / Total of 2000 Zamogeon + 10 Medium Medicines
+Win 5 times in a row -> 3000 Zamogeon / Total of 5000 Zamogeon + 20 Medium Medicines
+
+¡Ø Medium Medicines will be put in to your inventory automatically when you win 4 or 5 in a row. 
+
+=========================================================
+04/11/22
+
+Hello.
+This is Customer Support Team of Kal Online.
+
+Today, 1st Changing Job System & Other Game Systems are updating.
+
+Detailed information as following:
+
+1. 1st Changing Job System.
+
+ - You must be at least 30 level and finished the whole mission quest for Changing Job.
+
+2. Game Systems.
+
+ - Fishing System is updating.
+ - Pub. System is updating.
+ - Transformation(Ancient Animal System) is updating.
+
+3. Cautions
+
+ - If you¡¯ve repaired the client to play KAL Online, please delete the old client and reinstall the game.
+
+ - If you don¡¯t reinstall the game, there may be a problem during playing game.
+
+We¡¯ll do the best for providing better service.
+
+Thank you.
+
+=========================================================
+04/11/18
+
+Hello.
+This is the GM of Kal Online.
+
+The freeboard will be added today.
+
+Freeboard is for sharing your information and thoughts with others.
+
+We¡¯ll do the best for providing better service.
+
+Thank you.
+
+ 
+    

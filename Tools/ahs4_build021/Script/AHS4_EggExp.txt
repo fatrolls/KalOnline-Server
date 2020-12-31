@@ -1,0 +1,25 @@
+--This script is written by BakaBug
+--Changing stuff can stop AHS4 working !
+
+function AddEggExp ()
+  
+     --if EBP_12 == 1 then 
+     --  ShowInfo("User getting Egg-exp by time...")
+     --else
+     --  ShowInfo("User getting Egg-exp by mob..")
+    -- end
+   
+   --ShowInfo ("[AHS4 EggExp] ECX = "..ECX_)
+end
+
+function StartScript ()
+   ShowInfo ("Active 10 times EggExp..")
+end
+
+function EndScript ()
+   ShowInfo ("Deactice 10 times EggExp..")
+ end
+
+function Setup ()
+ Hook("00452342","AddEggExp")
+end

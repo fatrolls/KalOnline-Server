@@ -1,0 +1,216 @@
+;knight
+(skill (class 0) (index 0) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 6) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))				 ;run
+(skill (class 0) (index 1) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))				 ;behead
+(skill (class 0) (index 2) (redistribute 1) (limit 1 0 0 0) (maxlevel 20) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))				 ;upgrade weapon
+(skill (class 0) (index 3) (redistribute 1) (limit 5 0 0 0) (maxlevel 10) (mp 10) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))		    	 ;thunder
+(skill (class 0) (index 4) (redistribute 0) (limit 18 0 0 0) (maxlevel 5) (mp 10) (lasttime 0) (delay 0 5000 0) (value1 0) (value2 0))			 ;mock
+(skill (class 0) (index 5) (redistribute 1) (limit 30 1 0 0) (maxlevel 5) (mp 28) (lasttime 0) (delay 600 3300 0) (value1 0) (value2 0))         ;Transcendental
+(skill (class 0) (index 6) (redistribute 0) (limit 30 1 0 0) (maxlevel 15) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;upblockshield
+(skill (class 0) (index 7) (redistribute 1) (limit 24 0 3 5) (maxlevel 5) (mp 15) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))			     ;UpperSlash
+(skill (class 0) (index 8) (redistribute 1) (limit 41 1 4 5) (maxlevel 3) (mp 24) (lasttime 0) (delay 0 5000 0) (value1 0) (value2 0))			 ;Enrage
+(skill (class 0) (index 9) (redistribute 1) (limit 39 1 5 1) (maxlevel 3) (mp 19) (lasttime ) (delay 800 3300 0) (value1 0) (value2 0))          ;Edge
+(skill (class 0) (index 10) (redistribute 1) (limit 42 1 0 0) (maxlevel 1) (mp 86) (lasttime ) (delay 0 90000 0) (value1 0) (value2 0))          ;WildAccuracy
+(skill (class 0) (index 11) (redistribute 0) (limit 0 0 0 0) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))               ;rest
+(skill (class 0) (index 12) (redistribute 1) (limit 10 0 0 0) (maxlevel 15) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))             ;upfatal
+(skill (class 0) (index 13) (redistribute 1) (limit 43 1 7 1) (maxlevel 5) (mp 15) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))             ;FatalWound
+(skill (class 0) (index 14) (redistribute 0) (limit 15 0 0 0) (maxlevel 3) (mp 25) (lasttime 0) (delay 0 120000 0) (value1 0) (value2 0))        ;Protect
+(skill (class 0) (index 15) (redistribute 0) (limit 25 0 0 0) (maxlevel 1) (mp 58) (lasttime 0) (delay 0 10000 0) (value1 0) (value2 0))         ;ShieldSmash
+(skill (class 0) (index 16) (redistribute 1) (limit 50 2 0 0) (maxlevel 5) (mp 24) (lasttime 0) (delay 0 4600 0) (value1 0) (value2 0))          ;UpperSmash
+(skill (class 0) (index 17) (redistribute 1) (limit 53 2 0 0) (maxlevel 5) (mp 12) (lasttime 0) (delay 0 700 0) (value1 0) (value2 0))           ;Infernal
+(skill (class 0) (index 18) (redistribute 0) (limit 50 3 0 0) (maxlevel 4) (mp 300) (lasttime 0) (delay 0 30000 0) (value1 0) (value2 0))        ;RainforceDefense
+(skill (class 0) (index 19) (redistribute 1) (limit 51 3 0 0) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 30000 0) (value1 0) (value2 0))          ;ChantProtect
+(skill (class 0) (index 20) (redistribute 1) (limit 50 2 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;CUpParry
+(skill (class 0) (index 21) (redistribute 1) (limit 52 2 0 0) (maxlevel 2) (mp 46) (lasttime 0) (delay 0 14000 0) (value1 0) (value2 0))            ;CDash
+(skill (class 0) (index 22) (redistribute 1) (limit 52 3 0 0) (maxlevel 4) (mp 72) (lasttime 0) (delay 0 25000 0) (value1 0) (value2 0))         ;CShieldAttack
+(skill (class 0) (index 23) (redistribute 1) (limit 55 3 0 0) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 10000 0) (value1 0) (value2 0))          ;ChantHealing
+(skill (class 0) (index 24) (redistribute 1) (limit 53 2 0 0) (maxlevel 6) (mp 200) (lasttime 0) (delay 0 600000 0) (value1 0) (value2 0))       ;CBerserk
+(skill (class 0) (index 25) (redistribute 1) (limit 54 2 0 0) (maxlevel 5) (mp 49) (lasttime 0) (delay 0 10000 0) (value1 0) (value2 0))         ;CPullSwing
+(skill (class 0) (index 26) (redistribute 1) (limit 52 3 0 0) (maxlevel 2) (mp 0) (lasttime 0) (delay 0 40000 0) (value1 0) (value2 0))          ;CSacrifice
+(skill (class 0) (index 27) (redistribute 1) (limit 53 3 0 0) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 10000 0) (value1 0) (value2 0))          ;CChantDefLightning
+(skill (class 0) (index 28) (redistribute 1) (limit 53 3 0 0) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 10000 0) (value1 0) (value2 0))          ;CChantDefIce
+(skill (class 0) (index 29) (redistribute 1) (limit 53 3 0 0) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 10000 0) (value1 0) (value2 0))          ;CChantDefFire
+(skill (class 0) (index 30) (redistribute 0) (limit 50 2 0 0) (maxlevel 5) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;CUpReinforceVitality
+(skill (class 0) (index 31) (redistribute 1) (limit 54 3 0 0) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 10000 0) (value1 0) (value2 0))          ;CChantAccuracy
+(skill (class 0) (index 32) (redistribute 1) (limit 54 3 0 0) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 10000 0) (value1 0) (value2 0))          ;CChantBattle
+(skill (class 0) (index 33) (redistribute 1) (limit 56 3 0 0) (maxlevel 2) (mp 0) (lasttime 0) (delay 1500 1800000 0) (value1 0) (value2 0))     ;CChangeVitality
+(skill (class 0) (index 34) (redistribute 1) (limit 58 3 0 0) (maxlevel 1) (mp 475) (lasttime 0) (delay 0 1800000 0) (value1 0) (value2 0))      ;CShieldResilience
+(skill (class 0) (index 35) (redistribute 0) (limit 59 3 0 0) (maxlevel 2) (mp 240) (lasttime 0) (delay 3200 40000 0) (value1 0) (value2 0))     ;CReincarnate
+(skill (class 0) (index 36) (redistribute 1) (limit 61 2 12 15) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))            ;upfatal3
+(skill (class 0) (index 80) (redistribute 1) (limit 50 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;Cgunnery
+(skill (class 0) (index 81) (redistribute 1) (limit 50 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;Cgunnery
+
+;mage
+(skill (class 1) (index 0) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 6) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))				 ;run
+(skill (class 1) (index 1) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))				 ;behead
+(skill (class 1) (index 2) (redistribute 1) (limit 8 0 0 0) (maxlevel 20) (mp 7) (lasttime 0) (delay 1300 600 0) (value1 0) (value2 0))          ;fire magic
+(skill (class 1) (index 3) (redistribute 1) (limit 3 0 0 0) (maxlevel 255) (mp 6) (lasttime 0) (delay 800 600 0) (value1 0) (value2 0))           ;ice magic
+(skill (class 1) (index 4) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 2) (lasttime 0) (delay 600 600 0) (value1 0) (value2 0))		     ;litning magic
+(skill (class 1) (index 5) (redistribute 0) (limit 25 0 0 0) (maxlevel 1) (mp 64) (lasttime 0) (delay 800 5000 0) (value1 0) (value2 0))         ;ProtectRange
+;(skill (class 1) (index 6) (redistribute 1) (limit 50 1 0 0) (maxlevel 5) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))               ;upIce2
+;(skill (class 1) (index 7) (redistribute 1) (limit 50 1 0 0) (maxlevel 5) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))               ;upFire2
+(skill (class 1) (index 8) (redistribute 1) (limit 7 0 0 0) (maxlevel 5) (mp 6) (lasttime 0) (delay 0 4200 0) (value1 0) (value2 0))             ;self heal
+(skill (class 1) (index 9) (redistribute 1) (limit 31 1 4 5) (maxlevel 5) (mp 56) (lasttime 0) (delay 0 1200 0) (value1 0) (value2 0))           ;shock magic
+(skill (class 1) (index 10) (redistribute 1) (limit 16 0 8 3) (maxlevel 10) (mp 8) (lasttime 0) (delay 1800 600 0) (value1 0) (value2 0))        ;Any heal
+(skill (class 1) (index 11) (redistribute 0) (limit 0 0 0 0) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))               ;rest
+(skill (class 1) (index 12) (redistribute 1) (limit 30 1 0 0) (maxlevel 5) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;uplitning
+(skill (class 1) (index 13) (redistribute 1) (limit 30 1 0 0) (maxlevel 5) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;upIce
+(skill (class 1) (index 14) (redistribute 1) (limit 30 1 0 0) (maxlevel 5) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;upFire
+(skill (class 1) (index 15) (redistribute 1) (limit 32 1 0 0) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;Meditation
+(skill (class 1) (index 16) (redistribute 1) (limit 37 1 10 1) (maxlevel 1) (mp 240) (lasttime 0) (delay 3200 5000 0) (value1 0) (value2 0))     ;revival
+(skill (class 1) (index 17) (redistribute 0) (limit 30 1 0 0) (maxlevel 1) (mp 45) (lasttime 0) (delay 2200 0 0) (value1 1) (value2 3))          ;stoneshield
+(skill (class 1) (index 18) (redistribute 0) (limit 35 1 17 1) (maxlevel 1) (mp 58) (lasttime 0) (delay 2200 0 0) (value1 1) (value2 5))         ;stoneshield2
+(skill (class 1) (index 19) (redistribute 0) (limit 40 1 18 1) (maxlevel 1) (mp 64) (lasttime 0) (delay 2200 0 0) (value1 2) (value2 7))         ;stoneshield3
+(skill (class 1) (index 20) (redistribute 0) (limit 45 1 19 1) (maxlevel 1) (mp 75) (lasttime 0) (delay 2200 0 0) (value1 2) (value2 10))        ;stoneshield4
+(skill (class 1) (index 21) (redistribute 0) (limit 50 1 20 1) (maxlevel 1) (mp 82) (lasttime 0) (delay 2200 0 0) (value1 2) (value2 15))        ;stoneshield5
+(skill (class 1) (index 22) (redistribute 1) (limit 36 1 10 10) (maxlevel 5) (mp 39) (lasttime 0) (delay 1500 600 0) (value1 0) (value2 0))      ;Plus Anyheal
+(skill (class 1) (index 23) (redistribute 1) (limit 21 0 4 10) (maxlevel 10) (mp 12) (lasttime 0) (delay 700 600 0) (value1 0) (value2 0))       ;Spark
+(skill (class 1) (index 24) (redistribute 1) (limit 34 1 3 10) (maxlevel 5) (mp 43) (lasttime 0) (delay 800 600 0) (value1 0) (value2 0))        ;MagicWideIce
+(skill (class 1) (index 25) (redistribute 1) (limit 33 1 2 10) (maxlevel 5) (mp 32) (lasttime 0) (delay 2100 600 0) (value1 0) (value2 0))       ;MagicWideFire
+(skill (class 1) (index 26) (redistribute 1) (limit 36 1 0 0) (maxlevel 3) (mp 82) (lasttime 0) (delay 2300 600 0) (value1 0) (value2 0))        ;Haste
+(skill (class 1) (index 27) (redistribute 1) (limit 43 1 24 1) (maxlevel 1) (mp 47) (lasttime 0) (delay 2000 600 0) (value1 0) (value2 0))       ;FrostBlast
+(skill (class 1) (index 28) (redistribute 1) (limit 47 1 22 5) (maxlevel 3) (mp 58) (lasttime 0) (delay 1200 600 0) (value1 0) (value2 0))       ;HealingParty
+(skill (class 1) (index 29) (redistribute 1) (limit 42 1 16 1) (maxlevel 1) (mp 112) (lasttime 0) (delay 0 90000 0) (value1 0) (value2 0))       ;HealingAnyQuick
+(skill (class 1) (index 30) (redistribute 0) (limit 50 2 0 0) (maxlevel 5) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;CUpReinforceVitality
+(skill (class 1) (index 31) (redistribute 1) (limit 53 2 23 10) (maxlevel 2) (mp 22) (lasttime 0) (delay 800 600 0) (value1 0) (value2 0))      ;CCalllitning
+(skill (class 1) (index 32) (redistribute 1) (limit 51 2 3 20) (maxlevel 4) (mp 12) (lasttime 0) (delay 1000 600 0) (value1 0) (value2 0))       ;IceLance
+(skill (class 1) (index 33) (redistribute 1) (limit 52 2 2 20) (maxlevel 2) (mp 16) (lasttime 0) (delay 1200 600 0) (value1 0) (value2 0))       ;FireExplosion
+(skill (class 1) (index 34) (redistribute 1) (limit 50 3 0 0) (maxlevel 3) (mp 230) (lasttime 0) (delay 3000 5000 0) (value1 0) (value2 0))      ;Resurrection
+(skill (class 1) (index 35) (redistribute 1) (limit 51 3 0 0) (maxlevel 3) (mp 39) (lasttime 0) (delay 1500 600 0) (value1 0) (value2 0))        ;Restoration
+(skill (class 1) (index 36) (redistribute 1) (limit 51 3 0 0) (maxlevel 5) (mp 98) (lasttime 0) (delay 2400 6000 0) (value1 0) (value2 0))       ;Mesmerization
+(skill (class 1) (index 37) (redistribute 1) (limit 54 2 27 1) (maxlevel 4) (mp 60) (lasttime 0) (delay 1200 800 0) (value1 0) (value2 0))       ;SnowField
+(skill (class 1) (index 38) (redistribute 1) (limit 50 2 0 0) (maxlevel 5) (mp 50) (lasttime 0) (delay 1500 5000 0) (value1 0) (value2 0))       ;InchantWeapon
+(skill (class 1) (index 39) (redistribute 1) (limit 53 3 0 0) (maxlevel 2) (mp 41) (lasttime 0) (delay 2000 5000 0) (value1 0) (value2 0))       ;AuraDefense
+(skill (class 1) (index 40) (redistribute 1) (limit 52 3 0 0) (maxlevel 2) (mp 12) (lasttime 0) (delay 1200 6000 0) (value1 0) (value2 0))       ;SpiritBlast
+(skill (class 1) (index 41) (redistribute 1) (limit 59 2 23 10) (maxlevel 1) (mp 174) (lasttime 0) (delay 2200 3000 0) (value1 0) (value2 0))    ;ChainLitning
+(skill (class 1) (index 42) (redistribute 1) (limit 63 2 31 2) (maxlevel 2) (mp 30) (lasttime 0) (delay 1000 600 0) (value1 0) (value2 0))       ;ThunderLitning
+(skill (class 1) (index 43) (redistribute 1) (limit 65 2 41 1) (maxlevel 2) (mp 352) (lasttime 0) (delay 4000 180000 0) (value1 0) (value2 0))    ;ThunderStorm
+(skill (class 1) (index 44) (redistribute 1) (limit 56 2 24 2) (maxlevel 1) (mp 126) (lasttime 0) (delay 800 1500 0) (value1 0) (value2 0))     ;IceRequiem
+(skill (class 1) (index 45) (redistribute 1) (limit 65 2 44 1) (maxlevel 1) (mp 396) (lasttime 0) (delay 4000 180000 0) (value1 0) (value2 0))    ;IceStorm
+(skill (class 1) (index 46) (redistribute 1) (limit 62 2 33 2) (maxlevel 2) (mp 32) (lasttime 0) (delay 1400 600 0) (value1 0) (value2 0))       ;FireEruption
+(skill (class 1) (index 47) (redistribute 1) (limit 64 2 25 5) (maxlevel 1) (mp 142) (lasttime 0) (delay 1800 2200 0) (value1 0) (value2 0))     ;ExplosiveBurst
+(skill (class 1) (index 48) (redistribute 1) (limit 65 2 47 1) (maxlevel 1) (mp 327) (lasttime 0) (delay 4000 180000 0) (value1 0) (value2 0))    ;FireRain
+(skill (class 1) (index 49) (redistribute 1) (limit 54 3 0 0) (maxlevel 2) (mp 64) (lasttime 0) (delay 2000 5000 0) (value1 1) (value2 0))       ;StrenUpStr
+(skill (class 1) (index 50) (redistribute 1) (limit 54 3 0 0) (maxlevel 2) (mp 60) (lasttime 0) (delay 2000 5000 0) (value1 2) (value2 0))       ;StrenUpHth
+(skill (class 1) (index 51) (redistribute 1) (limit 55 3 0 0) (maxlevel 2) (mp 67) (lasttime 0) (delay 2000 5000 0) (value1 4) (value2 0))       ;StrenUpDex
+(skill (class 1) (index 52) (redistribute 1) (limit 56 3 0 0) (maxlevel 2) (mp 64) (lasttime 0) (delay 2000 5000 0) (value1 8) (value2 0))       ;StrenUpInt
+(skill (class 1) (index 53) (redistribute 1) (limit 57 3 0 0) (maxlevel 2) (mp 72) (lasttime 0) (delay 2000 5000 0) (value1 16) (value2 0))       ;StrenUpFatal
+(skill (class 1) (index 54) (redistribute 1) (limit 50 3 0 0) (maxlevel 1) (mp 74) (lasttime 0) (delay 2000 15000 0) (value1 0) (value2 0))      ;Purge
+(skill (class 1) (index 55) (redistribute 1) (limit 52 3 29 1) (maxlevel 3) (mp 190) (lasttime 0) (delay 0 90000 0) (value1 0) (value2 0))        ;HealingInstance
+(skill (class 1) (index 56) (redistribute 1) (limit 53 3 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;ReinforceSight
+(skill (class 1) (index 57) (redistribute 1) (limit 58 3 28 3) (maxlevel 2) (mp 72) (lasttime 0) (delay 1300 600 0) (value1 0) (value2 0))        ;HealingPartyPlus
+(skill (class 1) (index 58) (redistribute 1) (limit 59 3 57 1) (maxlevel 2) (mp 400) (lasttime 0) (delay 0 900000 0) (value1 0) (value2 0))       ;HealingPartyIns
+(skill (class 1) (index 59) (redistribute 1) (limit 68 3 0 0) (maxlevel 1) (mp 596) (lasttime 0) (delay 0 1800000 0) (value1 0) (value2 0))      ;HealingGreatRe
+(skill (class 1) (index 60) (redistribute 1) (limit 58 3 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;ControlAppetite
+(skill (class 1) (index 61) (redistribute 0) (limit 59 3 0 0) (maxlevel 1) (mp 50) (lasttime 0) (delay 1500 5000 0) (value1 0) (value2 0))       ;CAmnegia
+(skill (class 1) (index 80) (redistribute 1) (limit 50 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;Cgunnery
+(skill (class 1) (index 81) (redistribute 1) (limit 50 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;Cgunnery
+;archer
+(skill (class 2) (index 0) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 6) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))                ;run
+(skill (class 2) (index 1) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))                ;behead
+(skill (class 2) (index 2) (redistribute 1) (limit 1 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))               ;upgrade bow
+(skill (class 2) (index 3) (redistribute 1) (limit 5 0 0 0) (maxlevel 10) (mp 16) (lasttime 0) (delay 3000 0 0) (value1 0) (value2 0))           ;shot
+(skill (class 2) (index 4) (redistribute 1) (limit 18 0 0 0) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 800 0) (value1 0) (value2 0))             ;negative
+(skill (class 2) (index 5) (redistribute 1) (limit 15 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))	             ;upgrade concentration
+(skill (class 2) (index 6) (redistribute 1) (limit 30 1 0 0) (maxlevel 5) (mp 4) (lasttime 0) (delay 800 0 0) (value1 0) (value2 0))             ;flameArrow
+(skill (class 2) (index 7) (redistribute 0) (limit 30 1 0 0) (maxlevel 5) (mp 56) (lasttime 0) (delay 0 60000 0) (value1 0) (value2 0))          ;fatalchance
+(skill (class 2) (index 8) (redistribute 1) (limit 38 1 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;upevade
+(skill (class 2) (index 9) (redistribute 1) (limit 26 0 3 5) (maxlevel 5) (mp 50) (lasttime 0) (delay 3000 0 0) (value1 0) (value2 0))           ;StunArrow
+(skill (class 2) (index 10) (redistribute 1) (limit 42 1 0 0) (maxlevel 1) (mp 92) (lasttime 0) (delay 0 90000 0) (value1 0) (value2 0))         ;WildStrength
+(skill (class 2) (index 11) (redistribute 0) (limit 0 0 0 0) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))               ;rest
+(skill (class 2) (index 12) (redistribute 1) (limit 10 0 0 0) (maxlevel 15) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))             ;upfatal
+(skill (class 2) (index 13) (redistribute 1) (limit 43 1 0 0) (maxlevel 5) (mp 15) (lasttime 0) (delay 1500 0 0) (value1 0) (value2 0))          ;PoisonArrow
+(skill (class 2) (index 14) (redistribute 1) (limit 46 1 6 5) (maxlevel 5) (mp 8) (lasttime 0) (delay 800 0 0) (value1 0) (value2 0))            ;Explosion
+(skill (class 2) (index 15) (redistribute 0) (limit 25 0 0 0) (maxlevel 1) (mp 72) (lasttime 0) (delay 2000 15000 0) (value1 0) (value2 0))      ;SilenceArrow
+(skill (class 2) (index 16) (redistribute 1) (limit 50 2 0 0) (maxlevel 5) (mp 25) (lasttime 0) (delay 1000 1000 0) (value1 0) (value2 0))       ;GetherShot
+(skill (class 2) (index 17) (redistribute 1) (limit 51 2 0 0) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;UpAttackRange
+(skill (class 2) (index 18) (redistribute 1) (limit 50 3 0 0) (maxlevel 3) (mp 20) (lasttime 0) (delay 0 6000 0) (value1 0) (value2 0))          ;VitalityDrain
+(skill (class 2) (index 19) (redistribute 1) (limit 51 3 0 0) (maxlevel 4) (mp 40) (lasttime 0) (delay 1500 30000 0) (value1 0) (value2 0))      ;Suffering
+(skill (class 2) (index 20) (redistribute 1) (limit 54 2 8 10) (maxlevel 3) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))             ;CUpRFEvade
+(skill (class 2) (index 21) (redistribute 1) (limit 57 2 0 0) (maxlevel 3) (mp 9) (lasttime 0) (delay 0 9000 0) (value1 0) (value2 0))           ;CMysticArrow
+(skill (class 2) (index 22) (redistribute 1) (limit 52 3 0 0) (maxlevel 2) (mp 20) (lasttime 0) (delay 0 30000 0) (value1 0) (value2 0))         ;CMeshSpeed
+(skill (class 2) (index 23) (redistribute 1) (limit 53 3 0 0) (maxlevel 3) (mp 57) (lasttime 0) (delay 1000 5000 0) (value1 0) (value2 0))       ;CDarknessVision
+(skill (class 2) (index 24) (redistribute 1) (limit 52 2 0 0) (maxlevel 2) (mp 42) (lasttime 0) (delay 0 60000 0) (value1 0) (value2 0))         ;CResistLightning
+(skill (class 2) (index 25) (redistribute 1) (limit 52 2 0 0) (maxlevel 2) (mp 42) (lasttime 0) (delay 0 60000 0) (value1 0) (value2 0))         ;CResistIce
+(skill (class 2) (index 26) (redistribute 1) (limit 52 2 0 0) (maxlevel 2) (mp 42) (lasttime 0) (delay 0 60000 0) (value1 0) (value2 0))         ;CResistFire
+(skill (class 2) (index 27) (redistribute 1) (limit 53 2 0 0) (maxlevel 2) (mp 80) (lasttime 0) (delay 2000 40000 0) (value1 0) (value2 0))      ;CSilenceShot
+(skill (class 2) (index 28) (redistribute 1) (limit 53 2 0 0) (maxlevel 2) (mp 22) (lasttime 0) (delay 0 60000 0) (value1 0) (value2 0))         ;CResistCurse
+(skill (class 2) (index 29) (redistribute 1) (limit 53 2 0 0) (maxlevel 2) (mp 22) (lasttime 0) (delay 0 60000 0) (value1 0) (value2 0))         ;CResistPalsy
+(skill (class 2) (index 30) (redistribute 0) (limit 50 2 0 0) (maxlevel 5) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;CUpReinforceVitality
+(skill (class 2) (index 31) (redistribute 1) (limit 59 2 0 0) (maxlevel 2) (mp 70) (lasttime 0) (delay 0 1800000 0) (value1 0) (value2 0))       ;CEmergencyEscape
+(skill (class 2) (index 32) (redistribute 1) (limit 61 2 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;upfatal2
+(skill (class 2) (index 33) (redistribute 1) (limit 52 3 0 0) (maxlevel 1) (mp 50) (lasttime 0) (delay 0 30000 0) (value1 0) (value2 0))         ;CCloudSight
+(skill (class 2) (index 34) (redistribute 1) (limit 53 3 0 0) (maxlevel 2) (mp 40) (lasttime 0) (delay 2400 30000 0) (value1 0) (value2 0))      ;CManaBurn
+(skill (class 2) (index 35) (redistribute 1) (limit 54 3 0 0) (maxlevel 2) (mp 26) (lasttime 0) (delay 0 60000 0) (value1 0) (value2 0))         ;CMeshChance
+(skill (class 2) (index 36) (redistribute 1) (limit 55 3 0 0) (maxlevel 2) (mp 38) (lasttime 0) (delay 0 60000 0) (value1 0) (value2 0))         ;CMeshStr
+(skill (class 2) (index 37) (redistribute 1) (limit 55 3 0 0) (maxlevel 2) (mp 38) (lasttime 0) (delay 0 60000 0) (value1 0) (value2 0))         ;CMeshHth
+(skill (class 2) (index 38) (redistribute 1) (limit 56 3 0 0) (maxlevel 2) (mp 42) (lasttime 0) (delay 0 60000 0) (value1 0) (value2 0))         ;CMeshDex
+(skill (class 2) (index 39) (redistribute 1) (limit 57 3 0 0) (maxlevel 2) (mp 42) (lasttime 0) (delay 0 60000 0) (value1 0) (value2 0))         ;CMeshInt
+(skill (class 2) (index 40) (redistribute 1) (limit 58 3 0 0) (maxlevel 2) (mp 38) (lasttime 0) (delay 0 60000 0) (value1 0) (value2 0))         ;CMeshWis
+(skill (class 2) (index 41) (redistribute 1) (limit 59 3 0 0) (maxlevel 2) (mp 83) (lasttime 0) (delay 0 60000 0) (value1 0) (value2 0))         ;CMeshDefense
+(skill (class 2) (index 42) (redistribute 1) (limit 59 3 0 0) (maxlevel 2) (mp 100) (lasttime 0) (delay 2000 180000 0) (value1 0) (value2 0))     ;CPoisonCloud
+(skill (class 2) (index 43) (redistribute 1) (limit 61 3 0 0) (maxlevel 1) (mp 98) (lasttime 0) (delay 0 30000 0) (value1 0) (value2 0))         ;CVanishConfi
+(skill (class 2) (index 44) (redistribute 1) (limit 62 3 0 0) (maxlevel 1) (mp 100) (lasttime 0) (delay 1800 30000 0) (value1 0) (value2 0))     ;CDestroySight
+(skill (class 2) (index 45) (redistribute 1) (limit 63 3 0 0) (maxlevel 1) (mp 68) (lasttime 0) (delay 2300 15000 0) (value1 0) (value2 0))      ;CBenefitAblation
+(skill (class 2) (index 80) (redistribute 1) (limit 50 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;Cgunnery
+(skill (class 2) (index 81) (redistribute 1) (limit 50 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))              ;Cgunnery
+
+;transform
+;°ÇÄ¡Çö·ÉÈ²¼±:value1 = 6
+(skill (class -1) (index 64) (redistribute 0) (limit 1 0 0 0) (maxlevel 1) (mp 0) (rage 4) (lasttime 0) (delay 900 600 0) (value1 6) (value2 0))  ;litningblast
+(skill (class -1) (index 65) (redistribute 0) (limit 2 0 0 0) (maxlevel 1) (mp 0) (rage 400) (lasttime 0) (delay 1200 80000 0) (value1 6) (value2 0))  ;Tempest
+(skill (class -1) (index 66) (redistribute 0) (limit 3 0 0 0) (maxlevel 1) (mp 0) (rage 4800) (lasttime 0) (delay 0 1800000 0) (value1 6) (value2 0))  ;Phoenix
+;À¶»ó°³±ºÁ¦:value1 = 0
+(skill (class -1) (index 67) (redistribute 0) (limit 1 0 0 0) (maxlevel 1) (mp 0) (rage 7) (lasttime 0) (delay 800 600 0) (value1 0) (value2 0))  ;FatalBlow
+(skill (class -1) (index 68) (redistribute 0) (limit 2 0 0 0) (maxlevel 1) (mp 0) (rage 400) (lasttime 0) (delay 1200 15000 0) (value1 0) (value2 0))  ;Demolition
+(skill (class -1) (index 69) (redistribute 0) (limit 3 0 0 0) (maxlevel 1) (mp 0) (rage 4800) (lasttime 0) (delay 0 1800000 0) (value1 0) (value2 0))  ;Fury
+;Åõ±Ø:value1 = 4
+(skill (class -1) (index 70) (redistribute 0) (limit 1 0 0 0) (maxlevel 1) (mp 0) (rage 9) (lasttime 0) (delay 900 600 0) (value1 4) (value2 0))  ;GroundSplinter
+(skill (class -1) (index 71) (redistribute 0) (limit 2 0 0 0) (maxlevel 1) (mp 0) (rage 400) (lasttime 0) (delay 600 30000 0) (value1 4) (value2 0))  ;ShadowFang
+(skill (class -1) (index 72) (redistribute 0) (limit 3 0 0 0) (maxlevel 1) (mp 0) (rage 4800) (lasttime 0) (delay 0 1800000 0) (value1 4) (value2 0))  ;DiamondClow
+
+;monster
+(skill (class -2) (index 0) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 1000 0 1500) (value1 0) (value2 0))			 ;CDoRage
+(skill (class -2) (index 1) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 2600 0 1500) (value1 0) (value2 0))			 ;CDoFury
+(skill (class -2) (index 2) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 1000 0 1900) (value1 290) (value2 20 90 36))	;CSummon
+(skill (class -2) (index 3) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 1200 0 1660) (value1 0) (value2 0))			;CDoGroundFeal
+(skill (class -2) (index 4) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 1200 0 1500) (value1 0) (value2 0))			;CDoTele
+(skill (class -2) (index 5) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 1200 0 740) (value1 0) (value2 0))				;CDoSpiritAbsorb
+(skill (class -2) (index 6) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 2600 360000 1900) (value1 0) (value2 0))		;CDoAbsorb
+(skill (class -2) (index 7) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 2600 360000 1900) (value1 0) (value2 0))		 ;CDoResistAll
+(skill (class -2) (index 8) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 60000 0 2820) (value1 0) (value2 0))		     ;CDoAscension
+(skill (class -2) (index 9) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))		             ;CMThunderStorm
+(skill (class -2) (index 10) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))		         ;CMIceStorm
+(skill (class -2) (index 11) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))		         ;CMFireRain
+(skill (class -2) (index 12) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 0) (value2 0))		         ;CMPoisonCloud
+(skill (class -2) (index 13) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 0) (value1 ) (value2  ))		;CDoOverrun
+(skill (class -2) (index 14) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 0 0 0) (value1 ) (value2  ));CHhatchingInsect	¹ú·¹ºÎÈ­ 14            
+(skill (class -2) (index 15) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 0 0 0) (value1 313) (value2 0 4 3));CHatchingLarva		À¯ÃæºÎÈ­ 15                
+(skill (class -2) (index 16) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 1000 0 1000) (value1 312) (value2 1 3 1));CEggSummon			¾Ë ¼ÒÈ¯  16                          
+(skill (class -2) (index 17) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 3333 0 1000) (value1 ) (value2  ));CPerfectDeath		¿ÏÀüÇÑ Á×À½ 17             
+(skill (class -2) (index 18) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 833 0 1500) (value1 ) (value2  ));CSwing1				ÈÖµÎ¸£±â1 18                   
+(skill (class -2) (index 19) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 1000 0 1333) (value1 ) (value2  ));CSwing2				ÈÖµÎ¸£±â2 19                   
+(skill (class -2) (index 20) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 1166 0 1166) (value1 ) (value2  ));´ëÁöÀÇ ¶¥¿ï¸² 20                           
+(skill (class -2) (index 21) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 1000 0 1000) (value1 330) (value2 10 20 20));CMFireFlowerExplosion	È­¿°ÃÊ ¼ÒÈ¯ 21         
+(skill (class -2) (index 22) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 0 0 1600) (value1 0) (value2  0));CHydrochloricAcid	¿°»ê µ¢¾î¸® 22         
+(skill (class -2) (index 23) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 0 0 2400) (value1 0) (value2  0));CCompleteFire		¿ÏÀü¹ßÈ­ 23                
+(skill (class -2) (index 24) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 0 0 0) (value1 ) (value2  ));CSeparation			ºÐ¸® 24                        
+(skill (class -2) (index 25) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 2000 0 2000) (value1 ) (value2  ));CShootingFire		ºÒµ¢ÀÌ ¹ß»ç 25             
+(skill (class -2) (index 26) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 0 0 0) (value1 ) (value2  ));CPurgatorialFlame	¿¬¿ÁÀÇ ºÒ±æ 26         
+(skill (class -2) (index 27) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 2000 0 2000) (value1 ) (value2  ));CDestructionFlame	¼¶¸êÀÇ ºÒ±æ 27         
+(skill (class -2) (index 28) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 0 0 3000) (value1 ) (value2  ));CDemonBeastSummon	±«¼ö ¼ÒÈ¯ 28
+(skill (class -2) (index 29) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 1000 0 1400) (value1 0) (value2  0));CMLitning			³«·Ú¼ú 29                      
+;(skill (class -2) (index 29) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 1000 0 1400) (value1 0) (value2  0));CMLitning			³«·Ú¼ú 29                      
+(skill (class -2) (index 30) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 1000 0 1400) (value1 0) (value2  0));CMSpark				È¯·Ú¼ú 30                          
+(skill (class -2) (index 31) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 1300 0 1400) (value1 0) (value2  0));CMFire				È­°ø¼ú 31                          
+(skill (class -2) (index 32) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 0 0 1400) (value1 0) (value2 0 ));CMShock				Ãæ°Ý¼ú 32                          
+(skill (class -2) (index 33) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 2100 0 1400) (value1 0) (value2 0 ));CMMagicWideFire		ÆøÈ­¼ú 33                  
+(skill (class -2) (index 34) (redistribute 0) (limit 0 0 0 0) (maxlevel 10) (mp 0) (lasttime 0) (delay 4000 0 1400) (value1 0) (value2  0));CMFireFlowerExplosion		È­¿°ÃÊÆø¹ß 34
+(skill (class -2) (index 35) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 0 0 1400) (value1 331) (value2 0 1 1));CMSiegeGunFire		    Æ÷Åº¹ß»ç 35
+(skill (class -2) (index 36) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 0) (lasttime 0) (delay 1000 0 1400) (value1 0) (value2  0));CMSiegeGunBallExplosion	Æ÷ÅºÆø¹ß 36
+
+;Knight
+(skill (class 0) (index 62) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 30) (lasttime 0) (delay 0 1800000 0) (value1 0) (value2 0)) ;Commonback
+;Mage
+(skill (class 1) (index 62) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 30) (lasttime 0) (delay 0 1800000 0) (value1 0) (value2 0)) ;Commonback
+;Archer
+(skill (class 2) (index 62) (redistribute 0) (limit 0 0 0 0) (maxlevel 1) (mp 30) (lasttime 0) (delay 0 1800000 0) (value1 0) (value2 0)) ;Commonback

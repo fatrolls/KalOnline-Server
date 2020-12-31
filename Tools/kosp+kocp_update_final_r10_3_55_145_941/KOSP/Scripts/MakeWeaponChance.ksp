@@ -1,0 +1,51 @@
+procedure MakeWeaponChance()
+{
+
+   -- Get the properties value out of the config.properties
+   _MakeWeaponChanceRate = parseInt(GetProperties("MakeWeaponChanceRate", "1"))
+
+   !s_start:
+
+      -- Get and set the G40/45 make weapon chance (default 10)
+      chance = ReadMemoryByte("0x46F831") * _MakeWeaponChanceRate
+      WriteMemoryByte("0x46F831", Max(chance, 100)) 
+
+      -- Get and set the G48/50 make weapon chance (default 7)
+      chance = ReadMemoryByte("0x46F849") * _MakeWeaponChanceRate
+      WriteMemoryByte("0x46F849", Max(chance, 100)) 
+
+      -- Get and set the G53 make weapon chance (default 5)
+      chance = ReadMemoryByte("0x46F861") * _MakeWeaponChanceRate
+      WriteMemoryByte("0x46F861", Max(chance, 100))
+
+      -- Get and set the G56 make weapon chance (default 4)
+      chance = ReadMemoryByte("0x46F879") * _MakeWeaponChanceRate
+      WriteMemoryByte("0x46F879", Max(chance, 100))
+
+      -- Get and set the G59/65 make weapon chance (default 3)
+      chance = ReadMemoryByte("0x46F891") * _MakeWeaponChanceRate
+      WriteMemoryByte("0x46F891", Max(chance, 100))
+
+   s_end:
+
+      -- Get and set the G40/45 make weapon chance (default 10)
+      chance = ReadMemoryByte("0x46F831") / _MakeWeaponChanceRate
+      WriteMemoryByte("0x46F831", Max(chance, 100))
+
+      -- Get and set the G48/50 make weapon chance (default 7)
+      chance = ReadMemoryByte("0x46F849") / _MakeWeaponChanceRate
+      WriteMemoryByte("0x46F849", Max(chance, 100))
+
+      -- Get and set the G53 make weapon chance (default 5)
+      chance = ReadMemoryByte("0x46F861") / _MakeWeaponChanceRate
+      WriteMemoryByte("0x46F861", Max(chance, 100))
+
+      -- Get and set the G56 make weapon chance (default 4)
+      chance = ReadMemoryByte("0x46F879") / _MakeWeaponChanceRate
+      WriteMemoryByte("0x46F879", Max(chance, 100))
+
+      -- Get and set the G59/65 make weapon chance (default 3)
+      chance = ReadMemoryByte("0x46F891") / _MakeWeaponChanceRate
+      WriteMemoryByte("0x46F891", Max(chance, 100))
+
+}

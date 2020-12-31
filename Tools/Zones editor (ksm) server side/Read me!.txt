@@ -1,0 +1,8 @@
+kalmapeditor is made by TheDeathArt and requires .net framework 2.0 which can be found here :
+
+
+http://www.microsoft.com/downloads/details.aspx?FamilyID=0856EACB-4362-4B0D-8EDD-AAB15C5E04F5&displaylang=en
+
+once again this is also a beta tool updates can be found here :
+
+http://forum.ragezone.com/f241/dev-kalmapeditor-beta-292811/

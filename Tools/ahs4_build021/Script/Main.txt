@@ -1,0 +1,7 @@
+--This script is written by BakaBug
+--Changing stuff can stop AHS4 working !
+
+function CheckScript ()
+   ShowInfo ("Script system is working !")
+   LoadScripts()
+end

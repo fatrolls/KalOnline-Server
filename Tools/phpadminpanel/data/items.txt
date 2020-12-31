@@ -1,0 +1,975 @@
+1 G1 Short Iron Sword
+2 G5 Short Steel Sword
+3 G9 Small Steel Sword
+4 G13 Iron Sword
+5 G17 Iron Red-blood Sword
+6 G8 SaSaEul Armor
+7 G8 SaSaEul Helmet
+8 G8 SaSaEul Gloves
+9 G8 SaSaEul Boots
+10 G8 SaSaEul Shorts
+11 G16 GyunBunGap Armor
+12 G16 GyunBunGap Helmet
+13 G16 GyunBunGap Gloves
+14 G16 GyunBunGap Boots
+15 G16 GyunBunGap Shorts
+16 G24 PanGap Armor
+17 G24 PanGap Helmet
+18 G24 PanGap Gloves
+19 G24 PanGap Boots
+20 G24 PanGap Shorts
+21 G25 Big Steel Sword
+22 G1 Birch Bow
+23 G5 Oak Bow
+24 G9 Big Oak Bow
+25 G13 YeonGak Bow
+26 G13 YeonHwang Bow
+27 G25 GangGak Bow
+28 G10 Small Iron Shield
+29 G25 Medium Iron Shield
+30 G40 Medium Steel Shield
+31 Geons
+32 G8 Leather Armor
+33 G8 Leather Hood
+34 G8 Leather Gloves
+35 G8 Leather Boots
+36 G8 Leather Shorts
+37 G16 DooJungPeeGap Armor
+38 G16 DooJungPeeGap Hood
+39 G16 DooJungPeeGap Gloves
+40 G16 DooJungPeeGap Boots
+41 G16 DooJungPeeGap Shorts
+42 G24 ShaeJaGap Armor
+43 G24 ShaeJaGap Hood
+44 G24 ShaeJaGap Gloves
+45 G24 ShaeJaGap Boots
+46 G24 ShaeJaGap Shorts
+47 Small Medicine
+48 Medium Medicine
+49 G32 Steel Armor
+50 G32 Steel Helmet
+51 G32 Steel Gloves
+52 G32 Steel Boots
+53 G32 Steel Shorts
+54 G32 Intesified ShaeJaGap Armor
+55 G32 Intesified ShaeJaGap Hood
+56 G32 Intesified ShaeJaGap Gloves
+57 G32 Intesified ShaeJaGap Boots
+58 G32 Intesified ShaeJaGap Shorts
+59 G21 Steel Sword
+60 G29 JuckAh Big Steel Sword
+61 G33 Big Steel Sword with Pattern of the Leaf
+62 G21 SooWoo YeonGak Bow
+63 G29 SooWoo GangGak Bow
+64 G33 TaeWoon GangGak Bow
+65 G17 Forged Small Iron Shield
+66 G30 Forged Medium Iron Shield
+67 G35 Casted Medium Iron Shield
+68 G53 Forged Medium Steel Shield
+69 G56 Casted Medium Steel Shield
+70 G8 MyungJoo HakChangEau Clothes
+71 G8 MyungJoo HakChangEau Hair Decoration
+72 G8 MyungJoo HakChangEau Gloves
+73 G8 MyungJoo HakChangEau Boots
+74 G8 MyungJoo HakChangEau Shorts
+75 G16 BeeDan HakChangEau Clothes
+76 G16 BeeDan HakChangEau Hair Decoration
+77 G16 BeeDan HakChangEau Gloves
+78 G16 BeeDan HakChangEau Boots
+79 G16 BeeDan HakChangEau Shorts
+80 G24 MyungJoo SoChangEau Clothes
+81 G24 MyungJoo SoChangEau Hair Decoration
+82 G24 MyungJoo SoChangEau Gloves
+83 G24 MyungJoo SoChangEau Boots
+84 G24 MyungJoo SoChangEau Shorts
+85 G32 BeeDan SoChangEau Clothes
+86 G32 BeeDan SoChangEau Hair Decoration
+87 G32 BeeDan SoChangEau Gloves
+88 G32 BeeDan SoChangEau Boots
+89 G32 BeeDan SoChangEau Shorts
+90 G1 Bamboo Stick
+91 G5 Oak Stick
+92 G9 Oak Petal Stick
+93 G13 Iron Stick
+94 G17 Iron JuckMo Stick
+95 G21 BangJooHyung Iron Stick
+96 G25 HwanDoo Stick
+97 G29 YeongHwaHwanDoo Stick
+98 G33 HwanRaeHwanDoo Stick
+99 G37 HwanDoo Big Sword
+100 G40 Red HwanDoo Big Sword
+101 G40 White HwanDoo Big Sword
+102 G40 HwanDoo SaeHyung Big Sword
+103 G45 MaeYak HwanDoo SaeHyung Big Sword
+104 G45 HwanDoo SaeHyung Big Sword with Pattern of the Leaf
+105 G40 HwanDoo SaeHyung Big Sword
+106 G37 HoMee Gak Bow
+107 G40 Red Tiger Pattern Gak Bow
+108 G40 ChulTae Bow
+109 G45 Baek Dae Steel Bow
+110 G45 Yeon Lin Steel Bow
+111 G37 SaeGum Chairperson's Stick
+112 G40 SaeDan Chairperson's Stick
+113 G40 SaeHak Chairperson's Stick
+114 G40 JoongBang Chairperson's Stick
+115 G45 JoongBang Chairperson's White Stick
+116 G45 JoongBang Chairperson's Single Stick
+117 G42 GangChulGap Armor
+118 G42 GangChulGap Helmet
+119 G42 GangChulGap Gloves
+120 G42 GangChulGap Boots
+121 G42 GangChulGap Shorts
+122 G42 DooSukLinGap Armor
+123 G42 DooSukLinGap Hood
+124 G42 DooSukLinGap Gloves
+125 G42 DooSukLinGap Boots
+126 G42 DooSukLinGap Shorts
+127 G42 MyungJoo DaeChangEau Clothes
+128 G42 MyungJoo DaeChangEau Hair Decoration
+129 G42 MyungJoo DaeChangEau Gloves
+130 G42 MyungJoo DaeChangEau Boots
+131 G42 MyungJoo DaeChangEau Shorts
+132 Gwang Chun's Letter
+133 Mak-AnSoo's Letter
+134 Sae-Won General's Letter
+135 Nou-Woong's Letter
+136 Won Jung's Letter
+137 Yae-Jin's Letter
+138 Yoo-An's Letter
+139 Father's Letter
+140 Shee-Geun's Message
+141 Demon Troop's Confidential Document
+142 MyungJoo
+143 Nou-Woong's Money
+144 SipDunJaeBoTang
+145 Rice Wine
+146 Demon's Strategtic Map
+147 Demon's Bow
+148 Suicide Bomber's Oil
+149 Big Handed Inhabitant's Tooth
+150 Demon Soldier's Tooth
+151 Straw Rice Bag
+152 Demon Carcass
+153 White Peony
+154 Milk Vetch
+155 Rice Cake
+156 Wa-Ryu's Talisman
+157 Joo-Nong's Gold
+158 Ja-Gan's Gold
+159 Piece of Bamboo Pole
+160 Statue
+161 Red Flag
+162 Demon Water Dragon's Head
+163 Demon Mad Knight's Head
+164 Demon Water Dragon's Skin
+165 Demon's Drum
+166 Demon's Armor
+167 Bloodstained Clothes
+168 Demon Water Dragon Commander's Skin
+169 Choo-SooIn's Stirrup
+170 Escort Soldier's Head
+171 Big Handed Inhabitant's Head
+172 In-Pill's Scabbard
+173 Big Handed Warrior's Head
+174 Demon Soldier's Head
+175 Demon Throwing Soldier's Head
+176 Wild Demon Soldier's Head
+177 Demon Shock Trooper's Head
+178 Demon Flag Bearer's Head
+179 Demon Band's Head
+180 Demon Armored Knight's Head
+181 Demon Commander's Head
+182 Map for Royal Tomb
+183 Ancient Drum
+184 Golden Armor
+185 Statue of Black Crow
+186 Crown of Sun Rising
+187 Magic Scroll to Narootuh [For Party]
+188 Magic Scroll to Jook-Suh Cargo Station [For Party]
+189 Magic Scroll to Geum-Oh Mine [For Party]
+190 Magic Scroll to Pub of the Giant Bird [For Party]
+191 Magic Scroll to Temporary Fort of Geum-Ohee Castle [For Party]
+192 Magic Scroll to Narootuh [Individual]
+193 Magic Scroll to Jook-Suh Cargo Station [Individual]
+194 Magic Scroll to Geum-Oh Mine [Individual]
+195 Magic Scroll to Pub of the Giant Bird [Individual]
+196 Magic Scroll to Temporary Fort of Geum-Ohee Castle [Individual]
+197 [NO ITEM]
+198 [NO ITEM]
+199 [NO ITEM]
+200 [NO ITEM]
+201 [NO ITEM]
+202 Knight's Trinket
+203 Archer's Trinket
+204 Scholar's Trinket
+205 Trinket
+206 Protection Talisman (Belt)
+207 Ring
+208 MoonHee's Doll
+209 Wolf's Tooth
+210 Ghost's Bead
+211 Ghost of Blacksmith's Bead
+212 Ghost of Guard's Bead
+213 Ghost of Fellow Traveler's Bead
+214 Sealed Ghost Troop's Bead
+215 Devil Soldier's Bow
+216 Devil Soldier's Spear
+217 Talisman of Purification
+218 Talisman of Attack
+219 Talisman of Magic
+220 Talisman of Accuracy
+221 Talisman of Defense
+222 [NO ITEM]
+223 Normal Fixing Tool
+224 Geum-Oh's Fixing Tool
+225 Keg of Talisman
+226 Sealed Talisman with Spirits
+227 Devil Soldier's Head
+228 Devil Soldier Twin Blades' Head
+229 Devil Soldier Bow's Head
+230 Devil Soldier Sword's Head
+231 Devil Soldier Spear's Head
+232 Devil Sub-Boss' Head
+233 Devil Boss Head
+234 Petition of a Farmer
+235 Petition of a Smith
+236 Petition of a Parent
+237 Goby
+238 Fish Trap
+239 Mackerel
+240 Salmon
+241 Eel
+242 G50 Golden Treasure Sword
+243 G50 Butterfly-Shaped Treasure Sword
+244 G50 Black Golden Treasure Sword
+245 G50 Steel Bow
+246 G50 Steel Bow with Black Crow's Feather
+247 G50 Steel Bow with Golden Crow's Feather
+248 G50 Stick with Black Crow's Feather
+249 G50 Line Pattern Stick with Black Crow's Feather
+250 G50 Stick with Blue Crow's Feather
+251 G46 Intestified Steel Armor
+252 G46 Intestified Steel Helmet
+253 G46 Intestified Steel Gloves
+254 G46 Intestified Steel Boots
+255 G46 Intestified Steel Shorts
+256 G46 SinGak DooSukLin Armor
+257 G46 SinGak DooSukLin Helmet
+258 G46 SinGak DooSukLin Gloves
+259 G46 SinGak DooSukLin Boots
+260 G46 SinGak DooSukLin Shorts
+261 G46 BeeDan DaeChangEau Clothes
+262 G46 BeeDan DaeChangEau Decoration
+263 G46 BeeDan DaeChangEau Gloves
+264 G46 BeeDan DaeChangEau Boots
+265 G46 BeeDan DaeChangEau Shorts
+266 Baked Mackerel in Soy Sauce
+267 Baked Mackerel with Spicy Sauce
+268 Hard Boiled Mackerel
+269 Smoked Salmon
+270 Half-Baked Salmon
+271 Baked Eel
+272 Eel Soup
+273 NULL (Talisman Quest Item)
+274 NULL (Talisman Quest Item)
+275 Talisman of Wonder [Harsh/Forced]
+276 Talisman of Wonder [Strong Man's/Forced]
+277 Talisman of Wonder [Strongest Man's/Forced]
+278 Talisman of Intesification [Melee's/Unlawful]
+279 Talisman of Intesification [Bloody Fight's/Unlawful]
+280 Talisman of Intesification [Slaughterous/Unlawful]
+281 Talisman of Intesification [Barbaric/Harsh]
+282 Talisman of Intesification [Invincible/Harsh]
+283 Talisman of Wonder [Keen/Fictional]
+284 Talisman of Wonder [Ordinary/Fictional]
+285 Talisman of Wonder [Wise/Fictional]
+286 Talisman of Intesification [Mystic/Sharp]
+287 Talisman of Intesification [Worshipful/Sharp]
+288 Talisman of Intesification [Sublime/Sharp]
+289 Talisman of Intesification [Pure/Keen]
+290 Talisman of Intesification [Absolute/Keen]
+291 Talisman of Wonder [Heroic/Healthy]
+292 Talisman of Wonder [Vital/Healthy]
+293 Talisman of Wonder [Ablaze/Healthy]
+294 Talisman of Intesification [Iron Leg's/Vigorous]
+295 Talisman of Intesification [Steel's/Vigorous]
+296 Talisman of Intesification [Limitable/Vigorous]
+297 Talisman of Intesification [Infinitely/Heroic]
+298 Talisman of Intesification [Diamond/Heroic]
+299 Talisman of Wonder [Celebrated/Fixed]
+300 Talisman of Wonder [Dignified/Fixed]
+301 Talisman of Wonder [Merciful/Fixed]
+302 Talisman of Intesification [Predictive/Confirmatory]
+303 Talisman of Intesification [Foreseeable/Confirmatory]
+304 Talisman of Intesification [War Leader's/Confirmatory]
+305 Talisman of Intesification [Reverent/Celebrated]
+306 Talisman of Intesification [Paradoxical/Celebrated]
+307 Talisman of Wonder [Instant/Agile]
+308 Talisman of Wonder [Flexible/Agile]
+309 Talisman of Wonder [Dashy/Agile]
+310 Talisman of Intesification [Rush/Reflective]
+311 Talisman of Intesification [Fierce/Reflective]
+312 Talisman of Intesification [Flashy/Reflective]
+313 Talisman of Intesification [Unlimited/Instant]
+314 Talisman of Intesification [Gliding/Instant]
+315 Talisman of Intesification [Heavy Blow's/Extreme]
+316 Talisman of Intesification [Explosive/Destructive]
+317 Talisman of Intesification [Fundamental/High Class']
+318 Talisman of Intesification [Mighty/Absoluteness]
+319 Talisman of Protection [Feathery/Healthy]
+320 Talisman of Protection [Man's/Healthy]
+321 Talisman of Protection [Wisdom's/Fixed]
+322 Talisman of Protection [Despotic/Forced]
+323 Talisman of Protection [Revenge's/Agile]
+324 Talisman of Protection [Prideful/Healthy]
+325 Talisman of Protection [Ruinous/Fictional]
+326 Talisman of Protection [Glorious/Fixed]
+327 Talisman of Intesification [Distinct/Merciful]
+328 Talisman of Intesification [Steely/Ablaze]
+329 Talisman of Intesification [Breakthrough's/Strongest Man's]
+330 Talisman of Intesification [Decisional/Dashy]
+331 Talisman of Intesification [Magical Power's/Wise]
+332 Talisman of Intesification [Legendary/Rash]
+333 [NO ITEM]
+334 [NO ITEM]
+335 Head of Huhn-Woong's Enemy
+336 Keg of Talisman from Chang
+337 Ancient Tiger
+338 Ancient Bird
+339 Ancient Panther
+340 Secret Letter of Hong-Jun
+341 Head of Ma-Gwang
+342 Head of Dae-Ill
+343 Head of Goon-Sangji
+344 Head of Yoo
+345 Head of Ma-Gwang
+346 Devil Troop of Pain's Mask
+347 Devil Troop of Greed's Mask
+348 Devil Troop of Jealousy's Mask
+349 Devil Troop of Hatred's Mask
+350 Devil Troop of Madness' Mask
+351 [NO ITEM]
+352 [NO ITEM]
+353 [NO ITEM]
+354 [NO ITEM]
+355 Defective Doogebi's Doll
+356 Doggebi's Doll
+357 Head Skin of Yong-Chun
+358 Secret Letter
+359 Rope
+360 Poison Pouch
+361 Stone of Birth
+362 Stone of Chance
+363 Mask for Knight (OLD)
+364 Mask for Archer (OLD)
+365 Mask for Magician (OLD)
+366 G12 Plum
+367 G20 Peach
+368 G32 Melon
+369 G40 Grape
+370 G48 Watermelon
+371 [NO ITEM]
+372 G50 Diamond Scaled Armor
+373 G50 Diamond Scaled Helmet
+374 G50 Diamond Scaled Gloves
+375 G50 Diamond Scaled Boots
+376 G50 Diamond Scaled Shorts
+377 G50 Diamond Armor
+378 G50 Diamond Helmet
+379 G50 Diamond Gloves
+380 G50 Diamond Boots
+381 G50 Diamond Shorts
+382 G50 White DaeChangEau Clothes
+383 G50 White DaeChangEau Hair Decoration
+384 G50 White DaeChangEau Gloves
+385 G50 White DaeChangEau Boots
+386 G50 White DaeChangEau Shorts
+387 Blood of Big Handed
+388 Blood of Water Dragon
+389 Doggebi of Monster Face's Broom
+390 Doggebi with Gong's Broom
+391 Drunken Doggebi's Broom
+392 Doggebi with Mask of a Black Crow's Broom
+393 Doggebi with Mask of a Black Panther's Broom
+394 Giant Doggebi's Broom
+395 Guardian of Doggebi's Stone
+396 Demon Vulgar's Head
+397 Demon Scout's Head
+398 Demon Spearhead's Head
+399 G8 Small Potato
+400 G12 Potato
+401 G16 Big Potato
+402 G20 Cooked Potato
+403 G24 Small Sweet Potato
+404 G28 Sweet Potato
+405 G32 Big Sweet Potato
+406 G36 Cooked Sweet Potato
+407 G40 Piece of Meat
+408 G44 Chop of Meat
+409 G48 Big Piece of Meat
+410 G52 Cooked Chop of Meat
+411 G56 Pork Leg of Geum-Oh Mountain
+412 G60 Pork Rib of Geum-Oh Mountain
+413 G64 Tiger Meat of Geum-Oh Mountain
+414 G8 Small Water of Geum-Oh Mountain
+415 G12 Medium Water of Geum-Oh Mountain
+416 G16 Large Water of Geum-Oh Mountain
+417 G20 Best Water of Geum-Oh Mountain
+418 G24 Small Water of Geum-Oh Valley
+419 G28 Medium Water of Geum-Oh Valley
+420 G32 Large Water of Geum-Oh Valley
+421 G36 Best Water of Geum-Oh Valley
+422 G40 Small Refining Water
+423 G44 Medium Refining Water
+424 G48 Large Refining Water
+425 G52 Best Refining Water
+426 G56 Small Boiling Water
+427 G60 Medium Boiling Water
+428 G64 Best Boiling Water
+429 G44 Large Iron Shield
+430 G48 Ghost Shaped Iron Shield
+431 G52 Iron Shield with Gong
+432 Skeleton Warrior's Head
+433 Skeleton Warrior's Ribs
+434 Royal Tomb Keeper's Book
+435 Royal Tomb Keeper's Lute
+436 Royal Tomb Keeper's Sword
+437 Royal Tomb Keeper's Shield
+438 Royal Tomb Keeper's Spear
+439 Royal Tomb Keeper's Iron Hammer
+440 G50 Giant Sword
+441 G50 Revengeful Giant Sword
+442 G50 Butterfly-Shaped Giant Sword
+443 Demon's Blood
+444 Sea-Bream
+445 Bamboo Keg
+446 Sea-Bream with Blood
+447 Speed Up Medicine
+448 Green Crystal of Doggebi Forest
+449 Spirit of Doggebi of Monster Face
+450 Spirit of Doggebi with Gong
+451 Spirit of Drunken Doggebi
+452 Spirit of Doggebi with Mask of a Black Crow
+453 Spirit of Doggebi with Mask of a Black Panther
+454 Spirit of Giant Doggebi
+455 Spirit of Guardian of Doggebi
+456 Chief of Angry Doggebi Troops' Dead Body
+457 G53 Diamond Treasure Sword
+458 G53 Diamond Treasure Sword of Pain
+459 G53 Diamond Treasure Sword of Phantom
+460 G53 Diamond Giant Sword
+461 G53 Diamond Giant Sword of Pain
+462 G53 Diamond Giant Sword of Phantom
+463 G53 Diamond Bow
+464 G53 Diamond Bow of Pain
+465 G53 Diamond Bow of Phantom
+466 G53 Diamond Stick
+467 G53 Diamond Stick of Pain
+468 G53 Diamond Stick of Phantom
+469 Stone of EXP (1 Day)
+470 Stone of EXP (7 Days)
+471 Stone of EXP (15 Days)
+472 Stone of EXP (30 Days)
+473 Stone of Wealth (1 Day)
+474 Stone of Wealth (7 Days)
+475 Stone of Wealth (15 Days)
+476 Stone of Wealth (30 Days)
+477 Stone of Fishery (1 Day)
+478 Stone of Fishery (7 Days)
+479 Stone of Fishery (15 Days)
+480 Stone of Fishery (30 Days)
+481 Polishing Stone
+482 High-Grade Scroll of Rebirth
+483 Scroll of Rebirth
+484 Magic Scroll to City of Priest [For Party]
+485 Magic Scroll to City of Priest [Individual]
+486 NULL [1 Day EXP Stone]
+487 NULL [7 Days EXP Stone]
+488 NULL [15 Days EXP Stone]
+489 NULL [30 Days EXP Stone]
+490 NULL [1 Day Wealth Stone]
+491 NULL [7 Days Wealth Stone]
+492 NULL [15 Days Wealth Stone]
+493 NULL [30 Days Wealth Stone]
+494 NULL [1 Day Fishing Stone]
+495 NULL [7 Days Fishing Stone]
+496 NULL [15 Days Fishing Stone]
+497 NULL [30 Days Fishing Stone]
+498 NULL [Polishing Stone]
+499 NULL [High-Grade Scroll of Rebirth]
+500 NULL [Scroll of Rebirth]
+501 NULL [Stone of Chance]
+502 NULL [Stone of Chance]
+503 Flag of Speed
+504 Flag of Struggle
+505 Flag of Magic
+506 Flag of Defense
+507 Flag of Intelligence
+508 Flag of Impregnableness
+509 Scroll of Saving Location
+510 NULL [Scroll of Saving Location]
+511 Scroll of Moving Location
+512 NULL [Scroll of Moving Location]
+513 Horn
+514 NULL [Horn]
+515 Horn of Spirit
+516 NULL [Horn of Spirit]
+517 Stone of Revision
+518 [NO ITEM]
+519 [NO ITEM]
+520 [NO ITEM]
+521 [NO ITEM]
+522 [NO ITEM]
+523 Talisman of Intesification [The Kings, GuhBalHan's/Rash]
+524 Scroll of Power Improvement
+525 Scroll of Damage Reduction
+526 Scroll of Normal Explosive Blow Improvement
+527 Scroll of High Explosive Blow Improvement
+528 Scroll of Accuracy Improvement
+529 Scroll of Evasion Improvement
+530 Scroll of Normal Perfect Defense
+531 Scroll of Medium Perfect Defense
+532 Scroll of High Perfect Defense
+533 Potion of Tiger Claws
+534 Potion of Bear Skin
+535 Potion of Wisdom
+536 Potion of Foresight
+537 Potion of Eagle Wings
+538 Scroll of Normal HP Reduction
+539 Scroll of Medium HP Reduction
+540 Scroll of High HP Reduction
+541 NULL [Scroll of Power Improvement]
+542 NULL [Scroll of Damage Reduction]
+543 NULL [Scroll of Normal Explosive Blow Improvement]
+544 NULL [Scroll of High Explosive Blow Improvement]
+545 NULL [Scroll of Accuracy Improvement]
+546 NULL [Scroll of Evasion Improvement]
+547 NULL [Scroll of Normal Perfect Defense]
+548 NULL [Scroll of Medium Perfect Defense]
+549 NULL [Scroll of High Perfect Defense]
+550 NULL [Potion of Tiger Claws]
+551 NULL [Potion of Bear Skin]
+552 NULL [Potion of Wisdom]
+553 NULL [Potion of Foresight]
+554 NULL [Potion of Eagle Wings]
+555 NULL [Scroll of Normal HP Reduction]
+556 NULL [Scroll of Medium HP Reduction]
+557 NULL [Scroll of High HP Reduction]
+558 [NO ITEM]
+559 [NO ITEM]
+560 G56 Ancient Treasure Sword
+561 G56 General's Treasure Sword
+562 G56 Ancient Dynasty Treasure Sword
+563 G56 Ancient Giant Sword
+564 G56 General's Giant Sword
+565 G56 Ancient Dynasty Giant Sword
+566 G56 Ancient Tribal Mac Bow
+567 G56 General's Tribal Mac Bow
+568 G56 Ancient Dynasty Tribal Mac Bow
+569 G56 Ancient Stick
+570 G56 General's Stick
+571 G56 Ancient Dynasty Stick
+572 G48 Savage Tribe's Treasure Sword
+573 G48 Savage Tribe's Tiger Teeth Sword
+574 G48 Savage Tribe's Truth Sword
+575 G59 NULL [Unused Sword with Purple Blade]
+576 G59 NULL [Unused Sword with Blue Blade]
+577 G59 NULL [Unused Sword with Green Blade]
+578 G48 Savage Tribe's ChulTae Bow
+579 G48 Savage Tribe's Blue Bow
+580 G48 Savage Tribe's Red Bow
+581 G48 Savage Tribe's Religious Stick
+582 G48 Savage Tribe's Big Stick
+583 G48 Savage Tribe's Grand Stick
+584 G59 Treasure Sword of Doggebi
+585 G59 Treasure Sword of High Class Doggebi
+586 G59 Treasure Sword of Doggebi Lord
+587 G59 Giant Sword of Doggebi
+588 G59 Giant Sword of High Class Doggebi
+589 G59 Giant Sword of Doggebi Lord
+590 G59 Bow of Doggebi
+591 G59 Bow of High Class DOggebi
+592 G59 Bow of Doggebi Lord
+593 G59 Stick of Doggebi
+594 G59 Stick of High Class Doggebi
+595 G59 Stick of Doggebi Lord
+596 [NO ITEM]
+597 Scroll of Power Improvement
+598 NULL [Scroll of Power Improvement]
+599 Scroll of Damage Reduction
+600 NULL [Scroll of Damage Reduction]
+601 Scroll of Explosive Blow Improvement
+602 NULL [Scroll of Explosive Blow Improvement]
+603 Scroll of Accuracy Improvement]
+604 NULL [Scroll of Accuracy Improvement]
+605 Scroll of Evasion Improvement
+606 NULL [Scroll of Evasion Improvement]
+607 Potion of Tiger Claws
+608 Potion of Bear Skin
+609 Potion of Wisdom
+610 Potion of Foresight
+611 Potion of Eagle Wings
+612 NULL [Potion of Tiger Claws]
+613 NULL [Potion of Bear Skin]
+614 NULL [Potion of Wisdom]
+615 NULL [Potion of Foresight]
+616 NULL [Potion of Eagle Wings]
+617 Scroll of Perfect Defense
+618 Scroll of HP Absorption
+619 NULL [Scroll of Perfect Defense]
+620 NULL [Scroll of HP Absorption]
+621 G55 Scaled Armor of Doggebi
+622 G55 Scaled Helmet of Doggebi
+623 G55 Scaled Gloves of Doggebi
+624 G55 Scaled Boots of Doggebi
+625 G55 Scaled Shorts of Doggebi
+626 G55 Armor of Doggebi
+627 G55 Hood of Doggebi
+628 G55 Gloves of Doggebi
+629 G55 Boots of Doggebi
+630 G55 Shorts of Doggebi
+631 G55 DaeChangEau of Doggebi
+632 G55 DaeChangEau Hair Decoration of Doggebi
+633 G55 DaeChangEau Gloves of Doggebi
+634 G55 DaeChangEau Boots of Doggebi
+635 G55 DaeChangEau Shorts of Doggebi
+636 Lucky Key (7 Days)
+637 Lucky Stone (7 Days)
+638 Piece of Lucky Stone
+639 Name List [Character]
+640 Name List [Guild]
+641 1st Piece of the Bronze Mirror
+642 2nd Piece of the Bronze Mirror
+643 3rd Piece of the Bronze Mirror
+644 4th Piece of the Bronze Mirror
+645 5th Piece of the Bronze Mirror
+646 6th Piece of the Bronze Mirror
+647 7th Piece of the Bronze Mirror
+648 8th Piece of the Bronze Mirror
+649 [NO ITEM]
+650 [NO ITEM]
+651 [NO ITEM]
+652 [NO ITEM]
+653 [NO ITEM]
+654 [NO ITEM]
+655 [NO ITEM]
+656 [NO ITEM]
+657 Stone of Job
+658 Mask for Knight
+659 Mask for Archer
+660 Mask for Magician
+661 High-Grade Stone of Chance
+662 [NO ITEM]
+663 [NO ITEM]
+664 [NO ITEM]
+665 G62 Sword of Darkness
+666 G62 Giant Sword of Darkness
+667 G62 Bow of Darkness
+668 G62 Stick of Darkness
+669 G65 Treasure Sword of Darkness
+670 G65 Treasure Giant Sword of Darkness
+671 G65 Treasure Bow of Darkness
+672 G65 Treasure Stick of Darkness
+673 G62 Scaled Armor of Darkness
+674 G62 Scaled Helmet of Darkness
+675 G62 Scaled Gloves of Darkness
+676 G62 Scaled Boots of Darkness
+677 G62 Scaled Shorts of Darkness
+678 G62 Armor of Darkness
+679 G62 Hood of Darkness
+680 G62 Gloves of Darkness
+681 G62 Boots of Darkness
+682 G62 Shorts of Darkness
+683 G62 DaeChangEau of Darkness
+684 G62 Hair Decoration of Darkness
+685 G62 Gloves of Darkness
+686 G62 Boots of Darkness
+687 G62 Shorts of Darkness
+688 G60 Shield of Darkness
+689 Gold Pot
+690 Silver Pot
+691 G53 Diamond Treasure Sword
+692 G53 Diamond Sword of Pain
+693 G53 Diamond Sword of Phantom
+694 G53 Diamond Giant Sword
+695 G53 Diamond Giant Sword of Pain
+696 G53 Diamond Giant Sword of Phantom
+697 G53 Diamond Bow
+698 G53 Diamond Bow of Pain
+699 G53 Diamond Bow of Phantom
+700 G53 Diamond Stick
+701 G53 Diamond Stick of Pain
+702 G53 Diamond Stick of Phantom
+703 G56 Ancient Treasure Sword
+704 G56 General's Treasure Sword
+705 G56 Ancient Dynasty Treasure Sword
+706 G56 Ancient Giant Sword
+707 G56 General's Giant Sword
+708 G56 Ancient Dynasty Giant Sword
+709 G56 Ancient Tribal Mac Bow
+710 G56 General's Tribal Mac Bow
+711 G56 Ancient Dynasty Tribal Mac Bow
+712 G56 Ancient Stick
+713 G56 General's Stick
+714 G56 Ancient Dynasty Stick
+715 G50 Diamond Scaled Armor
+716 G50 Diamond Scaled Helmet
+717 G50 Diamond Scaled Gloves
+718 G50 Diamond Scaled Boots
+719 G50 Diamond Scaled Shorts
+720 G50 Diamond Armor
+721 G50 Diamond Helmet
+722 G50 Diamond Gloves
+723 G50 Diamond Boots
+724 G50 Diamond Shorts
+725 G50 White DaeChangEau Clothes
+726 G50 White DaeChangEau Helmet
+727 G50 White DaeChangEau Gloves
+728 G50 White DaeChangEau Boots
+729 G50 White DaeChangEau Shorts
+730 G55 Scaled Armor of Doggebi
+731 G55 Scaled Helmet of Doggebi
+732 G55 Scaled Gloves of Doggebi
+733 G55 Scaled Boots of Doggebi
+734 G55 Scaled Shorts of Doggebi
+735 G55 Armor of Doggebi
+736 G55 Helmet of Doggebi
+737 G55 Gloves of Doggebi
+738 G55 Boots of Doggebi
+739 G55 Shorts of Doggebi
+740 G55 DaeChangEau of Doggebi
+741 G55 DaeChangEau Hair Decoration of Doggebi
+742 G55 DaeChangEau Gloves of Doggebi
+743 G55 DaeChangEau Boots of Doggebi
+744 G55 DaeChangEau Shorts of Doggebi
+745 G59 Treasure Sword of Doggebi
+746 G59 Treasure Sword of High Class Doggebi
+747 G59 Treasure Sword of Doggebi Lord
+748 G59 Giant Sword of Doggebi
+749 G59 Giant Sword of High Class Doggebi
+750 G59 Giant Sword of Doggebi Lord
+751 G59 Bow of Doggebi
+752 G59 Bow of High Class Doggebi
+753 G59 Bow of Doggebi Lord
+754 G59 Stick of Doggebi
+755 G59 Stick of High Class Doggebi
+756 G59 Stick of Doggebi Lord
+757 Lucky Wooden Box
+758 Lucky Key [1 Day]
+759 Lucky Stone [1 Day]
+760 Key for the Gate of Advance Base
+761 Handle of the Cannon Barrel
+762 Priming Powders
+763 Ignition Tube
+764 Chamber of the Cannon Barrel
+765 Barrel of the White Tiger Cannon
+766 Support of the White Tiger Cannon
+767 Cannon Ball of the White Tiger Cannon
+768 Muzzle of the White Tiger Cannon
+769 G40 Imperial SaeHyung Big Sword
+770 G40 Imperial ChulTae Bow
+771 G40 Imperial Joong-Bang Chairperson Stick
+772 G45 Imperial Hwandoo SaeHyung Big Sword with Pattern of the Leaf
+773 G45 Imperial YeonLin Steel Bow
+774 G45 Imperial Joong-Bang Chairperson White Stick
+775 G48 Imperial Savage Tribe's Tiger Teeth Sword
+776 G48 Imperial Savage Tribe's Blue ChulTae Bow
+777 G48 Imperial Savage Tribe's Grand Stick
+778 G50 Imperial Black Golden Treasure Sword
+779 G50 Imperial Butterfly Shaped Giant Sword
+780 G50 Imperial Bow with Crow's Feather
+781 G50 Imperial Stick with Crow's Feather
+782 G53 Imperial Diamond Sword of Pain
+783 G53 Imperial Diamond Giant Sword of Pain
+784 G53 Imperial Diamond Bow of Phantom
+785 G53 Imperial Diamond Stick of Pain
+786 G56 Imperial General's Treasure Sword
+787 G56 Imperial General's Giant Sword
+788 G56 Imperial General's Tribal Mac Bow
+789 G56 Imperial General's Stick
+790 G59 Imperial Treasure Sword of Doggebi
+791 G59 Imperial Treasure Giant Sword of Doggebi
+792 G59 Imperial Treasure Bow of Doggebi
+793 G59 Imperial Tresure Stick of Doggebi
+794 G62 Imperial Sword of Darkness
+795 G62 Imperial Giant Sword of Darkness
+796 G62 Imperial Bow of Darkness
+797 G62 Imperial Stick of Darkness
+798 G65 Imperial Treasure Sword of Darkness
+799 G65 Imperial Treasure Giant Sword of Darkness
+800 G65 Imperial Treasure Bow of Darkness
+801 G65 Imperial Treasure Stick of Darkness
+802 G53 Diamond Treasure Sword
+803 G53 Diamond Sword of Pain
+804 G53 Diamond Sword of Phantom
+805 G53 Diamond Giant Sword
+806 G53 Diamond Giant Sword of Pain
+807 G53 Diamond Giant Sword of Phantom
+808 G53 Diamond Bow
+809 G53 Diamond Bow of Pain
+810 G53 Diamond Bow of Phantom
+811 G53 Diamond Stick
+812 G53 Diamond Stick of Pain
+813 G53 Diamond Stick of Phantom
+814 G56 Ancient Treasure Sword
+815 G56 General's Treasure Sword
+816 G56 Ancient Dynasty Treasure Sword
+817 G56 Ancient Giant Sword
+818 G56 General's Giant Sword
+819 G56 Ancient Dynasty Giant Sword
+820 G56 Ancient Tribal Mac Bow
+821 G56 General's Tribal Mac Bow
+822 G56 Ancient Dynasty Tribal Mac Bow
+823 G56 Ancient Stick
+824 G56 General's Stick
+825 G56 Ancient Dynasty Stick
+826 G50 Diamond Scaled Armor
+827 G50 Diamond Scaled Helmet
+828 G50 Diamond Scaled Gloves
+829 G50 Diamond Scaled Boots
+830 G50 Diamond Scaled Shorts
+831 G50 Diamond Armor
+832 G50 Diamond Helmet
+833 G50 Diamond Gloves
+834 G50 Diamond Boots
+835 G50 Diamond Shorts
+836 G50 White DaeChangEau Clothes
+837 G50 White DaeChangEau Helmet
+838 G50 White DaeChangEau Gloves
+839 G50 White DaeChangEau Boots
+840 G50 White DaeChangEau Shorts
+841 G55 Scaled Armor of Doggebi
+842 G55 Scaled Helmet of Doggebi
+843 G55 Scaled Gloves of Doggebi
+844 G55 Scaled Boots of Doggebi
+845 G55 Scaled Shorts of Doggebi
+846 G55 Armor of Doggebi
+847 G55 Helmet of Doggebi
+848 G55 Gloves of Doggebi
+849 G55 Boots of Doggebi
+850 G55 Shorts of Doggebi
+851 G55 DaeChangEau of Doggebi
+852 G55 DaeChangEau Hair Decoration of Doggebi
+853 G55 DaeChangEau Gloves of Doggebi
+854 G55 DaeChangEau Boots of Doggebi
+855 G55 DaeChangEau Shorts of Doggebi
+856 G59 Treasure Sword of Doggebi
+857 G59 Treasure Sword of High Class Doggebi
+858 G59 Treasure Sword of Doggebi Lord
+859 G59 Giant Sword of Doggebi
+860 G59 Giant Sword of High Class Doggebi
+861 G59 Giant Sword of Doggebi Lord
+862 G59 Bow of Doggebi
+863 G59 Bow of High Class Doggebi
+864 G59 Bow of Doggebi Lord
+865 G59 Stick of Doggebi
+866 G59 Stick of High Class Doggebi
+867 G59 Stick of Doggebi Lord
+868 [NO ITEM]
+869 [NO ITEM]
+870 [NO ITEM]
+871 [NO ITEM]
+872 [NO ITEM]
+873 [NO ITEM]
+874 [NO ITEM]
+875 [NO ITEM]
+876 [NO ITEM]
+877 [NO ITEM]
+878 [NO ITEM]
+879 Artillery Flag
+880 Blue Dragon Cannon (3)
+881 Blue Dragon Cannon (2)
+882 Blue Dragon Cannon (1)
+883 Red Bird Cannon (4)
+884 Red Bird Cannon (3)
+885 Red Bird Cannon (2)
+886 Red Bird Cannon (1)
+887 Artillery Flag
+888 Blue Dragon Cannon (3)
+889 Blue Dragon Cannon (2)
+890 Blue Dragon Cannon (1)
+891 Red Bird Cannon (4)
+892 Red Bird Cannon (3)
+893 Red Bird Cannon (2)
+894 Red Bird Cannon (1)
+895 Stone of Shadow
+896 Stone of Holy
+897 Stome of Flame
+898 Stone of Ice
+899 Stone of Lightining
+900 Stone of Poison
+901 Stone of Paralysis
+902 Stone of Strength
+903 Stone of Skill
+904 Stone of Mystery
+905 Stone of Demon Blood
+906 Demon Sword
+2000 Diamond Treasure Sword
+2001 Diamond Sword of Pain
+2002 Diamond Sword of Phantom
+2003 Diamond Giant Sword
+2004 Diamond Giant Sword of Pain
+2005 Diamond Giant Sword of Phantom
+2006 Diamond Bow
+2007 Diamond Bow of Pain
+2008 Diamond Bow of Phantom
+2009 Diamond Stick
+2010 Diamond Stick of Pain
+2011 Diamond Stick of Phantom
+2012 Ancient Treasure Sword
+2013 General's Treasure Sword
+2014 Ancient Dynasty's Treasure Sword
+2015 Ancient Giant Sword
+2016 General's Giant Sword
+2017 Ancient Dynasty's Giant Sword
+2018 Ancient Tribal Mac's Bow
+2019 General of Ancient Tribal Mac's Bow
+2020 Ancient Dynasty of Tribal Mac's Bow
+2021 Ancient Stick
+2022 General's Stick
+2023 Ancient Dynasty's Stick
+2024 Diamond Scaled Armor
+2025 Diamond Scaled Helmet
+2026 Diamond Scaled Gloves
+2027 Diamond Scaled Shoes
+2028 Diamond Scaled Shorts
+2029 Diamond Armor
+2030 Diamond Helmet
+2031 Diamond Gloves
+2032 Diamond Shoes
+2033 Diamond Shorts
+2034 White DaeChangEau
+2035 White DaeChangEau Hair Decoration
+2036 White DaeChangEau Gloves
+2037 White DaeChangEau Shoes
+2038 White DaeChangEau Shorts
+2039 Scaled Armor of Doggebi
+2040 Scaled Helmet of Doggebi
+2041 Scaled Gloves of Doggebi
+2042 Scaled Shoes of Doggebi
+2043 Scaled Shorts of Doggebi
+2044 Armor of Doggebi
+2045 Helmet of Doggebi
+2046 Gloves of Doggebi
+2047 Shoes of Doggebi
+2048 Shorts of Doggebi
+2049 DaeChangEau of Doggebi
+2050 Hair Decoration of Doggebi
+2051 DaeChangEau Gloves of Doggebi
+2052 DaeChangEau Shoes of Doggebi
+2053 DaeChangEau Shorts of Doggebi
+2054 Treasure Sword of Doggebi
+2055 Treasure Sword of High Class Doggebi
+2056 Treasure Sword of Doggebi Lord
+2057 Giant Sword of Doggebi
+2058 Giant Sword of High Class Doggebi
+2059 Giant Sword of Doggebi Lord
+2060 Bow of Doggebi
+2061 Bow of High Class Doggebi
+2062 Bow of Doggebi Lord
+2063 Stick of Doggebi
+2064 Stick of High Class Doggebi
+2065 Stick of Doggebi Lord
+2066 Lucky Wooden Box
+2067 Lucky Key[1day]
+2068 Lucky Stone[1day]

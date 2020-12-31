@@ -1,0 +1,8 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\SwordOPL.OPLForm.resources
+obj\Debug\SwordOPL.Properties.Resources.resources
+obj\Debug\SwordOPL.csproj.GenerateResource.Cache
+bin\Debug\SwordOPL.exe
+bin\Debug\SwordOPL.pdb
+obj\Debug\SwordOPL.exe
+obj\Debug\SwordOPL.pdb 

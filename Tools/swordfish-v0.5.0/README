@@ -1,0 +1,39 @@
+Swordfish: Geometry Binary Blender Importer
+
+Completed Functionality:
+
+    * User Interface
+    * Meshes
+          o Vertex Formats: 0 to 5 and bare minimal 6 to 11
+          o Primitive Types: Triangle Strip and List
+          o Sticky and Per-face UV Coordinates
+    * Collision Mesh
+    * Armature
+    * Materials
+    * Animations
+    * Textures
+
+Incomplete Functionality:
+
+    * Collision Octree
+    * Particle effects
+    * Sound effects
+
+Installation:
+
+   1. Download and install Blender 2.45 from http://www.blender.org/ and
+      Python 2.5 from http://www.python.org/
+   2. Unzip contents of swordfish-v0.x.0.zip
+   3. Copy swordfish_import.py and swordfish_gb.py into your Blender scripts
+      directory.
+
+Usage:
+
+   1. Click File > Import > Geometry Binary (*.gb)
+   2. Add mesh files
+   3. Optionally add bone file
+   4. Optionally add animation file
+   5. Set texture look-up path
+   6. Optionally select texture extension override
+   5. Click import
+

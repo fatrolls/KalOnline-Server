@@ -1,0 +1,1 @@
+swordcrypt /e /key:47 inititem.dat

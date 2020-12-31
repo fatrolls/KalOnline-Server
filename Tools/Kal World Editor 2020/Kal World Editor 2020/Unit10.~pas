@@ -1,0 +1,503 @@
+unit Unit10;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, KalClientMap,ShellApi,math, Jpeg;
+
+type
+  TForm_Colormap = class(TForm)
+    Image_General: TImage;
+    GroupBox_Preview: TGroupBox;
+    GroupBox_Renderoptions: TGroupBox;
+    Button_Render_Oldway: TButton;
+    Button_NewWay: TButton;
+    CheckBox_NewWay_Water: TCheckBox;
+    GroupBox1: TGroupBox;
+    Button_Export: TButton;
+    Button_Import: TButton;
+    Button_save: TButton;
+    Button_Discard: TButton;
+    procedure FormShow(Sender: TObject);
+    procedure Button_Render_OldwayClick(Sender: TObject);
+    procedure Button_NewWayClick(Sender: TObject);
+    procedure Button_ExportClick(Sender: TObject);
+    procedure Button_ImportClick(Sender: TObject);
+    procedure Button_saveClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form_Colormap: TForm_Colormap;
+
+implementation
+
+uses Unit1;
+
+{$R *.dfm}
+
+procedure TForm_Colormap.FormShow(Sender: TObject);
+var
+  x,y:integer;
+begin
+  For x:=0 to 256 do
+  begin
+    For y:=0 to 256 do
+    begin
+      Image_General.Canvas.Pixels[x,y]:=RGB(Form_Main.KCM.Colormap[x][y][0],Form_Main.KCM.Colormap[x][y][1],Form_Main.KCM.Colormap[x][y][2]);
+    end;
+  end;
+end;
+
+procedure TForm_Colormap.Button_Render_OldwayClick(Sender: TObject);
+var
+  x,x2,y:Integer;
+  Red,Green,Blue:Integer;
+  Color2:Integer;
+  Color:Array[0..7] of integer;
+  BitMap:TImage;
+  Highest:Integer;
+  LeaderList:TKCMTextureMap;
+  ColorMap:TKCMColorMap;
+begin
+  BitMap:=TImage.Create(Form_Main);
+  BitMap.Width:=256;
+  BitMap.Height:=256;
+
+  //Highest:=KCM.TextureMapList[0][x][y];
+
+  //Getting highest transparecy
+  Highest:=0;
+  for x := 0 to 255 do
+  begin
+    for y := 0 to 255 do
+    begin
+      Highest:=0;
+      for x2:=0 to 7 do
+      begin
+        If (Form_Main.KCM.Header.TextureList[x2]<>0) and (Form_Main.KCM.Header.TextureList[x2]<>255) then
+        begin
+          If  Form_Main.KCM.TextureMapList[x2][x][y]>Highest then
+          begin
+            LeaderList[x][y]:=x2;
+            Highest:=Form_Main.KCM.TextureMapList[x2][x][y];
+          end;
+        end;
+      end;
+    end;
+  end;
+
+
+  For x2:=0 to 7 do
+  begin
+    //ShowMessage(env.TextureIndexList[Form_Main.Form_Main.KCM.Header.TextureList[x2]]);
+    If (Form_Main.KCM.Header.TextureList[x2]<>0) and (Form_Main.KCM.Header.TextureList[x2]<>255) then
+    begin
+      Try
+        if fileexists(ExtractFileDir(Application.ExeName)+'\Recources\'+Copy(Form_Main.env.TextureIndexList[Form_Main.KCM.Header.TextureList[x2]],1,Length(Form_Main.env.TextureIndexList[Form_Main.KCM.Header.TextureList[x2]])-4)+'.dds')=false then
+        begin
+          //Copyint the GTX
+          If FileExists(Form_Main.Client_Path+'data\MAPS\Tex\'+Form_Main.env.TextureIndexList[Form_Main.KCM.Header.TextureList[x2]])= true then
+          begin
+            Windows.CopyFile(PChar(Form_Main.Client_Path+'data\MAPS\Tex\'+Form_Main.env.TextureIndexList[Form_Main.KCM.Header.TextureList[x2]]),PChar(ExtractFileDir(Application.ExeName)+'\Recources\'+Form_Main.env.TextureIndexList[Form_Main.KCM.Header.TextureList[x2]]),false);
+          end
+          else
+          begin
+            ShowMessage('Can''t display '''+Form_Main.Client_Path+'data\MAPS\Tex\'+Form_Main.env.TextureIndexList[Form_Main.KCM.Header.TextureList[x2]]+'''  because this file doesnt exists'+#13+#13+'displaying the GTX aborted');
+            //ABORT;
+          end;
+
+          //Converting GTX to DDS
+          ShellExecute(Handle,'open',PChar(ExtractFileDir(Application.ExeName)+'\Recources\GTX2DDS.exe'),PChar('"'+ExtractFileDir(Application.ExeName)+'\Recources\'+Form_Main.env.TextureIndexList[Form_Main.KCM.Header.TextureList[x2]]+'"'),PChar(ExtractFileDir(Application.ExeName)+'\Recources'),SW_NORMAL);
+
+          //Displaying the shit;
+          Sleep(400);
+        end;
+        BitMap.Picture.LoadFromFile(ExtractFileDir(Application.ExeName)+'\Recources\'+Copy(Form_Main.env.TextureIndexList[Form_Main.KCM.Header.TextureList[x2]],1,Length(Form_Main.env.TextureIndexList[Form_Main.KCM.Header.TextureList[x2]])-4)+'.dds');
+
+      except
+      end;
+      //Getting Average color of the texture
+      Red:=GetRValue(BitMap.Canvas.Pixels[1,1]);
+      Green:=GetGValue(BitMap.Canvas.Pixels[1,1]);
+      Blue:=GetBValue(BitMap.Canvas.Pixels[1,1]);
+      for x := 0 to 255 do
+      begin
+        for y := 0 to 255 do
+        begin
+          Red:=Red+GetRValue(BitMap.Canvas.Pixels[x,y]);
+          Green:=Green+GetGValue(BitMap.Canvas.Pixels[x,y]);
+          Blue:=Blue+GetBValue(BitMap.Canvas.Pixels[x,y]);
+          Red:=Round(Red/1.5);
+          Green:=Round(Green/1.5);
+          Blue:=Round(Blue/1.5);
+          Color[x2]:=RGB(Red,Green,Blue);
+        end;
+      end;
+
+      //Painting average color on bitmap
+      for x := 0 to 255 do
+      begin
+        for y := 0 to 255 do
+        begin
+          If Form_Main.KCM.HeightMap[x][y]<1580 then
+          begin
+            ColorMap[x][y][0]:=50;
+            ColorMap[x][y][1]:=125;
+            ColorMap[x][y][2]:=255;
+
+            Image_General.Canvas.Pixels[x+1,y+1]:=Rgb(ColorMap[x][y][0],ColorMap[x][y][1],ColorMap[x][y][2]);
+          end
+          else
+          begin
+            If LeaderList[x][y]=x2 then
+            begin
+              //ColorMap[x][y][0]:=round(Red+(((255-red)*((255-Form_Main.KCM.TextureMapList[x2][x][y])/255))*((3500-Form_Main.KCM.HeightMap[x][y]) / 1300)));
+              //ColorMap[x][y][1]:=round(Green+(((255-green)*((255-Form_Main.KCM.TextureMapList[x2][x][y])/255))*((3500-Form_Main.KCM.HeightMap[x][y]) / 1300)));
+              //ColorMap[x][y][2]:=round(Blue+(((255-Blue)*((255-Form_Main.KCM.TextureMapList[x2][x][y])/255))*((3500-Form_Main.KCM.HeightMap[x][y]) / 1300)));
+              //Working (very dark)
+              //ColorMap[x][y][0]:=Round(Red+((255-red)*((Form_Main.KCM.HeightMap[x][y]-1584)/5000)));
+              //ColorMap[x][y][1]:=Round(Green+((255-Green)*((Form_Main.KCM.HeightMap[x][y]-1584)/5000)));
+              //ColorMap[x][y][2]:=Round(Blue+((255-Blue)*((Form_Main.KCM.HeightMap[x][y]-1584)/5000)));
+
+              //Working pretty good actually
+              //ColorMap[x][y][0]:=Round(Red-((red)*((Form_Main.KCM.HeightMap[x][y]-1584)/3000)));
+              //ColorMap[x][y][1]:=Round(Green-((Green)*((Form_Main.KCM.HeightMap[x][y]-1584)/3000)));
+              //ColorMap[x][y][2]:=Round(Blue-((Blue)*((Form_Main.KCM.HeightMap[x][y]-1584)/3000)));
+
+              //Working awsomely? xD
+              ColorMap[x][y][0]:=Round(Red-((red)*((Form_Main.KCM.HeightMap[x][y]-2000)/3300)));
+              ColorMap[x][y][1]:=Round(Green-((Green)*((Form_Main.KCM.HeightMap[x][y]-2000)/3300)));
+              ColorMap[x][y][2]:=Round(Blue-((Blue)*((Form_Main.KCM.HeightMap[x][y]-2000)/3300)));
+
+
+              //ColorMap[x][y][0]:=round(Red+(((255-red)*((255-Form_Main.KCM.TextureMapList[x2][x][y])/255))*((2500-Form_Main.KCM.HeightMap[x][y]) / 900)));
+              //ColorMap[x][y][1]:=round(Green+(((255-green)*((255-Form_Main.KCM.TextureMapList[x2][x][y])/255))*((2500-Form_Main.KCM.HeightMap[x][y]) / 900)));
+              //colorMap[x][y][2]:=round(Blue+(((255-Blue)*((255-Form_Main.KCM.TextureMapList[x2][x][y])/255))*((2500-Form_Main.KCM.HeightMap[x][y]) / 900)));
+
+              Image_General.Canvas.Pixels[x+1,y+1]:=Rgb(ColorMap[x][y][0],ColorMap[x][y][1],ColorMap[x][y][2]);
+            end;
+          end;
+
+
+        end;
+      end;
+    end
+    else
+    begin
+      Break;
+    end;
+  end;
+
+end;
+
+procedure TForm_Colormap.Button_NewWayClick(Sender: TObject);
+var
+  x1,y1,x2,y2,cnt:Integer;
+  i:Integer;
+  w:integer;
+  Red,Green,Blue:Integer;
+  bitmap:TImage;
+  f:single;
+  DDSLoc,GTXLoc:String;
+begin
+  //Building the gray-scale :)
+  {For x1:=0 to 256 do
+  begin
+    For y1:=0 to 256 do
+    begin
+      cnt:=0;
+      w:=0;
+      For x2:=x1-1 to x1+1 do
+      begin
+        For y2:=y1-1 to y1+1 do
+        begin
+          If (x2>=0) and (x2<=256) and (y2>=0) and (y2<=256)then
+          begin
+            //In range!
+            i:=Form_Main.KCM.HeightMap[x2][y2]-Form_Main.KCM.HeightMap[x1][y1];
+            If i<0 then
+            begin
+              i:=-i;
+            end;
+            w:=w+i;
+            cnt:=cnt+1;
+          end;
+        end;
+      end;
+      w:=round((w/cnt));
+      If w>150 then
+      begin
+        w:=150
+      end;
+      c:=150-w;
+      Image_General.Canvas.Pixels[x1,y1]:=RGB(c,c,c);
+    end;
+  end;}
+  For x1:=0 to 256 do
+  begin
+    For y1:=0 to 256 do
+    begin
+      Image_General.Canvas.Pixels[x1,y1]:=RGB(150,150,150);
+    end;
+  end;
+  //Adding the colors
+  For w:=0 to 7 do
+  //For w:=7 downto 0 do
+  begin
+    If (Form_Main.KCM.Header.TextureList[w]<>0) and (Form_Main.KCM.Header.TextureList[w]<>255) then
+    begin
+      Try
+        BitMap:=TImage.Create(Form_Main);
+        BitMap.Width:=256;
+        BitMap.Height:=256;
+        Bitmap.Visible:=False;
+        DDSLoc:=ExtractFileDir(Application.ExeName)+'\Recources\'+Copy(Form_Main.env.TextureIndexList[Form_Main.KCM.Header.TextureList[w]],1,Length(Form_Main.env.TextureIndexList[Form_Main.KCM.Header.TextureList[w]])-4)+'.dds';
+        if fileexists(DDSLoc)=false then
+        begin
+          GTXLoc:=Form_Main.Client_Path+'data\MAPS\Tex\'+Form_Main.env.TextureIndexList[Form_Main.KCM.Header.TextureList[w]];
+          ConvertGTX2DDS(GTXLoc,DDSLoc,ExtractFilePath(Application.Exename)+'Recources\encrypt.dat',ExtractFilePath(Application.Exename)+'Recources\decrypt.dat');
+        end;
+        BitMap.Picture.LoadFromFile(DDSLoc);
+      except
+      end;
+
+      //Getting Average color of the tex1ture
+      for x1 := 0 to 255 do
+      begin
+        for y1 := 0 to 255 do
+        begin
+          If (Red=0) and (Green=0) and (Blue=red) then
+          begin
+            Red:=Red+GetRValue(BitMap.Canvas.Pixels[x1,y1]);
+            Green:=Green+GetGValue(BitMap.Canvas.Pixels[x1,y1]);
+            Blue:=Blue+GetBValue(BitMap.Canvas.Pixels[x1,y1]);
+          end
+          else
+          begin
+            Red:=Red+GetRValue(BitMap.Canvas.Pixels[x1,y1]);
+            Green:=Green+GetGValue(BitMap.Canvas.Pixels[x1,y1]);
+            Blue:=Blue+GetBValue(BitMap.Canvas.Pixels[x1,y1]);
+            Red:=Round(Red/2);
+            Green:=Round(Green/2);
+            Blue:=Round(Blue/2);
+            //Color:=RGB(Red,Green,Blue);
+          end;
+        end;
+      end;
+
+      //Painting the map;
+      for x1 := 0 to 255 do
+      begin
+        for y1 := 0 to 255 do
+        begin
+          If Form_Main.KCM.TextureMapList[w][x1][y1]>0 then
+          begin
+            //f:=1-(w*0.15);\
+            f:=1+(Form_Main.KCM.TextureMapList[w][x1][y1]/256);
+            Image_General.Canvas.Pixels[x1,y1]:=RGB(
+             round((GetRValue(Image_General.Canvas.Pixels[x1,y1])+((f-1)*red))/f)
+            ,round((GetGValue(Image_General.Canvas.Pixels[x1,y1])+((f-1)*green))/f)
+            ,round((GetBValue(Image_General.Canvas.Pixels[x1,y1])+((f-1)*blue))/f)
+            );
+            //Image_General.Canvas.Pixels[x1,y1]:=RGB(round((GetRValue(Image_General.Canvas.Pixels[x1,y1])+Red*f)/(1+f)),round((GetGValue(Image_General.Canvas.Pixels[x1,y1])+Green*f)/(1+f)),round((GetBValue(Image_General.Canvas.Pixels[x1,y1])+Blue*f)/(1+f)));
+          end;
+        end;
+      end;
+
+      //Bluring the map;
+      {For x1:=0 to 256 do
+      begin
+        For y1:=0 to 256 do
+        begin
+          red:=0;
+          green:=0;
+          blue:=0;
+          For x2:=x1-1 to x1+1 do
+          begin
+            For y2:=y1-1 to y1+1 do
+            begin
+              If (x2>=0) and (x2<=256) and (y2>=0) and (y2<=256)then
+              begin
+                //In range!
+                red:=round((red+GetRValue(Image_General.Canvas.Pixels[x2,y2]))/2);
+                green:=round((Green+GetGValue(Image_General.Canvas.Pixels[x2,y2]))/2) ;
+                blue:=round((blue+GetBValue(Image_General.Canvas.Pixels[x2,y2]))/2);
+                cnt:=cnt+1;
+              end;
+            end;
+          end;
+          Image_General.Canvas.Pixels[x1,y1]:=RGB(red,green,blue);
+        end;
+      end;}
+      //ShowMessage('!');
+    end;
+  end;
+  //Building the gray-scale :)
+  For x1:=0 to 256 do
+  begin
+    For y1:=0 to 256 do
+    begin
+      cnt:=0;
+      w:=0;
+      For x2:=x1-1 to x1+1 do
+      begin
+        For y2:=y1-1 to y1+1 do
+        begin
+          If (x2>=0) and (x2<=256) and (y2>=0) and (y2<=256)then
+          begin
+            //In range!
+            i:=Form_Main.KCM.HeightMap[x2][y2]-Form_Main.KCM.HeightMap[x1][y1];
+            If i<0 then
+            begin
+              i:=-i;
+            end;
+            w:=w+i;
+            cnt:=cnt+1;
+          end;
+        end;
+      end;
+      w:=round((w/cnt));
+
+      f:=w/110;
+      if f>1 then
+      begin
+        f:=1;
+      end;
+
+      red:=round(GetRValue(Image_General.Canvas.Pixels[x1,y1])*(1-f));
+      green:=round(GetGValue(Image_General.Canvas.Pixels[x1,y1])*(1-f));
+      blue:=round(GetBValue(Image_General.Canvas.Pixels[x1,y1])*(1-f));
+
+      f:=20;
+      If red<f then
+      begin
+        red:=round(f);
+      end;
+      If green<f then
+      begin
+        green:=round(f);
+      end;
+      If blue<f then
+      begin
+        blue:=round(f);
+      end;
+      Image_General.Canvas.Pixels[x1,y1]:=RGB(red,green,blue);
+    end;
+  end;
+  Bitmap.Free;
+
+  If CheckBox_NewWay_Water.Checked=True then
+  begin
+    for x1 := 0 to 255 do
+    begin
+      for y1 := 0 to 255 do
+      begin
+        If Form_Main.KCM.HeightMap[x1][y1]<1580 then
+        begin
+          Image_General.Canvas.Pixels[x1,y1]:=RGB(50,125,255);
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure TForm_Colormap.Button_ExportClick(Sender: TObject);
+var
+  Bitmap:TBitmap;
+  Jpg:TJPEGImage;
+  x1,y1:Integer;
+begin
+  Bitmap:=TBitmap.Create;
+  Bitmap.Width:=256;
+  Bitmap.Height:=256;
+  for x1:=0 to 255 do
+  begin
+    for y1:=0 to 255 do
+    begin
+      Bitmap.Canvas.Pixels[x1,y1]:=Image_General.Canvas.Pixels[x1,y1]
+    end;
+  end;
+
+  ForceDirectories(ExtractFilePath(Application.Exename)+'images\n_0'+IntToStr(Form_Main.KCM.Header.MapX)+'_0'+IntToStr(Form_Main.KCM.Header.MapY));
+
+  Jpg:=TJPEgImage.Create;
+  Jpg.Assign(Bitmap);
+  Jpg.SaveToFile(ExtractFilePath(Application.Exename)+'images\n_0'+IntToStr(Form_Main.KCM.Header.MapX)+'_0'+IntToStr(Form_Main.KCM.Header.MapY)+'\KCM - Colormap.jpg');
+
+  MessageBox(0,Pchar('Succesfully exported the minimap to:'+#13+#13+ExtractFilePath(Application.Exename)+'images\n_0'+IntToStr(Form_Main.KCM.Header.MapX)+'_0'+IntToStr(Form_Main.KCM.Header.MapY)+'\KCM - Colormap.jpg'),PCHar('Saved succesfully'),mb_ok);
+  Jpg.Free;
+  Bitmap.Free;
+end;
+
+procedure TForm_Colormap.Button_ImportClick(Sender: TObject);
+var
+  Bitmap:TBitmap;
+  jpg:TJpegImage;
+  x1,y1:Integer;
+  OpenFileDialog:TOpenDialog;
+begin
+  Try
+    OpenFileDialog:=TOpenDialog.Create(nil);
+    OpenFileDialog.Filter:='Images (*.jpg; *.jpeg; *.bmp)|*.jpg; *.jpeg; *.bmp;';
+    OpenFileDialog.Title:='Open file...';
+    OpenFileDialog.Options:=[ofHideReadOnly,ofEnableSizing];
+    If OpenFileDialog.Execute Then
+    begin
+      Bitmap:=TBitmap.Create;
+      Bitmap.Width:=256;
+      Bitmap.Height:=256;
+
+      If lowercase(ExtractFileExt(OpenFileDialog.FileName))='.jpg' then
+      begin
+        Jpg:=TJPEGImage.Create;
+        Jpg.LoadFromFile(OpenFileDialog.Filename);
+        Bitmap.Assign(jpg);
+      end;
+      If lowercase(ExtractFileExt(OpenFileDialog.FileName))='.bmp' then
+      begin
+        Bitmap.LoadFromFile(OpenFileDialog.FileName);
+      end;
+
+
+      //Bitmap.Assign(Image.Canvas) ;
+      for x1:=0 to 255 do
+      begin
+        for y1:=0 to 255 do
+        begin
+          Image_General.Canvas.Pixels[x1,y1]:=Bitmap.Canvas.Pixels[x1,y1]
+        end;
+      end;
+
+      Bitmap.Free;
+      JPG.Free;
+    end;
+  except
+    showmessage('error');
+  end;
+end;
+
+procedure TForm_Colormap.Button_saveClick(Sender: TObject);
+var
+  x1,y1:Integer;
+  ColorMap:TKCMColormap ;
+begin
+  for x1:=0 to 255 do
+  begin
+    for y1:=0 to 255 do
+    begin
+      ColorMap[x1][y1][0]:=GetRValue( Image_General.Canvas.Pixels[x1,y1]);
+      ColorMap[x1][y1][1]:=GetGValue( Image_General.Canvas.Pixels[x1,y1]);
+      ColorMap[x1][y1][2]:=GetBValue( Image_General.Canvas.Pixels[x1,y1]);
+      Form_Main.Image_General.Canvas.Pixels[x1,y1]:=Image_General.Canvas.Pixels[x1,y1];
+    end;
+  end;
+  Form_main.KCM.ColorMap:=Colormap;
+  Form_Main.GLHeightField.StructureChanged;
+end;
+
+end.

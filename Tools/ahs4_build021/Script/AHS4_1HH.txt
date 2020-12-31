@@ -1,0 +1,41 @@
+--This script is written by BakaBug
+--Changing stuff can stop AHS4 working !
+
+function OneHHCheck ()
+ --ecx_ = user
+ -- 5A8h = 1448 dec
+
+ --ShowInfo("TickCount..") 
+ now = GetTickCount()
+
+ --ShowInfo("Read last TickCount..") 
+ last = ReadDWORDFrom(ECX_+1448)
+ WriteDWORDTo(ECX_+1448,now)
+ --ShowInfo("+1448     Now: "..now.."    Last: "..last)
+
+ --last=0
+ --ShowInfo("ECX_:"..ECX_)
+
+ ShowInfo("VAR_1: "..ReadDWORDFrom(ECX_+316))
+ ShowInfo("VAR_2: "..ReadDWORDFrom(ECX_+336))
+ ShowInfo("VAR_3: "..ReadDWORDFrom(ECX_+332))
+ ShowInfo("VAR_4: "..ReadDWORDFrom(ECX_+280))
+ ShowInfo("VAR_5: "..ReadDWORDFrom(ECX_+352))
+
+ --ShowInfo("Cal dif..") 
+ speed = last - now
+
+ ShowInfo("AttackSpeed: "..speed)
+end
+
+function StartScript ()
+   ShowInfo ("Active 1 Hit Hack Check..")
+end
+
+function EndScript ()
+   ShowInfo ("Deactice 1 Hit Hack Check..")
+end
+
+function Setup ()
+   Hook("0045C7EE","OneHHCheck")
+end

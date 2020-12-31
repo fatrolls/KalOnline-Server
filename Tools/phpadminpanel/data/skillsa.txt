@@ -1,0 +1,48 @@
+0  1  0  1  Run
+1  1  0  1  Behead
+2  1  1  10 Bow Mastery
+3  1  5  10 Staggering Blow
+4  1  18 3  Passive Attack
+5  1  15 10 Concentration
+6  3  30 5  Flamy Arrow
+7  1  30 5  Chance of Capture
+8  3  38 10 Perfect Evasion
+9  1  26 5  Heart Breaker
+10 3  42 1  Muscle Solidation
+11 1  0  3  Rest
+12 1  10 15 Fatal Blow
+13 3  43 5  Poison Arrow         
+14 3  46 5  Blow up Arrow           
+15 1  25 1  Arrow of Silence        
+16 7  50 5  Focus Shot          
+17 7  51 3  Range Extension       
+18 11 50 3  Life Absorption       
+19 11 51 4  Pain           
+20 7  54 3  Perfect Evasion 2          
+21 7  57 3  Mysterious Arrow        
+22 11 52 2  Speed of Attack Reducer          
+23 11 53 3  Sight Interruption  
+24 7  52 2  Lightning Resistance    
+25 7  52 2  Ice Resistance          
+26 7  52 2  Fire Resistance         
+27 7  53 2  Powerful Arrow of Silence        
+28 7  53 2  Curse Resistance        
+29 7  53 2  Non Attribution Resistance        
+30 1  50 5  Life Extention
+31 7  59 2  Emergency Escape    
+32 7  61 1  Critical Hit            
+33 11 52 1  Decrease of Target Range         
+34 11 53 2  MP Vaporization           
+35 11 54 2  Curse of Critical Hit         
+36 11 55 2  Curse of Strengthr            
+37 11 55 2  Curse of Health            
+38 11 56 2  Curse of Agility            
+39 11 57 2  Curse of Intellegence            
+40 11 58 2  Curse of Wisdom            
+41 11 59 2  Curse of Defense        
+42 11 59 2  Poison Cloud        
+43 11 61 1  Loss of Confidence        
+44 11 62 1  Sight Blockade       
+45 11 63 1  Buff Remover    
+80 7  50 1  Artilery            
+81 11 50 1  Artilery            

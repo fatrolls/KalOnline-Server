@@ -1,0 +1,5 @@
+6 Temp
+5 Member
+4 Chief
+2 SubLeader
+1 Leader

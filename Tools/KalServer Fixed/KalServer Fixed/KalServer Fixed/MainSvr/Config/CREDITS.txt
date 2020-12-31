@@ -1,0 +1,1 @@
+InitNPC.txt and InitMonster.txt was translated by Nuklear/UnreaL

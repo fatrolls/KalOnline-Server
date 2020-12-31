@@ -1,0 +1,44 @@
+1 - Farmer
+2 - Miner
+3 - Polka-Dot Man
+4 - Woman
+5 - Prophet
+6 - Ascetic
+7 - Skill Master
+8 - Guard
+9 - Chief Guard
+10 - Black Crow Statue
+11 - /
+12 - /
+13 - Castoff Baby Ghost
+14 - Doggebi
+15 - Assassin List
+16 - Brown Stone
+17 - Doggebi Lord Mirror Stone
+18 - Doggebi Lord's Throne
+19 - Dice Master
+20 - Doggebi Lord's Teleporter
+21 - Event Tent
+22 - /
+23 - /
+24 - Bird Event
+25 - Green Tent
+26 - Green Tent
+27 - Orange Tent
+28 - D4 Gate
+29 - Brown Stone
+30 - /
+31 - Mixing Stone
+32 - /
+33 - Stone of Return
+34 - /
+35 - /
+36 - Mix Master
+37 - /
+38 - /
+39 - Old Man
+40 - Red Flag
+41 - Green Flag
+42 - Red Flag
+43 - Green Flag
+44 - Monster Flag

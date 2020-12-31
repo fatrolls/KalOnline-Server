@@ -1,0 +1,63 @@
+--This script is written by BakaBug
+--Changing stuff can stop AHS4 working !
+
+
+function HookTest ()
+
+   ShowInfo ("[AHS4 Test]    ECX = "..ECX_)
+   ShowInfo ("[AHS4 Test]  Stack Info:") 
+   --1. Argument:
+
+   ShowInfo ("[AHS4 Test]    EBP 40 = "..EBP_40)
+   ShowInfo ("[AHS4 Test]    EBP 36 = "..EBP_36)
+   ShowInfo ("[AHS4 Test]    EBP 32 = "..EBP_32) 
+   ShowInfo ("[AHS4 Test]    EBP 28 = "..EBP_28)
+   ShowInfo ("[AHS4 Test]    EBP 24 = "..EBP_24)
+   ShowInfo ("[AHS4 Test]    EBP 20 = "..EBP_20)
+   ShowInfo ("[AHS4 Test]    EBP 16 = "..EBP_16)
+   ShowInfo ("[AHS4 Test]    EBP 12 = "..EBP_12) 
+   ShowInfo ("[AHS4 Test]    EBP 8 = "..EBP_8)
+   ShowInfo ("[AHS4 Test]        ReadStringFrom:     '"..ReadStringFrom(EBP_8).."'")
+   ShowInfo ("[AHS4 Test]    EBP 4 = "..EBP_4)
+   ShowInfo ("[AHS4 Test]    EBP 0 = "..EBP_0)
+   ShowInfo ("[AHS4 Test]    EBP-4 = "..EBP_n4)
+   ShowInfo ("[AHS4 Test]    EBP-8 = "..EBP_n8)
+   ShowInfo ("[AHS4 Test]    EBP-12 = "..EBP_n12)
+   ShowInfo ("[AHS4 Test]    EBP-16 = "..EBP_n16)
+   ShowInfo ("[AHS4 Test]    EBP-20 = "..EBP_n20)
+   ShowInfo ("[AHS4 Test]    EBP-24 = "..EBP_n24)
+   ShowInfo ("[AHS4 Test]    EBP-28 = "..EBP_n28)
+   ShowInfo ("[AHS4 Test]    EBP-32 = "..EBP_n32)
+   ShowInfo ("[AHS4 Test]    EBP-36 = "..EBP_n36)
+   ShowInfo ("[AHS4 Test]    EBP-40 = "..EBP_n40)
+
+   --change text to my own :P
+   --Warning this offset is from a static object this woul dmake problems on some parts ~.~
+   --on Dynamic adress it would nm :P
+   --But this function was the easyest to show the power of AHS4
+   WriteStringTo(EBP_8 , "AHS4 rocks")
+
+   --You can't know how much parameters are here.. you can read max. from EBP_0 to EBP_9
+end
+
+function StartScript ()
+   --Here it automatical deactive Hook's ..
+   --Installed Bytes you need to deactive your self !!
+
+   ShowInfo ("AHS4 test script startet..")
+end
+
+function EndScript ()
+   --Here the funktion start .. no aditional script here for Hooks ! 
+   --All Hooks need to be in SETUP !
+   --Here you install patches .. with InstallByte
+
+   ShowInfo ("AHS4 test script stoped..")
+end
+
+
+function Setup()
+   --This funktion will be called at AHS4 start
+
+   Hook("0040CBC8","HookTest")
+end

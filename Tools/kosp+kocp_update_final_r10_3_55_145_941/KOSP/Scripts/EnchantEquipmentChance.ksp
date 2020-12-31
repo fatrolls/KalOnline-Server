@@ -1,0 +1,28 @@
+procedure EnchantEquipmentChance()
+{
+
+   -- Get the properties value out of the config.properties
+   _EnchantEquipmentChanceRate = parseInt(GetProperties("EnchantEquipmentChanceRate", "1"))
+
+   !s_start:
+
+      -- Get and set the TOD enchant stage equiqment chance between 1 and 23
+      for offset=0x4D5BE8,0x004D5C44,4 do
+
+         chance = ReadMemoryDword(offset) * _EnchantEquipmentChanceRate
+         WriteMemoryDword(offset, Max(chance, 0x989680))
+
+      end 
+
+   s_end:
+
+
+      -- Get and set the TOD enchant stage equiqment chance between 1 and 23
+      for offset=0x4D5BE8,0x004D5C44,4 do
+
+         chance = ReadMemoryDword(offset) / _EnchantEquipmentChanceRate
+         WriteMemoryDword(offset, Max(chance, 0x989680))
+
+      end 
+
+}

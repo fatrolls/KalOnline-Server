@@ -1,0 +1,16 @@
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\WindowsApplication1.Properties.Resources.resources
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\WindowsApplication1.Form1.resources
+obj\Debug\WindowsApplication1.Properties.Resources.resources
+bin\Debug\PK Decoder.exe
+bin\Debug\PK Decoder.pdb
+obj\Debug\PK Decoder.csproj.GenerateResource.Cache
+obj\Debug\PK Decoder.exe
+obj\Debug\PK Decoder.pdb
+bin\Release\PK Decoder.exe
+bin\Release\PK Decoder.pdb
+obj\Release\PK Decoder.csproj.GenerateResource.Cache
+obj\Release\PK Decoder.exe
+obj\Release\PK Decoder.pdb
+obj\Release\KalOnline.PKTool.resources

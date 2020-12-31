@@ -1,0 +1,130 @@
+using System; 
+using System.Collections.Generic; 
+using System.ComponentModel; 
+using System.Data; 
+using System.Drawing; 
+using System.Text; 
+using System.Windows.Forms; 
+using System.IO; 
+
+namespace SwordOPL 
+{ 
+    public partial class OPLForm : Form 
+    { 
+        private OPL opl; 
+        private string filename; 
+         
+        public OPLForm() 
+        { 
+            InitializeComponent(); 
+            formPanel.Visible = false; 
+            Application.ApplicationExit += new EventHandler(Application_Exit); 
+            listBox1.SelectedIndexChanged += new EventHandler(listBox1_SelectedIndexChanged); 
+        } 
+
+        void listBox1_SelectedIndexChanged(object sender, EventArgs e) 
+        { 
+            OPLItem item = (OPLItem)listBox1.SelectedItem; 
+            if(item == null) { 
+                formPanel.Visible = false; 
+                return; 
+            } 
+            formPanel.Visible = true; 
+             
+            pathTextBox.Text = item.RelativePath; 
+
+            posXTextBox.Text = item.Position.X.ToString(); 
+            posYTextBox.Text = item.Position.Y.ToString(); 
+            posZTextBox.Text = item.Position.Z.ToString(); 
+                        
+            rotationXTextBox.Text = item.Rotation.X.ToString(); 
+            rotationYTextBox.Text = item.Rotation.Y.ToString(); 
+            rotationZTextBox.Text = item.Rotation.Z.ToString(); 
+            rotationWTextBox.Text = item.Rotation.W.ToString(); 
+             
+            scaleXTextBox.Text = item.Scale.X.ToString(); 
+            scaleYTextBox.Text = item.Scale.Y.ToString(); 
+            scaleZTextBox.Text = item.Scale.Z.ToString(); 
+        } 
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) 
+        { 
+            Application.Exit(); 
+        } 
+         
+        private void Application_Exit(object sender, EventArgs e)  
+        { 
+            Environment.Exit(0); 
+        } 
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e) 
+        { 
+            openFileDialog1.Multiselect = false; 
+            openFileDialog1.FileOk += new CancelEventHandler(openFileDialog1_FileOk); 
+            openFileDialog1.ShowDialog(); 
+        } 
+
+        void openFileDialog1_FileOk(object sender, CancelEventArgs e) 
+        { 
+            filename = openFileDialog1.FileName; 
+            using(FileStream stream = File.OpenRead(openFileDialog1.FileName)) 
+            using(BinaryReader reader = new BinaryReader(stream)) 
+            { 
+                opl = new OPL(reader);     
+            } 
+             
+            listBox1.Items.AddRange(opl.Items.ToArray()); 
+        } 
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e) 
+        { 
+            byte[] data = opl.GetData(); 
+            uint crc32  = CRC32Direct.CalculateCRC(data); 
+                          
+            using(FileStream stream = File.Open(filename,FileMode.Truncate)) 
+            using(BinaryWriter writer = new BinaryWriter(stream)) 
+            { 
+                writer.Write(crc32); 
+                foreach(Byte b in data) { 
+                    writer.Write(b); 
+                } 
+            } 
+        } 
+
+        private void saveButton_Click(object sender, EventArgs e) 
+        { 
+            OPLItem item = (OPLItem)listBox1.SelectedItem; 
+            if(item == null) { 
+                return; 
+            } 
+            item.RelativePath = pathTextBox.Text; 
+            item.Position.X = float.Parse(posXTextBox.Text); 
+            item.Position.Y = float.Parse(posYTextBox.Text); 
+            item.Position.Z = float.Parse(posZTextBox.Text); 
+                        
+            item.Rotation.X = float.Parse(rotationXTextBox.Text);  
+            item.Rotation.Y = float.Parse(rotationYTextBox.Text); 
+            item.Rotation.Z = float.Parse(rotationZTextBox.Text); 
+            item.Rotation.W = float.Parse(rotationWTextBox.Text); 
+             
+            item.Scale.X = float.Parse(scaleXTextBox.Text); 
+            item.Scale.Y = float.Parse(scaleYTextBox.Text); 
+            item.Scale.Z = float.Parse(scaleZTextBox.Text); 
+             
+            listBox1.Items[listBox1.SelectedIndex] = item; 
+        } 
+
+        private void button1_Click(object sender, EventArgs e) 
+        { 
+            OPLItem item = (OPLItem)listBox1.SelectedItem; 
+            if(item == null) { 
+                return; 
+            } 
+            DialogResult result = MessageBox.Show("Are you sure you wish to remove the selected item?","",MessageBoxButtons.YesNo); 
+            if(result == DialogResult.Yes) { 
+                opl.Items.Remove(item); 
+                listBox1.Items.Remove(item); 
+            } 
+        } 
+    } 
+}  

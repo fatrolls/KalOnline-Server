@@ -1,0 +1,11 @@
+;little doggebi lord
+(monster (name 977) (index 977) (country 0) (race 0) (level 20) (ai 3) (range 80) (sight 360 360) (exp 500) (itemgroup 20 2)
+		(str 78) (hth 40) (int 50) (wis 50) (dex 30) (hp 335) (mp 6000) (aspeed 1850) (hit 33) (dodge 30)
+		(attack 0 80 88) (magic 0 0) (defense 33 35) (absorb 5) (mspeed 1550 450) (resist 10 70 70 80 80)
+		(skill (0 1) (1 1) (2 1) (3 1) (4 1) (5 1) (6 1) (7 1) (8 1) (13 1)))
+
+;Small Bloody Monster
+(monster (name 999) (index 999) (country 0) (race 0) (level 10) (ai 3) (range 20) (sight 200 320) (exp 300) (itemgroup 9 2)
+		(str 45) (hth 17) (int 12) (wis 18) (dex 20) (hp 100) (mp 10) (aspeed 1500) (hit 20) (dodge 30)
+		(attack 0 20 38) (magic 0 0) (defense 18 18) (absorb 7) (mspeed 1600 700) (resist 38 38 40 40 40)
+		(quest ))

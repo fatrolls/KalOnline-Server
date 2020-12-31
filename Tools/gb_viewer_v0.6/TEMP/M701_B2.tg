@@ -1,0 +1,32 @@
+[MODEL]
+Meshes=2
+Version=11
+SubVersion=11
+Bones=0
+Materials=2
+Vertex_Count=47579136
+Index_Count=3372
+[MATERIAL_1]
+textureoffset=22
+texturenamelen=11
+offset=34
+[MATERIAL_2]
+textureoffset=22
+texturenamelen=11
+offset=80
+[MODEL_1]
+Name_Offset=11
+VertexType=1
+Vertex=518
+Index=2598
+Material=0
+Unknow=0
+file=C:\Dokumente und Einstellungen\Yannik.COMBI\Desktop\Resurrection Server Combi fixed bugs\kalonline_tools_pack_1.0.0\kalonline_tools_pack_1.0.0\gb_viewer_v0.6\TEMP/M701_B2_MODEL_1.tgl
+[MODEL_2]
+Name_Offset=70
+VertexType=1
+Vertex=208
+Index=774
+Material=1
+Unknow=0
+file=C:\Dokumente und Einstellungen\Yannik.COMBI\Desktop\Resurrection Server Combi fixed bugs\kalonline_tools_pack_1.0.0\kalonline_tools_pack_1.0.0\gb_viewer_v0.6\TEMP/M701_B2_MODEL_2.tgl

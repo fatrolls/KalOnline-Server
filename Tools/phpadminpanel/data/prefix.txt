@@ -1,0 +1,93 @@
+1  Forced
+2  Unlawful
+3  Harsh
+4  Strong Man's
+5  Strongest Man's
+6  Melee's
+7  Bloody Fight's
+8  Slaughterous
+9  Barbaric
+10 Invincible
+11 Healthy
+12 Vigorous
+13 Heroic
+14 Vital
+15 Ablaze
+16 Iron legs
+17 Steel's
+18 limitable
+19 Infinitely
+20 Diamond
+21 Fictional
+22 Sharp
+23 Keen
+24 Ordinary
+25 Wise
+26 Mystic
+27 Worshipful
+28 Sublime
+29 Pure
+30 Absolute
+31 Fixed
+32 Confirmatory
+33 Celebrated
+34 Dignified
+35 Merciful
+36 Predictive
+37 Foreseeable
+38 War Leader's
+39 Reverent
+40 Paradoxical
+41 Agile
+42 Reflective
+43 Instant
+44 Flexible
+45 Dashy
+46 Rush
+47 Fierce
+48 Flashy
+49 Unlimited
+50 Gliding
+51 Heavy Blow's
+52 The Powerful
+53 Explosive
+54 Fierce
+55 Exterminated
+56 Feathery
+57 Man's
+58 Extreme
+59 Destructive
+60 Fundamental
+61 Powerful
+62 Mighty
+63 Considerable
+64 Cruel
+65 Wisdom's
+66 High Class'
+67 Absoluteness'
+68 Wondering Knight’s
+69 Veteran Knight’s
+70 Strong Knight’s
+71 Expert Knight’s
+72 Wondering Archer’s
+73 Veteran Archer’s
+74 Skillful Archer’s
+75 Expert Archer’s
+76 Beginning Scholar’s
+77 Veteran Scholar’s
+78 Skillful Scholar’s
+79 Expert Scholar’s
+80 Distinct
+81 Steely
+82 Breakthrough's
+83 Despotic
+84 Revenge's
+85 Prideful
+86 Ruinous
+87 Glorious
+88 Decisional
+89 Magical Power's
+90 Legendary
+91 Rash
+92 The King, GuhBalHan's
+93 The Skelleton's King of BattleIsland

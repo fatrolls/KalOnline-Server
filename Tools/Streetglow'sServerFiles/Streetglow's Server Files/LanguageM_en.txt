@@ -1,0 +1,197 @@
+######################################################################
+#
+# v2.60b00 note: As of 2006 Aug 14, neither the export functionality
+# nor the text of this document has been updated. v2.60b00 *should*
+# provide similar export functionality to v2.51b1, as described below.
+# Note however, that the newer information fields are not yet available
+# and that the export functiionality of v2.60b00 has yet to be tested.
+#
+# Last Revised: 7 Aug 2004 for v2.51b1
+#
+# This is a sample "export format" file.
+#
+# Note: You must restart GSpot after changing a format
+#        file if you want the changes to take effect.
+#
+#  16 Aug: Updated for v2.51. Added interlace related fields.
+#
+#  7 Aug:  added aspect ratio conversion related fields
+#
+# +-------------------------------------------------------------------
+# | update: 19 July 2004
+# | ----------------------
+# | GSpot 2.5b7+ features a new, improved export function. The single
+# | letter field names of previous versions have been replaced with
+# | the names listed below. Note that each name now requires a pair of
+# | "%" characters - one at the begining and one at the end.
+# |
+# | These versions of GSpot have a pair of selectable built-in generic
+# | default formats. This file produces something similar (though a bit
+# | nicer) than the second of those built-in formats ("info" style).
+# |
+# | To make it more usable, the new items are individual, they are no
+# | longer tied to the display windows which group several different
+# | items together. Furthermore, extraneous text has been eliminated,
+# | in particular on all numeric items (e.g. "29.97", not "29.97 FPS").
+# | This is more "spreadsheet friendly", and, of course, still allows
+# | you to add the designations yourself in any way desired.
+#
+# -------
+# A file such as this can be used to define the content and arrangement
+# of exported data by selecting the "Custom, using the format file below"
+# option in the Export Setup dialog.
+#
+# In this file, lines beginning with a "#" symbol, such as the lines you
+# are reading, are ignored. All other text is reproduced exactly as
+# typed, except for the special field names below; in that case the pair
+# field name is replaced with actual data for the corresponding actual
+# field. Field names are always surrounded by a pair of "%" characters.
+#
+# In addition to the field names, there are a handful of other "escape"
+# codes, i.e. sequences of characters which are replaced with something
+# else in the actual output. The only ones currently defined are "\r",
+# "\n" and "\t" - these are described below as well. Note that you must
+# include "\r\n" or "\n" codes if you expect your exported output to have
+# more than one line per movie file examined. For example,
+#
+# Name:     %FILE_NAME%
+# Size:     %FILE_LENGTH%
+# Duration: %VIDEO_DURATION% 
+#
+# comes out something like
+#
+# Name:   MyMovie.aviLength: 1,234,567 bytesDuration: 00:37:12
+#
+# which is probably not what you want. The correct way to do it is
+# something like:
+#
+# Name:     %FILE_NAME%      \r\n
+# Size:     %FILE_LENGTH%    \r\n
+# Duration: %VIDEO_DURATION% \r\n
+#
+# The advantage, though, is if for those who want single very lines, typically
+# for export to a spreadsheet. e.g.:
+#
+# %FILE_NAME%\t%FILE_SIZE%\t%VIDEO_DURATION%
+#
+# can also be expressed
+#
+# %FILE_NAME%\t
+# %FILE_SIZE%\t
+# %VIDEO_DURATION%\t
+#
+# which is nice, especially if there are dozens of items involved
+
+# Escape codes
+# ============
+# \r\n      new line (for Windows/DOS text)
+# \n        new line (Unix style)
+# \t        tab character
+#
+# The field  are shown below. They're no longer part of this comment,
+# rather they comprise the actual format specifications should this
+# file be specified as the format file:
+
+--- File Information ---                                                        \r\n
+File Name:                                      %FILE_NAME%                     \r\n
+File Name (with full path):                     %FILE_NAME_WITH_PATH%           \r\n
+File Size (in bytes):                           %FILE_SIZE%                     \r\n
+                                                                                \r\n
+--- Container Information ---                                                   \r\n
+Base Type (e.g "AVI"):                          %CONT_BASETYPE%                 \r\n
+Subtype (e.g "OpenDML"):                        %CONT_SUBTYPE%                  \r\n
+Interleave (in ms):                             %CONT_INTERLEAVE_TIME%          \r\n
+Preload (in ms):                                %CONT_INTERLEAVE_PRELOAD%       \r\n
+Audio alignment("split across interleaves"):    %CONT_INTERLEAVE_ALIGN%         \r\n
+Total System Bitrate (kbps):                    %CONT_TOTAL_BITRATE%            \r\n
+Bytes Missing (if any):                         %CONT_BYTES_MISSING%            \r\n
+Number of Audio Streams:                        %CONT_AUDIO_STREAM_COUNT%       \r\n
+                                                                                \r\n
+--- Video Information ---                                                       \r\n
+Video Codec Type(e.g. "DIV3"):                  %VIDEO_CODEC_TYPE%              \r\n
+Video Codec Name(e.g. "DivX 3, Low-Motion"):    %VIDEO_CODEC_NAME%              \r\n
+Video Codec Status(e.g. "Codec Is Installed"):  %VIDEO_CODEC_STATUS%            \r\n
+Duration (hh:mm:ss):                            %VIDEO_DURATION%                \r\n
+Frame Count:                                    %VIDEO_FRAME_COUNT%             \r\n
+Frame Width (pixels):                           %VIDEO_SIZE_X%                  \r\n
+Frame Height (pixels):                          %VIDEO_SIZE_Y%                  \r\n
+Storage Aspect Ratio("SAR")"                    %VIDEO_SAR%                     \r\n
+Pixel Aspect Ratio ("PAR"):                     %VIDEO_PAR%                     \r\n
+Display Aspect Ratio ("DAR"):                   %VIDEO_DAR%                     \r\n
+Fields Per Second:                              %VIDEO_FIELDS_PER_SEC%          \r\n
+Frames Per Second:                              %VIDEO_FRAMES_PER_SEC%          \r\n
+Pics Per Second:                                %VIDEO_PICS_PER_SEC%            \r\n
+Video Bitrate (kbps):                           %VIDEO_BITRATE%                 \r\n
+MPEG-4 ("MPEG-4" or ""):                        %VIDEO_MPEG4%                   \r\n
+B-VOP ("B-VOP" or ""):                          %VIDEO_MPEG4_BVOP%              \r\n
+QPel ("QPel" or ""):                            %VIDEO_MPEG4_QPEL%              \r\n
+GMC ("GMC" or ""):                              %VIDEO_MPEG4_GMC%               \r\n
+NVOP ("NVOP" or ""):                            %VIDEO_MPEG4_NVOP%              \r\n
+H264 ("H264" or ""):	                        %VIDEO_H264%                    \r\n
+Quality Factor (bits/pixel)/frame:              %VIDEO_QF%"                     \r\n
+                                                                                \r\n
+MPEG-2 ("MPEG-2" or ""):                        %VIDEO_MPEG2%                   \r\n
+Interlaced ("I/L" or ""):                       %VIDEO_MPEG2_I_L%               \r\n
+Progressive ("Prog" or ""):                     %VIDEO_MPEG2_PROG%              \r\n
+Top Frame First ("TFF" or ""):                  %VIDEO_MPEG2_TFF%               \r\n
+Bottom Frame First ("BFF" or ""):               %VIDEO_MPEG2_BFF%               \r\n
+3:2 Pulldown ("3:2" or ""):                     %VIDEO_MPEG2_3X2%               \r\n
+Picture-per-field ("PPF" or ""):                %VIDEO_MPEG2_PPF%               \r\n
+                                                                                \r\n
+--- Aspect Ratio Related ---                                                    \r\n
+                                                                                \r\n
+Broadcast standard: "PAL" (else blank)          %VIDEO_ASPECT_TYPE_PAL%         \r\n
+Broadcast standard: "NTSC" (else blank)         %VIDEO_ASPECT_TYPE_NTSC%        \r\n
+src:"VCD", "SVCD", "CVD", or "DVD (else blank): %VIDEO_ASPECT_SOURCE_MATCH%     \r\n
+Instructions to convert to VCD,  first part:    %VIDEO_ASPECT_CONVERT_VCD1%     \r\n
+Instructions to convert to VCD,  second part:   %VIDEO_ASPECT_CONVERT_VCD2%     \r\n
+Instructions to convert to SVCD, first part:    %VIDEO_ASPECT_CONVERT_SVCD1%    \r\n
+Instructions to convert to SVCD, second part:   %VIDEO_ASPECT_CONVERT_SVCD2%    \r\n
+Instructions to convert to CVD,  first part:    %VIDEO_ASPECT_CONVERT_CVD1%     \r\n
+Instructions to convert to CVD,  second part:   %VIDEO_ASPECT_CONVERT_CVD2%     \r\n
+Instructions to convert to DVD,  first part:    %VIDEO_ASPECT_CONVERT_DVD1%     \r\n
+Instructions to convert to DVD,  second part:   %VIDEO_ASPECT_CONVERT_DVD2%     \r\n
+Instructions to convert to AVI,  first part:    %VIDEO_ASPECT_CONVERT_AVI1%     \r\n
+Instructions to convert to AVI,  second part:   %VIDEO_ASPECT_CONVERT_AVI2%     \r\n
+                                                                                \r\n
+--- Audio Information ---                                                       \r\n
+MPEG Stream ID (e.g. "0xbd"):                   %AUDIO_MPEG_STREAM_ID%          \r\n
+MPEG VOB file Substream(e.g. "0x80"):           %AUDIO_MPEG_SUBSTREAM_ID%       \r\n
+Audio Codec (e.g. "AC3"):                       %AUDIO_CODEC%                   \r\n
+Audio Codec Status (e.g. "Codec Is Installed"): %AUDIO_CODEC_STATUS%            \r\n
+Audio Sample Rate (Hz):                         %AUDIO_SAMPLE_RATE%             \r\n
+Audio Bitrate(kbps):                            %AUDIO_BITRATE%                 \r\n
+Audio Bitrate Type ("CBR" or "VBR"):            %AUDIO_BITRATE_TYPE%            \r\n
+Audio Channel Count (e.g. "2" for stereo):      %AUDIO_CHANNEL_COUNT%           \r\n
+
+# Note: The \r\n sequences are all "lined up" for clarity, but there is no need
+# to do so - in fact, this format creates a file with a lot of "trailing blanks"
+# which may not be particularly desireable. The alternative is something like:
+#
+# --- Audio Information ---\r\n
+# MPEG Stream ID (e.g. "0xbd"):                   %AUDIO_MPEG_STREAM_ID%\r\n
+# MPEG VOB file Substream(e.g. "0x80"):           %AUDIO_MPEG_SUBSTREAM_ID%\r\n
+#
+# etc.
+#
+
+# Note: For audio, information from other streams is available by appending
+# "_2", "_3", or "_4" for streams 2, 3 and 4 respectively. The % char must
+# still be last, of course (e.g. "%AUDIO_BITRATE_3%", not "%AUDIO_BITRATE%_3").
+#
+# This is untested and may not be fully supported.
+#                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ' —›è¾—©ò¶r2   X                       Ó      F                                                               B"           X Ó ©½8>±ŠA`<ã¿QM>ß†|¾¶r¿SZ×>\x~>^»½vˆA]6â¿:He¼Ïi‡¾´Ûv¿~Ğ>ÀÌ·>Ó…½/]ŠA@ë¿ ñA¾r)!¾Ûx¿À_´>lîˆ>U¡1¿³‡AÅr‡¿|¿¾·Ù½ºø¾€šÚ=RºÔ>U¡1¿D˜‰Ah–¿v²v¿Ls½“è‚¾w…Ş=¼8¹>¿ÙˆA)­¿(-k¿ú1´½ò/Å¾,gO>\âÈ>[y¿G¸‰AÕz½¿0ÿY¿Æ¾[¿ìL>V'§>ÈÓÂ¾ç	ŠA âÜ¿‡¶2¿Ï7Ò½Ag5¿_AŠ>¸s™>{…õ¾ğˆA¥‚Ğ¿Ó39¿ ¢¦½l/¿:æŒ>5À>ÂÂ‘¾«ˆAŠWß¿¯Ğ¾Q/¾Ée¿ p¶>q¹>PÂ¾Š¡…AŸvĞ¿ú/¿ÓLŠ¾­qM¿÷ä¹>²}à>6Ë	¿¦Ì…AÁ8¼¿•|S¿mÓ
+¾p¿Ğ_>.]é>N~¿ê¢ƒAñ½­¿ÏsC¿æÇ}¾Q¬¿¡Ø’>,¡?3á¿àO†Aåœ¿&s¿§4™½ƒ†›¾y:W>àò>cšÁ¾ÀƒA$š¾¿™ ¿IÍâ¾Y+>¿š¯>I?ê!¿„AZ»¿_u¿€½ÂT¾[x^>$}?A‚2¿€„AÅÿe¿!µ}¿æU¼Ë¾ó=íG?|/¿1İ…A©‡t¿á¿¡Ü¼ğ¥½ÀÏØ=¸Ğı>ge'¿ ú€A|˜ƒ¿šàx¿¯Ñ¤;:Ğo¾;Æe>XU7?l“6¿-^AŠèG¿Û“|¿Ç©c;ì×&¾Z->¸y;?Èî2¿WÔAwƒ¿6ï¿‚=£<”í/<†©m=DR??JÔ3¿ìƒA|µ#¿ér¿Äìƒ=©I< ë<B"?‰™)¿Ô †AFê9¿Ñ¾~¿ë´p<ICÈ=ÛÜ<Ö§?è-2¿É¢‡AÃJI¿y~¿iÕ½6Ğ=|ƒ<.?à>T8¿=‰An§Y¿Üª~¿ş´µ½”GM½âç¿<"nÆ>J_¿ş\yAÕÎ@>ÿ—V¿’få>YŸ>Î'?MNe?ñ¡t¿:‡yA•©>|)¿…pÛ>èã?€'-?4¹`?<¿ñãsAfiß>
+¿±ã>;M?P1?æ|?
+J¿˜†yA+üñ>ì—Â¾VÜº>ì“Y?-C?Ô[?%¿›ÊrAtB$?iU9¾¾Gk>	Ît?S?!#|?$šè¾KØxAëá?"°¾*¹µ>Òm?|(]?8„Z?–¯K;_xAÅÆ?ç9¶îb˜> ft?kØw?$³^?–¯K;zœqA(}5?ì{úµ-^ƒ>nw?¾l?X{?„š?›ÊrA–B$?T9>–Gk>Ît?S?!#|?âÈë>KØxAâ?º®>$¹µ>Şm?|(]?8„Z?]ÀK;që€AáB¶>”8¶Éæ°>ò;p?ÿ|?e@?ÊNï¾–²€A|ò>¥yš¾4ÖÈ>£t^?E[?¸Î??‘H¿’¸€Au>Û¼(¿[Ü>Ñö?‘=?¸<B?MZ¿\­€AN{Š½íyu¿@*‘>”ÌA<²G(?LÄC?ĞÔ?¿-a€AZ›V¾°`V¿L×½©š¿õ?çıC?Ä_?¿pÃ„A!®¾ş™u¿Ó_½¹¾÷!?" ?]ÀK;¦Ñ„Aëãa>°J¶ŞÌ=à¹~?_´{?}?]ÀK;ä—‡A#e{>àB¶wï<èı?*Çx? ú>0cò¾İ„A»%ù=©1¹¾r>;¯k?ÜğW?\ ?+£ù¾íâ‡Aé©=n§¿šë÷=×N?ø©R?–;û>1ë9¿!…Ad\±½/¤V¿iN>§?‘›5?V?›+¿*ˆAGZ*¾îI\¿ßI>Ãƒğ>$—3?uò>¿µG¿N‰A›:¿ó¶z¿F$¾ÿèû½W?Šì>2’õ>İ„AN'ù=1¹>ûq>[¯k?ÜğW?\ ?-Òü>íâ‡A ë©=,§?Ïë÷=N?ø©R?–;û>Ã‚;?!…AKZ±½÷£V?”N>å§?‘›5?V?”2-?*ˆA:Y*¾¿I\?;ßI>q„ğ>$—3?uò>ƒMI?N‰AX:¿·z?ÀE$¾æû½W?Šì>w÷@?pÃ„A›®¾šu?ü_½ú¸¾÷!?" ?ğ¦[?\­€A5yŠ½íyu??*‘>üİA<²G(?LÄC?¥I?“¸€A>¡¼(?fÜ>÷?‘=?¸<B?`9v?:‡yA«•©>\)?†pÛ>
+ä?€'-?4¹`?z¦K?š†yA±üñ>R—Â>`Üº>”Y?-C?Ô[?ª}ò>–²€A¿ò>çxš>1ÖÈ>Æt^?E[?¸Î??;n(?i_„Açş¿]Id?¡u:¾¦Ô¾…|?[Ğ?rlA?.a€ANšV¾¿`V?ıØ½‘š¿õ?çıC?+‘?ş\yA$Ğ@>ß—V?©få>ÔŸ>Î'?MNe?üá?ñãsAjß>Ë
+?Òã>8;M?P1?æ|?»*0?„X‡Aö|I¿´8~?Cy—½ìn»½Äí€>èkr?Ô2?G…A,/¿ø=?ëŸR½u)j½íG*>¦în?b/,?À…Aíš‚¿Ò~?‚€¼ıŸõ½x>>–@V?jû'?[±‚Aİït¿â~?ßNŸ½à%S½Vğ=2èP?I,?9ƒA¨#¿µÓ~?1°½#ò*½·ğ¼<‘¹f?	İ>}â‰AeoÕ¿ŠwM?Œ»½¿ç¿^»Ü>²A?«?U|‰Aû“¾¿+e?ã7Ç½å°Ş¾_	Ì>ÀéQ?‚á?ú‡A·¿²sj?p:@½2Ì¾?n—>{øB?4ƒ$?JA‡Aa¨—¿‹£w?Ğû‰½T;z¾Y÷>°V?¾?¾…„AŒ¡¿C¾v?UÒ¼ïÍ‡¾ëM>´9B?º02?oh‰AÜ¹–¿B&w?f‰-¾~ÑJ¾ À»>¹§g?„ 7?¼E‰A±§]¿¬š|? g¾Ô´™½JÒ­>Íév?‹S!?ïì†A.ªµ¿¹J?!F=1Á¿µÿñ>¦Ò3?‘¶ù>¬¢†A<ˆÍ¿ÿC?§@=Äè#¿ã‰¸>Vh4?ÈĞ	?ïµˆAmÂ¿NaD?wK<ƒ2$¿Ôñğ> 9?œ£¾>[AˆAaúÚ¿^¨&?6«¹<]<B¿ ©·>öz?	İ>}â‰AeoÕ¿Çˆ?ˆ™¤»bØL¿£wò>Ğµ?©½8>±ŠA`<ã¿EdÌ>gŸ=¢ßi¿ˆ»º>d?£.?Öš‡AN¿t.w?8z¾+·½!?+j?HŠ8?l‰A(|^¿’l?z^¶¾{¾¾]?ş…æ>å´7?ŠgˆAq,¿ m?
+< ¾-MX¾?ª˜ú>wÖ&¿i_„A*ÿ¿:Id¿ƒu:¾EÔ¾…|?[Ğ?6¿ŠgˆAPq,¿ìm¿<< ¾éMX¾?ª˜ú>sò6¿l‰Al|^¿’l¿Å^¶¾Î¾¾]?ş…æ>Ï†,¿Öš‡AJN¿u.w¿ş7z¾+·½!?+j?               	  	 
+    	 	      
+ 
+ 
+                                             ! ! " "  #  $  %  &  & ' ( ( ) ) * + , - . - / - ( - & - % $ $ - - - $ + # ) 0 * 0 1 2 3 2 4 5 5 5 5 2 6 7 8 7 9 : " : # : 0 : 2 7 7 4 4 5 ; 5 < 6 = 8 > 9 ! "   ? ? ? @ A @ B C C D D E F G H G A G ? I J J G G G E I I K K K L M N O P P Q Q R S 4 ; ; ' ' ' ( T / U V W N028_B2.gb  n028_b2_S n028_b2.dds •••ÿ•••ÿäâ ÿ  €?                                                                                                  p://forum.ragezone.com/search/get-new-posts/" accesskey="2">New Posts</a></td> <td id="navbar_search" class="navbar"><a href="http://forum.ragezone.com/search/" accesskey="4" rel="nofollow">Search</a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td> <td id="usercptools" class="navbar"><a rel="nofollow" href="http://forum.ragezone.com/kalonline-releases/tools-kalonline-private-server-tools-167955-12.html?nojs=1#usercptools">Quick Links</a> <script type="text/javascript"> vbmenINDX( 	 øîW            (   €  è               .           Û:     p `     ´:     ¿1RWÇê!4RWÇê!4RWÇ¶WûåàWÇ                       c u s t o m   m a t r i c e s Û:     h R     ´:     ¿1RWÇê!4RWÇê!4RWÇ¶WûåàWÇ                       C U S T O M ~ 1 a x d ¿:     h V     ´:     Æ$ö~RWÇ ı¯Ù,Ç²…RWÇ²…RWÇ P!      P!             
+f f d s h o w . a x d À:     x h     ´:     ²…RWÇ ~@„
+Ä²…RWÇ²…RWÇ(      #              f f d s h o w . a x . m a n i f e s t À:     p Z     ´:     ²…RWÇ ~@„
+Ä²…RWÇ²…RWÇ(      #              F F D S H O ~ 1 . M A N l l   Ó:     x f     ´:     À¬RWÇ Ç!RWÇ!RWÇ p      p             f f _ k e r n e l D e i n t . d l l  Ó:     p Z     ´:     À¬RWÇ Ç!RWÇ!RWÇ p      p             F F _ K E R ~ 1 . D L L l l   ¸:     p \     ´:     BMŞ~RWÇ ğñ­ÇBMŞ~RWÇBMŞ~RWÇ Ğ       Î              f f _ l i b a 5 2 . d l l l   ¹:     p \     ´:     œ¯à~RWÇ w…­Çöã~RWÇöã~RWÇ                   f f _ l i b d t s . d l l l   º:     p `     ´:     öã~RWÇ “Ó)­Ç9ê~RWÇ9ê~RWÇ                    f f _ l i b f a a d 2 . d l l »:     p \     ´:     ^›ì~RWÇ û\3­Ç^›ì~RWÇ^›ì~RWÇ p      p             f f _ l i b m a d . d l l l   ¸:     p Z     ´:     BMŞ~RWÇ ğñ­ÇBMŞ~RWÇBMŞ~RWÇ Ğ       Î              F F _ L I B ~ 1 . D L L l l   ¹:     p Z     ´:     œ¯à~RWÇ w…­Çöã~RWÇöã~RWÇ                    F F _ L I B ~ 2 . D L L l l   º:     p Z    ´:     öã~RWÇ “Ó)­Ç9ê~RWÇ9ê~RWÇ                    F F _ L I B ~ 3 . D L L l l   »:     p Z     ´:     ^›ì~RWÇ û\3­Ç^›ì~RWÇ^›ì~RWÇ p      p             F F _ L I B ~ 4 . D L L l l   ·:     p ^     ´:     ˆÙ~RWÇ ËoF­ÇèêÛ~RWÇèêÛ~RWÇ `      V             f f _ r e a l a a c . d l l   ·:     p Z     ´:     ˆÙ~RWÇ ËoF­ÇèêÛ~RWÇèêÛ~RWÇ `      V             F F _ R E A ~ 1 . D L L l l   Ö:     x d     ´:     ÎÓ%RWÇ RJ­Ç(6(RWÇ(6(RWÇ                   f f _ s a m p l e r a t e . d l l    Ö:     p Z     ´:     ÎÓ%RWÇ RJ­Ç(6(RWÇ(6(RWÇ                    F F _ S A M ~ 1 . D L L l l   ×:     p \     ´:     ‚˜*RWÇ nQX­ÇÜú,RWÇÜú,RWÇ @      @             f f _ t h e o r a . d l l l   ×:     p Z     ´:     ‚˜*RWÇ nQX­ÇÜú,RWÇÜú,RWÇ @      @             F F _ T H E ~ 1 . D L L l l   ¼:     p \     ´:     ¸ıî~RWÇ OG^­Ç`ñ~RWÇ`ñ~RWÇ Ğ      Ê             f f _ t r e m o r . d l l l   ¼:     p Z     ´:     ¸ıî~RWÇ OG^­Ç`ñ~RWÇ`ñ~RWÇ Ğ      Ê             F F _ T R E ~ 1 . D L L l l   ½:     p Z     ´:     `ñ~RWÇ äi­ÇlÂó~RWÇlÂó~RWÇ à       à              f f _ u n r a r . d l l l l   Ø:     h X     ´:     6]/RWÇ |zXñ(Ç6]/RWÇ6]/RWÇ p       f              f f _ w m v 9 . d l l Á:     h T     ´:     ²…RWÇÀ¬RWÇÀ¬RWÇ:\DçàWÇ                       	l a n g u a g e s c . Á:     h R     ´:     ²…RWÇÀ¬RWÇÀ¬RWÇ:\DçàWÇ                       L A N G U A ~ 1 e c  µ:     p ^     ´:     †Ù©~RWÇ ¦Â<ğ(Ç&ÿÏ~RWÇÌœÍ~RWÇ `0      T0             l i b a v c o d e c . d l l   µ:     p Z     ´:     †Ù©~RWÇ ¦Â<ğ(Ç&ÿÏ~RWÇÌœÍ~RWÇ `0      T0             L I B A V C ~ 1 . D L L       ¾:     p `     ´:     lÂó~RWÇ Zq­ÇÆ$ö~RWÇÆ$ö~RWÇ ğ      ğ             l i b m p e g 2 _ f f . d l l ¾:     p Z     ´:     lÂó~RWÇ Zq­ÇÆ$ö~RWÇÆ$ö~RWÇ ğ      ğ             L I B M P E ~ 1 . D L L l l   ¶:     p ^     ´:     €aÒ~RWÇ Ò¸ÛÄ)Ç4&×~RWÇ4&×~RWÇ @     2             l i b m p l a y e r . d l l   ¶:     p Z     ´:     €aÒ~RWÇ Ò¸ÛÄ)Ç4&×~RWÇ4&×~RWÇ @      2             L I B M P L ~ 1 . D L L       Ô:     x d     ´:     tq#RWÇ ïv Çtq#RWÇtq#RWÇ                    T o m s M o C o m p _ f f . d l l     Ô:     p Z     ´:     tq#RWÇ ïv Çtq#RWÇtq#RWÇ                    T O M S M O ~ 1 . D L L                                                                                                                            ĞÏà¡±á                >  şÿ	                         4      şÿÿÿ        ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿıÿÿÿ   @                  	   
+                                                                      !   "   #   $   %   &   '   (   )   *   +   ,   -   .   /   0   1   2   3   B   b   6   7   8   9   :   ;   <   =   >   ?   R   A   şÿÿÿC   D   E   F   G   H   I   J   K   L   M   N   O   P   Q   S   ^   T   U   V   W   X   Y   Z   [   \   ]   şÿÿÿ_   `   a   c   şÿÿÿv   e   f   g   h   i   j   k   l   m   n   o   p   q   r   s   t   u   şÿÿÿşÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿR o o t   E n t r y                                               ÿÿÿÿÿÿÿÿ   „     À      F            ğ÷°Åæ¿5   €"       S u m m a r y I n f o r m a t i o n                           (    ÿÿÿÿÿÿÿÿ                                    ‚   Ô      @Hÿ?äCìAäE¬D1H                                                    ÿÿÿÿ	   ÿÿÿÿ                                    d   X#      @H?dA/B6H                                                        ÿÿÿÿÿÿÿÿÿÿÿÿ                                    f   ˜       @H?;òC8D±E                                                             ÿÿÿÿ                                    6   È      @H??wElDj>²D/H                                                         ÿÿÿÿ                                        `      @H??wElDj;äE$H                                                    ÿÿÿÿÿÿÿÿÿÿÿÿ                                       ©—      @HŠA7CrDBûE                                                           ÿÿÿÿ                                    {   †      NameTableTypeWhether the column is nullableThe attributes of this product set.Name of property defining location of working directory.Description of columnUser or object name to run service asForeign key into the Component table referencing component that controls the deletion of the registry value.YDescriptionFor foreign key, Name of table to which data must linkColumn to which foreign key connectsName of columnMinimum value allowedThe maximum size of the file. IdentifierMaximum value allowedForeign key into the Component table denoting the component whose selection gates the the shortcut creation/deletion.TextThe command-line arguments for the shortcut.The type of the control.The type of modification to be made, one of iifEnum.The value to be deleted. The value is required when Action is iifIniRemoveTagThe .INI file name in which to delete the informationPrimary key, sequence with respect to the media images; order must track cabinet order.Name of a service. /, \, comma and space are invalidA unique key that identifies the particular string.The CLSID of an OLE factory corresponding to the ProgId.ActionTextActionInstallation option, one of iimEnum.Required foreign key into the Component Table that controls the startup of the serviceTemplate2;4AdminExecuteSequence0;1;3ConditionThe type of modification to be made, one of iifEnumSequenceOptional string containing information for the HKCRthis CLSID) key. If multiple patterns exist, they must be delimited by a semicolon, and numeric subkeys will be generated: 0,1,2...AdminUISequenceAdvtExecuteSequenceAdvtUISequenceAppIdActivateAtStorageThe hotkey for the shortcut. It has the virtual-key code for the key in the low-order byte, and the modifier flags in the high-order byte. DllSurrogateLocalServiceRemoteServerNameThe property to set when a product in this set is found.RunAsInteractiveUserServiceParametersAppSearchPropertyName of a property whose value is assumed to resolve to the full pathname to the folder of the file to be removed.Signature_Y;N;@Name of ODBC driver attributeBBControlAttributesOptional associated extension (without dot)The minimum size of the file.Billboard_BillboardAn integer value that determines if the registry value is a filename or a directory location or to be used as is w/o interpretation.HeightIf this component is not "selected" for installation or removal, no action will be taken on the associated MoveFile entryThe GUID that represents the library.Optional foreign key into the Icon Table, specifying the icon file associated with this ProgId. Will be written under the DefaultIcon key.WidthUser for permissions to be set.  (usually a property)XPrimary key, integer to determine sort order for table.Optional associated CLSID.Foreign key referencing Component that controls the file to be removed.Foreign key into the Component table referencing component that controls the deletion of the .INI value.Feature_FeatureThe visible title to be assigned to the radio button.OrderingThis is defined only when the ComponentId column is an Qualified Component Id. This is the Qualifier for ProvideComponentIndirect.BinaryDataThe registry value name.Name of property, uppercase if settable by launcher or loader.BindImageFile_FileThe predefined root key for the registry value, one of rrkEnum.PathSet of values that are permittedInteger containing bit flags representing patch attributesCCPSearchCheckBoxDomain name for user whose permissions are being set. (usually a property)ValueReference to associated componentClassAppId_The key for the registry value.ArgumentFormattedRegPathCLSIDReference to ODBC driver in ODBCDriver tableComponent_ComponentWidth of the bounding rectangle of the control.ContextName of a property whose value is assumed to resolve to the full path to the destination directoryDefInprocHandlerVersion string for versioned files;  Blank for unversioned files.Localized description for the Program identifier.Defines the default control. Hitting return is equivalent to pushing this button.Primary key, non-localized.internal token for data sourceThe localized version of the string.FileTypeMaskName of a property whose value is assumed to resolve to the full path to the source directoryIcon_IconValue for ODBC driver attributeIconIndexPrimary key, name of action, normally appears in sequence table unless private use.ProgId_DefaultProgIdName to be given to the original file after it is moved or copied.  If blank, the destination file will be given the same name as the source fileComboBoxOrderName of ODBC data source attributeA foreign key to the Control table, name of the controlOptional default inproc handler.  Only optionally provided if Context=CLSCTX_LOCAL_SERVER.  Typically "ole32.dll" or "mapi32.dll"Name of the control. This name must be unique within a billboard, but can repeat on different billboard.CompLocatorComponentIdThe Program Identifier. Primary key.A boolean value that determines if the registry value is a filename or a directory location.Text used as registered name for driver, non-localizedComplusValue for ODBC data source attributeExpTypeRegistration option: 0=machine, 1=user, others t.b.d.Name of the source file(s) to be moved or copied.  Can contain the '*' or '?' wildcards.Primary key that uniquely identifies a particular MoveFile recordThe version of the library. The major version is in the upper 8 bits of the short integer. The minor version is in the lower 8 bits.Directory_DirectoryInteger value specifying the MoveFile operating mode, one of imfoEnumKeyPathThe name of the file. This may contain a "short name|long name" pair.Primary key, non-localized.internal token for driverBit field:  Install:  0x1 = Start, 0x2 = Stop, 0x8 = Delete, Uninstall: 0x10 = Start, 0x20 = Stop, 0x80 = DeleteGuidLevelName of the file to be removed.ControlReference to another table nameControl_NextIf some or all of the files stored on the media are compressed in a cabinet, the name of that cabinet.Dialog_DialogFile sequence number for the last file for this media.HelpDisk name: the visible text actually printed on the disk.  This will be used to prompt the user when this disk needs to be inserted.The property defining the location of the cabinet file.ControlConditionForeign key into the Directory table denoting the directory where the shortcut file is created.A positive integer used to determine the ordering of the items within one list..The integers do not have to be consecutive.Localizable text to display when condition fails and install must abort.Control_The .INI file Section.Foreign key into the Directory table denoting the directory where the .INI file is.ControlEventPrimary key. Name of the icon file.String value for property.  Never null or empty.List of decimal language Ids, comma-separated if more than one.Eventpassword to run service with.  (with StartName)A string indicating the name of the font used. Required. The string must be at most 31 characters long.CreateFolderThe name of the control attribute, that is set when this event is received.Internal Name of the ServiceCustomActionA combination of style bits.SourceFont name.Severity of error if service fails to startTargetOther services this depends on to start.  Separate by [~], and end with [~][~]Type of the serviceDefault;Disable;Enable;Hide;ShowControl_CancelDirectory;File;RegistryControl_DefaultPermission Access mask.  Full Control = 268435456 (GENERIC_ALL = 0x10000000)Control_FirstForeign key into Registry or File tableThe name of the icon to be displayed with the icon. The binary information is looked up from the Binary Table.HCenteringOptional expression which skips the action if evaluates to expFalse.If the expression syntax is invalid, the engine will terminate, returning iesBadActionData.The label attributed to the volume.TitleA named property to be tied to this item. All the items tied to the same property become part of the same listview.VCenteringNullablePrimary key. Context identifier, typically "type/format".DefaultDirReference to ODBC data source in ODBCDataSource tableReference to driver description, may be existing driverDirectory_ParentThe Parent Program Identifier. If specified, the ProgId column becomes a version independent prog id.DrLocatorDepthExternal key to the Billboard table, name of the billboard.ParentExternal Name of the ServiceThe languages supported by the file.Key value (followed by an equals sign in INI file).Arguments to include i

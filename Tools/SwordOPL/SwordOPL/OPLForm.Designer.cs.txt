@@ -1,0 +1,511 @@
+namespace SwordOPL 
+{ 
+    partial class OPLForm 
+    { 
+        /// <summary> 
+        /// Required designer variable. 
+        /// </summary> 
+        private System.ComponentModel.IContainer components = null; 
+
+        /// <summary> 
+        /// Clean up any resources being used. 
+        /// </summary> 
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param> 
+        protected override void Dispose(bool disposing) 
+        { 
+            if(disposing && (components != null)) { 
+                components.Dispose(); 
+            } 
+            base.Dispose(disposing); 
+        } 
+
+        #region Windows Form Designer generated code 
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor. 
+        /// </summary> 
+        private void InitializeComponent() 
+        { 
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip(); 
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip(); 
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); 
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); 
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); 
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator(); 
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); 
+            this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); 
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); 
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog(); 
+            this.listBox1 = new System.Windows.Forms.ListBox(); 
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer(); 
+            this.formPanel = new System.Windows.Forms.Panel(); 
+            this.saveButton = new System.Windows.Forms.Button(); 
+            this.rotationWTextBox = new System.Windows.Forms.TextBox(); 
+            this.button1 = new System.Windows.Forms.Button(); 
+            this.label14 = new System.Windows.Forms.Label(); 
+            this.label1 = new System.Windows.Forms.Label(); 
+            this.rotationZTextBox = new System.Windows.Forms.TextBox(); 
+            this.pathTextBox = new System.Windows.Forms.TextBox(); 
+            this.rotationYTextBox = new System.Windows.Forms.TextBox(); 
+            this.label2 = new System.Windows.Forms.Label(); 
+            this.rotationXTextBox = new System.Windows.Forms.TextBox(); 
+            this.label3 = new System.Windows.Forms.Label(); 
+            this.label11 = new System.Windows.Forms.Label(); 
+            this.label4 = new System.Windows.Forms.Label(); 
+            this.label12 = new System.Windows.Forms.Label(); 
+            this.label5 = new System.Windows.Forms.Label(); 
+            this.label13 = new System.Windows.Forms.Label(); 
+            this.posXTextBox = new System.Windows.Forms.TextBox(); 
+            this.label10 = new System.Windows.Forms.Label(); 
+            this.posYTextBox = new System.Windows.Forms.TextBox(); 
+            this.scaleZTextBox = new System.Windows.Forms.TextBox(); 
+            this.posZTextBox = new System.Windows.Forms.TextBox(); 
+            this.scaleYTextBox = new System.Windows.Forms.TextBox(); 
+            this.label9 = new System.Windows.Forms.Label(); 
+            this.scaleXTextBox = new System.Windows.Forms.TextBox(); 
+            this.label8 = new System.Windows.Forms.Label(); 
+            this.label6 = new System.Windows.Forms.Label(); 
+            this.label7 = new System.Windows.Forms.Label(); 
+            this.menuStrip1.SuspendLayout(); 
+            this.splitContainer1.Panel1.SuspendLayout(); 
+            this.splitContainer1.Panel2.SuspendLayout(); 
+            this.splitContainer1.SuspendLayout(); 
+            this.formPanel.SuspendLayout(); 
+            this.SuspendLayout(); 
+            //  
+            // statusStrip1 
+            //  
+            this.statusStrip1.Location = new System.Drawing.Point(0, 426); 
+            this.statusStrip1.Name = "statusStrip1"; 
+            this.statusStrip1.Size = new System.Drawing.Size(729, 22); 
+            this.statusStrip1.TabIndex = 0; 
+            this.statusStrip1.Text = "statusStrip1"; 
+            //  
+            // menuStrip1 
+            //  
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { 
+            this.fileToolStripMenuItem, 
+            this.itemsToolStripMenuItem}); 
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0); 
+            this.menuStrip1.Name = "menuStrip1"; 
+            this.menuStrip1.Size = new System.Drawing.Size(729, 24); 
+            this.menuStrip1.TabIndex = 1; 
+            this.menuStrip1.Text = "menuStrip1"; 
+            //  
+            // fileToolStripMenuItem 
+            //  
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { 
+            this.openToolStripMenuItem, 
+            this.saveToolStripMenuItem, 
+            this.toolStripSeparator1, 
+            this.exitToolStripMenuItem}); 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem"; 
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20); 
+            this.fileToolStripMenuItem.Text = "File"; 
+            //  
+            // openToolStripMenuItem 
+            //  
+            this.openToolStripMenuItem.Image = global::SwordOPL.Properties.Resources.folder_page; 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem"; 
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(100, 22); 
+            this.openToolStripMenuItem.Text = "Open"; 
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click); 
+            //  
+            // saveToolStripMenuItem 
+            //  
+            this.saveToolStripMenuItem.Image = global::SwordOPL.Properties.Resources.disk_multiple; 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem"; 
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22); 
+            this.saveToolStripMenuItem.Text = "Save"; 
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click); 
+            //  
+            // toolStripSeparator1 
+            //  
+            this.toolStripSeparator1.Name = "toolStripSeparator1"; 
+            this.toolStripSeparator1.Size = new System.Drawing.Size(97, 6); 
+            //  
+            // exitToolStripMenuItem 
+            //  
+            this.exitToolStripMenuItem.Image = global::SwordOPL.Properties.Resources.door; 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem"; 
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22); 
+            this.exitToolStripMenuItem.Text = "Exit"; 
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click); 
+            //  
+            // itemsToolStripMenuItem 
+            //  
+            this.itemsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { 
+            this.addToolStripMenuItem}); 
+            this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem"; 
+            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(46, 20); 
+            this.itemsToolStripMenuItem.Text = "Items"; 
+            //  
+            // addToolStripMenuItem 
+            //  
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem"; 
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(117, 22); 
+            this.addToolStripMenuItem.Text = "Add New"; 
+            //  
+            // openFileDialog1 
+            //  
+            this.openFileDialog1.DefaultExt = "opl"; 
+            this.openFileDialog1.Filter = "OPL (*.opl)|*.opl|All Files (*.*)|*.*"; 
+            //  
+            // listBox1 
+            //  
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill; 
+            this.listBox1.FormattingEnabled = true; 
+            this.listBox1.IntegralHeight = false; 
+            this.listBox1.Location = new System.Drawing.Point(0, 0); 
+            this.listBox1.Name = "listBox1"; 
+            this.listBox1.ScrollAlwaysVisible = true; 
+            this.listBox1.Size = new System.Drawing.Size(193, 402); 
+            this.listBox1.TabIndex = 2; 
+            //  
+            // splitContainer1 
+            //  
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill; 
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1; 
+            this.splitContainer1.IsSplitterFixed = true; 
+            this.splitContainer1.Location = new System.Drawing.Point(0, 24); 
+            this.splitContainer1.Name = "splitContainer1"; 
+            //  
+            // splitContainer1.Panel1 
+            //  
+            this.splitContainer1.Panel1.Controls.Add(this.listBox1); 
+            //  
+            // splitContainer1.Panel2 
+            //  
+            this.splitContainer1.Panel2.Controls.Add(this.formPanel); 
+            this.splitContainer1.Size = new System.Drawing.Size(729, 402); 
+            this.splitContainer1.SplitterDistance = 193; 
+            this.splitContainer1.TabIndex = 5; 
+            //  
+            // formPanel 
+            //  
+            this.formPanel.Controls.Add(this.saveButton); 
+            this.formPanel.Controls.Add(this.rotationWTextBox); 
+            this.formPanel.Controls.Add(this.button1); 
+            this.formPanel.Controls.Add(this.label14); 
+            this.formPanel.Controls.Add(this.label1); 
+            this.formPanel.Controls.Add(this.rotationZTextBox); 
+            this.formPanel.Controls.Add(this.pathTextBox); 
+            this.formPanel.Controls.Add(this.rotationYTextBox); 
+            this.formPanel.Controls.Add(this.label2); 
+            this.formPanel.Controls.Add(this.rotationXTextBox); 
+            this.formPanel.Controls.Add(this.label3); 
+            this.formPanel.Controls.Add(this.label11); 
+            this.formPanel.Controls.Add(this.label4); 
+            this.formPanel.Controls.Add(this.label12); 
+            this.formPanel.Controls.Add(this.label5); 
+            this.formPanel.Controls.Add(this.label13); 
+            this.formPanel.Controls.Add(this.posXTextBox); 
+            this.formPanel.Controls.Add(this.label10); 
+            this.formPanel.Controls.Add(this.posYTextBox); 
+            this.formPanel.Controls.Add(this.scaleZTextBox); 
+            this.formPanel.Controls.Add(this.posZTextBox); 
+            this.formPanel.Controls.Add(this.scaleYTextBox); 
+            this.formPanel.Controls.Add(this.label9); 
+            this.formPanel.Controls.Add(this.scaleXTextBox); 
+            this.formPanel.Controls.Add(this.label8); 
+            this.formPanel.Controls.Add(this.label6); 
+            this.formPanel.Controls.Add(this.label7); 
+            this.formPanel.Dock = System.Windows.Forms.DockStyle.Fill; 
+            this.formPanel.Location = new System.Drawing.Point(0, 0); 
+            this.formPanel.Name = "formPanel"; 
+            this.formPanel.Size = new System.Drawing.Size(532, 402); 
+            this.formPanel.TabIndex = 31; 
+            //  
+            // saveButton 
+            //  
+            this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft; 
+            this.saveButton.Location = new System.Drawing.Point(328, 373); 
+            this.saveButton.Name = "saveButton"; 
+            this.saveButton.Size = new System.Drawing.Size(94, 23); 
+            this.saveButton.TabIndex = 29; 
+            this.saveButton.Text = "Save"; 
+            this.saveButton.UseVisualStyleBackColor = true; 
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click); 
+            //  
+            // rotationWTextBox 
+            //  
+            this.rotationWTextBox.Location = new System.Drawing.Point(65, 262); 
+            this.rotationWTextBox.Name = "rotationWTextBox"; 
+            this.rotationWTextBox.Size = new System.Drawing.Size(188, 20); 
+            this.rotationWTextBox.TabIndex = 28; 
+            //  
+            // button1 
+            //  
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft; 
+            this.button1.Location = new System.Drawing.Point(428, 373); 
+            this.button1.Name = "button1"; 
+            this.button1.Size = new System.Drawing.Size(97, 23); 
+            this.button1.TabIndex = 30; 
+            this.button1.Text = "Delete"; 
+            this.button1.UseVisualStyleBackColor = true; 
+            this.button1.Click += new System.EventHandler(this.button1_Click); 
+            //  
+            // label14 
+            //  
+            this.label14.AutoSize = true; 
+            this.label14.Location = new System.Drawing.Point(44, 265); 
+            this.label14.Name = "label14"; 
+            this.label14.Size = new System.Drawing.Size(18, 13); 
+            this.label14.TabIndex = 27; 
+            this.label14.Text = "W"; 
+            //  
+            // label1 
+            //  
+            this.label1.AutoSize = true; 
+            this.label1.Location = new System.Drawing.Point(15, 23); 
+            this.label1.Name = "label1"; 
+            this.label1.Size = new System.Drawing.Size(29, 13); 
+            this.label1.TabIndex = 4; 
+            this.label1.Text = "Path"; 
+            //  
+            // rotationZTextBox 
+            //  
+            this.rotationZTextBox.Location = new System.Drawing.Point(65, 236); 
+            this.rotationZTextBox.Name = "rotationZTextBox"; 
+            this.rotationZTextBox.Size = new System.Drawing.Size(188, 20); 
+            this.rotationZTextBox.TabIndex = 26; 
+            //  
+            // pathTextBox 
+            //  
+            this.pathTextBox.Location = new System.Drawing.Point(65, 20); 
+            this.pathTextBox.Name = "pathTextBox"; 
+            this.pathTextBox.Size = new System.Drawing.Size(443, 20); 
+            this.pathTextBox.TabIndex = 5; 
+            //  
+            // rotationYTextBox 
+            //  
+            this.rotationYTextBox.Location = new System.Drawing.Point(65, 211); 
+            this.rotationYTextBox.Name = "rotationYTextBox"; 
+            this.rotationYTextBox.Size = new System.Drawing.Size(188, 20); 
+            this.rotationYTextBox.TabIndex = 25; 
+            //  
+            // label2 
+            //  
+            this.label2.AutoSize = true; 
+            this.label2.Location = new System.Drawing.Point(15, 55); 
+            this.label2.Name = "label2"; 
+            this.label2.Size = new System.Drawing.Size(44, 13); 
+            this.label2.TabIndex = 6; 
+            this.label2.Text = "Position"; 
+            //  
+            // rotationXTextBox 
+            //  
+            this.rotationXTextBox.Location = new System.Drawing.Point(65, 186); 
+            this.rotationXTextBox.Name = "rotationXTextBox"; 
+            this.rotationXTextBox.Size = new System.Drawing.Size(188, 20); 
+            this.rotationXTextBox.TabIndex = 24; 
+            //  
+            // label3 
+            //  
+            this.label3.AutoSize = true; 
+            this.label3.Location = new System.Drawing.Point(45, 77); 
+            this.label3.Name = "label3"; 
+            this.label3.Size = new System.Drawing.Size(14, 13); 
+            this.label3.TabIndex = 7; 
+            this.label3.Text = "X"; 
+            //  
+            // label11 
+            //  
+            this.label11.AutoSize = true; 
+            this.label11.Location = new System.Drawing.Point(45, 239); 
+            this.label11.Name = "label11"; 
+            this.label11.Size = new System.Drawing.Size(14, 13); 
+            this.label11.TabIndex = 23; 
+            this.label11.Text = "Z"; 
+            //  
+            // label4 
+            //  
+            this.label4.AutoSize = true; 
+            this.label4.Location = new System.Drawing.Point(45, 102); 
+            this.label4.Name = "label4"; 
+            this.label4.Size = new System.Drawing.Size(14, 13); 
+            this.label4.TabIndex = 8; 
+            this.label4.Text = "Y"; 
+            //  
+            // label12 
+            //  
+            this.label12.AutoSize = true; 
+            this.label12.Location = new System.Drawing.Point(45, 214); 
+            this.label12.Name = "label12"; 
+            this.label12.Size = new System.Drawing.Size(14, 13); 
+            this.label12.TabIndex = 22; 
+            this.label12.Text = "Y"; 
+            //  
+            // label5 
+            //  
+            this.label5.AutoSize = true; 
+            this.label5.Location = new System.Drawing.Point(45, 127); 
+            this.label5.Name = "label5"; 
+            this.label5.Size = new System.Drawing.Size(14, 13); 
+            this.label5.TabIndex = 9; 
+            this.label5.Text = "Z"; 
+            //  
+            // label13 
+            //  
+            this.label13.AutoSize = true; 
+            this.label13.Location = new System.Drawing.Point(45, 189); 
+            this.label13.Name = "label13"; 
+            this.label13.Size = new System.Drawing.Size(14, 13); 
+            this.label13.TabIndex = 21; 
+            this.label13.Text = "X"; 
+            //  
+            // posXTextBox 
+            //  
+            this.posXTextBox.Location = new System.Drawing.Point(65, 74); 
+            this.posXTextBox.Name = "posXTextBox"; 
+            this.posXTextBox.Size = new System.Drawing.Size(188, 20); 
+            this.posXTextBox.TabIndex = 10; 
+            //  
+            // label10 
+            //  
+            this.label10.AutoSize = true; 
+            this.label10.Location = new System.Drawing.Point(15, 161); 
+            this.label10.Name = "label10"; 
+            this.label10.Size = new System.Drawing.Size(47, 13); 
+            this.label10.TabIndex = 20; 
+            this.label10.Text = "Rotation"; 
+            //  
+            // posYTextBox 
+            //  
+            this.posYTextBox.Location = new System.Drawing.Point(65, 99); 
+            this.posYTextBox.Name = "posYTextBox"; 
+            this.posYTextBox.Size = new System.Drawing.Size(188, 20); 
+            this.posYTextBox.TabIndex = 11; 
+            //  
+            // scaleZTextBox 
+            //  
+            this.scaleZTextBox.Location = new System.Drawing.Point(320, 124); 
+            this.scaleZTextBox.Name = "scaleZTextBox"; 
+            this.scaleZTextBox.Size = new System.Drawing.Size(188, 20); 
+            this.scaleZTextBox.TabIndex = 19; 
+            //  
+            // posZTextBox 
+            //  
+            this.posZTextBox.Location = new System.Drawing.Point(65, 124); 
+            this.posZTextBox.Name = "posZTextBox"; 
+            this.posZTextBox.Size = new System.Drawing.Size(188, 20); 
+            this.posZTextBox.TabIndex = 12; 
+            //  
+            // scaleYTextBox 
+            //  
+            this.scaleYTextBox.Location = new System.Drawing.Point(320, 99); 
+            this.scaleYTextBox.Name = "scaleYTextBox"; 
+            this.scaleYTextBox.Size = new System.Drawing.Size(188, 20); 
+            this.scaleYTextBox.TabIndex = 18; 
+            //  
+            // label9 
+            //  
+            this.label9.AutoSize = true; 
+            this.label9.Location = new System.Drawing.Point(270, 55); 
+            this.label9.Name = "label9"; 
+            this.label9.Size = new System.Drawing.Size(34, 13); 
+            this.label9.TabIndex = 13; 
+            this.label9.Text = "Scale"; 
+            //  
+            // scaleXTextBox 
+            //  
+            this.scaleXTextBox.Location = new System.Drawing.Point(320, 74); 
+            this.scaleXTextBox.Name = "scaleXTextBox"; 
+            this.scaleXTextBox.Size = new System.Drawing.Size(188, 20); 
+            this.scaleXTextBox.TabIndex = 17; 
+            //  
+            // label8 
+            //  
+            this.label8.AutoSize = true; 
+            this.label8.Location = new System.Drawing.Point(300, 77); 
+            this.label8.Name = "label8"; 
+            this.label8.Size = new System.Drawing.Size(14, 13); 
+            this.label8.TabIndex = 14; 
+            this.label8.Text = "X"; 
+            //  
+            // label6 
+            //  
+            this.label6.AutoSize = true; 
+            this.label6.Location = new System.Drawing.Point(300, 127); 
+            this.label6.Name = "label6"; 
+            this.label6.Size = new System.Drawing.Size(14, 13); 
+            this.label6.TabIndex = 16; 
+            this.label6.Text = "Z"; 
+            //  
+            // label7 
+            //  
+            this.label7.AutoSize = true; 
+            this.label7.Location = new System.Drawing.Point(300, 102); 
+            this.label7.Name = "label7"; 
+            this.label7.Size = new System.Drawing.Size(14, 13); 
+            this.label7.TabIndex = 15; 
+            this.label7.Text = "Y"; 
+            //  
+            // OPLForm 
+            //  
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F); 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font; 
+            this.ClientSize = new System.Drawing.Size(729, 448); 
+            this.Controls.Add(this.splitContainer1); 
+            this.Controls.Add(this.statusStrip1); 
+            this.Controls.Add(this.menuStrip1); 
+            this.MainMenuStrip = this.menuStrip1; 
+            this.Name = "OPLForm"; 
+            this.Text = "Sword Object Position List Editor"; 
+            this.menuStrip1.ResumeLayout(false); 
+            this.menuStrip1.PerformLayout(); 
+            this.splitContainer1.Panel1.ResumeLayout(false); 
+            this.splitContainer1.Panel2.ResumeLayout(false); 
+            this.splitContainer1.ResumeLayout(false); 
+            this.formPanel.ResumeLayout(false); 
+            this.formPanel.PerformLayout(); 
+            this.ResumeLayout(false); 
+            this.PerformLayout(); 
+
+        } 
+
+        #endregion 
+
+        private System.Windows.Forms.StatusStrip statusStrip1; 
+        private System.Windows.Forms.MenuStrip menuStrip1; 
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem; 
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem; 
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1; 
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem; 
+        private System.Windows.Forms.OpenFileDialog openFileDialog1; 
+        private System.Windows.Forms.ListBox listBox1; 
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem; 
+        private System.Windows.Forms.SplitContainer splitContainer1; 
+        private System.Windows.Forms.TextBox posZTextBox; 
+        private System.Windows.Forms.TextBox posYTextBox; 
+        private System.Windows.Forms.TextBox posXTextBox; 
+        private System.Windows.Forms.Label label5; 
+        private System.Windows.Forms.Label label4; 
+        private System.Windows.Forms.Label label3; 
+        private System.Windows.Forms.Label label2; 
+        private System.Windows.Forms.TextBox pathTextBox; 
+        private System.Windows.Forms.Label label1; 
+        private System.Windows.Forms.TextBox rotationWTextBox; 
+        private System.Windows.Forms.Label label14; 
+        private System.Windows.Forms.TextBox rotationZTextBox; 
+        private System.Windows.Forms.TextBox rotationYTextBox; 
+        private System.Windows.Forms.TextBox rotationXTextBox; 
+        private System.Windows.Forms.Label label11; 
+        private System.Windows.Forms.Label label12; 
+        private System.Windows.Forms.Label label13; 
+        private System.Windows.Forms.Label label10; 
+        private System.Windows.Forms.TextBox scaleZTextBox; 
+        private System.Windows.Forms.TextBox scaleYTextBox; 
+        private System.Windows.Forms.TextBox scaleXTextBox; 
+        private System.Windows.Forms.Label label6; 
+        private System.Windows.Forms.Label label7; 
+        private System.Windows.Forms.Label label8; 
+        private System.Windows.Forms.Label label9; 
+        private System.Windows.Forms.Button saveButton; 
+        private System.Windows.Forms.ToolStripMenuItem itemsToolStripMenuItem; 
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem; 
+        private System.Windows.Forms.Button button1; 
+        private System.Windows.Forms.Panel formPanel; 
+    } 
+} 

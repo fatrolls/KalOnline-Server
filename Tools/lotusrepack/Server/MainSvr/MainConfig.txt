@@ -1,0 +1,52 @@
+Title = "KAL MainSvr"
+
+NumberOfThreads = 2
+ServerId = 1
+;AgeLimit = 15
+System = "0 5 6 9 10 12 "
+Event = "0 5 6"
+Country = 252
+;MailServer = "127.0.0.1"
+;MailFrom = "KAL_MAIN18"
+;MailTo = ""
+
+
+
+;=======================================
+;System
+;0 ------- closed beta test
+;1 ------- don't send an alive packet (only for a test server)
+;2 ------- pay system
+;3 ------- netmarble authsocket activate
+;4 ------- party system
+;5 ------- quest system
+;=======================================
+;Event
+;=======================================
+
+;Seed = 2263
+;=======================================
+;System
+;0 ------- pk system
+;1 ------- cosmo server (local test server)
+;2 ------- pay system
+;3 ------- netmarble authsocket activate
+;4 ------- reserved ( not used )
+;5 ------- reserved ( not used )
+;6 ------- friend
+;7 ------- billing system
+;8 ------- test server
+;9 ------- guild war system
+;10 ------ mail
+;11 ------ gamble
+;12 ------- guild war system 2 (SiegeGun)
+;13 ------- HACKSHIELD
+;=======================================
+;Event
+;0 ------- double exp.
+;1 ------- dice event
+;2 ------- 가위바위보 event
+;3 ------- sponsor event
+;4 ------- 유료화 event
+;5 ------- mlm event
+;6 ------- snow event

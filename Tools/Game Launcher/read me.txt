@@ -1,0 +1,3 @@
+just put it in the same folder as your kalonline.exe and engine.exe and double click it ;)
+
+

@@ -1,0 +1,4 @@
+;도깨비 어르신
+( monsterinfo ( key 977) ( bone 30 ) (level 20) ( scale 0.1 5) ( motion "AAAAAAAAAA" ) (mspeed 1550 450) (attheight 18) ( damage_direction 0))
+;마구니 그림자 군단 수괴
+( monsterinfo ( key 999) ( bone 24 ) (level 10) ( scale 0.4 5) ( motion "AAAAAAAAAA" ) (mspeed 1500 500) (attheight 20))

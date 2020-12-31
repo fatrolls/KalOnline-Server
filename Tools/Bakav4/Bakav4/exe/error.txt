@@ -1,0 +1,4 @@
+Access violation at address 00465B1B in module 'KalServer.bin'. Read of address 0000000C
+Windows socket error: Normalerweise darf jede Socketadresse (Protokoll, Netzwerkadresse oder Anschluss) nur jeweils einmal verwendet werden (10048), on API 'bind'
+I/O error 103
+I/O error 103

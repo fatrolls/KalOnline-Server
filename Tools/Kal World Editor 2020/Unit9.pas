@@ -1,0 +1,575 @@
+unit Unit9;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, GLScene, GLVectorFileObjects, GLObjects, GLMisc, GLWin32Viewer,
+  FileCtrl, ExtCtrls, StdCtrls, GLFile3ds, Math, KalClientMap, ComCtrls,
+  ImgList;
+
+type
+  TForm_BrowseModel = class(TForm)
+    Splitter1: TSplitter;
+    //FileBox: TFileListBox;
+    Splitter2: TSplitter;
+    GLScene: TGLScene;
+    GLDummyCube: TGLDummyCube;
+    GLFreeForm: TGLFreeForm;
+    GLLightSource: TGLLightSource;
+    GLCamera: TGLCamera;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    GLSceneViewer1: TGLSceneViewer;
+    Button_Save: TButton;
+    Button_Cancel: TButton;
+    TreeView1: TTreeView;
+    FileBox: TFileListBox;
+    ImageList1: TImageList;
+    //TreeView1: TTreeView;
+    //ImageList1: TImageList;
+    procedure DirectoryBoxChange(Sender: TObject);
+    procedure FileBoxChange(Sender: TObject);
+    procedure GLSceneViewer1MouseMove(Sender: TObject; Shift: TShiftState;X, Y: Integer);
+    procedure FormCreate(Sender: TObject);
+    procedure FormMouseWheelDown(Sender: TObject; Shift: TShiftState;MousePos: TPoint; var Handled: Boolean);
+    procedure Button_SaveClick(Sender: TObject);
+    procedure BuildNodes(FileLocation:String);
+    function GetFiles(const Path, Mask: string; IncludeSubDir: boolean): TStrings;
+    function GetSubDirs(const directory : string): TStrings;
+    function GetMap(TreeNode:TTreeNode):String;
+    procedure AddSubDirs(TreeNode:TTreeNode;Map:String);
+    procedure TreeView1Click(Sender: TObject);
+    procedure TreeView1Expanding(Sender: TObject; Node: TTreeNode;var AllowExpansion: Boolean);
+    procedure TreeView1Collapsing(Sender: TObject; Node: TTreeNode;var AllowCollapse: Boolean);
+    procedure FormMouseWheelUp(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
+  private
+    { Private declarations }
+    OPL_Node:Integer;
+  public
+    { Public declarations }
+    procedure SelectFile(Model:Integer);
+  end;
+
+var
+  Form_BrowseModel: TForm_BrowseModel;
+  ViewX,ViewY:Integer;
+const
+  IMAGE_MAPCLOSED:Integer=0;
+  IMAGE_MAPOPENED:Integer=1;
+
+implementation
+
+uses Unit1;
+
+{$R *.dfm}
+
+procedure TForm_BrowseModel.BuildNodes(FileLocation:String);
+var
+  x1:Integer;
+  parent:TTreeNode;
+  maps:TStrings;
+begin
+  TreeView1.Items.Clear;
+
+  parent:=TreeView1.Items.AddChild(nil,FileLocation);
+  maps:=TStringList.create;
+  maps:=GetSubDirs(FileLocation);
+  For x1:=0 to maps.count-1 do
+  begin
+    maps[x1]:=Copy(maps[x1],Length(FileLocation)+2,length(maps[x1]));
+    TreeView1.Items.AddChild(parent,maps[x1])
+  end;
+  //ListBox1.Items:=maps;
+end;
+
+function TForm_BrowseModel.GetSubDirs(const directory : string): TStrings ;
+var
+  sr : TSearchRec;
+begin
+  Result:=TStringList.Create;
+  try
+    if FindFirst(IncludeTrailingPathDelimiter(directory) + '*.*', faDirectory, sr) < 0 then
+      Exit
+    else
+    repeat
+      if ((sr.Attr and faDirectory <> 0) AND (sr.Name <> '.') AND (sr.Name <> '..')) then
+        Result.Add(IncludeTrailingPathDelimiter(directory) + sr.Name) ;
+    until FindNext(sr) <> 0;
+  finally
+    SysUtils.FindClose(sr) ;
+  end;
+end;
+
+function TForm_BrowseModel.GetFiles(const Path, Mask: string; IncludeSubDir: boolean): TStrings;
+var
+ FindResult: integer;
+ SearchRec : TSearchRec;
+begin
+ result := TStringList.Create;;
+
+ FindResult := FindFirst(Path + Mask, faAnyFile - faDirectory, SearchRec);
+ while FindResult = 0 do
+ begin
+   { do whatever you'd like to do with the files found }
+   Result.Add(Path + SearchRec.Name);
+   //result := result + 1;
+
+   FindResult := FindNext(SearchRec);
+ end;
+ { free memory }
+ FindClose(SearchRec);
+
+ if not IncludeSubDir then
+   Exit;
+
+ FindResult := FindFirst(Path + '*.*', faDirectory, SearchRec);
+ while FindResult = 0 do
+ begin
+   if (SearchRec.Name <> '.') and (SearchRec.Name <> '..') then
+     result.text := result.text + GetFiles(Path + SearchRec.Name + '\', Mask, TRUE).text;
+
+   FindResult := FindNext(SearchRec);
+ end;
+ { free memory }
+ FindClose(SearchRec);
+end;
+
+procedure TForm_BrowseModel.TreeView1Click(Sender: TObject);
+var
+  x1:integer;
+  map:string;
+  maps:tstrings;
+  node,childnode:TTreeNode;
+begin
+  try
+    Node:=TreeView1.Selected;
+    maps:=TStringList.create;
+
+    //Looping every Child of the expanding node;
+    for x1:=0 to Node.Count-1 do
+    begin
+      //Equaling childnode to the child
+      ChildNode:=Node.Item[x1];
+
+      //Getting path
+      map:=GetMap(ChildNode);
+
+      //Getting sub dirs of that path
+      maps.Clear;
+      maps:=GetSubDirs(map);
+
+      //Addint the sub dirs to the child node;
+      AddSubDirs(ChildNode,map);
+    end;
+  except
+  end;
+
+  FileBox.Directory:=GetMap(Node);
+end;
+
+procedure TForm_BrowseModel.TreeView1Expanding(Sender: TObject; Node: TTreeNode;var AllowExpansion: Boolean);
+var
+  x1:integer;
+  map:string;
+  maps:tstrings;
+  childnode:TTreeNode;
+begin
+  try
+    Node.ImageIndex:=IMAGE_MAPOPENED;
+    maps:=TStringList.create;
+
+    //Looping every Child of the expanding node;
+    for x1:=0 to Node.Count-1 do
+    begin
+      //Equaling childnode to the child
+      ChildNode:=Node.Item[x1];
+
+      //Getting path
+      map:=GetMap(ChildNode);
+
+      //Getting sub dirs of that path
+      maps.Clear;
+      maps:=GetSubDirs(map);
+
+      //Addint the sub dirs to the child node;
+      AddSubDirs(ChildNode,map);
+    end;
+  except
+  end;
+end;
+
+procedure TForm_BrowseModel.TreeView1Collapsing(Sender: TObject; Node: TTreeNode;
+  var AllowCollapse: Boolean);
+begin
+  Node.ImageIndex:=IMAGE_MAPCLOSED;
+end;
+
+procedure TForm_BrowseModel.DirectoryBoxChange(Sender: TObject);
+begin
+  {If (Pos(Form_Main.Client_Path,DirectoryBox.Directory)=0) {and (DirectoryExists(Form_Main.Client_Path)=True) then
+  begin
+    DirectoryBox.Directory:=Form_Main.Client_Path;
+  end;}
+end;
+
+procedure TForm_BrowseModel.FileBoxChange(Sender: TObject);
+var
+  Str:String;
+begin
+  If (FileExists(FileBox.FileName)=True) and (LowerCase(ExtractFileExt(FileBox.FileName))='.gb') then
+  begin
+    Str:=ExtractFileDir(Application.ExeName)+'\Recources\'+Copy(FileBox.FileName,Length(Form_Main.Client_Path)+Length('\Data\'),Length(FileBox.FileName));
+    Str:=Copy(Str,1,Length(str)-3)+'.3ds';
+      If FileExists(Str) then
+      begin
+        GLFreeForm.LoadFromFile(Str);
+        GLFreeForm.Scale.X:=1/32;
+        GLFreeForm.Scale.Y:=1/32;
+        GLFreeForm.Scale.Z:=1/32;
+
+        GLFreeForm.NormalsOrientation:=mnoInvert;
+      end
+      else
+      begin
+        GLFreeForm.LoadFromFile(ExtractFileDir(Application.ExeName)+'\Recources\model.3ds');
+        GLFreeForm.Scale.X:=1;
+        GLFreeForm.Scale.Y:=1;
+        GLFreeForm.Scale.Z:=1;
+
+        GLFreeForm.NormalsOrientation:=mnoDefault;
+      end;
+  end;
+end;
+
+procedure TForm_BrowseModel.AddSubDirs(TreeNode:TTreeNode;Map:String);
+var
+  maps:TStrings;
+  x2:Integer;
+  AddedNode:TTreeNode;
+begin
+    //Getting sub dirs of that path
+    maps:=TStringList.create;
+    maps.Clear;
+    maps:=GetSubDirs(map);
+
+    //Checking if ther are any childs;
+    If TreeNode.Count<>0 then
+    begin
+      //Childs detected; overwriting the old ones.
+      For x2:=0 to TreeNode.Count-1 do
+      begin
+        maps[x2]:=Copy(maps[x2],length(map)+2,length(maps[x2]));
+        TreeNode.Item[x2].Text:=maps[x2];
+      end;
+      //Need to add more childs to the TreeNode;;
+      If TreeNode.Count<Maps.Count then
+      begin
+        For x2:=TreeNode.Count-1 to Maps.Count-1 do
+        begin
+          maps[x2]:=Copy(maps[x2],length(map)+2,length(maps[x2]));
+          AddedNode:=TreeView1.Items.AddChild(TreeNode,maps[x2]);
+          AddedNode.ImageIndex:=IMAGE_MAPCLOSED;
+        end;
+      end;
+    end
+    else
+      //No Childs detected; adding all sub dirs;
+      For x2:=0 to maps.count-1 do
+      begin
+        maps[x2]:=Copy(maps[x2],length(map)+2,length(maps[x2]));
+        AddedNode:=TreeView1.Items.AddChild(TreeNode,maps[x2]);
+        AddedNode.ImageIndex:=IMAGE_MAPCLOSED;
+      end;
+end;
+
+function TForm_BrowseModel.GetMap(TreeNode:TTreeNode):String;
+var
+  parent:TTreeNode;
+  map:String;
+begin
+    //Getting path
+    parent:=TreeNode;
+    map:='';
+    while parent.Parent<>nil do
+    begin
+      map:=parent.Text+map;
+      parent:=parent.parent;
+      map:='\'+map;
+    end;
+    result:=parent.Text+map;
+end;
+
+procedure TForm_BrowseModel.SelectFile(Model:Integer);
+var
+  x,x2:Integer;
+  Str,Str2:String;
+  FileLocation,FileLocation2:String;
+  Maps:TStrings;
+  Map:String;
+  Node:TTreeNode;
+  match:Integer;
+begin
+  OPL_Node:=Model;
+  maps:=TStringList.create;
+  maps.Clear;
+  FileLocation:=Form_Main.OPL.Node[OPL_Node].Path;
+  FileLocation2:=Form_Main.OPL.Node[OPL_Node].Path;
+
+  If FileExists(Form_Main.Client_Path+'\'+FileLocation+'.gb') = true then
+  begin
+    x:=1;
+    While x<Length(FileLocation2) do
+    begin
+      If FileLocation2[x]='\' then
+      begin
+        Maps.Add(Copy(FileLocation2,1,x-1));
+        Delete(FileLocation2,1,x);
+        x:=1;
+      end;
+      x:=x+1;
+    end;
+
+    TreeView1.Items.Clear;
+    Node:=TreeView1.Items.AddChild(nil,Copy(Form_Main.Client_path,1,Length(Form_main.Client_path)-1));
+    map:=GetMap(Node);
+    AddSubDirs(Node,map);
+    //Try
+      For x:=0 to maps.Count-1 do
+      begin
+        match:=-1;
+        For x2:=0 to Node.Count-1 do
+        begin
+          If LowerCase(Node.Item[x2].Text)=LowerCase(maps[x]) then
+          begin
+            match:=x2;
+          end;
+        end;
+        If Match<>-1 then
+        begin
+          Node.Expanded:=True;
+          Node.Selected:=True;
+          Node:=Node.Item[Match];
+          map:=GetMap(Node);
+          AddSubDirs(Node,map);
+          FileBox.Directory:=map;
+        end
+        else
+        begin
+          BuildNodes(Copy(Form_Main.Client_Path,1,Length(Form_Main.Client_Path)-1));
+        end;
+      end;
+
+      Str2:=ExtractFileName(Form_Main.Client_Path+'\'+FileLocation+'.gb');
+      For x:=0 to FileBox.Count-1 do
+      begin
+        If FileBox.Items[x]=Str2 then
+        begin
+          FileBox.Selected[x]:=True;
+          If (FileExists(FileBox.FileName)=True) and (LowerCase(ExtractFileExt(FileBox.FileName))='.gb') then
+          begin
+            Str:=ExtractFileDir(Application.ExeName)+'\Recources\'+Copy(FileBox.FileName,Length(Form_Main.Client_Path)+Length('\Data\'),Length(FileBox.FileName));
+            Str:=Copy(Str,1,Length(str)-3)+'.3ds';
+            If FileExists(Str) then
+            begin
+              GLFreeForm.LoadFromFile(Str);
+              GLFreeForm.Scale.X:=1/32;
+              GLFreeForm.Scale.Y:=1/32;
+              GLFreeForm.Scale.Z:=1/32;
+
+              GLFreeForm.NormalsOrientation:=mnoInvert;
+            end
+            else
+            begin
+              GLFreeForm.LoadFromFile(ExtractFileDir(Application.ExeName)+'\Recources\model.3ds');
+              GLFreeForm.Scale.X:=1;
+              GLFreeForm.Scale.Y:=1;
+              GLFreeForm.Scale.Z:=1;
+
+              GLFreeForm.NormalsOrientation:=mnoDefault;
+            end;
+          end;
+        end;
+      end;
+  end
+  else
+  begin
+    MessageBox(0,PChar('Can''t the specified model, this error can occur if the model wasn''t converted well, or you Models are out-dated.'),PChar('File doesn''t exists'),mb_ok);
+    BuildNodes(Copy(Form_Main.Client_Path,1,Length(Form_Main.Client_Path)-1));
+  end;
+
+  Form_BrowseModel.Show;
+end;
+
+procedure TForm_BrowseModel.GLSceneViewer1MouseMove(Sender: TObject;
+  Shift: TShiftState; X, Y: Integer);
+var
+  helling,invhelling,i,j,moveX,moveY:single;
+begin
+    if (ssLeft in Shift) then
+    begin
+      GLCamera.MoveAroundTarget((viewY - y)*(GLCamera.DistanceToTarget/20), (viewX - x)*(GLCamera.DistanceToTarget/20));
+    end;
+
+    If ssRight in Shift then
+    begin
+      //Some security, before getting functions
+      If ((GLCamera.Position.X-GLDummyCube.Position.X)=0) or ((GLCamera.Position.Z-GLDummyCube.Position.Z)=0) then
+      begin
+        //Security is needed to activate:
+        If (GlCamera.Position.X-GLDummyCube.Position.X)=0 then
+        begin
+          helling:=999;
+          invhelling:=0;
+        end;
+
+
+        If (GlCamera.Position.Z-GLDummyCube.Position.Z)=0 then
+        begin
+          invhelling:=999;
+          helling:=0;
+        end;
+      end
+      else
+      begin
+        //Getting the functions where the camera, and the dummy should move on
+        helling     := ( GLCamera.Position.Z - GLDummyCube.Position.Z ) / ( GLCamera.Position.X - GLDummyCube.Position.X );
+        invhelling  :=  - ( 1 / helling );
+      end;
+
+      //Getting the direction to move along the function
+      If (GLCamera.Position.Z-GLDummyCube.Position.Z)<0 then
+      begin
+        i:=1;
+      end
+      else
+      begin
+        i:=-1;
+      end;
+
+      //Getting the direction to move along the invfunction
+      If (GLCamera.Position.X-GLDummyCube.Position.X)<0 then
+      begin
+        j:=-1;
+      end
+      else
+      begin
+        j:=1;
+      end;
+
+      //Calculating the amount as X to put in the normal function,
+      If helling=0 then
+      begin
+        moveY:=(ViewY-Y);
+      end
+      else
+      begin
+        moveY:=SQRT(Power((ViewY-Y),2)/(Power(helling,2)+1));
+        If ((ViewY-Y) < 0) and (MoveY > 0) then
+        begin
+          moveY:=-moveY;
+        end;
+      end;
+
+      //Calculating the amount as X to put in the invurse function,
+      If invhelling=0 then
+      begin
+        moveX:=-(ViewX-X);
+      end
+      else
+      begin
+        moveX:=SQRT(Power((ViewX-X),2)/(Power(invhelling,2)+1));
+        If ((ViewX-X) > 0) and (MoveX > 0) then
+        begin
+          moveX:=-moveX;
+        end;
+      end;
+
+      //Zoom is involved too...
+      moveX:=moveX*(GLCamera.DistanceToTarget/100);
+      moveY:=moveY*(GLCamera.DistanceToTarget/100);
+
+      //Moving the camera and the dummy along the function
+      GLCamera.Position.Z:=GLCamera.Position.Z+(j*(helling*moveY));
+      GlCamera.Position.X:=GLCamera.Position.X+(j*moveY);
+      GLDummyCube.Position.Z:=GLDummyCube.Position.Z+(j*(helling*moveY));
+      GlDummyCube.Position.X:=GLDummyCube.Position.X+(j*moveY);
+
+      //Moving the camera and the dummy along the invfunction
+      GLCamera.Position.Z:=GLCamera.Position.Z+(i*(invhelling*moveX));
+      GlCamera.Position.X:=GLCamera.Position.X+(i*moveX);
+      GLDummyCube.Position.Z:=GLDummyCube.Position.Z+(i*(invhelling*moveX));
+      GlDummyCube.Position.X:=GLDummyCube.Position.X+(i*moveX);
+    end;
+
+    ViewX := X; ViewY := Y;
+
+end;
+
+procedure TForm_BrowseModel.FormCreate(Sender: TObject);
+begin
+        GlFreeForm.Rotation.X:=90;
+        GLFreeForm.Rotation.Y:=180;
+        GLFreeForm.Rotation.Z:=180;
+
+        GLFreeForm.Scale.X:=1/32;
+        GLFreeForm.Scale.Y:=1/32;
+        GLFreeForm.Scale.Z:=1/32;
+
+        //GLFreeForm.NormalsOrientation:=mnoInvert;
+end;
+
+procedure TForm_BrowseModel.FormMouseWheelDown(Sender: TObject;
+  Shift: TShiftState; MousePos: TPoint; var Handled: Boolean);
+var
+  pt:TPoint;
+begin
+  Pt:=MousePos;
+  If (Pt.X>FileBox.Left) and (Pt.Y>FileBox.TOP) and (Pt.Y<(FileBox.TOP+FileBox.Height)) and (Pt.X<(FileBox.Left+Height)) then
+  begin
+  end
+  else
+  begin
+    //Self.ActiveControl:=nil;
+    //ShowMessage('h i');
+    GLCamera.AdjustDistanceToTarget(1.00+((GLCamera.DistanceToTarget/1000)));
+    //GLCamera.AdjustDistanceToTarget(GLCamera.DistanceToTarget+(GLCamera.DistanceToTarget*0.001));
+  end;
+  //GLCamera.AdjustDistanceToTarget(1.0+((GLCamera.DistanceToTarget/500)));
+end;
+
+procedure TForm_BrowseModel.Button_SaveClick(Sender: TObject);
+var
+  Str:String;
+begin
+  Str:=Copy(FileBox.FileName,Length(Form_Main.Client_Path)+1,Length(FileBox.FileName)) ;
+  Form_Main.OPL.Node[OPL_Node].Path:=Copy(Str,1,Length(Str)-3);
+
+  Form_Main.DisplayOPLNodeInfo(Unit1.Selected_OPLs);
+
+  Form_Main.PositionOPLNode(OPL_Node,True,Form_Main.CheckBox_ShowOPLModels.Checked,Form_Main.CheckBox_ShowOPLTextures.Checked);
+  Self.Close;
+
+end;
+
+procedure TForm_BrowseModel.FormMouseWheelUp(Sender: TObject;
+  Shift: TShiftState; MousePos: TPoint; var Handled: Boolean);
+var
+  pt:TPoint;
+begin
+  pt:=MousePos;
+  If (Pt.X>FileBox.Left) and (Pt.Y>FileBox.TOP) and (Pt.Y<(FileBox.TOP+FileBox.Height)) and (Pt.X<(FileBox.Left+Height)) then
+  begin
+  end
+  else
+  begin
+    //Self.ActiveControl:=nil;
+    GLCamera.AdjustDistanceToTarget(0.99-((GLCamera.DistanceToTarget/1000)));
+    //GLCamera.AdjustDistanceToTarget(GLCamera.DistanceToTarget+0.5);
+    //GLCamera.AdjustDistanceToTarget(GLCamera.DistanceToTarget-(GLCamera.DistanceToTarget*0.01));
+  end;
+
+end;
+
+end.

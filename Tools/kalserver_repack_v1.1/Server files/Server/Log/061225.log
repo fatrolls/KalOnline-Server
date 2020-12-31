@@ -1,0 +1,19 @@
+06/12/25 11:41:30 Server started
+06/12/25 11:41:30 Server is ready on port 50001, 50002 (time stamp: 05/08/09 14:24:32 (KR))
+06/12/25 11:41:32 Server started
+06/12/25 11:41:32 Server is ready on port 40001 (time stamp: 06/05/24 19:06:26 (KR))
+06/12/25 11:41:35 Server started
+06/12/25 11:41:35 DB server version (Version:6, IID:0x2)
+06/12/25 11:41:35 Auth server version (Version:2)
+06/12/25 11:41:42 Server is ready on port 30001 (time stamp: 06/06/01 11:11:32 (KR))
+06/12/25 11:42:02 Shutdown started
+06/12/25 11:42:04 Shutdown completed
+06/12/25 11:41:35 new connection 127.0.0.1
+06/12/25 11:42:04 close connection 127.0.0.1
+06/12/25 11:42:10 Shutdown started
+06/12/25 11:42:11 Shutdown completed. (MaxUser:0)
+06/12/25 11:41:35 new connection 127.0.0.1
+06/12/25 11:41:35 max item ID(2)
+06/12/25 11:42:04 close connection 127.0.0.1
+06/12/25 11:42:11 Shutdown started
+06/12/25 11:42:12 Shutdown completed

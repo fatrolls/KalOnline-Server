@@ -1,0 +1,23 @@
+Effect IDs
+
+1 - Medicine
+3 - Level-Up
+4 - Scroll of Rebirth
+5 - Scroll of Power Improvement
+6 - Scroll of Damage Reduction
+7 - Scroll of High Explosive Blow Improvement
+8 - Scroll of Accuracy Improvement
+9 - Scroll of Evasion Improvement
+10 - Scroll of Perfect Defense
+11 - Scroll of HP Absorption
+12 - Potion of Tiger Claws
+13 - Potion of Bear Skin
+14 - Potion of Wisdom
+15 - Potion of Foresight
+16 - Potion of Eagle Wings
+18 - Fishing Stone
+19 - EXP Stone
+20 - Wealth Stone
+21 - Lucky Key
+22 - Lucky Stone
+33 - Lightning Blow

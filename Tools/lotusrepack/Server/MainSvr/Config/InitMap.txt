@@ -1,0 +1,278 @@
+; ----- 2005. 12. 27 Update -----
+
+
+; 서버맵 좌표 x=0 -------------------------------------------------------------------------------------
+(initmap (index 1) (kind 1) (xy 0 0) (filename "n_000_000.ksm"))
+(initmap (index 1) (kind 1) (xy 0 1) (filename "n_000_001.ksm"))
+
+;시나리오1 던젼 - index 3
+(initmap (index 3) (kind 1) (xy 0 2) (filename "n_000_002.ksm"))
+(initmap (index 3) (kind 1) (xy 0 3) (filename "n_000_003.ksm"))
+(initmap (index 3) (kind 1) (xy 0 4) (filename "n_000_004.ksm"))
+(initmap (index 3) (kind 1) (xy 0 5) (filename "n_000_005.ksm"))
+
+;시나리오2 던젼 - index 4
+(initmap (index 4) (kind 1) (xy 0 6) (filename "n_000_006.ksm"))
+(initmap (index 4) (kind 1) (xy 0 7) (filename "n_000_007.ksm"))
+(initmap (index 4) (kind 1) (xy 0 8) (filename "n_000_008.ksm"))
+(initmap (index 4) (kind 1) (xy 0 9) (filename "n_000_009.ksm"))
+
+
+
+; 서버맵 좌표 x=1 -------------------------------------------------------------------------------------
+(initmap (index 1) (kind 1) (xy 1 0) (filename "n_001_000.ksm"))
+(initmap (index 1) (kind 1) (xy 1 1) (filename "n_001_001.ksm"))
+
+;시나리오1
+(initmap (index 3) (kind 1) (xy 1 2) (filename "n_001_002.ksm"))
+(initmap (index 3) (kind 1) (xy 1 3) (filename "n_001_003.ksm"))
+(initmap (index 3) (kind 1) (xy 1 4) (filename "n_001_004.ksm"))
+(initmap (index 3) (kind 1) (xy 1 5) (filename "n_001_005.ksm"))
+
+;시나리오2
+(initmap (index 4) (kind 1) (xy 1 6) (filename "n_001_006.ksm"))
+(initmap (index 4) (kind 1) (xy 1 7) (filename "n_001_007.ksm"))
+(initmap (index 4) (kind 1) (xy 1 8) (filename "n_001_008.ksm"))
+(initmap (index 4) (kind 1) (xy 1 9) (filename "n_001_009.ksm"))
+
+
+
+; 서버맵 좌표 x=2 -------------------------------------------------------------------------------------
+;시나리오1
+(initmap (index 3) (kind 1) (xy 2 0) (filename "n_002_000.ksm"))
+(initmap (index 3) (kind 1) (xy 2 1) (filename "n_002_001.ksm"))
+(initmap (index 3) (kind 1) (xy 2 2) (filename "n_002_002.ksm"))
+(initmap (index 3) (kind 1) (xy 2 3) (filename "n_002_003.ksm"))
+(initmap (index 3) (kind 1) (xy 2 4) (filename "n_002_004.ksm"))
+(initmap (index 3) (kind 1) (xy 2 5) (filename "n_002_005.ksm"))
+
+;시나리오2
+(initmap (index 4) (kind 1) (xy 2 6) (filename "n_002_006.ksm"))
+(initmap (index 4) (kind 1) (xy 2 7) (filename "n_002_007.ksm"))
+(initmap (index 4) (kind 1) (xy 2 8) (filename "n_002_008.ksm"))
+(initmap (index 4) (kind 1) (xy 2 9) (filename "n_002_009.ksm"))
+
+
+
+
+
+; 서버맵 좌표 x=3 -------------------------------------------------------------------------------------
+;시나리오1
+(initmap (index 3) (kind 1) (xy 3 0) (filename "n_003_000.ksm"))
+(initmap (index 3) (kind 1) (xy 3 1) (filename "n_003_001.ksm"))
+(initmap (index 3) (kind 1) (xy 3 2) (filename "n_003_002.ksm"))
+(initmap (index 3) (kind 1) (xy 3 3) (filename "n_003_003.ksm"))
+(initmap (index 3) (kind 1) (xy 3 4) (filename "n_003_004.ksm"))
+(initmap (index 3) (kind 1) (xy 3 5) (filename "n_003_005.ksm"))
+
+; 시나리오2
+(initmap (index 4) (kind 1) (xy 3 6) (filename "n_003_006.ksm"))
+(initmap (index 4) (kind 1) (xy 3 7) (filename "n_003_007.ksm"))
+(initmap (index 4) (kind 1) (xy 3 8) (filename "n_003_008.ksm"))
+(initmap (index 4) (kind 1) (xy 3 9) (filename "n_003_009.ksm"))
+
+
+
+
+
+; 서버맵 좌표 x=4 -------------------------------------------------------------------------------------
+;시나리오1
+(initmap (index 3) (kind 1) (xy 4 0) (filename "n_004_000.ksm"))
+(initmap (index 3) (kind 1) (xy 4 1) (filename "n_004_001.ksm"))
+(initmap (index 3) (kind 1) (xy 4 2) (filename "n_004_002.ksm"))
+(initmap (index 3) (kind 1) (xy 4 3) (filename "n_004_003.ksm"))
+
+;시나리오2
+(initmap (index 4) (kind 1) (xy 4 4) (filename "n_004_004.ksm"))
+(initmap (index 4) (kind 1) (xy 4 5) (filename "n_004_005.ksm"))
+(initmap (index 4) (kind 1) (xy 4 6) (filename "n_004_006.ksm"))
+(initmap (index 4) (kind 1) (xy 4 7) (filename "n_004_007.ksm"))
+
+
+
+
+
+; 서버맵 좌표 x=5 -------------------------------------------------------------------------------------
+;시나리오1
+(initmap (index 3) (kind 1) (xy 5 0) (filename "n_005_000.ksm"))
+(initmap (index 3) (kind 1) (xy 5 1) (filename "n_005_001.ksm"))
+(initmap (index 3) (kind 1) (xy 5 2) (filename "n_005_002.ksm"))
+(initmap (index 3) (kind 1) (xy 5 3) (filename "n_005_003.ksm"))
+
+;시나리오2
+(initmap (index 4) (kind 1) (xy 5 4) (filename "n_005_004.ksm"))
+(initmap (index 4) (kind 1) (xy 5 5) (filename "n_005_005.ksm"))
+(initmap (index 4) (kind 1) (xy 5 6) (filename "n_005_006.ksm"))
+(initmap (index 4) (kind 1) (xy 5 7) (filename "n_005_007.ksm"))
+
+
+
+
+
+
+; 서버맵 좌표 x=6 -------------------------------------------------------------------------------------
+(initmap (index 2) (kind 1) (xy 6 4) (filename "n_006_004.ksm"))
+(initmap (index 2) (kind 1) (xy 6 5) (filename "n_006_005.ksm"))
+
+;시나리오1
+(initmap (index 3) (kind 1) (xy 6 0) (filename "n_006_000.ksm"))
+(initmap (index 3) (kind 1) (xy 6 1) (filename "n_006_001.ksm"))
+(initmap (index 3) (kind 1) (xy 6 2) (filename "n_006_002.ksm"))
+(initmap (index 3) (kind 1) (xy 6 3) (filename "n_006_003.ksm"))
+
+
+
+
+
+
+; 서버맵 좌표 x=7 -------------------------------------------------------------------------------------
+(initmap (index 2) (kind 1) (xy 7 4) (filename "n_007_004.ksm"))
+(initmap (index 2) (kind 1) (xy 7 5) (filename "n_007_005.ksm"))
+
+;시나리오1
+(initmap (index 3) (kind 1) (xy 7 0) (filename "n_007_000.ksm"))
+(initmap (index 3) (kind 1) (xy 7 1) (filename "n_007_001.ksm"))
+(initmap (index 3) (kind 1) (xy 7 2) (filename "n_007_002.ksm"))
+(initmap (index 3) (kind 1) (xy 7 3) (filename "n_007_003.ksm"))
+
+
+
+
+
+
+; 서버맵 index=0 (일반 필드맵) ------------------------------------------------------------------------
+
+(initmap (index 0) (kind 1) (xy 25 35) (filename "n_025_035.ksm"))
+(initmap (index 0) (kind 1) (xy 25 36) (filename "n_025_036.ksm"))
+
+(initmap (index 0) (kind 1) (xy 26 25) (filename "n_026_025.ksm"))
+(initmap (index 0) (kind 1) (xy 26 26) (filename "n_026_026.ksm"))
+(initmap (index 0) (kind 1) (xy 26 27) (filename "n_026_026.ksm"))
+(initmap (index 0) (kind 1) (xy 26 35) (filename "n_026_035.ksm"))
+(initmap (index 0) (kind 1) (xy 26 36) (filename "n_026_036.ksm"))
+(initmap (index 0) (kind 1) (xy 26 37) (filename "n_026_037.ksm"))
+(initmap (index 0) (kind 1) (xy 26 38) (filename "n_026_038.ksm"))
+(initmap (index 0) (kind 1) (xy 26 39) (filename "n_026_039.ksm"))
+
+(initmap (index 0) (kind 1) (xy 27 25) (filename "n_027_025.ksm"))
+(initmap (index 0) (kind 1) (xy 27 26) (filename "n_027_026.ksm"))
+(initmap (index 0) (kind 1) (xy 27 27) (filename "n_027_026.ksm"))
+(initmap (index 0) (kind 1) (xy 27 34) (filename "n_027_034.ksm"))
+(initmap (index 0) (kind 1) (xy 27 35) (filename "n_027_035.ksm"))
+(initmap (index 0) (kind 1) (xy 27 36) (filename "n_027_036.ksm"))
+(initmap (index 0) (kind 1) (xy 27 37) (filename "n_027_037.ksm"))
+(initmap (index 0) (kind 1) (xy 27 38) (filename "n_027_038.ksm"))
+(initmap (index 0) (kind 1) (xy 27 39) (filename "n_027_039.ksm"))
+
+(initmap (index 0) (kind 1) (xy 28 28) (filename "n_028_028.ksm"))
+(initmap (index 0) (kind 1) (xy 28 29) (filename "n_028_029.ksm"))
+(initmap (index 0) (kind 1) (xy 28 30) (filename "n_028_030.ksm"))
+(initmap (index 0) (kind 1) (xy 28 31) (filename "n_028_031.ksm"))
+(initmap (index 0) (kind 1) (xy 28 32) (filename "n_028_032.ksm"))
+(initmap (index 0) (kind 1) (xy 28 33) (filename "n_028_033.ksm"))
+(initmap (index 0) (kind 1) (xy 28 34) (filename "n_028_034.ksm"))
+(initmap (index 0) (kind 1) (xy 28 35) (filename "n_028_035.ksm"))
+(initmap (index 0) (kind 1) (xy 28 36) (filename "n_028_036.ksm"))
+(initmap (index 0) (kind 1) (xy 28 37) (filename "n_028_037.ksm"))
+(initmap (index 0) (kind 1) (xy 28 38) (filename "n_028_038.ksm"))
+(initmap (index 0) (kind 1) (xy 28 39) (filename "n_028_039.ksm"))
+
+(initmap (index 0) (kind 1) (xy 29 27) (filename "n_029_027.ksm"))
+(initmap (index 0) (kind 1) (xy 29 28) (filename "n_029_028.ksm"))
+(initmap (index 0) (kind 1) (xy 29 29) (filename "n_029_029.ksm"))
+(initmap (index 0) (kind 1) (xy 29 30) (filename "n_029_030.ksm"))
+(initmap (index 0) (kind 1) (xy 29 31) (filename "n_029_031.ksm"))
+(initmap (index 0) (kind 1) (xy 29 32) (filename "n_029_032.ksm"))
+(initmap (index 0) (kind 1) (xy 29 33) (filename "n_029_033.ksm"))
+(initmap (index 0) (kind 1) (xy 29 34) (filename "n_029_034.ksm"))
+(initmap (index 0) (kind 1) (xy 29 35) (filename "n_029_035.ksm"))
+(initmap (index 0) (kind 1) (xy 29 36) (filename "n_029_036.ksm"))
+(initmap (index 0) (kind 1) (xy 29 37) (filename "n_029_037.ksm"))
+(initmap (index 0) (kind 1) (xy 29 38) (filename "n_029_038.ksm"))
+(initmap (index 0) (kind 1) (xy 29 39) (filename "n_029_039.ksm"))
+
+(initmap (index 0) (kind 1) (xy 30 26) (filename "n_030_026.ksm"))
+(initmap (index 0) (kind 1) (xy 30 27) (filename "n_030_027.ksm"))
+(initmap (index 0) (kind 1) (xy 30 28) (filename "n_030_028.ksm"))
+(initmap (index 0) (kind 1) (xy 30 29) (filename "n_030_029.ksm"))
+(initmap (index 0) (kind 1) (xy 30 30) (filename "n_030_030.ksm"))
+(initmap (index 0) (kind 1) (xy 30 31) (filename "n_030_031.ksm"))
+(initmap (index 0) (kind 1) (xy 30 32) (filename "n_030_032.ksm"))
+(initmap (index 0) (kind 1) (xy 30 33) (filename "n_030_033.ksm"))
+(initmap (index 0) (kind 1) (xy 30 34) (filename "n_030_034.ksm"))
+(initmap (index 0) (kind 1) (xy 30 35) (filename "n_030_035.ksm"))
+(initmap (index 0) (kind 1) (xy 30 36) (filename "n_030_036.ksm"))
+(initmap (index 0) (kind 1) (xy 30 37) (filename "n_030_037.ksm"))
+
+(initmap (index 0) (kind 1) (xy 31 26) (filename "n_031_026.ksm"))
+(initmap (index 0) (kind 1) (xy 31 27) (filename "n_031_027.ksm"))
+(initmap (index 0) (kind 1) (xy 31 28) (filename "n_031_028.ksm"))
+(initmap (index 0) (kind 1) (xy 31 29) (filename "n_031_029.ksm"))
+(initmap (index 0) (kind 1) (xy 31 30) (filename "n_031_030.ksm"))
+(initmap (index 0) (kind 1) (xy 31 31) (filename "n_031_031.ksm"))
+(initmap (index 0) (kind 1) (xy 31 32) (filename "n_031_032.ksm"))
+(initmap (index 0) (kind 1) (xy 31 33) (filename "n_031_033.ksm"))
+(initmap (index 0) (kind 1) (xy 31 34) (filename "n_031_034.ksm"))
+(initmap (index 0) (kind 1) (xy 31 35) (filename "n_031_035.ksm"))
+(initmap (index 0) (kind 1) (xy 31 36) (filename "n_031_036.ksm"))
+(initmap (index 0) (kind 1) (xy 31 37) (filename "n_031_037.ksm"))
+
+(initmap (index 0) (kind 1) (xy 32 25) (filename "n_032_025.ksm"))
+(initmap (index 0) (kind 1) (xy 32 26) (filename "n_032_026.ksm"))
+(initmap (index 0) (kind 1) (xy 32 27) (filename "n_032_027.ksm"))
+(initmap (index 0) (kind 1) (xy 32 28) (filename "n_032_028.ksm"))
+(initmap (index 0) (kind 1) (xy 32 29) (filename "n_032_029.ksm"))
+(initmap (index 0) (kind 1) (xy 32 30) (filename "n_032_030.ksm"))
+(initmap (index 0) (kind 1) (xy 32 31) (filename "n_032_031.ksm"))
+(initmap (index 0) (kind 1) (xy 32 32) (filename "n_032_032.ksm"))
+(initmap (index 0) (kind 1) (xy 32 33) (filename "n_032_033.ksm"))
+(initmap (index 0) (kind 1) (xy 32 34) (filename "n_032_034.ksm"))
+(initmap (index 0) (kind 1) (xy 32 35) (filename "n_032_035.ksm"))
+(initmap (index 0) (kind 1) (xy 32 36) (filename "n_032_036.ksm"))
+(initmap (index 0) (kind 1) (xy 32 37) (filename "n_032_037.ksm"))
+
+(initmap (index 0) (kind 1) (xy 33 25) (filename "n_033_025.ksm"))
+(initmap (index 0) (kind 1) (xy 33 26) (filename "n_033_026.ksm"))
+(initmap (index 0) (kind 1) (xy 33 27) (filename "n_033_027.ksm"))
+(initmap (index 0) (kind 1) (xy 33 28) (filename "n_033_028.ksm"))
+(initmap (index 0) (kind 1) (xy 33 29) (filename "n_033_029.ksm"))
+(initmap (index 0) (kind 1) (xy 33 30) (filename "n_033_030.ksm"))
+(initmap (index 0) (kind 1) (xy 33 31) (filename "n_033_031.ksm"))
+(initmap (index 0) (kind 1) (xy 33 32) (filename "n_033_032.ksm"))
+(initmap (index 0) (kind 1) (xy 33 33) (filename "n_033_033.ksm"))
+(initmap (index 0) (kind 1) (xy 33 34) (filename "n_033_034.ksm"))
+(initmap (index 0) (kind 1) (xy 33 35) (filename "n_033_035.ksm"))
+(initmap (index 0) (kind 1) (xy 33 36) (filename "n_033_036.ksm"))
+(initmap (index 0) (kind 1) (xy 33 37) (filename "n_033_037.ksm"))
+(initmap (index 0) (kind 1) (xy 33 38) (filename "n_033_038.ksm"))
+
+(initmap (index 0) (kind 1) (xy 34 26) (filename "n_034_026.ksm"))
+(initmap (index 0) (kind 1) (xy 34 27) (filename "n_034_027.ksm"))
+(initmap (index 0) (kind 1) (xy 34 28) (filename "n_034_028.ksm"))
+(initmap (index 0) (kind 1) (xy 34 29) (filename "n_034_029.ksm"))
+(initmap (index 0) (kind 1) (xy 34 30) (filename "n_034_030.ksm"))
+(initmap (index 0) (kind 1) (xy 34 31) (filename "n_034_031.ksm"))
+(initmap (index 0) (kind 1) (xy 34 32) (filename "n_034_032.ksm"))
+
+(initmap (index 0) (kind 1) (xy 34 33) (filename "n_034_033.ksm"))
+(initmap (index 0) (kind 1) (xy 34 34) (filename "n_034_034.ksm"))
+(initmap (index 0) (kind 1) (xy 34 35) (filename "n_034_035.ksm"))
+(initmap (index 0) (kind 1) (xy 34 36) (filename "n_034_036.ksm"))
+(initmap (index 0) (kind 1) (xy 34 37) (filename "n_034_037.ksm"))
+(initmap (index 0) (kind 1) (xy 34 38) (filename "n_034_038.ksm"))
+
+(initmap (index 0) (kind 1) (xy 35 26) (filename "n_035_026.ksm"))
+(initmap (index 0) (kind 1) (xy 35 27) (filename "n_035_027.ksm"))
+(initmap (index 0) (kind 1) (xy 35 28) (filename "n_035_028.ksm"))
+(initmap (index 0) (kind 1) (xy 35 29) (filename "n_035_029.ksm"))
+(initmap (index 0) (kind 1) (xy 35 30) (filename "n_035_030.ksm"))
+(initmap (index 0) (kind 1) (xy 35 31) (filename "n_035_031.ksm"))
+(initmap (index 0) (kind 1) (xy 35 32) (filename "n_035_032.ksm"))
+(initmap (index 0) (kind 1) (xy 35 33) (filename "n_035_033.ksm"))
+
+(initmap (index 0) (kind 1) (xy 36 27) (filename "n_036_027.ksm"))
+(initmap (index 0) (kind 1) (xy 36 28) (filename "n_036_028.ksm"))
+(initmap (index 0) (kind 1) (xy 36 29) (filename "n_036_029.ksm"))
+(initmap (index 0) (kind 1) (xy 36 30) (filename "n_036_030.ksm"))
+(initmap (index 0) (kind 1) (xy 36 31) (filename "n_036_031.ksm"))
+

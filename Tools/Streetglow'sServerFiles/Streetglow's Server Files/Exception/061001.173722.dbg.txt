@@ -1,0 +1,70 @@
+[84c 2006/10/01 17:37:22]: Dump Stack =======================
+start at 06/10/01 17:37:05
+Call Stack Information 0 (854):
+
+Registers:
+EAX=004a0bbb CS=001b EIP=7c90eb94 EFLGS=00000246
+EBX=00364ca8 SS=0023 ESP=01d9ff28 EBP=01d9ff54
+ECX=00000002 DS=0023 ESI=00364ca8 FS=003b
+EDX=00363bc8 ES=0023 EDI=7c9140bb GS=0000
+
+Stack dump:
+01d9ff20: 804dc2ba 88b6818c 7c90e31b 7c80a746 000000cc 01d9ff70 01d9ff6c 01d9ff4c
+01d9ff40: 00000000 7c90e64e 7c862d5f fffffffe 0000000d 01d9ff80 00423eef 000000cc
+01d9ff60: 01d9ff78 01d9ff70 01d9ff7c ffffffff 806ef2e7 7c9140bb 00364ca8 01d9ffb4
+01d9ff80: 01d9ffb4 004a0c2a 00000000 7c9140bb 00000000 00364ca8 00000000 01d9ff8c
+01d9ffa0: 804fa881 01d9ffdc 004a0820 004d29b0 00000000 01d9ffec 7c80b683 00364ca8
+
+Call Stack:
+
+01d9ff54  7c90eb94 KiFastSystemCallRet +0
+C:\WINDOWS\system32\ntdll.dll KiFastSystemCallRet
+Params:   000000cc 01d9ff78 01d9ff70 01d9ff7c
+
+01d9ff80  00423eef C:\Program Files\KalOnline_own\server\MainSvr\MainSvrT.exe 
+Params:   00000000 7c9140bb 00000000 00364ca8
+
+01d9ffb4  004a0c2a C:\Program Files\KalOnline_own\server\MainSvr\MainSvrT.exe 
+Params:   00364ca8 7c9140bb 00000000 00364ca8
+01d9ffc0: 7c9140bb 00000000 00364ca8 7ffdd000 8977f600 01d9ffc0 88de6958 ffffffff
+01d9ffe0: 7c839aa8 7c80b690 00000000 00000000 00000000 004a0bbb 00364ca8 00000000
+
+01d9ffec  7c80b683 GetModuleFileNameA +1b4
+C:\WINDOWS\system32\kernel32.dll GetModuleFileNameA
+Params:   004a0bbb 00364ca8 00000000 00000000
+
+Call Stack Information 1 (850):
+
+Registers:
+EAX=fcfcfcfc CS=001b EIP=7c90eb94 EFLGS=00000246
+EBX=00364d40 SS=0023 ESP=01e9ff28 EBP=01e9ff54
+ECX=0000062e DS=0023 ESI=00364d40 FS=003b
+EDX=00000000 ES=0023 EDI=7c9140bb GS=0000
+
+Stack dump:
+01e9ff20: 0042408d 00af496c 7c90e31b 7c80a746 000000cc 01e9ff70 01e9ff6c 01e9ff4c
+01e9ff40: 00000000 00401df6 004da6fc 004da6f0 01e9ff5c 01e9ff80 00423eef 000000cc
+01e9ff60: 01e9ff78 01e9ff70 01e9ff7c ffffffff 004da6f0 00000001 00000006 004da738
+01e9ff80: 01e9ffb4 004a0c2a 00000001 7c9140bb 00000000 00364d40 00000000 01e9ff8c
+01e9ffa0: 804fa881 01e9ffdc 004a0820 004d29b0 00000000 01e9ffec 7c80b683 00364d40
+
+Call Stack:
+
+01e9ff54  7c90eb94 KiFastSystemCallRet +0
+C:\WINDOWS\system32\ntdll.dll KiFastSystemCallRet
+Params:   000000cc 01e9ff78 01e9ff70 01e9ff7c
+
+01e9ff80  00423eef C:\Program Files\KalOnline_own\server\MainSvr\MainSvrT.exe 
+Params:   00000001 7c9140bb 00000000 00364d40
+
+01e9ffb4  004a0c2a C:\Program Files\KalOnline_own\server\MainSvr\MainSvrT.exe 
+Params:   00364d40 7c9140bb 00000000 00364d40
+01e9ffc0: 7c9140bb 00000000 00364d40 7ffdc000 8977f600 01e9ffc0 88b2acb8 ffffffff
+01e9ffe0: 7c839aa8 7c80b690 00000000 00000000 00000000 004a0bbb 00364d40 00000000
+
+01e9ffec  7c80b683 GetModuleFileNameA +1b4
+C:\WINDOWS\system32\kernel32.dll GetModuleFileNameA
+Params:   004a0bbb 00364d40 00000000 0f8e0000
+
+Module list:
+C:\Program Files\KalOnline_own\server\MainSvr\MainSvrT.exe, loaded at 0x00400000 - 06/06/01 11:11:32 (KR)

@@ -1,0 +1,15 @@
+29.02.2007 - KOSP Final R10 (3.55.145.941)
+------------------------------------------
+
+1.) Bugfix in the KOSP license instance
+
+27.02.2007 - KOCP Final R10 (2.35.84.493)
+------------------------------------------
+
+1.) Add 'Memory Hacking Software' (4.0.0.13) into black list
+
+27.02.2007 - KOSP Final R10 (3.54.143.930)
+------------------------------------------
+
+1.) Rewrite the free serial order system
+2.) Add an update info system

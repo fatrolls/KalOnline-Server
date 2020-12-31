@@ -1,0 +1,2 @@
+( monstername 977 "Little Doggebi Lord")
+( monstername 999 "Small Bloody Monster")

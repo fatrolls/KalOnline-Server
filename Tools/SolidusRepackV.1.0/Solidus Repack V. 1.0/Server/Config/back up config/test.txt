@@ -1,0 +1,3 @@
+initmonster  lvl 98 mob
+
+250000 need to added to hp

@@ -1,0 +1,84 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B454E0FA-0FDF-429E-A7D5-40E464CEF831}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KalServer</RootNamespace>
+    <AssemblyName>KalServer</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Data.SqliteClient, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Mono.Data.SqliteClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="AI\AIDelayedEvent.cs" />
+    <Compile Include="AI\AIScheduledEvent.cs" />
+    <Compile Include="AI\AIThread.cs" />
+    <Compile Include="CommandHandler.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="MapNode.cs" />
+    <Compile Include="GameCharacter.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Coder.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ItemTemplate.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Monster.cs" />
+    <Compile Include="ObjectPosition.cs" />
+    <Compile Include="Packets\PacketHandler.cs" />
+    <Compile Include="Packets\PacketHandlers.cs" />
+    <Compile Include="Packets\PacketReader.cs" />
+    <Compile Include="Packets\Packets.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PlayerListItem.cs" />
+    <Compile Include="Resistances.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="SkillHandler.cs" />
+    <Compile Include="Spawn.cs" />
+    <Compile Include="Stats.cs" />
+    <Compile Include="TemplateManager.cs" />
+    <Compile Include="World.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

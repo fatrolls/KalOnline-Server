@@ -1,0 +1,39 @@
+Version 0.5.0 - 03-21-2008
+
+    * Fixed bug in header format documentation and reading where the mesh count
+      was reversed with the material count
+    * Fixed bug in header reading where keyFrameCount was being read as a 4
+      byte integer instead of a 2 byte short and unknown0 wasn't being read
+      thereafter
+    * Fixed bug in header reading where the crc32 wasn't converted from a tuple
+      type to a integer
+    * Fixed bug where a file that contained an armature and/or animation
+      weren't being added to the scene
+    * Added bare minimal support to read vertex formats 6 to 11
+
+Version 0.4.0 - 03-15-2008
+
+    * Changed UI to include control states by visibility
+    * Added yes or no question when removing a mesh
+    * Added texture importing through texture extension override option, by
+      request from 007Luk
+
+Version 0.3.0 - 03-09-2008
+
+    * Changed scale and rotation controls from Number's to Slider's
+    * Added flip normals and smooth toggle buttons, set to default as True, by
+      request from Salvation
+    * Added animation importing!
+
+Version 0.2.0 - 12-30-2007
+
+    * Added per-face UV coordinates
+    * Added partial material support
+    * Added mesh names from descriptor
+    * Updated user interface
+    * Fixed reading of triangle list face indices
+
+Version 0.1.0 - 12-28-2007
+
+    * Initial release
+

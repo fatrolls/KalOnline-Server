@@ -1,0 +1,49 @@
+[a08 2006/10/05 15:12:19]: ======================= first excpetion
+start at 06/10/05 15:12:19
+C:\Program Files\KalOnline_own\server\MainSvr\hehe.exe, run by Angelo.
+1 processor(s), type 586.
+1280 MBytes physical memory.
+an Access Violation in module USER32.dll at 001b:77d19de9.
+Read from location 004f2ef2 caused an access violation.
+
+Registers:
+EAX=004f2ef2 CS=001b EIP=77d19de9 EFLGS=00010202
+EBX=000008a8 SS=0023 ESP=0012fe2c EBP=0012fe38
+ECX=7c809ff5 DS=0023 ESI=00000001 FS=003b
+EDX=000e5000 ES=0023 EDI=0012fe68 GS=0000
+
+Bytes at CS:EIP:
+0f b7 18 40 40 4e 75 f5 83 7d 14 00 0f 84 3b 72 
+
+Stack dump:
+0012fe20: 00000000 0006a3dc 00000000 00000000 00000000 00000000 0012fe5c 77d21004
+0012fe40: 00400000 0000006d 0012fe68 00000000 004f1a4c 7c80b6a1 7ffdf000 0012fe98
+0012fe60: 0043462c 00400000 0000006d 004e1288 00000064 00000000 7ffdf000 00000100
+0012fe80: 0012fe90 00497cbe 00497cc7 004aa7f7 00000022 00000000 0012ffc0 004a1c07
+0012fea0: 00400000 00000000 001423d1 00000001 00000094 00000005 00000001 00000a28
+
+Call Stack Information:
+
+0012fe38  77d19de9 LoadCursorW +80
+C:\WINDOWS\system32\USER32.dll LoadCursorW
+Params:   00400000 0000006d 0012fe68 00000000
+
+0012fe5c  77d21004 LoadStringA +1c
+C:\WINDOWS\system32\USER32.dll LoadStringA
+Params:   00400000 0000006d 004e1288 00000064
+
+0012fe98  0043462c C:\Program Files\KalOnline_own\server\MainSvr\hehe.exe 
+Params:   00400000 00000000 001423d1 00000001
+0012ffa0: 001423d1 00000000 0012feb0 0012fa50 0012ffe0 004a0820 004d2a28 00000000
+0012ffc0: 0012fff0 7c816fd7 00370038 00350036 7ffdf000 8054a938 0012ffc8 890ba898
+
+0012ffc0  004a1c07 C:\Program Files\KalOnline_own\server\MainSvr\hehe.exe 
+Params:   00370038 00350036 7ffdf000 8054a938
+0012ffe0: ffffffff 7c839aa8 7c816fe0 00000000 00000000 00000000 004a1a83 00000000
+
+0012fff0  7c816fd7 RegisterWaitForInputIdle +49
+C:\WINDOWS\system32\kernel32.dll RegisterWaitForInputIdle
+Params:   004a1a83 00000000 78746341 00000020
+
+Module list:
+C:\Program Files\KalOnline_own\server\MainSvr\hehe.exe, loaded at 0x00400000 - 06/06/01 11:11:32 (KR)

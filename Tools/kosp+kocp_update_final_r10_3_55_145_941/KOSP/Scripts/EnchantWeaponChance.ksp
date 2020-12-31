@@ -1,0 +1,43 @@
+procedure EnchantWeaponChance()
+{
+
+   -- Get the properties value out of the config.properties
+   _EnchantWeaponChanceRate = parseInt(GetProperties("EnchantWeaponChanceRate", "1"))
+
+   !s_start:
+
+      -- Get and set the enchant stage weapon chance between 1 and 23
+      for offset=0x4D5B88,0x4D5BE4,4 do
+
+         chance = ReadMemoryDword(offset) * _EnchantWeaponChanceRate
+         WriteMemoryDword(offset, Max(chance, 0x989680))
+
+      end 
+
+      -- Get and set the TOA enchant stage weapon chance between 1 and 23
+      for offset=0x4D5C48,0x4D5CA4,4 do
+
+         chance = ReadMemoryDword(offset) * _EnchantWeaponChanceRate
+         WriteMemoryDword(offset, Max(chance, 0x989680))
+
+      end 
+
+   s_end:
+
+      -- Get and set the enchant stage weapon chance between 1 and 23
+      for offset=0x4D5B88,0x4D5BE4,4 do
+
+         chance = ReadMemoryDword(offset) / _EnchantWeaponChanceRate
+         WriteMemoryDword(offset, Max(chance, 0x989680))
+
+      end 
+
+      -- Get and set the TOA enchant stage weapon chance between 1 and 23
+      for offset=0x4D5C48,0x4D5CA4,4 do
+
+         chance = ReadMemoryDword(offset) / _EnchantWeaponChanceRate
+         WriteMemoryDword(offset, Max(chance, 0x989680))
+
+      end 
+
+}

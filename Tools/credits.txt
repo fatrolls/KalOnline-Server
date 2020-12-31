@@ -1,0 +1,144 @@
+Made by AlyeN
+ - KalOnline Advanced PK Editor
+ - KOCP - KalOnline Client Protect
+ - KOSP + KOCP Update Final R10 (3.55.145.941)
+ - KOSP - KalOnline Server Protect
+
+Made by Aweb
+ - Aweb's Full PK Editor
+
+Made by BakaBug
+ - AHS 3 - Anti Hack System III
+ - AHS 4 - Anti Hack System IV Build 021
+ - BakaDecoder (INT Files)
+ - DAT2TXT Conveter
+ - GB Viewer v0.6
+ - GTX2DDS Conveter
+ - Kal Proxy Sniffer
+ - KSM Editor v0.9
+ - OBJ2GB8 Conveter
+ - PK-Editor
+ - ServerManager
+ - Updater2
+
+Made by Bloodx
+ - KalOnline ServerMap Editor
+
+Made by Bluehair
+ - DDS Conveter 2
+
+Made by DeathArt
+ - Engine PK Password Encoder/Decoder
+ - GTX Viewer
+ - KalOnline ServerMap Editor
+ - SharpCrypt + Source
+ - SharpGTX2DDS Conveter
+ - Sword ClientMap Editor
+ - Sword Model Viewer
+
+Made by HOAX Team
+ - Drop Simulator
+ - HOAX Mob Spawn v1.0
+
+Made by IllusionDemise aka Perpetualfear
+ - PSUpdater2.0
+
+Made by Justei
+ - Kal Server-Loader
+ - NPC Maker
+
+Made by KaLua 
+ - KaLua PacketProxy
+
+Made by mar
+ - New 8 GM Commands
+
+Made by N3O
+ - SpawnED
+
+Made by Nod
+ - Password Finder
+
+Made by Nuclear
+ - KUUpdater
+
+Made by Old fisher
+ - KalOnline Helper
+
+Made by pacd
+ - Group Generator 2.0
+
+Made by Palu$
+ - Kal Server Controller Fixed
+
+Made by Peter S.Stevens
+ - Swordcrypt Delphi
+
+Made by Phantom
+ - Swordcrypt
+ - Swordcrypt Delphi
+
+Made by Reb3lzrr
+ - KalOnline (Auto) Itemlist Creator
+ - KalOnline Admin Panel v0.51
+ - KalOnline Admin Panel's SQL Part (Pre-Alpha)
+ - KalOnline Advanced Drop Editor
+ - KalOnline Auto Updater
+ - KalOnline ID's
+ - KalOnline ID's Core2
+ - KalOnline International Updater
+ - KalOnline Maps
+ - KalOnline Model Viewer
+ - KalOnline ServerMap Editor
+
+Made by rak3hunt
+ - KalOnline International Updater
+ - UpdateSvr 2.1
+
+Made by Sharingan 
+ - Change Drop Tool
+
+Made by silentius 
+ - KOFET 1.0 - Kal Online File Extraction Tool
+
+Made by StarFighter aka mOses 
+ - KODM - KalOnline Database Manager
+ - KODM v0.2.1 - KalOnline Database Manager
+
+Made by Swarm133
+ - Buff Maker
+
+Made by Syko
+ - KalOnline Luncher by Syko
+
+Made by thecode
+ - Groups Creator 1.2
+ - Groups Generator
+
+Made by Trevor White 
+ - QGen + QCalc
+
+Made by vanDit
+ - GeneTiX Conveter
+ - KalAdvance Suite
+ - SpawnED
+ - XP'ed
+
+Made by Windcape
+ - Sword OPL Editor
+
+Made by WyCKyD 
+ - KPL - Kal Player Locator
+ - Password Finder
+
+Made by YaRo. NKTeam
+ - Admin Tool v1.02
+ - Admin Tool v1.03
+ - Kal Luncher v1.02
+ - SFE v1.14a
+ - PK DAT Editor
+
+Others
+ - MonsterExp
+ - UnPacked Engine.exe
+ - Windows Vista Fix

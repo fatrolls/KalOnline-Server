@@ -1,0 +1,26 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\KAL_AUTH]
+"Driver"="c:\\WINDOWS\\System32\\SQLSRV32.dll"
+"Server"="(local)"
+"Database"="kal_auth"
+"LastUser"="Administrator"
+"Trusted_Connection"="Yes"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\KAL_DB]
+"Driver"="c:\\WINDOWS\\System32\\SQLSRV32.dll"
+"Server"="(local)"
+"Database"="kal_db"
+"LastUser"="Administrator"
+"Trusted_Connection"="Yes"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\ODBC Data Sources]
+"KAL_AUTH"="SQL Server"
+"KAL_DB"="SQL Server"
+
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\ODBC File DSN]
+"DefaultDSNDir"="C:\\Programme\\Gemeinsame Dateien\\ODBC\\Data Sources"
+

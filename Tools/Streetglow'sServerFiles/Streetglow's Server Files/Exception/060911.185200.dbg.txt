@@ -1,0 +1,46 @@
+[b68 2006/09/11 18:52:00]: ======================= first excpetion
+start at 06/09/11 18:51:56
+c:\Program Files\KalOnline_own\server\MainSvr\MainSvrT.exe, run by Angelo.
+1 processor(s), type 586.
+1280 MBytes physical memory.
+an Access Violation in module MainSvrT.exe at 001b:0044870c.
+Read from location fcfcfdc8 caused an access violation.
+
+Registers:
+EAX=0a8f1f44 CS=001b EIP=0044870c EFLGS=00010216
+EBX=00364d40 SS=0023 ESP=01eeff2c EBP=01eeff4c
+ECX=0a8f1f44 DS=0023 ESI=00364d40 FS=003b
+EDX=fcfcfcfc ES=0023 EDI=7c9140bb GS=0000
+
+Bytes at CS:EIP:
+ff 92 cc 00 00 00 eb d2 8b 4d e4 83 c1 10 e8 b1 
+
+Stack dump:
+01eeff20: 00000000 15555555 003624b8 00000001 004e1ad8 0a8f1f44 0c8f1ce0 01eeff4c
+01eeff40: 00000000 00000001 00000002 01eeff5c 00423c61 00000001 004e1ad8 01eeff80
+01eeff60: 00423f14 00000001 00000001 00000000 004e1ad8 00000001 00000001 00000000
+01eeff80: 01eeffb4 004a0c2a 00000001 7c9140bb 00000000 00364d40 c0000005 01eeff8c
+01eeffa0: 01eefb50 01eeffdc 004a0820 004d29b0 00000000 01eeffec 7c80b683 00364d40
+
+Call Stack Information:
+
+01eeff4c  0044870c c:\Program Files\KalOnline_own\server\MainSvr\MainSvrT.exe 
+Params:   00000001 004e1ad8 01eeff80 00423f14
+
+01eeff5c  00423c61 c:\Program Files\KalOnline_own\server\MainSvr\MainSvrT.exe 
+Params:   00000001 00000001 00000000 004e1ad8
+
+01eeff80  00423f14 c:\Program Files\KalOnline_own\server\MainSvr\MainSvrT.exe 
+Params:   00000001 7c9140bb 00000000 00364d40
+
+01eeffb4  004a0c2a c:\Program Files\KalOnline_own\server\MainSvr\MainSvrT.exe 
+Params:   00364d40 7c9140bb 00000000 00364d40
+01eeffc0: 7c9140bb 00000000 00364d40 7ffdc000 8977f600 01eeffc0 88f7f150 ffffffff
+01eeffe0: 7c839aa8 7c80b690 00000000 00000000 00000000 004a0bbb 00364d40 00000000
+
+01eeffec  7c80b683 GetModuleFileNameA +1b4
+C:\WINDOWS\system32\kernel32.dll GetModuleFileNameA
+Params:   004a0bbb 00364d40 00000000 0f8e0000
+
+Module list:
+c:\Program Files\KalOnline_own\server\MainSvr\MainSvrT.exe, loaded at 0x00400000 - 06/06/01 11:11:32 (KR)

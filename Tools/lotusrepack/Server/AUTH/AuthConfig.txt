@@ -1,0 +1,49 @@
+Title = "KAL AuthSvr"
+
+NumberOfThreads = 20
+KAL = 19e40333
+ODBC = "KAL_AUTH"
+SubNet = (("127.0.0.1" "255.255.255.0"))
+CMDSubNet = (("127.0.0.1" "255.255.255.0"))
+Country = 2
+NMAuthSvr = "127.0.0.1"
+NMAuthPort = 10020
+NMGameCode = 59
+NMServerCode = 1
+
+System = "0, 4 ,5 ,6"
+Event = "0 , 5, 6"
+
+MailServer = "127.0.0.1"
+MailFrom = "KAL_AUTH"
+MailTo = ""
+
+port=50001
+cmdport=50002
+
+BillingServer= "127.0.0.1"
+BillingPort=55903
+inix='0'
+BillingCCode='0'
+BillingGameNo=1
+
+Key='sjpark@inixsoft.co.kr'
+
+
+;=======================================
+;System
+;0 ------- reserved system
+;1 ------- cosmo server (only for a test server)
+;2 ------- pay system
+;3 ------- netmarble authsocket activate
+;4 ------- party system
+;5 ------- quest system
+;6 ------- storage system
+;7 ------- billing system
+;=======================================
+;Event
+;0 ------- double exp.
+;1 ------- pc room event
+;2 ------- 가위바위보 event
+;3 ------- sponsor event
+;=======================================

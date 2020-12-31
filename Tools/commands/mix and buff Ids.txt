@@ -1,0 +1,157 @@
+-------------------------------buffs-----------------------------
+
+1 - Bonus to Absorption and Strength
+3 - OTP Increased by %
+4 - Revival Sequela
+5 - Physical Damage Increase
+6 - Magic Damage Increase
+7 - Stun
+8 - Frozen
+9 - OTP Increase
+10 - Max Physical
+11 - Poison
+12 - Speed
+15 - Silence
+16 - Bless
+17 - Providence
+18 - Food
+19 - Water
+20 - Change of Attacking SPeed
+21 - Change of OTP
+22 - Additional Damage
+23 - Rage
+24 - Phoenix
+25 - Golden Bird
+26 - Hypnotism
+27 - Defense Boost
+28 - Call of Defense
+29 - Pain
+30 - EXP Stone
+31 - Wealth Stone
+32 - Fishing Stone
+33 - Snow G1
+34 - Snow G2
+35 - Snow G3
+36 - Refining Weapon
+37 - Defense Improvement
+38 - Call of Recovery
+39 - Mysterious Arrow
+40 - Continuous Damage Spiral
+41 - Flag Buff 1
+42 - Flag Buff 2
+43 - Flag Buff 3
+44 - Flag Buff 4
+45 - Flag Buff 5
+46 - Blessing Of Strength
+47 - Blessing Of Health
+48 - Blessing Of Agility
+49 - Blessing Of Intelligence
+50 - Blessing Of Critical Hit
+51 - Power Improvement
+52 - Damage Reduction Scroll
+53 - Explosive Blow 3% Scroll
+54 - Explosive Blow 5% Scroll
+55 - Evasion/Accuracy Scroll
+56 - Evasion/Accuracy Scroll
+58 - Absorb Perfect Defense
+59 - HP Absorption Scroll
+60 - KalShop Potions 1
+61 - KalShop Potions 2
+62 - KalShop Potions 3
+63 - KalShop Potions 4
+64 - KalShop Potions 5
+65 - Berserk
+70 - Call of Lightning Defense
+71 - Call of Ice Defense
+72 - Call of Fire Defense
+73 - Call of OTP
+74 - Call of Physical Attack
+75 - Elastic Shield
+76 - Lightning Resistance
+77 - Ice Resistance
+78 - Fire Resistance
+79 - Curse Resistance
+80 - Non-Elemental Resistance
+81 - Powerful Arrow of Silence
+82 - Emergency Escape
+96 - All Resistances
+99 - Lucky Key
+100 - Piece of Lucky Stone
+101 - Lucky Stone
+102 - Bird
+104 - Assassin
+105 - Hydrolic Acid
+106 - Korean Food Event 1
+107 - Korean Food Event 2
+108 - Korean Food Event 3
+109 - Korean Food Event 4
+110 - Korean Food Event 5
+111 - Artillery Flag
+112 - Unknown
+113 - Unknown
+114 - Unknown
+117 - Defense Increment
+
+--------------------------------------Mix IDs--------------------------
+
+Mix System Weapon Glow IDs
+
+Stone of Shadow LV1
+524552
+
+Stone of Shadow LV2
+1048840
+
+Stone of Holy LV1
+524808
+
+Stone of Holy LV2
+1049096
+
+Stone of Fire LV1
+525320
+
+Stone of Fire LV2
+1049608
+
+Stone of Ice LV1
+526344
+
+Stone of Ice LV2
+1050632
+
+Stone of Lightning LV1
+528392
+
+Stone of Lightning LV2
+1052680
+
+Stone of Poison LV1
+532488
+
+Stone of Poison LV2
+1056776
+
+Stone of Paralyze LV1
+540680
+
+Stone of Paralyze LV2
+1064968
+
+Stone of Mystery LV3
+1179720
+
+Stone of Demon's Blood LV3
+1310792
+
+Stone of Strength Level 1
+557064
+
+Stone of Strength LV2
+1081353
+
+Stone of Skill Level 1
+589832
+
+Stone of Skill Level 2
+1114120

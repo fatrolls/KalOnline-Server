@@ -1,0 +1,60 @@
+06/12/24 15:42:06 Server started
+06/12/24 15:43:52 Server started
+06/12/24 15:43:55 Server is ready on port 50001, 50002 (time stamp: 05/08/09 14:24:32 (KR))
+06/12/24 15:43:58 Server started
+06/12/24 15:44:00 Server is ready on port 40001 (time stamp: 06/05/24 19:06:26 (KR))
+06/12/24 15:44:03 Server started
+06/12/24 15:44:06 DB server version (Version:6, IID:0x80000000)
+06/12/24 15:44:06 Auth server version (Version:2)
+06/12/24 15:44:15 Server is ready on port 30001 (time stamp: 06/06/01 11:11:32 (KR))
+06/12/24 15:49:29 [SpeedHack] UID(9) Diff(-33387) SID(1)
+06/12/24 15:49:59 [SpeedHack] UID(9) Diff(-39984) SID(1)
+06/12/24 15:50:29 [SpeedHack] UID(9) Diff(-40016) SID(1)
+06/12/24 15:50:59 [SpeedHack] UID(9) Diff(-40000) SID(1)
+06/12/24 15:51:29 [SpeedHack] UID(9) Diff(-39984) SID(1)
+06/12/24 15:57:29 [SpeedHack] UID(9) Diff(-31954) SID(3)
+06/12/24 15:57:41 Create Cheat Item. (KingKill33, Diamond Scaled Armor, 1)
+06/12/24 15:57:49 Create Cheat Item. (KingKill33, Diamond Scaled Helmet, 1)
+06/12/24 15:57:52 Create Cheat Item. (KingKill33, Diamond Scaled Gloves, 1)
+06/12/24 15:57:56 Create Cheat Item. (KingKill33, Diamond Scaled Boots, 1)
+06/12/24 15:57:59 Create Cheat Item. (KingKill33, Diamond Scaled Shorts, 1)
+06/12/24 15:58:45 Create Cheat Item. (KingKill33, Revengeful Sword, 1)
+06/12/24 15:58:48 Create Cheat Item. (KingKill33, Butterfly Giant Sword, 1)
+06/12/24 15:59:29 Create Cheat Item. (KingKill33, Savage Truth Sword, 1)
+06/12/24 15:59:59 ##01 ~ 10 : 0 0 0 : 0
+06/12/24 15:59:59 @@01 ~ 10 : 0 0
+06/12/24 15:59:59 ##11 ~ 20 : 0 0 0 : 0
+06/12/24 15:59:59 @@11 ~ 20 : 0 0
+06/12/24 15:59:59 ##21 ~ 30 : 0 0 0 : 0
+06/12/24 15:59:59 @@21 ~ 30 : 0 0
+06/12/24 15:59:59 ##31 ~ 40 : 0 0 0 : 0
+06/12/24 15:59:59 @@31 ~ 40 : 0 0
+06/12/24 15:59:59 ##41 ~ 50 : 0 0 0 : 0
+06/12/24 15:59:59 @@41 ~ 50 : 0 0
+06/12/24 15:59:59 ##51 ~ 60 : 0 0 0 : 0
+06/12/24 15:59:59 @@51 ~ 60 : 0 0
+06/12/24 15:59:59 ##61 ~ 70 : 1 0 0 : 1
+06/12/24 15:59:59 @@61 ~ 70 : 0 0
+06/12/24 15:59:59 ##71 ~ 80 : 0 0 0 : 0
+06/12/24 15:59:59 @@71 ~ 80 : 0 0
+06/12/24 15:59:59 ##81 ~ 90 : 0 0 0 : 0
+06/12/24 15:59:59 @@81 ~ 90 : 0 0
+06/12/24 15:59:59 ##91 ~ 100 : 0 0 0 : 0
+06/12/24 15:59:59 @@91 ~ 100 : 0 0
+06/12/24 15:59:59 ##Total Sum : 1 0 0 : 1
+06/12/24 15:59:59 @@Total Sum : 0 0
+06/12/24 15:59:59 $$Currency Increment : -2597412
+06/12/24 16:00:11 Create Cheat Item. (KingKill33, 2092, 1)
+06/12/24 16:00:14 Create Cheat Item. (KingKill33, 2099, 1)
+06/12/24 16:02:06 Create Cheat Item. (KingKill33, 2100, 1)
+06/12/24 16:03:20 Shutdown started
+06/12/24 15:44:06 new connection 127.0.0.1
+06/12/24 15:44:06 max item ID(80000000)
+06/12/24 16:03:20 Shutdown started
+06/12/24 16:03:20 close connection 127.0.0.1
+06/12/24 16:03:21 Shutdown completed
+06/12/24 16:03:21 Shutdown completed
+06/12/24 15:44:06 new connection 127.0.0.1
+06/12/24 16:03:21 close connection 127.0.0.1
+06/12/24 16:03:26 Shutdown started
+06/12/24 16:03:27 Shutdown completed. (MaxUser:1)

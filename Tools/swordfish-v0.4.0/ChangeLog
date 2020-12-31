@@ -1,0 +1,26 @@
+Version 0.4.0
+
+    * Changed UI to include control states by visibility
+    * Added yes or no question when removing a mesh
+    * Added texture importing through texture extension override option, by
+      request from 007Luk
+
+Version 0.3.0
+
+    * Changed scale and rotation controls from Number's to Slider's
+    * Added flip normals and smooth toggle buttons, set to default as True, by
+      request from Salvation
+    * Added animation importing!
+
+Version 0.2.0
+
+    * Added per-face UV coordinates
+    * Added partial material support
+    * Added mesh names from descriptor
+    * Updated user interface
+    * Fixed reading of triangle list face indices
+
+Version 0.1.0
+
+    * Initial release
+

@@ -1,0 +1,39 @@
+0  1  0  1  Run
+1  1  0  1  Behead
+2  1  1  20 Weapon Mastery
+3  1  5  10 Lightning Slash
+4  1  18 5  Mockery
+5  3  30 5  Transcendental Blow
+6  3  30 15 Defence
+7  1  24 5  Upward Slash
+8  3  41 3  Provocation
+9  3  39 3  Flashing Slash
+10 3  42 1  Increasing Concentration
+11 1  0  3  Rest
+12 1  10 15 Critical Hit
+13 3  43 5  Widening Wound
+14 1  15 3  Protect
+15 1  25 1  Shield Attack
+16 7  50 5  Powerful Upward Slash
+17 7  53 5  Brutal Attack
+18 1  50 4  Force Defence
+19 11 51 3  Call of Defence
+20 7  50 1  Parry
+21 7  52 2  Rush
+22 11 52 4  Shield Offence
+23 11 55 3  Call of Recovery
+24 7  53 6  Berserk
+25 7  54 5  Half Swing
+26 11 52 2  Sacrifice
+27 11 53 3  Call of Lightning Defence
+28 11 53 3  Call of Ice Defence
+29 11 53 3  Call of Fire Defence
+30 1  50 5  Life Extension
+31 11 54 3  Call of On Target Point
+32 11 54 3  Call of Physical
+33 11 56 2  Survival Instinct
+34 11 58 1  Elastic Shield
+35 1  59 2  Revival
+36 7  61 1  Increase of Critical Hit
+80 7  50 1  Artilery
+81 11 50 1  Artilery

@@ -1,0 +1,429 @@
+1 Weapon Merchant, Goo-Deuk
+2 Knight's Armor Merchant, Pa-Deukchun
+3 Merchant, Gae-Yoo
+4 Knightage Go-Gyunok
+5 Bow Master, Chi-Rang
+6 Magic Master, Baek-Ohn
+7 Farmer
+8 Farmer
+9 Woman
+10 Farmer
+11 Guard
+12 Guard
+13 Guard
+14 Guard
+15 Guard
+16 Chief Guard
+17 Chief Guard
+18 Merchant, Sa-Moeau
+19 Farmer
+20 Farmer
+21 Woman
+22 Guard
+23 Guard
+24 Guard
+25 Guard
+26 Guard
+27 Guard
+28 Chief Guard
+29 Knight Merchant, Noh-Won
+30 Archer Merchant, Woo-Jingwan
+31 Miner
+32 Miner
+33 Miner
+34 Miner
+35 Miner
+36 Miner
+37 Guard
+38 Guard
+39 Guard
+40 Guard
+41 Guard
+42 Guard
+43 Guard
+44 Guard
+45 Guard
+46 Guard
+47 Chief Guard
+48 Chief Guard
+49 Chief Guard
+50 Chief Guard
+51 Peddler, Woo-Jinwon
+52 Woman
+53 Woman
+54 Guard
+55 Guard
+56 Guard
+57 Guard
+58 Chief Guard
+59 Archer's Armor Merchant, Gak-Roo
+60 Knight's Armor Merchant, Dae-Gil
+61 Archer's Armor Merchant, Bum-Ryuh
+62 Weapon Merchant, Hyun-Yong
+63 Armor Merchant, Nang-Wa
+64 Mistress Sa-Mowall
+65 Merchant, Goo-Rook
+66 Chief Guard, Nak-Yonghee
+67 Person of Narootuh, Wal-Hee
+68 Magician Merchant, Ma-Lip
+69 Magical Stick Merchant, Na-Hwan
+70 Magician Merchant, Go-Myung
+71 Storage Keeper [Dol-Sae]
+72 Boatman [Gwang-Chun]
+73 Chief Guard [Sea-Geun]
+74 [Wa-Ryu]
+75 Chief Guard [Mak-AnSoo]
+76 General [Sae-Won] 77 [Nu-Rook]
+78 Farmer [Ji-Hun]
+79 Chief Guard [Joo-Jimin]
+80 Farmer [Nu-Woong]
+81 Miner [Gwee-Sik]
+82 Farmer [Ha-Jik]
+83 Guard [Won-Jung]
+84 Woman [Yae-Jin]
+85 Miner [Joo-Nong]
+86 Guard [Yang-Do]
+87 Woman [Ok-Jin]
+88 [Yoo-An]
+89 [Ja-Gan]
+90 [Won-Ga]
+91 Chief Guard [Guh-Sosun]
+92 [Joong-Gwon]
+93 [Chun-Sooin]
+94 [Sae-Ryu]
+95 General [In-Pill]
+96 HyungJoo-SeungGong
+97 Master [Jin-Pyung]
+98 Storage Keeper [Chung-E]
+99 Storage Keeper [Dol-Sae]
+100 Knight's Weapon Merchant [Mak-Sae]
+101 Archer's Weapon Merchant [On-Jo]
+102 Magician’s Stick Merchant [Sung-Wonsoo]
+103 Knight's Armor Merchant [Na-Rim]
+104 Archer's Armor Merchant [Chung-Wal]
+105 Magician Merchant [Won-Sang]
+106 Knightage [Gwang-Ak]
+107 Bow Master [Il-Rang]
+108 Magic Master [Yae-Saryung]
+109 Soldier at Fort of Geum-Ohee Castle [Jae-Ga]
+110 Fort Guard
+111 Fort Guard
+112 Fort Guard
+113 Fort Guard
+114 Fort Guard
+115 Fort Guard
+116 Fort Guard
+117 Fort Guard
+118 Fort Guard
+119 Fort Guard
+120 Fort Guard
+121 Fort Guard
+122 Soldier from Troop of Jae-Ga
+123 Soldier from Troop of Jae-Ga
+124 Soldier from Troop of Jae-Ga
+125 Soldier from Troop of Jae-Ga
+126 Soldier from Troop of Jae-Ga
+127 Soldier from Troop of Jae-Ga
+128 Scout Soldier from Troop of Jae-Ga
+129 Scout Soldier from Troop of Jae-Ga
+130 Scout Soldier from Troop of Jae-Ga
+131 Scout Soldier from Troop of Jae-Ga
+132 Scout Soldier from Troop of Jae-Ga
+133 Scout Soldier from Troop of Jae-Ga
+134 Right-side Soldier from Troop of Jae-Ga
+135 Right-side Soldier from Troop of Jae-Ga
+136 Right-side Soldier from Troop of Jae-Ga
+137 Merchant [Wal-Ha]
+138 Tomb Keeper [Goo-Ryung]
+139 Apprentice Knightage [Gang-Ryung]
+140 Apprentice Bow Master [Gi-Wal]
+141 Literary Magic Master [Sae-Hwon]
+142 Statue of Black Crow in Narootuh
+143 Statue of Black Crow in Jook-Suh Cargo Station
+144 Statue of Black Crow in Geum-Oh Mine
+145 Statue of Black Crow in the Pub of the Giant Bird
+146 Statue of Black Crow in Temporary Fort of Geum-Ohee Castle
+147 Storage Keeper [Mook-Hee]
+148 Storage Keeper [Suk-Min]
+149 Storage Keeper [Choon-Jae]
+150 Chrysanthemum Wine Artisan
+151 Chinese Bellflower Wine Artisan
+152 Lance Asiabell Wine Artisan
+153 Dandelion Wine Artisan
+154 Peony Wine Artisan
+155 Mother of Moon-Hee
+156 Ghost of [Moon-Hee]
+157 Fort Guard [Heung-Pae]
+158 Chief Guard [Duk-Yoon]
+159 Fort Guard [Soo-Go]
+160 Fort Guard [Dan-Bok]
+161 Fort Guard [Ga-Gi]
+162 Fort Guard [Soo-Sung]
+163 Soldier from Troop of Jae-Ga [Yoo-Sang]
+164 Soldier from Troop of Jae-Ga [Lim-Gang]
+166 Hyun-Choong
+167 Jin-Haeryang
+168 Farmer Who Lost His Farmland
+169 Smith Who Lost His Family
+170 Parents Who Lost Their Son
+171 Fishing Grounds Keeper
+172 Fishing Grounds Keeper
+173 Fishing Grounds Keeper
+174 Fishing Grounds Keeper
+175 Mistress
+176 Mistress
+177 Mistress
+178 Mistress
+179 Master of Paper-Rock-Scissors
+183 Statue of Black Crow in Forest
+184 To-Woo
+185 Hyun-Woong
+186 Takes Care of Ancient Animals by [Chang]
+191 Red Flag's Leader [Gee-Jung]
+192 [Hong-Jun]
+193 [Ha-Woogo]
+194 [Ma-Yong]
+195 Mask of Ghost Hunter [Woo-Joong]
+196 Mask of Ghost Hunter [Joa-Ill]
+197 Mask of Ghost Hunter [Geun-Pyung]
+198 Mask of Ghost Hunter [Dan-Joong]
+199 Mask of Ghost Hunter [Choi-Choong]
+200 One Who is Looking for the Masks
+201 One Who is Looking for the Masks
+202 One Who is Looking for the Masks
+203 Doggebi Who Wants To Be a Friend with Humans
+204 Doll Craftsman [Gill-Jun]
+205 Prophet
+206 [Seoung-Gill]
+207 [Ma-Gill]
+208 [Hee-Ryu]
+209 [Hak-Goo]
+210 Executive
+211 Master of Paper-Rock-Scissors
+212 Assassin List
+213 Mask Merchant
+214 Ji-Joo
+215 Geum-Oh Castle's Statue of Crow
+216 Geum-Oh Castle Keeper
+217 Gate Keeper
+218 Gate Keeper
+219 Assassin List
+220 Assassin List
+221 Assassin List
+222 Assassin List
+223 Gate Keeper
+224 Gate Keeper
+225 Gate Keeper
+226 Gate Keeper
+227 Gate Keeper
+228 Gate Keeper
+229 Gate Keeper
+230 Gate Keeper
+231 Geum-Oh Castle Gate Keeper
+232 Geum-Oh Castle Gate Keeper
+233 Geum-Oh Castle Gate Keeper
+234 Geum-Oh Castle Gate Keeper
+235 Geum-Oh Castle Gate Keeper
+236 Geum-Oh Castle Gate Keeper
+237 Geum-Oh Castle Gate Keeper
+238 Geum-Oh Castle Gate Keeper
+239 Geum-Oh Castle Gate Keeper
+240 Geum-Oh Castle Gate Keeper
+241 Ascetic
+242 Ascetic
+243 Ascetic
+244 Ascetic
+245 Ascetic
+246 Ascetic
+247 Food Merchant
+248 Food Merchant
+249 Food Merchant
+250 Food Merchant
+251 Food Merchant
+252 Limper
+253 Blind Man
+254 Coward
+255 Hunchback
+256 Deaf Man
+257 One-armed Man
+258 Manager
+259 [Ja-Sang]
+260 Tomb Keeper [Gang-Man]
+261 Agent
+262 Chemist of Speed-up Medicine
+263 Chemist of Speed-up Medicine
+264 Chemist of Speed-up Medicine
+265 Manager of Occupied Area
+266 Doggebi Master
+267 Master of Vagabond Swordman [Moo-Geukhyun]
+268 Master of Commander [Chiwoo-Yangmook]
+269 Master of Expert Archer [Jae-Bae]
+270 Master of Imperial Commander [Chiwoo-Jichun]
+271 Master of Hermit [Won-Tan]
+272 Master of Chairperson of Joong-Bang [Mang-Sunjae]
+273 Skill Point Manager NPC
+274 Statue of Black Crow of East Gate
+275 Statue of Black Crow of West Gate
+276 Statue of Black Crow in City of Priest
+277 Mistress
+278 Merchant, [Baek-Yak]
+279 Food Merchant
+280 Mask Merchant
+281 Knight's Weapon Merchant, [Go-Soon]
+282 Archer's Weapon Merchant, [Gong-Jung]
+283 Magician's Weapon Merchant, [Gong-Ryuh]
+284 Knight's Armor Merchant, [Go-Ohng]
+285 Archer's Armor Merchant, [Ja-Gyung]
+286 Magician's Armor Merchant, [Moon-Hwa]
+287 Priest [Ahn-Hyunsoo]
+288 Religious Officer
+289 Religious Officer
+290 Religious Officer
+291 Religious Officer
+292 Religious Officer
+293 Religious Officer
+294 Religious Officer
+295 Religious Officer
+296 Religious Officer
+297 Religious Officer
+298 Religious Officer
+299 Religious Officer
+300 Religious Officer
+301 Fishing Grounds Keeper
+302 Fishing Grounds Keeper
+303 Fishing Grounds Keeper
+304 Fishing Grounds Keeper
+305 Fishing Grounds Keeper
+306 Fishing Grounds Keeper
+307 Religious Officer
+308 Religious Officer
+309 Religious Officer
+310 Religious Officer
+311 Religious Officer
+312 Religious Officer
+313 Religious Officer
+314 Religious Officer
+315 Religious Officer
+316 Religious Officer
+317 Religious Officer
+318 Guard
+319 Guard
+320 Guard
+321 Guard
+322 Guard
+323 Guard
+324 Guard
+325 Guard
+326 Guard
+327 Guard
+328 Guard
+329 Guard
+330 Guard
+331 Guard
+332 Guard
+333 Guard
+334 Guard
+335 Guard
+336 Low-Ranking Religious Officer
+337 Low-Ranking Religious Officer
+338 Low-Ranking Religious Officer
+339 Low-Ranking Religious Officer
+340 Fishing Grounds Keeper
+341 Storage Keeper [Jin-Hee]
+342 Chemist of Speed-up Medicine
+343 Low-Ranking Religious Officer
+344 Low-Ranking Religious Officer
+345 Low-Ranking Religious Officer
+346 Low-Ranking Religious Officer
+347 Low-Ranking Religious Officer
+348 Low-Ranking Religious Officer
+349 Low-Ranking Religious Officer
+350 Low-Ranking Religious Officer
+351 Low-Ranking Religious Officer
+352 Low-Ranking Religious Officer
+353 Low-Ranking Religious Officer
+354 Low-Ranking Religious Officer
+355 Ascetic
+356 Master of Vagabond Swordman [Chiwoo-Giryung]
+357 Master of Commander [Chiwoo-Jomoo]
+358 Master of Expert Archer [Dan-Gyu]
+359 Master of Imperial Commander [Sa-Chan]
+360 Master of Hermit [Baek-Myo]
+361 Master of Chairperson of Joong-Bang [Doo-Yae]
+362 Assassin List
+363 Agent
+364 Prophet
+365 Prophet
+366 Prophet
+367 Prophet
+368 Flag Manager
+369 Village Elder
+370 Village Elder
+371 Village Elder
+372 BlackSmith
+373 BlackSmith
+374 Fifth Stone Monument
+375 Sixth Stone Monument
+376 Seventh Stone Monument
+377 Eighth Stone Monument
+378 First Stone Monument
+379 Second Stone Monument
+380 Third Stone Monument
+381 Forth Stone Monument
+382 Name Manager
+383 Throne
+389 Statue of Black Crow in Doggebi Tower
+390 Master of Dice
+391 Master of Dice
+392 Master of Dice
+393 Master of Dice
+394 Master of Dice
+395 Master of Dice
+396 Teleport Monument
+397 Teleport Monument
+398 Mask Merchant
+404 The Birds Event NPC
+405 The Birds Event NPC
+406 The Birds Event NPC
+407 The Birds Event NPC
+408 The Birds Event NPC
+409 The Birds Event NPC
+410 Pair Maker Master
+411 Change Gold Coin/Zamogeon
+412 Pair Maker Master
+413 Change Gold Coin/Zamogeon
+414 Pair Maker Master
+415 Change Gold Coin/Zamogeon
+416 Card Maker Master
+417 Card Maker Master
+418 Card Maker Master
+419 Pair Maker Master
+420 Change Gold Coin/Zamogeon
+421 Card Maker Master
+422 Welcome Back Event NPC
+423 The King of Leveling Event NPC
+424 Fishing Grounds Manager
+425 Fishing Grounds Manager
+426 Fishing Grounds Manager
+427 Fishing Grounds Manager
+428 Fishing Grounds Manager
+429 Fishing Grounds Manager
+430 Fishing Grounds Manager
+431 Fishing Grounds Manager
+432 Fishing Grounds Manager
+433 Fishing Grounds Manager
+434 Fishing Grounds Keeper
+435 Fishing Grounds Keeper
+436 Fishing Grounds Keeper
+437 Fishing Grounds Keeper
+438 Fishing Grounds Keeper
+439 Fishing Grounds Keeper
+440 Fishing Grounds Keeper
+441 Fishing Grounds Keeper
+442 Fishing Grounds Keeper
+443 Fishing Grounds Keeper
+444 Fishing Grounds Keeper
+445 Fishing Grounds Keeper
+446 Fishing Grounds Keeper
+447 Fishing Grounds Keeper
+448 Fishing Grounds Keeper

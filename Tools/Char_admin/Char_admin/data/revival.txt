@@ -1,0 +1,11 @@
+0  Narootuh
+1  Jook-Suh Cargo Station
+2  Geum-Oh Mine
+3  The Pub of the Giant Bird
+4  Temporary Fort of Geum-Ohee Castle
+5  Forest of Statues
+6  Geum-Oh Main Castle
+7  Geum-Oh Castle East Gate
+8  Geum-Oh Castle West Gate
+9  City of Priest
+10 Doggebi Tower

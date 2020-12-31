@@ -1,0 +1,9 @@
+Filename: C:\Dokumente und Einstellungen\Yannik.COMBI\Desktop\Resurrection Server Combi fixed bugs\G46_Knight_Monster\G46 Knight Monster\data\monster\motion\T700_Bone.gb 
+System.IO.EndOfStreamException: Über das Ende des Streams hinaus kann nicht gelesen werden.
+   bei System.IO.__Error.EndOfFile()
+   bei System.IO.BinaryReader.FillBuffer(Int32 numBytes)
+   bei System.IO.BinaryReader.ReadUInt16()
+   bei KalOnline.GB.Structures.GBCollisionHeader..ctor(BinaryReader reader, GBHeader header)
+   bei KalOnline.GB.GeoBinary..ctor(BinaryReader reader)
+   bei KalOnline.UI.ModelPanel.OpenModel(String filename)
+   bei KalOnline.ModelViewer.OpenModel(String filename)

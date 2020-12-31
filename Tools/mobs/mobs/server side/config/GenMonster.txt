@@ -1,0 +1,17 @@
+;little doggebi lord
+(genmonster (index 977) (map 0) (area 9777) (max 14) (cycle 1) (rect 8006 8773 8083 8875))
+(genmonster (index 977) (map 0) (area 9778) (max 3) (cycle 1) (rect 8159 9028 8191 9041))
+(genmonster (index 977) (map 0) (area 9779) (max 2) (cycle 1) (rect 8321 7684 8330 7743))
+(genmonster (index 977) (map 0) (area 9780) (max 6) (cycle 1) (rect 8156 7573 8188 7620))
+(genmonster (index 977) (map 0) (area 9781) (max 5) (cycle 1) (rect 8101 7608 8172 7636))
+(genmonster (index 977) (map 0) (area 9782) (max 7) (cycle 1) (rect 8085 7578 8119 7624))
+(genmonster (index 977) (map 0) (area 9783) (max 8) (cycle 1) (rect 8110 7531 8145 7560))
+(genmonster (index 977) (map 0) (area 9784) (max 1) (cycle 1) (rect 8335 7682 8347 7729))
+
+
+;Small Bloody Monster
+(genmonster (index 999) (map 0) (area 9785) (max 4) (cycle 1) (rect 8275 8215 8314 8235))
+(genmonster (index 999) (map 0) (area 9786) (max 2) (cycle 1) (rect 8294 8267 8304 8319))
+(genmonster (index 999) (map 0) (area 9787) (max 1) (cycle 1) (rect 8254 8211 8274 8223))
+(genmonster (index 999) (map 0) (area 9788) (max 2) (cycle 1) (rect 8230 8134 8262 8155))
+(genmonster (index 999) (map 0) (area 9789) (max 2) (cycle 1) (rect 8337 8112 8356 8132))

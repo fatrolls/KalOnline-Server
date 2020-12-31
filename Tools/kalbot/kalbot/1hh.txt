@@ -1,0 +1,20 @@
+
+
+start ur kal with extendloader
+when ur logged in type the following:
+.oh kill moving
+.oh kill behead
+.oh kill attacking
+.oh set
+and .oh d
+ then u select a weapon in inevtory (g40 clean npc sword)
+and here u go....ur char will start killin mobs all around 200 meters without walking...fully automatically...
+
+BY THE WAY: BY PRESSING STRG+MOUSE TO A POINT U TELEPORT
+
+
+
+
++10 5eb butterfly 2h +NPC sword G40
+
+
