@@ -7,8 +7,6 @@
 #include <windows.h>
 #include <defs.h>
 
-#include <stdarg.h>
-
 
 //-------------------------------------------------------------------------
 // Function declarations
@@ -450,7 +448,7 @@ void CSocket::Write(CSocket *this, D2S_PROTOCOL nType, const char *formal, ...);
 void __thiscall CSocket::Process(CSocket *this, DBPACKET *dbpacket);
 void __thiscall CSocket::DelPlayer(CSocket *this, int nPID, int nUID, int nId);
 void __thiscall CSocket::LoadPlayer(CSocket *this, int nPID, int nLoadGID, int nUID, int nId);
-void __stdcall sub_413CB0(void *Src);
+void __stdcall CSocket::SaveAllProperty(void *Src);
 void __thiscall CSocket::DeleteItem(CSocket *this, int nIID, int nPID, int nIndex, int nNum, int nVal1, int nVal2, int nLogType);
 void __thiscall CSocket::PutOnItem(CSocket *this, int nIID);
 void __thiscall CSocket::PutOffItem(CSocket *this, int nIID);
@@ -476,9 +474,9 @@ void __stdcall sub_415180(int a1, int a2, int a3, int a4);
 void __thiscall sub_415240(void *this, int a2, int a3, void *Src);
 void __thiscall sub_415500(void *this, int a2, int a3, void *Src);
 void __thiscall sub_415790(void *this, int a2, int a3, void *Src);
-void __thiscall sub_4168C0(void *this, int a2, int a3);
+void __thiscall CSocket::Login(void *this, int a2, int a3);
 void __thiscall CSocket::NewPlayer(CSocket *this, char *packet);
-void __stdcall sub_417340(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int TargetValue, int a10, int a11);
+void __stdcall CSocket::ForcedInStorage(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int TargetValue, int a10, int a11);
 void __thiscall CSocket::SaveRevivalPt(CSocket *this, int nPID, int nRvId);
 void __thiscall CSocket::EventSave(CSocket *this, int nPID, int nCount, const char *info);
 void __thiscall CSocket::ProcessEvent(CSocket *this, int nId, int nEventCode, char *packet);
@@ -501,7 +499,7 @@ void __stdcall sub_418140(int a1, int a2, int a3);
 void __stdcall sub_418300(int a1);
 void __stdcall sub_4183A0(int a1, int a2);
 void __thiscall sub_418430(void *this);
-void __thiscall sub_4185D0(void *this);
+void __thiscall CSocket::WarInit(void *this);
 void sub_4188D0();
 void __stdcall sub_418930(int a1, int a2, int a3);
 void __stdcall sub_4189C0(int a1, int a2);
@@ -535,7 +533,7 @@ void __thiscall CIOBuffer::AddRef(CIOBuffer *this);
 void __thiscall CSyncPacket::Push(CSyncPacket *this, CSyncPacket::CElement *element);
 // void __thiscall Concurrency::details::UMSFreeVirtualProcessorRoot::~UMSFreeVirtualProcessorRoot(Concurrency::details::UMSFreeVirtualProcessorRoot *__hidden this); idb
 // int __thiscall CDB::Skip(_DWORD); weak
-// int __stdcall CDB::Bind(SQLPOINTER TargetValue); idb
+// SQLRETURN __thiscall CDB::Bind(int this, SQLPOINTER TargetValue);
 void __thiscall CDB::Bind(CDB *this, int *n);
 void __thiscall CDB::Bind(CDB *this, __int64 *n);
 void __thiscall CDB::Bind(CDB *this, char *str, int size);
@@ -871,7 +869,6 @@ int (*off_42A448[10])() =
   &unknown_libname_1,
   &unknown_libname_2
 }; // weak
-_UNKNOWN unk_42A470; // weak
 int (*off_42A474[20])() =
 {
   &lisp::_cons::`vftable',
@@ -912,7 +909,6 @@ const CHAR Class[4] = { '\0', '\0', '\0', '\0' }; // idb
 const char byte_42A816[2] = { '\0', '\0' }; // idb
 const char byte_42A827 = '\0'; // idb
 const unsigned int std::string::npos = 4294967295u;
-_UNKNOWN unk_42AFCC; // weak
 int (__stdcall *off_42B5BC)(int) = &CIOObject::`vftable'; // weak
 int (__stdcall *off_42B5D4)(int) = &CIOSocket::`vftable'; // weak
 int (__stdcall *off_42B5F8)(int) = &CIOServer::`vftable'; // weak
@@ -932,14 +928,9 @@ int (*off_42B62C[10])() =
 }; // weak
 int (__stdcall *off_42B738)(int) = &CSocket::`vector deleting destructor'; // weak
 const char aInsertIntoGuil_3[] = "INSERT INTO Guild VALUES (%d,'%s',0,0,'','"; // idb
-_UNKNOWN unk_42ED6D; // weak
-_UNKNOWN unk_42ED6E; // weak
-_UNKNOWN unk_42EDA8; // weak
-_UNKNOWN unk_42EDA9; // weak
 int (__stdcall *off_42F84C)(int) = &CSocket::`vftable'; // weak
 int (__stdcall *off_42F870)(int) = &CIOSocket::CIOTimerInstance::`vftable'; // weak
 int (__stdcall *off_42F888)(int) = &CSyncPacket::`vector deleting destructor'; // weak
-_UNKNOWN unk_437900; // weak
 void *std::logic_error::`vftable' = &std::logic_error::`vector deleting destructor'; // weak
 void *std::length_error::`vftable' = &std::length_error::`vector deleting destructor'; // weak
 void *std::out_of_range::`vftable' = &std::out_of_range::`vector deleting destructor'; // weak
@@ -3496,7 +3487,6 @@ HANDLE CompletionPort; // idb
 int g_nFreeBuffer;
 CIOCriticalSection g_lockTimer; // idb
 CIOSocket::CInit unk_444058; // idb
-_UNKNOWN g_timerQueue; // weak
 CIOSocket::CIOTimerInstance g_instance;
 _DWORD dword_444080[32]; // idb
 lisp::var lisp::nil;
@@ -3510,7 +3500,6 @@ CMemory *g_pMemory[16];
 CScreen *stru_4441A4;
 int CSocket::s_nIID;
 int g_nCreate;
-_UNKNOWN g_syncPacket; // weak
 int CMemoryPool<CPacket>::s_pool; // weak
 LONG dword_448DE4; // idb
 CScreen CStatus::s_screen;
@@ -12424,7 +12413,7 @@ void __thiscall CSocket::Process(CSocket *this, DBPACKET *dbpacket)
       CSocket::LoadPlayer(this, v236, nLoadGID, v237, v233);
       break;
     case 2:
-      sub_413CB0(Src);
+      CSocket::SaveAllProperty(Src);
       break;
     case 3:
       ReadPacket((char *)Src, "ddwdbddd", &nPID, &nIndex, &v226, &nVal1, &v231, &nLogType, &v227, &v230);
@@ -12545,7 +12534,7 @@ void __thiscall CSocket::Process(CSocket *this, DBPACKET *dbpacket)
       break;
     case 33:
       ReadPacket((char *)Src, "dd", &v133, &v134);
-      sub_4168C0(this, v133, v134);
+      CSocket::Login(this, v133, v134);
       break;
     case 34:
       CSocket::NewPlayer(this, (char *)Src);
@@ -12565,7 +12554,7 @@ void __thiscall CSocket::Process(CSocket *this, DBPACKET *dbpacket)
         &TargetValue,
         &v127,
         &v129);
-      sub_417340(v130, v132, v123, v126, v124, v125, v122, v128, TargetValue, v129, v127);
+      CSocket::ForcedInStorage(v130, v132, v123, v126, v124, v125, v122, v128, TargetValue, v129, v127);
       break;
     case 36:
       ReadPacket((char *)Src, "db", &v120, &v121);
@@ -12654,7 +12643,7 @@ void __thiscall CSocket::Process(CSocket *this, DBPACKET *dbpacket)
       sub_418430(this);
       break;
     case 58:
-      sub_4185D0(this);
+      CSocket::WarInit(this);
       break;
     case 59:
       ReadPacket((char *)Src, "sd", &v87, &v88);
@@ -13221,7 +13210,7 @@ LABEL_36:
 // 41B150: using guessed type int __thiscall CDB::Skip(_DWORD);
 
 //----- (00413CB0) --------------------------------------------------------
-void __stdcall sub_413CB0(void *Src)
+void __stdcall CSocket::SaveAllProperty(void *Src)
 {
   int v1; // [esp+4h] [ebp-64h] BYREF
   int v2; // [esp+8h] [ebp-60h] BYREF
@@ -14596,7 +14585,7 @@ LABEL_67:
 }
 
 //----- (004168C0) --------------------------------------------------------
-void __thiscall sub_4168C0(void *this, int a2, int a3)
+void __thiscall CSocket::Login(void *this, int a2, int a3)
 {
   int v3; // [esp+0h] [ebp-C0h]
   char v5[20]; // [esp+8h] [ebp-B8h] BYREF
@@ -14640,16 +14629,16 @@ void __thiscall sub_4168C0(void *this, int a2, int a3)
   v35 = 0;
   CDB::Bind(&v32, &n);
   CDB::Bind(&v32, str, 17);
-  CDB::Bind(&TargetValue);
-  CDB::Bind(&v21);
+  CDB::Bind((int)&v32, &TargetValue);
+  CDB::Bind((int)&v32, &v21);
   CDB::Bind(&v32, &v19);
-  CDB::Bind(&v31);
-  CDB::Bind(&v27);
-  CDB::Bind(&v25);
-  CDB::Bind(&v17);
-  CDB::Bind(&v18);
-  CDB::Bind(&v28);
-  CDB::Bind(&v22);
+  CDB::Bind((int)&v32, &v31);
+  CDB::Bind((int)&v32, &v27);
+  CDB::Bind((int)&v32, &v25);
+  CDB::Bind((int)&v32, &v17);
+  CDB::Bind((int)&v32, &v18);
+  CDB::Bind((int)&v32, &v28);
+  CDB::Bind((int)&v32, &v22);
   if ( !CDBConfig::s_nEvent || CDBConfig::s_nEvent == 1 )
     v3 = 5;
   else
@@ -14713,9 +14702,9 @@ void __thiscall sub_4168C0(void *this, int a2, int a3)
   LOBYTE(v35) = 2;
   CDB::Bind(&v13, &v6);
   CDB::Bind(&v13, v5, 17);
-  CDB::Bind(&v7);
-  CDB::Bind(&v8);
-  CDB::Bind(&v12);
+  CDB::Bind((int)&v13, &v7);
+  CDB::Bind((int)&v13, &v8);
+  CDB::Bind((int)&v13, &v12);
   LOG_ERR(
     "SELECT TOP 5 PlayerDeleted.PID, Name, [Level], Class, DayLeft = 14-datediff(dd, DeletedTime, getdate()) FROM PlayerD"
     "eleted, Player WHERE PlayerDeleted.UID = %d AND PlayerDeleted.PID= Player.PID ORDER BY DayLeft DESC",
@@ -14915,7 +14904,7 @@ void __thiscall CSocket::NewPlayer(CSocket *this, char *packet)
 // 43C4D8: using guessed type int dword_43C4D8[];
 
 //----- (00417340) --------------------------------------------------------
-void __stdcall sub_417340(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int TargetValue, int a10, int a11)
+void __stdcall CSocket::ForcedInStorage(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int TargetValue, int a10, int a11)
 {
   CDB v11; // [esp+4h] [ebp-1Ch] BYREF
   int v12; // [esp+1Ch] [ebp-4h]

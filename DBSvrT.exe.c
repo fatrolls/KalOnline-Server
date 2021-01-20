@@ -22,7 +22,7 @@ void __cdecl free_var(lisp::var v); // idb
 Token __thiscall CConfig::GetToken(CConfig *this); // idb
 lisp::var *__thiscall CConfig::Find(CConfig *this, lisp::var *result, const char *key); // idb
 lisp::var *__thiscall CConfig::GetValue(CConfig *this, lisp::var *result); // idb
-void __cdecl Strdup(const char *str);
+char *__cdecl Strdup(const char *str); // idb
 lisp::var *__thiscall CConfig::GetList(CConfig *this, lisp::var *result); // idb
 int __thiscall CConfig::Open(CConfig *this, const char *szFilename); // idb
 const char *__thiscall CConfig::Get(CConfig *this, const char *key); // idb
@@ -45,8 +45,6 @@ void __thiscall lisp::_string::_string(lisp::_string *this, const char *str); //
 lisp::var *__thiscall lisp::_object::car(lisp::_object *this); // idb
 void __thiscall lisp::_object::_object(lisp::_object *this); // idb
 const char *__thiscall lisp::_object::GetString(lisp::_object *this); // idb
-unsigned int __thiscall lisp::_object::GetInteger(lisp::_object *this); // idb
-bool __thiscall lisp::_object::integerp(lisp::_object *this); // idb
 void __thiscall lisp::_integer::_integer(lisp::_integer *this, int n); // idb
 void __thiscall lisp::_cons::_cons(lisp::_cons *this, const lisp::var car, const lisp::var cdr); // idb
 int __thiscall lisp::var::operator int(lisp::var *this); // idb
@@ -54,7 +52,7 @@ CMemory::tagEntry **__cdecl operator new(unsigned int cb);
 void __cdecl operator delete(void *p); // idb
 int __stdcall DialogProc(HWND__ *hwndDlg, unsigned int uMsg, unsigned int wParam, int lParam); // idb
 int __cdecl CDB::Open(const char *szServer); // idb
-void __cdecl CDB::Close(); // idb
+void CDB::Close();
 void __thiscall CDB::CDB(CDB *this); // idb
 void __thiscall CDB::~CDB(CDB *this); // idb
 int CDB::Execute(CDB *this, const char *format, ...); // idb
@@ -71,19 +69,20 @@ void __thiscall CIOSpinLock::Leave(CIOSpinLock *this); // idb
 CDBConnect *__thiscall CDBConnect::`scalar deleting destructor'(CDBConnect *this, unsigned int a2);
 // void __thiscall std::vector<CSyncPacket::CElement>::const_iterator::const_iterator(CIOSpinLock *this); idb
 int __cdecl CDBConfig::Open(); // idb
-void __cdecl CDBConfig::Close(); // idb
+void CDBConfig::Close();
 char *__cdecl GetStr(int nIndex);
 // void __thiscall IPAddrMask::IPAddrMask(IPAddrMask *this, int addr, int mask); idb
 lisp::var *__thiscall lisp::var::pop(lisp::var *this, lisp::var *result); // idb
 int __thiscall lisp::var::length(lisp::var *this); // idb
-// std::string *__thiscall std::string::operator=(std::string *this, const char *_Ptr); idb
+std::string *__thiscall std::string::operator=(std::string *this, const char *_Ptr); // idb
 void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::clear(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this); // idb
 std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::find(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this, std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *result, const int *_Keyval); // idb
 void __thiscall std::vector<IPAddrMask>::reserve(std::vector<IPAddrMask> *this, unsigned int _Count); // idb
 void __thiscall std::vector<IPAddrMask>::push_back(std::vector<IPAddrMask> *this, const IPAddrMask *_Val); // idb
 std::pair<int const ,std::string > *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::iterator::operator->(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *this); // idb
-// std::string *__thiscall std::string::assign(std::string *this, const char *_Ptr); idb
-// const int *__cdecl std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Key(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Pnode); idb
+std::string *__thiscall std::string::assign(std::string *this, const char *_Ptr); // idb
+// unsigned int __cdecl std::char_traits<char>::length(const char *_First); idb
+const int *__cdecl std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Key(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Pnode); // idb
 std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::lower_bound(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this, std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *result, const int *_Keyval); // idb
 void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Erase(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this, std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Rootnode); // idb
 std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Lmost(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this); // idb
@@ -97,9 +96,11 @@ unsigned int __thiscall std::vector<IPAddrMask>::max_size(std::vector<IPAddrMask
 std::vector<IPAddrMask>::iterator *__thiscall std::vector<IPAddrMask>::insert(std::vector<IPAddrMask> *this, std::vector<IPAddrMask>::iterator *result, std::vector<IPAddrMask>::iterator _Where, const IPAddrMask *_Val); // idb
 void __thiscall std::vector<IPAddrMask>::_Destroy(std::vector<IPAddrMask> *this, IPAddrMask *_First, IPAddrMask *_Last); // idb
 IPAddrMask *__thiscall std::vector<IPAddrMask>::_Ufill(std::vector<IPAddrMask> *this, IPAddrMask *_Ptr, unsigned int _Count, const IPAddrMask *_Val); // idb
-// void __thiscall std::vector<IPAddrMask>::_Xlen(std::vector<IPAddrMask> *this); idb
+void __thiscall __noreturn std::vector<IPAddrMask>::_Xlen(std::vector<IPAddrMask> *this);
 CMemory::tagEntry **__thiscall std::allocator<IPAddrMask>::allocate(std::allocator<IPAddrMask> *this, unsigned int _Count);
 std::pair<int const ,std::string > *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::iterator::operator*(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *this); // idb
+void __thiscall std::length_error::length_error(std::length_error *this, const std::length_error *__that); // idb
+void __thiscall std::logic_error::logic_error(std::logic_error *this, const std::logic_error *__that); // idb
 void __thiscall std::string::string(std::string *this, const char *_Ptr); // idb
 std::string *__thiscall std::string::assign(std::string *this, const char *_Ptr, unsigned int _Num); // idb
 // char *__cdecl std::char_traits<char>::copy(char *_First1, const char *_First2, unsigned int _Count); idb
@@ -107,13 +108,20 @@ char *__cdecl std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::a
 std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **__cdecl std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Parent(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Pnode); // idb
 std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **__cdecl std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Right(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Pnode); // idb
 std::pair<int const ,std::string > *__cdecl std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Myval(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Pnode); // idb
+char *__thiscall std::logic_error::what(std::logic_error *this);
+std::logic_error *__thiscall std::logic_error::`vector deleting destructor'(std::logic_error *this, unsigned int a2);
+void __thiscall std::logic_error::~logic_error(std::logic_error *this); // idb
 std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Lbound(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this, const int *_Keyval); // idb
-const std::pair<int const ,std::string > *__cdecl std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(const std::pair<int const ,std::string > *_Val);
+// const int *__cdecl std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(const std::pair<int const ,std::string > *_Val); idb
+void __thiscall std::length_error::length_error(std::length_error *this, const std::string *_Message); // idb
+void __thiscall std::logic_error::logic_error(std::logic_error *this, const std::string *_Message); // idb
 void __thiscall std::allocator<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node>::destroy(std::allocator<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node> *this, std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Ptr); // idb
+void __thiscall std::length_error::~length_error(std::length_error *this); // idb
 void __thiscall std::vector<IPAddrMask>::_Insert_n(std::vector<IPAddrMask> *this, std::vector<IPAddrMask>::iterator _Where, unsigned int _Count, const IPAddrMask *_Val); // idb
+std::length_error *__thiscall std::length_error::`vector deleting destructor'(std::length_error *this, unsigned int a2);
 unsigned int __thiscall std::allocator<IPAddrMask>::max_size(std::allocator<IPAddrMask> *this); // idb
 // void __thiscall std::vector<IPAddrMask>::const_iterator::const_iterator(lisp::var *this, lisp::_object *p); idb
-// const std::pair<int const ,std::string > *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::operator*(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::const_iterator *this); idb
+std::pair<int const ,std::string > *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::operator*(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::const_iterator *this);
 void __thiscall std::vector<CSyncPacket::CElement>::iterator::iterator(std::vector<IPAddrMask>::iterator *this, IPAddrMask *_Ptr); // idb
 std::vector<IPAddrMask>::iterator *__thiscall std::vector<IPAddrMask>::iterator::operator+(std::vector<IPAddrMask>::iterator *this, std::vector<IPAddrMask>::iterator *result, int _Off); // idb
 int __thiscall std::vector<IPAddrMask>::iterator::operator-(std::vector<IPAddrMask>::iterator *this, const std::vector<IPAddrMask>::const_iterator *_Right); // idb
@@ -121,37 +129,41 @@ bool __thiscall std::string::_Inside(std::string *this, const char *_Ptr); // id
 void __thiscall std::string::string(std::string *this, const std::string *_Right); // idb
 void __thiscall std::string::~string(std::string *this); // idb
 char *__thiscall std::string::c_str(std::string *this);
-// std::string *__thiscall std::string::assign(std::string *this, const std::string *_Right, unsigned int _Roff, unsigned int _Count); idb
+std::string *__thiscall std::string::assign(std::string *this, const std::string *_Right, unsigned int _Roff, unsigned int _Count); // idb
 void __thiscall std::string::_Tidy(std::string *this, bool _Built, unsigned int _Newsize); // idb
 // char *__thiscall std::string::_Myptr(std::string *this); idb
 void __thiscall std::_String_val<char>::_String_val<char>(std::_Vector_val<IPAddrMask> *this, std::allocator<IPAddrMask> _Al); // idb
 std::string *__thiscall std::string::erase(std::string *this, unsigned int _Off, unsigned int _Count); // idb
-// char *__cdecl std::char_traits<char>::move(char *_First1, const char *_First2, unsigned int _Count); idb
+char *__cdecl std::char_traits<char>::move(char *_First1, const char *_First2, unsigned int _Count); // idb
+// unsigned int __thiscall std::string::size(std::string *this); idb
 void __thiscall std::string::_Eos(std::string *this, unsigned int _Newsize); // idb
 // void __cdecl std::char_traits<char>::assign(char *_Left, const char *_Right); idb
-// bool __thiscall std::string::_Grow(std::string *this, unsigned int _Newsize, bool _Trim); idb
-// void __thiscall std::allocator<CSyncPacket::CElement>::deallocate(std::allocator<char> *this, char *_Ptr, unsigned int __formal); idb
+BOOL __thiscall std::string::_Grow(std::string *this, unsigned int _Newsize, bool _Trim);
+void __thiscall std::allocator<CSyncPacket::CElement>::deallocate(std::allocator<char> *this, char *_Ptr, unsigned int __formal); // idb
+// unsigned int __thiscall std::string::max_size(std::string *this); idb
+void __thiscall std::string::_Copy(std::string *this, unsigned int _Newsize, unsigned int _Oldlen); // idb
+CMemory::tagEntry **__thiscall std::allocator<char>::allocate(std::allocator<char> *this, unsigned int _Count);
 // std::vector<IPAddrMask>::iterator *__thiscall std::vector<IPAddrMask>::iterator::operator+=(std::vector<IPAddrMask>::iterator *this, int _Off); idb
 CMemory::tagEntry **__cdecl std::_Allocate<char>(unsigned int _Count);
 int __thiscall std::vector<IPAddrMask>::const_iterator::operator-(std::vector<IPAddrMask>::const_iterator *this, const std::vector<IPAddrMask>::const_iterator *_Right); // idb
-IPAddrMask *__thiscall std::vector<IPAddrMask>::_Ucopy<std::vector<IPAddrMask>::iterator>(std::allocator<IPAddrMask> *this, std::vector<IPAddrMask>::iterator _First, std::vector<IPAddrMask>::iterator _Last, IPAddrMask *_Dest);
+IPAddrMask *__thiscall std::vector<IPAddrMask>::_Ucopy<std::vector<IPAddrMask>::iterator>(std::allocator<IPAddrMask> *this, std::vector<IPAddrMask>::iterator _First, std::vector<IPAddrMask>::iterator _Last, void *_Dest);
 void __cdecl std::_Destroy_range<IPAddrMask>(IPAddrMask *_First, IPAddrMask *_Last, std::allocator<IPAddrMask> *_Al); // idb
 void __cdecl std::_Uninitialized_fill_n<IPAddrMask *,unsigned int,IPAddrMask,std::allocator<IPAddrMask>>(IPAddrMask *_First, unsigned int _Count, const IPAddrMask *_Val, std::allocator<IPAddrMask> *_Al); // idb
 CMemory::tagEntry **__cdecl std::_Allocate<IPAddrMask>(unsigned int _Count);
-void __cdecl std::_Destroy<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node>(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Ptr); // idb
-IPAddrMask *__thiscall std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(std::allocator<IPAddrMask> *this, IPAddrMask *_First, IPAddrMask *_Last, IPAddrMask *_Dest);
+// void __cdecl std::_Destroy<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node>(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Ptr); idb
+IPAddrMask *__thiscall std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(std::allocator<IPAddrMask> *this, int _First, int _Last, void *_Dest);
 void __cdecl std::fill<IPAddrMask *,IPAddrMask>(IPAddrMask *_First, IPAddrMask *_Last, const IPAddrMask *_Val); // idb
 IPAddrMask *__cdecl std::copy_backward<IPAddrMask *,IPAddrMask *>(IPAddrMask *_First, IPAddrMask *_Last, IPAddrMask *_Dest); // idb
 std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *__thiscall std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node::`scalar deleting destructor'(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *this, unsigned int a2);
 void __thiscall std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node::~_Node(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *this); // idb
-// void __thiscall std::pair<int const,std::string>::~pair<int const,std::string>(std::pair<int const ,std::string > *this); idb
+void __thiscall std::pair<int const,std::string>::~pair<int const,std::string>(std::pair<int const ,std::string > *this); // idb
 IPAddrMask *__cdecl std::_Uninitialized_copy<std::vector<IPAddrMask>::iterator,IPAddrMask *,std::allocator<IPAddrMask>>(std::vector<IPAddrMask>::iterator _First, std::vector<IPAddrMask>::iterator _Last, IPAddrMask *_Dest, std::allocator<IPAddrMask> *_Al); // idb
 void __cdecl std::_Destroy_range<IPAddrMask>(IPAddrMask *_First, IPAddrMask *_Last, std::allocator<IPAddrMask> *_Al);
 void __cdecl std::_Uninit_fill_n<IPAddrMask *,unsigned int,IPAddrMask,std::allocator<IPAddrMask>>(IPAddrMask *_First, unsigned int _Count, const IPAddrMask *_Val, std::allocator<IPAddrMask> *_Al);
 IPAddrMask *__cdecl std::_Uninitialized_copy<IPAddrMask *,IPAddrMask *,std::allocator<IPAddrMask>>(IPAddrMask *_First, IPAddrMask *_Last, IPAddrMask *_Dest, std::allocator<IPAddrMask> *_Al); // idb
 IPAddrMask *__cdecl std::_Copy_backward_opt<IPAddrMask *,IPAddrMask *>(IPAddrMask *_First, IPAddrMask *_Last, IPAddrMask *_Dest);
 void __thiscall std::allocator<IPAddrMask>::construct(std::allocator<IPAddrMask> *this, IPAddrMask *_Ptr, const IPAddrMask *_Val); // idb
-std::_Nonscalar_ptr_iterator_tag __cdecl std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+// std::_Nonscalar_ptr_iterator_tag __cdecl std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(std::vector<IPAddrMask>::iterator *__formal, IPAddrMask **__formal); idb
 IPAddrMask *__cdecl std::_Uninit_copy<std::vector<IPAddrMask>::iterator,IPAddrMask *,std::allocator<IPAddrMask>>(std::vector<IPAddrMask>::iterator _First, std::vector<IPAddrMask>::iterator _Last, IPAddrMask *_Dest, std::allocator<IPAddrMask> *_Al);
 IPAddrMask *__cdecl std::_Uninit_copy<IPAddrMask *,IPAddrMask *,std::allocator<IPAddrMask>>(IPAddrMask *_First, IPAddrMask *_Last, IPAddrMask *_Dest, std::allocator<IPAddrMask> *_Al);
 void __cdecl std::_Construct<IPAddrMask,IPAddrMask>(IPAddrMask *_Ptr, const IPAddrMask *_Val); // idb
@@ -162,7 +174,7 @@ IPAddrMask *__thiscall std::vector<CSyncPacket::CElement>::iterator::operator*(s
 void __thiscall std::string::string(std::string *this); // idb
 void __thiscall std::vector<IPAddrMask>::vector<IPAddrMask>(std::vector<IPAddrMask> *this); // idb
 char __thiscall std::vector<IPAddrMask>::_Buy(std::vector<IPAddrMask> *this, unsigned int _Capacity);
-void __thiscall std::allocator<CSyncPacket::CElement>::allocator<CSyncPacket::CElement>(std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> *this, std::less<int> _Parg); // idb
+// void __thiscall std::allocator<CSyncPacket::CElement>::allocator<CSyncPacket::CElement>(std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> *this, std::less<int> _Parg); idb
 void __thiscall std::map<int,std::string>::map<int,std::string>(std::map<int,std::string> *this); // idb
 void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this, const std::less<int> *_Parg, const std::allocator<std::pair<int const ,std::string > > *_Al); // idb
 void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Init(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this); // idb
@@ -183,8 +195,11 @@ void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std:
 std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::begin(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this, std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *result); // idb
 std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::erase(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this, std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *result, std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator _First, std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator _Last); // idb
 std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::erase(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this, std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *result, std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator _Where); // idb
-// void __thiscall std::out_of_range::out_of_range(std::out_of_range *this, const std::string *_Message); idb
+void __thiscall std::out_of_range::out_of_range(std::out_of_range *this, const std::string *_Message); // idb
+void __thiscall std::out_of_range::~out_of_range(std::out_of_range *this); // idb
+std::out_of_range *__thiscall std::out_of_range::`vector deleting destructor'(std::out_of_range *this, unsigned int a2);
 std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::iterator::operator++(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *this, std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *result, int __formal); // idb
+void __thiscall std::out_of_range::out_of_range(std::out_of_range *this, const std::out_of_range *__that); // idb
 void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Lrotate(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this, std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Wherenode); // idb
 std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *__cdecl std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Max(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Pnode); // idb
 std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *__cdecl std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Min(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Pnode); // idb
@@ -193,14 +208,14 @@ std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::
 std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::const_iterator *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::operator++(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::const_iterator *this); // idb
 void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::_Inc(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::const_iterator *this); // idb
 void __cdecl std::swap<char>(char *_Left, char *_Right); // idb
-unsigned int __stdcall WinMain(HINSTANCE__ *hInstance, HINSTANCE__ *hPrevInstance, char *lpCmdLine, int nCmdShow);
+int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd);
 ATOM __cdecl MyRegisterClass(HINSTANCE__ *hInstance);
 int __cdecl InitInstance(HINSTANCE__ *hInstance, int nCmdShow); // idb
-void __cdecl TestException(); // idb
+int TestException();
 LRESULT __stdcall WndProc(HWND__ *hWnd, unsigned int message, unsigned int wParam, int lParam);
 int __stdcall About(HWND__ *hDlg, unsigned int message, unsigned int wParam, int lParam); // idb
-// unsigned int __userpurge StartThread@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, void *__formal);
-// unsigned int __userpurge StopThread@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, void *arglist);
+// unsigned int __userpurge StartThread@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, void *__formal);
+// unsigned int __userpurge StopThread@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, void *arglist);
 void __cdecl DesWriteBlock(void *buf, int len); // idb
 void __cdecl DesMem(void *buf, int mlen, int isencrypting); // idb
 void __cdecl endes(char *inblock, char *outblock); // idb
@@ -221,98 +236,95 @@ void __cdecl perminit(char (*perm)[16][8], char *p); // idb
 void __cdecl ExclusiveOr(char *dest, char *src); // idb
 int __cdecl DesWriteBlockEx(void *buf, int len); // idb
 int __cdecl DesReadBlockEx(void *buf, int len); // idb
-// unsigned int __usercall SnapCurrentProcessMiniDump@<eax>(unsigned int a1@<eax>, unsigned int a2@<edx>, unsigned int a3@<ecx>, unsigned int a4@<ebx>, unsigned int a5@<edi>, unsigned int a6@<esi>, _CONTEXT *lpContext);
+// unsigned int __usercall SnapCurrentProcessMiniDump@<eax>(DWORD a1@<eax>, DWORD a2@<edx>, DWORD a3@<ecx>, DWORD a4@<ebx>, DWORD a5@<edi>, DWORD a6@<esi>, _CONTEXT *lpContext);
 void __thiscall CIOException::CInit::CInit(CIOException::CInit *this); // idb
 char *__cdecl GetFilePart(char *source); // idb
-// void __usercall __noreturn SecurityHandler(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>);
+// void __usercall __noreturn SecurityHandler(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>);
 BOOL sendMail();
 int __cdecl sendMail_0(const char *host, const char *from, const char *to, const char *body); // idb
 int __cdecl sendFile(unsigned int sock, const char *name); // idb
-// void __usercall GenerateExceptionReport(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, _EXCEPTION_POINTERS *data);
+// void __usercall GenerateExceptionReport(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, _EXCEPTION_POINTERS *data);
 void hprintf(void *LogFile, char *Format, ...); // idb
 void __cdecl CreateMiniDump(_EXCEPTION_POINTERS *pException); // idb
 void __cdecl RecordModuleList(void *LogFile); // idb
-// void __cdecl ShowModuleInfo(void *LogFile, HINSTANCE__ *ModuleHandle); idb
+// int __cdecl ShowModuleInfo();
 // void __cdecl RecordSystemInformation(void *LogFile); idb
-char *__cdecl GetExceptionDescription(unsigned int ExceptionCode);
+const char *__cdecl GetExceptionDescription(unsigned int ExceptionCode); // idb
 void __cdecl PrintStack(void *LogFile, unsigned int begin, unsigned int end); // idb
 void __cdecl ImageHelpStackWalk(void *LogFile, _CONTEXT *ptrContext); // idb
 void __cdecl IntelStackWalk(void *LogFile, _CONTEXT *ptrContext); // idb
-// int __userpurge RecordExceptionInfo@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, _EXCEPTION_POINTERS *data);
+// int __userpurge RecordExceptionInfo@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, _EXCEPTION_POINTERS *data);
 void __thiscall CIOException::CInit::~CInit(CIOException::CInit *this); // idb
 void ELOG(const char *lpszFormat, ...); // idb
-// void __usercall EBREAK(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>);
-// void __usercall EBreak(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>);
-// int __usercall CIOException::Filter@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, _EXCEPTION_POINTERS *pExp);
+// void __usercall __spoils<edx,ecx> EBREAK(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>);
+// int __usercall EBreak@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>);
+// int __usercall CIOException::Filter@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, _EXCEPTION_POINTERS *pExp);
 void __cdecl CIOException::Open(const char *szMailServer, const char *szMailFrom, const char *szMailTo); // idb
 BOOL __cdecl CIOException::Enable();
 LONG __cdecl CIOException::Disable();
-LONG __cdecl CIOException::IsEnable();
-void __cdecl CIOException::SendMail(); // idb
-LONG __cdecl CIOException::ToggleRaise();
+int __cdecl CIOException::IsEnable(); // idb
+int CIOException::SendMail();
+int __cdecl CIOException::ToggleRaise(); // idb
 void __cdecl CIOException::DumpStack(int nThread, void **hThread, unsigned int *nThreadId); // idb
 void __cdecl ImageHelpStackWalk_0(void *LogFile, void *hThread); // idb
 int __cdecl CIOException::SendMail(const char *host, const char *from, const char *to, const char *body); // idb
-// void __cdecl CIOException::Lock(); idb
-// void __cdecl CIOException::Unlock(); idb
+// int CIOException::Lock(void); weak
+// int CIOException::Unlock(void); weak
 void __thiscall CIOSpinLock::Wait(CIOSpinLock *this); // idb
 void __thiscall CIOCriticalSection::CIOCriticalSection(CIOCriticalSection *this); // idb
 void __thiscall CIOCriticalSection::CIOCriticalSection(CIOCriticalSection *this, unsigned int dwSpinCount); // idb
-// void __usercall CIOCriticalSection::~CIOCriticalSection(CIOCriticalSection *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
-// void __usercall CIOCriticalSection::Enter(CIOCriticalSection *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
-// int __usercall CIOCriticalSection::TryEnter@<eax>(CIOCriticalSection *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
-// void __usercall CIOCriticalSection::Leave(CIOCriticalSection *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
+// void __usercall CIOCriticalSection::~CIOCriticalSection(CIOCriticalSection *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
+// void __usercall CIOCriticalSection::Enter(CIOCriticalSection *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
+// int __usercall CIOCriticalSection::TryEnter@<eax>(CIOCriticalSection *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
+// void __usercall CIOCriticalSection::Leave(CIOCriticalSection *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
 void __thiscall CIOSocket::CInit::~CInit(CIOSocket::CInit *this); // idb
-// int __usercall CIOSocket::CreateIOThread@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, int nThread);
-unsigned int __cdecl CIOSocket::AddIOThread(); // idb
+// int __usercall CIOSocket::CreateIOThread@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, int nThread);
+unsigned int __thiscall CIOSocket::AddIOThread(void *this);
 int __cdecl CIOSocket::CloseIOThread(); // idb
-void __cdecl CIOSocket::FreeIOThread(); // idb
+void CIOSocket::FreeIOThread();
 void __thiscall CIOObject::~CIOObject(CIOObject *this); // idb
-// void __userpurge CIOObject::AddRef(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, volatile int *pRef);
-// void __userpurge CIOObject::Release(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, volatile int *pRef);
-// int __userpurge CIOObject::RegisterWait@<eax>(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, void *handle);
-// void __userpurge CIOObject::AddTimer(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, unsigned int dwTime, int nId);
-// void __userpurge CIOObject::OnTimerCallback(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nId);
-// void __userpurge CIOObject::OnIOCallback(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int bSucess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
+// void __userpurge CIOObject::AddRef(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, volatile int *pRef);
+// void __userpurge CIOObject::Release(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, volatile int *pRef);
+// int __userpurge CIOObject::RegisterWait@<eax>(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, void *handle);
+// void __userpurge CIOObject::AddTimer(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int dwTime, int nId);
+// void __userpurge CIOObject::OnTimerCallback(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nId);
+// void __userpurge CIOObject::OnIOCallback(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int bSucess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
 void __thiscall CIOSocket::CIOTimerInstance::OnTimerCallback(CIOSocket::CIOTimerInstance *this, int nId); // idb
 void __thiscall CIOSocket::CIOTimerInstance::OnIOCallback(CIOSocket::CIOTimerInstance *this, int bSucess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped); // idb
-// unsigned int __userpurge CIOSocket::WaitThread@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, void *__formal);
+// unsigned int __userpurge CIOSocket::WaitThread@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, void *__formal);
 void __stdcall __noreturn CIOSocket::IOThread(void *arglist);
-void __cdecl CIOSocket::DumpStack(); // idb
+int CIOSocket::DumpStack();
 CMemory::tagEntry **__cdecl CIOBuffer::Alloc();
 void __thiscall CIOBuffer::Free(CIOBuffer *this); // idb
-void __cdecl CIOBuffer::FreeAll(); // idb
-// void __thiscall CIOSocket::CIOSocket(CIOSocket *this, unsigned int s); idb
-// void __thiscall CIOSocket::~CIOSocket(CIOSocket *this); idb
-void __thiscall CIOSocket::OnClose(CIOSocket *this); // idb
-// void __usercall CIOSocket::Close(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
-// void __usercall CIOSocket::GracefulClose(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
-// void __userpurge CIOSocket::OnIOCallback(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
-// void __usercall CIOSocket::OnCreate(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
-// void __userpurge CIOSocket::ReadCallback(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, unsigned int dwTransferred);
-// void __userpurge CIOSocket::Read(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, unsigned int dwLeft);
-// void __userpurge CIOSocket::WriteCallback(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, unsigned int dwTransferred);
-// void __userpurge CIOSocket::Write(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, CIOBuffer *pBuffer);
-// void __userpurge CIOSocket::Write(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, char *buf, unsigned int size);
+int CIOBuffer::FreeAll();
+// void __userpurge CIOSocket::CIOSocket(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int s);
+// void __usercall CIOSocket::~CIOSocket(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
+// void __usercall CIOSocket::Close(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
+// void __usercall CIOSocket::GracefulClose(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
+// void __userpurge CIOSocket::OnIOCallback(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
+// void __usercall CIOSocket::OnCreate(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
+// void __userpurge CIOSocket::ReadCallback(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int dwTransferred);
+// void __userpurge CIOSocket::Read(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int dwLeft);
+// void __userpurge CIOSocket::WriteCallback(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int dwTransferred);
+// void __userpurge CIOSocket::Write(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, CIOBuffer *pBuffer);
+// void __userpurge CIOSocket::Write(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, char *buf, unsigned int size);
 void __thiscall CIOServer::CIOServer(CIOServer *this); // idb
 void __thiscall CIOServer::~CIOServer(CIOServer *this); // idb
 void __thiscall CIOServer::Close(CIOServer *this); // idb
-// int __userpurge CIOServer::Start@<eax>(CIOServer *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPort);
+// int __userpurge CIOServer::Start@<eax>(CIOServer *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPort);
 void __thiscall CIOServer::OnWaitCallback(CIOServer *this); // idb
 void __thiscall CIOServer::Stop(CIOServer *this); // idb
-// void __userpurge CIOServer::OnIOCallback(CIOServer *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
-// void __usercall CIOSocket::Initialize(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
+// void __userpurge CIOServer::OnIOCallback(CIOServer *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
+// void __usercall CIOSocket::Initialize(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
 void __thiscall CIOObject::OnFree(CIOObject *this); // idb
-void __thiscall CIOObject::OnTimer(CIOObject *this, int nId); // idb
-void __thiscall CIOObject::OnWaitCallback(CIOObject *this); // idb
 CIOObject *__thiscall CIOObject::`vector deleting destructor'(CIOObject *this, unsigned int a2);
 void __thiscall CIOSocket::CIOTimer::CIOTimer(CIOSocket::CIOTimer *this, CIOObject *pObject, unsigned int dwTime, int nId); // idb
-// void __usercall CIOObject::Release(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
+// void __usercall CIOObject::Release(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
 BOOL __thiscall CIOObject::PostObject(CIOObject *this, int nId);
 // void __stdcall `vector constructor iterator'(void *__t, unsigned int __s, int __n, void *(__thiscall *__f)(void *)); idb
 void __thiscall CIOObject::CIOObject(CIOObject *this); // idb
-// void __usercall CIOObject::AddRef(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
-CIOSocket *__thiscall CIOSocket::`scalar deleting destructor'(CIOSocket *this, unsigned int a2);
+// void __usercall CIOObject::AddRef(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
+// CIOSocket *__userpurge CIOSocket::`scalar deleting destructor'@<eax>(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int a5);
 void __thiscall CIOBuffer::Release(CIOBuffer *this); // idb
 CIOServer *__thiscall CIOServer::`vector deleting destructor'(CIOServer *this, unsigned int a2);
 BOOL __thiscall std::priority_queue<CIOSocket::CIOTimer>::empty(std::priority_queue<CIOSocket::CIOTimer> *this);
@@ -331,7 +343,7 @@ void __thiscall std::vector<CIOSocket::CIOTimer>::_Destroy(std::vector<CIOSocket
 CIOSocket::CIOTimer *__thiscall std::vector<CIOSocket::CIOTimer>::_Ufill(std::vector<CIOSocket::CIOTimer> *this, CIOSocket::CIOTimer *_Ptr, unsigned int _Count, const CIOSocket::CIOTimer *_Val); // idb
 void __thiscall std::vector<CIOSocket::CIOTimer>::_Insert_n(std::vector<CIOSocket::CIOTimer> *this, std::vector<CIOSocket::CIOTimer>::iterator _Where, unsigned int _Count, const CIOSocket::CIOTimer *_Val); // idb
 unsigned int __thiscall std::vector<CIOSocket::CIOTimer>::max_size(std::vector<CIOSocket::CIOTimer> *this); // idb
-// void __thiscall std::vector<CIOSocket::CIOTimer>::_Xlen(std::vector<CIOSocket::CIOTimer> *this); idb
+void __thiscall __noreturn std::vector<CIOSocket::CIOTimer>::_Xlen(std::vector<CIOSocket::CIOTimer> *this);
 CMemory::tagEntry **__thiscall std::allocator<CIOSocket::CIOTimer>::allocate(std::allocator<CIOSocket::CIOTimer> *this, unsigned int _Count);
 std::vector<CIOSocket::CIOTimer>::iterator *__thiscall std::vector<CIOSocket::CIOTimer>::iterator::operator+(std::vector<CIOSocket::CIOTimer>::iterator *this, std::vector<CIOSocket::CIOTimer>::iterator *result, int _Off); // idb
 int __thiscall std::vector<CIOSocket::CIOTimer>::iterator::operator-(std::vector<CIOSocket::CIOTimer>::iterator *this, const std::vector<CIOSocket::CIOTimer>::const_iterator *_Right); // idb
@@ -342,7 +354,7 @@ void __cdecl std::push_heap<std::vector<CIOSocket::CIOTimer>::iterator,std::less
 void __cdecl std::pop_heap<std::vector<CIOSocket::CIOTimer>::iterator,std::less<CIOSocket::CIOTimer>>(std::vector<CIOSocket::CIOTimer>::iterator _First, std::vector<CIOSocket::CIOTimer>::iterator _Last, std::less<CIOSocket::CIOTimer> _Pred); // idb
 void __cdecl std::_Destroy_range<CIOSocket::CIOTimer>(CIOSocket::CIOTimer *_First, CIOSocket::CIOTimer *_Last, std::allocator<CIOSocket::CIOTimer> *_Al); // idb
 void __cdecl std::_Uninitialized_fill_n<CIOSocket::CIOTimer *,unsigned int,CIOSocket::CIOTimer,std::allocator<CIOSocket::CIOTimer>>(CIOSocket::CIOTimer *_First, unsigned int _Count, const CIOSocket::CIOTimer *_Val, std::allocator<CIOSocket::CIOTimer> *_Al); // idb
-CIOSocket::CIOTimer *__thiscall std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(std::allocator<CIOSocket::CIOTimer> *this, CIOSocket::CIOTimer *_First, CIOSocket::CIOTimer *_Last, CIOSocket::CIOTimer *_Dest);
+CIOSocket::CIOTimer *__thiscall std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(std::allocator<CIOSocket::CIOTimer> *this, int _First, int _Last, void *_Dest);
 void __cdecl std::fill<CIOSocket::CIOTimer *,CIOSocket::CIOTimer>(CIOSocket::CIOTimer *_First, CIOSocket::CIOTimer *_Last, const CIOSocket::CIOTimer *_Val); // idb
 CIOSocket::CIOTimer *__cdecl std::copy_backward<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(CIOSocket::CIOTimer *_First, CIOSocket::CIOTimer *_Last, CIOSocket::CIOTimer *_Dest); // idb
 CMemory::tagEntry **__cdecl std::_Allocate<CIOSocket::CIOTimer>(unsigned int _Count);
@@ -370,20 +382,19 @@ void __cdecl std::_Adjust_heap<std::vector<CIOSocket::CIOTimer>::iterator,int,CI
 void __thiscall std::priority_queue<CIOSocket::CIOTimer>::priority_queue<CIOSocket::CIOTimer,std::vector<CIOSocket::CIOTimer>,std::less<CIOSocket::CIOTimer>>(std::priority_queue<CIOSocket::CIOTimer> *this); // idb
 void __thiscall std::vector<CIOSocket::CIOTimer>::vector<CIOSocket::CIOTimer>(std::vector<CIOSocket::CIOTimer> *this); // idb
 char __thiscall std::vector<CIOSocket::CIOTimer>::_Buy(std::vector<CIOSocket::CIOTimer> *this, unsigned int _Capacity);
-// void __thiscall CIOSocket::CIOTimerInstance::CIOTimerInstance(CIOSocket::CIOTimerInstance *this); idb
+void __thiscall CIOSocket::CIOTimerInstance::CIOTimerInstance(CIOSocket::CIOTimerInstance *this); // idb
 // void __thiscall CIOBuffer::CSlot::CSlot(CIOBuffer::CSlot *this); idb
 void __thiscall std::priority_queue<CIOSocket::CIOTimer>::~priority_queue<CIOSocket::CIOTimer,std::vector<CIOSocket::CIOTimer>,std::less<CIOSocket::CIOTimer>>(std::priority_queue<CIOSocket::CIOTimer> *this); // idb
 void __thiscall std::vector<CIOSocket::CIOTimer>::~vector<CIOSocket::CIOTimer>(std::vector<CIOSocket::CIOTimer> *this); // idb
 void __thiscall std::vector<CIOSocket::CIOTimer>::_Tidy(std::vector<CIOSocket::CIOTimer> *this); // idb
 lisp::var *__thiscall lisp::var::operator=(lisp::var *this, lisp::_object *a2);
-unsigned int __thiscall lisp::_string::GetInteger(lisp::_string *this);
+int __thiscall lisp::_string::GetInteger(lisp::_string *this); // idb
 unsigned int __thiscall lisp::_string::GetUnsigned(lisp::_string *this); // idb
 int __thiscall lisp::_cons::length(lisp::_cons *this); // idb
 void __thiscall lisp::_null::_null(lisp::_null *this); // idb
-char __thiscall lisp::_string::stringp(lisp::_cons *this);
 void __thiscall CLog::CInit::~CInit(CLog::CInit *this); // idb
 void __cdecl CLog::AddV(int nType, char *format, char *va); // idb
-void __cdecl CLog::Flush(); // idb
+void CLog::Flush();
 void LOG_INFO(char *format, ...); // idb
 void LOG_NORMAL(char *format, ...); // idb
 void LOG_ERR(char *format, ...); // idb
@@ -409,38 +420,40 @@ void __thiscall CMemory::__sbh_free_block(CMemory *this, CMemory::tagHeader *pHe
 CMemory **__cdecl CMemory::_calloc(unsigned int num, unsigned int size);
 void *__thiscall CMemory::_calloc_base(CMemory *this, unsigned int size); // idb
 CMemory::tagEntry **__cdecl CMemory::_realloc(void *pBlock, unsigned int newsize);
-unsigned __int8 *__thiscall CMemory::_realloc_base(CMemory *this, void *pBlock, unsigned int newsize);
+void *__thiscall CMemory::_realloc_base(CMemory *this, void *pBlock, unsigned int newsize); // idb
 int __thiscall CMemory::__sbh_resize_block(CMemory *this, CMemory::tagHeader *pHeader, void *pvAlloc, int intNew); // idb
 void *__cdecl CMemory::__expand(void *pBlock, unsigned int newsize); // idb
 void *__thiscall CMemory::_expand_base(CMemory *this, void *pBlock, unsigned int newsize); // idb
 unsigned int __cdecl CMemory::__msize(void *pBlock); // idb
 unsigned int __thiscall CMemory::_msize_base(CMemory *this, void *pblock); // idb
-// void *__cdecl CNoMemoryObject::operator new(unsigned int nSize); idb
+void *__cdecl CNoMemoryObject::operator new(unsigned int nSize); // idb
+void __cdecl CNoMemoryObject::operator delete(void *pData); // idb
 void __thiscall CMemory::_mlock(CMemory *this); // idb
 void __thiscall CMemory::_munlock(CMemory *this); // idb
 void __thiscall CRWLock::CRWLock(CRWLock *this); // idb
-// void __usercall CRWLock::~CRWLock(CRWLock *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
+// void __usercall CRWLock::~CRWLock(CRWLock *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
 void __thiscall CRWLock::Wait(CRWLock *this); // idb
 void __thiscall CRWLock::ReadLock(CRWLock *this); // idb
-// void __usercall CRWLock::ReadUnlock(CRWLock *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
+// void __usercall CRWLock::ReadUnlock(CRWLock *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
 void __thiscall CRWLock::WriteLock(CRWLock *this); // idb
-// void __usercall CRWLock::WriteUnlock(CRWLock *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
+// void __usercall CRWLock::WriteUnlock(CRWLock *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
 int __thiscall CRWLock::WriteTryLock(CRWLock *this); // idb
 void __thiscall CRWLock::Enter(CRWLock *this); // idb
 void __thiscall CRWLock::Leave(CRWLock *this); // idb
 void __thiscall CScreen::CScreen(CScreen *this); // idb
-// void __usercall CScreen::~CScreen(CScreen *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
+// void __usercall CScreen::~CScreen(CScreen *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
 void __thiscall CScreen::Open(CScreen *this, int nWidth, int nHeight); // idb
 void CScreen::Add(CScreen *this, unsigned int color, const char *format, ...); // idb
 void __thiscall CScreen::AddString(CScreen *this, unsigned int color, const char *string); // idb
 // void __thiscall CScreen::Empty(CScreen *this); idb
 void __thiscall CScreen::OnPaint(CScreen *this); // idb
-// void __usercall CServer::Start(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>);
+// void __usercall CServer::Start(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>);
+// CIOSocket *__userpurge CServer::CreateSocket@<eax>(CServer *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int newSocket, sockaddr_in *addr);
 void __cdecl CServer::Add(CSocket *pSocket); // idb
 void __cdecl CServer::Remove(CSocket *pSocket); // idb
 int __cdecl CServer::Size(); // idb
-void __cdecl CServer::Stop(); // idb
-// void __usercall CServer::Shutdown(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>);
+void CServer::Stop();
+// void __usercall CServer::Shutdown(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>);
 int __cdecl CServer::PendingWrite(); // idb
 void __thiscall CLink::Initialize(CLink *this); // idb
 void __thiscall CLink::Insert(CLink *this, CLink *pLink); // idb
@@ -449,22 +462,22 @@ void __thiscall CLink::Remove(CLink *this); // idb
 void __thiscall CServer::CServer(CServer *this); // idb
 CServer *__thiscall CServer::`vector deleting destructor'(CServer *this, unsigned int a2);
 void __thiscall CServer::~CServer(CServer *this); // idb
-// void __userpurge CPacket::OnIOCallback(CPacket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
-// void __userpurge CSyncPacket::OnIOCallback(CSyncPacket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
-void __thiscall CSocket::CSocket(CSocket *this, unsigned int socket, in_addr addr); // idb
-void __thiscall CSocket::~CSocket(CSocket *this); // idb
-// void __usercall CSocket::OnCreate(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
-// void __usercall CSocket::OnRead(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>);
+// void __userpurge CPacket::OnIOCallback(CPacket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
+// void __userpurge CSyncPacket::OnIOCallback(CSyncPacket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
+// void __userpurge CSocket::CSocket(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int socket, in_addr addr);
+// void __usercall CSocket::~CSocket(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
+// void __usercall CSocket::OnCreate(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, unsigned int a4@<esi>);
+// void __usercall CSocket::OnRead(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
 void __thiscall CSocket::OnClose(CSocket *this); // idb
-// void __usercall CSocket::Write(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, CSocket *this, D2S_PROTOCOL nType, const char *__formal, ...);
-// void __userpurge CSocket::Process(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, DBPACKET *dbpacket);
-// void __userpurge CSocket::DelPlayer(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPID, int nUID, int nId);
-// void __userpurge CSocket::LoadPlayer(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPID, int nLoadGID, int nUID, int nId);
-// void __userpurge CSocket::SaveAllProperty(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, char *packet);
+// void __usercall CSocket::Write(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, CSocket *this, D2S_PROTOCOL nType, const char *__formal, ...);
+// void __userpurge CSocket::Process(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, DBPACKET *dbpacket);
+// void __userpurge CSocket::DelPlayer(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPID, int nUID, int nId);
+// void __userpurge CSocket::LoadPlayer(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPID, int nLoadGID, int nUID, int nId);
+// void __userpurge CSocket::SaveAllProperty(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, char *packet);
 void __thiscall CSocket::DeleteItem(CSocket *this, int nIID, int nPID, int nIndex, int nNum, int nVal1, int nVal2, int nLogType); // idb
 void __thiscall CSocket::PutOnItem(CSocket *this, int nIID); // idb
 void __thiscall CSocket::PutOffItem(CSocket *this, int nIID); // idb
-// void __userpurge CSocket::InsertItem(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, char *packet);
+// void __userpurge CSocket::InsertItem(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, char *packet);
 void __thiscall CSocket::UpdateItemPID(CSocket *this, int nIID, int nOldPID, int nNewPID, int nIndex, int nNum, int nLogType); // idb
 void __thiscall CSocket::UpdateItemNum(CSocket *this, int nIID, int nPID, int nIndex, int nNum, int nLogType); // idb
 void __thiscall CSocket::InsertSkill(CSocket *this, int nPID, int nSkill, int nSUPoint); // idb
@@ -475,19 +488,19 @@ void __thiscall CSocket::PutOutStorage(CSocket *this, int nIID, int nPID, int nU
 void __thiscall CSocket::InsertQuestFlag(CSocket *this, int nPID, int nQuest, int nFlag, int bClear); // idb
 void __thiscall CSocket::UpdateQuestFlag(CSocket *this, int nPID, int nQuest, int nFlag, int bClear); // idb
 void __thiscall CSocket::SaveSpecialty(CSocket *this, int nPID, int nSpecialty); // idb
-// void __userpurge CSocket::UpdateProperty(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPID, int nPrtyType, char *packet);
+// void __userpurge CSocket::UpdateProperty(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPID, int nPrtyType, char *packet);
 void __thiscall CSocket::UpdateItemXValue(CSocket *this, int nIID, int nPID, int nPrtyType, int nXValue); // idb
 void __thiscall CSocket::UpdateItemEnd(CSocket *this, int nIID, int nPID, int nCurEnd); // idb
 void __thiscall CSocket::UpdateItemPrefix(CSocket *this, int nIID, int nPID, int nNewPrefix); // idb
 void __thiscall CSocket::UpdateTransformItem(CSocket *this, int nIID, int nPID, int nExp, int nLevel, int bLevelUp); // idb
-// void __userpurge CSocket::Login(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nId, int nUID);
-// void __userpurge CSocket::NewPlayer(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, char *packet);
+// void __userpurge CSocket::Login(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nId, int nUID);
+// void __userpurge CSocket::NewPlayer(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, char *packet);
 void __thiscall CSocket::SaveRevivalPt(CSocket *this, int nPID, int nRvId); // idb
 void __thiscall CSocket::EventSave(CSocket *this, int nPID, int nCount, const char *info); // idb
-// void __userpurge CSocket::ProcessEvent(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nId, int nEventCode, char *packet);
-// void __userpurge CSocket::GuildCreateSecedeCheck(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPlayer, int nCount, const char *info);
-// void __userpurge CSocket::GuildSecedeCheck(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPlayer, int nPID, int nGID);
-// void __userpurge CSocket::GuildSameNameCheck(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPlayer, char *szGuildName);
+// void __userpurge CSocket::ProcessEvent(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nId, int nEventCode, char *packet);
+// void __userpurge CSocket::GuildCreateSecedeCheck(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPlayer, int nCount, const char *info);
+// void __userpurge CSocket::GuildSecedeCheck(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPlayer, int nPID, int nGID);
+// void __userpurge CSocket::GuildSameNameCheck(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPlayer, char *szGuildName);
 void __thiscall CSocket::GuildCreate(CSocket *this, int nGID, char *szGuildName); // idb
 void __thiscall CSocket::GuildConflux(CSocket *this, int nGID, int nPID); // idb
 void __thiscall CSocket::GuildSecederDelete(CSocket *this, int nPID); // idb
@@ -499,8 +512,8 @@ void __thiscall CSocket::GuildTodayMessageChange(CSocket *this, int nGID, char *
 void __thiscall CSocket::GuildSetExp(CSocket *this, int nGID, int nExp); // idb
 void __thiscall CSyncPacket::Pop(CSyncPacket *this); // idb
 void __thiscall CSyncPacket::CElement::CElement(CSyncPacket::CElement *this, CSocket *pSocket, CIOBuffer *pBuf, DBPACKET *packet); // idb
-// CSyncPacket::CElement *__thiscall CSyncPacket::Front(CSyncPacket *this); idb
-CSocket *__thiscall CSocket::`vector deleting destructor'(CSocket *this, unsigned int a2);
+IPAddrMask *__thiscall CSyncPacket::Front(CSyncPacket *this);
+// CSocket *__userpurge CSocket::`vector deleting destructor'@<eax>(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int a5);
 void __thiscall CDB::Bind(CDB *this, int *n); // idb
 void __thiscall CIOBuffer::AddRef(CIOBuffer *this); // idb
 void __thiscall CSyncPacket::Push(CSyncPacket *this, CSyncPacket::CElement *element); // idb
@@ -530,7 +543,7 @@ int __thiscall std::vector<CSyncPacket::CElement>::capacity(std::vector<CSyncPac
 unsigned int __thiscall std::vector<CSyncPacket::CElement>::max_size(std::vector<CSyncPacket::CElement> *this); // idb
 void __thiscall std::vector<CSyncPacket::CElement>::_Destroy(std::vector<CSyncPacket::CElement> *this, CSyncPacket::CElement *_First, CSyncPacket::CElement *_Last); // idb
 CSyncPacket::CElement *__thiscall std::vector<CSyncPacket::CElement>::_Ufill(std::vector<CSyncPacket::CElement> *this, CSyncPacket::CElement *_Ptr, unsigned int _Count, const CSyncPacket::CElement *_Val); // idb
-// void __thiscall std::vector<CSyncPacket::CElement>::_Xlen(std::vector<CSyncPacket::CElement> *this); idb
+void __thiscall __noreturn std::vector<CSyncPacket::CElement>::_Xlen(std::vector<CSyncPacket::CElement> *this);
 CMemory::tagEntry **__thiscall std::allocator<CSyncPacket::CElement>::allocate(std::allocator<CSyncPacket::CElement> *this, unsigned int _Count);
 int __thiscall std::vector<CSyncPacket::CElement>::const_iterator::operator-(std::vector<CSyncPacket::CElement>::const_iterator *this, const std::vector<CSyncPacket::CElement>::const_iterator *_Right); // idb
 unsigned int __thiscall std::allocator<CSyncPacket::CElement>::max_size(std::allocator<CSyncPacket::CElement> *this); // idb
@@ -540,7 +553,7 @@ char *__cdecl PutNumeric<int>(char *packet, const int Num); // idb
 char *__cdecl PutNumeric<short>(char *packet, const __int16 Num); // idb
 char *__cdecl GetNumeric<unsigned char>(char *packet, unsigned __int8 *Num); // idb
 char *__cdecl GetNumeric<int>(char *packet, int *Num); // idb
-CSyncPacket::CElement *__thiscall std::vector<CSyncPacket::CElement>::_Ucopy<CSyncPacket::CElement *>(std::allocator<CSyncPacket::CElement> *this, CSyncPacket::CElement *_First, CSyncPacket::CElement *_Last, CSyncPacket::CElement *_Dest);
+CSyncPacket::CElement *__thiscall std::vector<CSyncPacket::CElement>::_Ucopy<CSyncPacket::CElement *>(std::allocator<CSyncPacket::CElement> *this, int _First, int _Last, void *_Dest);
 void __cdecl std::fill<CSyncPacket::CElement *,CSyncPacket::CElement>(CSyncPacket::CElement *_First, CSyncPacket::CElement *_Last, const CSyncPacket::CElement *_Val); // idb
 CSyncPacket::CElement *__cdecl std::copy_backward<CSyncPacket::CElement *,CSyncPacket::CElement *>(CSyncPacket::CElement *_First, CSyncPacket::CElement *_Last, CSyncPacket::CElement *_Dest); // idb
 void __cdecl std::_Destroy_range<CSyncPacket::CElement>(CSyncPacket::CElement *_First, CSyncPacket::CElement *_Last, std::allocator<CSyncPacket::CElement> *_Al); // idb
@@ -555,40 +568,40 @@ void __thiscall std::allocator<std::_Tree_nod<std::_Tmap_traits<int,std::string,
 CSyncPacket::CElement *__cdecl std::_Uninit_copy<CSyncPacket::CElement *,CSyncPacket::CElement *,std::allocator<CSyncPacket::CElement>>(CSyncPacket::CElement *_First, CSyncPacket::CElement *_Last, CSyncPacket::CElement *_Dest, std::allocator<CSyncPacket::CElement> *_Al);
 void __cdecl std::_Construct<CSyncPacket::CElement,CSyncPacket::CElement>(CSyncPacket::CElement *_Ptr, const CSyncPacket::CElement *_Val); // idb
 void __thiscall CSyncPacket::CSyncPacket(CSyncPacket *this); // idb
-CSyncPacket *__thiscall CSyncPacket::`vector deleting destructor'(CSyncPacket *this, unsigned int a2);
-// void __thiscall CSyncPacket::~CSyncPacket(CSyncPacket *this); idb
+// CSyncPacket *__userpurge CSyncPacket::`vector deleting destructor'@<eax>(CSyncPacket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int a5);
+// void __usercall CSyncPacket::~CSyncPacket(CSyncPacket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>);
 void __thiscall std::vector<CSyncPacket::CElement>::vector<CSyncPacket::CElement>(std::vector<CSyncPacket::CElement> *this); // idb
 void __thiscall std::vector<CSyncPacket::CElement>::~vector<CSyncPacket::CElement>(std::vector<CSyncPacket::CElement> *this); // idb
 void __thiscall std::vector<CSyncPacket::CElement>::iterator::iterator(std::vector<CSyncPacket::CElement>::iterator *this); // idb
 char __thiscall std::vector<CSyncPacket::CElement>::_Buy(std::vector<CSyncPacket::CElement> *this, unsigned int _Capacity);
 void __thiscall std::vector<CSyncPacket::CElement>::_Tidy(std::vector<CSyncPacket::CElement> *this); // idb
-void __thiscall std::allocator<CSyncPacket::CElement>::allocator<CSyncPacket::CElement>(std::allocator<std::pair<int const ,std::string > > *this); // idb
+// void __thiscall std::allocator<CSyncPacket::CElement>::allocator<CSyncPacket::CElement>(std::allocator<std::pair<int const ,std::string > > *this); idb
 void __thiscall CMemoryPool<CPacket>::CPool::CPool(CMemoryPool<CPacket>::CPool *this); // idb
 void __thiscall CMemoryPool<CPacket>::CPool::~CPool(CMemoryPool<CPacket>::CPool *this); // idb
 void CMemoryPool<CPacket>::FreeAll();
-void __cdecl CStatus::Update(); // idb
-// void __userpurge Encode(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char chCodeNum, unsigned __int8 *ptr, int len);
-// void __userpurge Decode(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char chCodeNum, unsigned __int8 *ptr, int len);
-void __cdecl InitRandom(); // idb
+BOOL CStatus::Update();
+// void __userpurge Encode(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char chCodeNum, unsigned __int8 *ptr, int len);
+// void __userpurge Decode(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char chCodeNum, unsigned __int8 *ptr, int len);
+int InitRandom();
 int __cdecl _Random();
 int __fastcall BitSet(unsigned int *pBit, int nOffset); // idb
 int __fastcall BitReset(unsigned int *pBit, int nOffset); // idb
-// char *__userpurge WritePacketV@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, char *va);
-// char *__usercall WritePacket@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, const char *__formal, ...);
-// char *__userpurge ReadPacketV@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, char *va);
-// char *__usercall ReadPacket@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, const char *__formal, ...);
-// char *__userpurge ScanPacketV@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, char *end, char *va);
-// char *__usercall ScanPacket@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, char *end, const char *__formal, ...);
+// char *__userpurge WritePacketV@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, char *va);
+// char *__usercall WritePacket@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, const char *__formal, ...);
+// char *__userpurge ReadPacketV@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, char *va);
+// char *__usercall ReadPacket@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, const char *__formal, ...);
+// char *__userpurge ScanPacketV@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, char *end, char *va);
+// char *__usercall ScanPacket@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, char *end, const char *__formal, ...);
 char *__stdcall GetString(char *packet); // idb
 char *__stdcall GetString(char *packet, char *str); // idb
-// char *__userpurge ScanString@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, char *end, int size);
-// char *__userpurge ScanString@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, char *end, char *str, int size);
+// char *__userpurge ScanString@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, char *end, int size);
+// char *__userpurge ScanString@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, char *end, char *str, int size);
 char *__stdcall PutString(char *packet, const char *str); // idb
 BOOL __cdecl CreatePath(const char *szPath);
 BOOL __cdecl MovePath(const char *szOldFile, const char *szNewFile);
 BOOL __cdecl DeletePath(const char *ofname);
 _iobuf *__cdecl FOpen(const char *filename); // idb
-// int __usercall CheckResidentNum@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *szResident, char *szNum1, char *szNum2);
+// int __usercall CheckResidentNum@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *szResident, char *szNum1, char *szNum2);
 BOOL __cdecl CheckResidentNum(char *szNum1, char *szNum2);
 BOOL __cdecl CheckResidentNum(char *szNum);
 int __stdcall IsValidName(const char *name); // idb
@@ -611,67 +624,74 @@ void __thiscall InitCodePage::InitCodePage(InitCodePage *this); // idb
 // SQLRETURN __stdcall SQLFetch(SQLHSTMT StatementHandle);
 // SQLRETURN __stdcall SQLBindCol(SQLHSTMT StatementHandle, SQLUSMALLINT ColumnNumber, SQLSMALLINT TargetType, SQLPOINTER TargetValue, SQLINTEGER BufferLength, SQLINTEGER *StrLen_or_Ind);
 // void __thiscall std::_String_base::_Xran(std::_String_base *this); idb
-// void *__cdecl operator new[](unsigned int count); idb
-// int __cdecl fclose(_iobuf *stream); idb
-// int __cdecl isalnum(int c); idb
-// int __cdecl ungetc(int ch, _iobuf *stream); idb
-// int __cdecl getc(_iobuf *stream); idb
-void __stdcall _CallMemberFunction1(void *pthis, void *pmfn, void *pthat, int val2); // idb
-void __cdecl ___00011(unsigned __int8 *a1, unsigned __int8 *a2, unsigned int a3);
-// void __cdecl memcpy(unsigned __int8 *dst, unsigned __int8 *src, unsigned int count); idb
+// void __thiscall std::_String_base::_Xlen(std::_String_base *this); idb
+void *__cdecl operator new[](unsigned int count); // idb
+// int __cdecl fclose(FILE *Stream);
+// int __cdecl isalnum(int C);
+// int __cdecl ungetc(int Character, FILE *Stream);
+// int __cdecl getc(FILE *Stream);
+void *__cdecl ___00011(void *a1, const void *Src, size_t Size);
+// void *__cdecl memcpy(void *, const void *Src, size_t Size);
 // size_t __cdecl strlen(const char *Str);
-// _iobuf *__cdecl fopen(const char *file, const char *mode); idb
+// FILE *__cdecl fopen(const char *FileName, const char *Mode);
 // char *__cdecl strcpy(char *Destination, const char *Source);
 // char *__cdecl strcat(char *Destination, const char *Source);
 // int __cdecl strcmp(const char *Str1, const char *Str2);
-// int __cdecl vsprintf(char *string, const char *format, char *ap); idb
-void __cdecl ___00003_0(unsigned __int8 *a1, unsigned __int8 *a2);
-// void __cdecl strcspn(unsigned __int8 *string, unsigned __int8 *control); idb
-// int __cdecl atoi(const char *nptr); idb
-// void __cdecl strspn(unsigned __int8 *string, unsigned __int8 *control); idb
-// int sprintf(char *string, const char *format, ...); idb
-// void __stdcall _CxxThrowException(void *pExceptionObject, const _s__ThrowInfo *pThrowInfo); idb
-// void __cdecl memmove(unsigned __int8 *dst, unsigned __int8 *src, unsigned int count); idb
-// int __cdecl atexit(void (__cdecl *func)()); idb
-// unsigned int __cdecl _beginthreadex(void *security, unsigned int stacksize, unsigned int (__stdcall *initialcode)(void *), void *argument, unsigned int createflag, unsigned int *thrdaddr); idb
-// tm *__cdecl gmtime(const int *timp); idb
+// int __cdecl vsprintf(char *const Buffer, const char *const Format, va_list ArgList);
+size_t __cdecl ___00003_0(const char *Str, const char *Control);
+// size_t __cdecl strcspn(const char *Str, const char *Control);
+int __cdecl atoi(const char *String);
+// size_t __cdecl strspn(const char *Str, const char *Control);
+// int sprintf(char *const Buffer, const char *const Format, ...);
+// void __stdcall __noreturn _CxxThrowException(void *pExceptionObject, _ThrowInfo *pThrowInfo);
+void __thiscall exception::exception(exception *this); // idb
+// void __thiscall exception::exception(exception *this, const exception *that); idb
+void __thiscall exception::~exception(exception *this); // idb
+exception *__thiscall exception::`vector deleting destructor'(exception *this, unsigned int a2);
+// void *__cdecl memmove(void *, const void *Src, size_t Size);
+// int __cdecl atexit(void (__cdecl *)());
+// uintptr_t __cdecl _beginthreadex(void *Security, unsigned int StackSize, _beginthreadex_proc_type StartAddress, void *ArgList, unsigned int InitFlag, unsigned int *ThrdAddr);
+// struct tm *__cdecl gmtime(const __time32_t *const Time);
 // void *__cdecl memset(void *, int Val, size_t Size);
 void (__cdecl *__cdecl _set_security_error_handler(void (__cdecl *handler)(int, void *)))(int, void *); // idb
-// int __cdecl time(int *timeptr); idb
-// void __cdecl strrchr(unsigned __int8 *string, unsigned __int8 chr); idb
-// tm *__cdecl localtime(const int *ptime); idb
+// __time32_t __cdecl time(__time32_t *const Time);
+// char *__cdecl strrchr(const char *Str, int Ch);
+// struct tm *__cdecl localtime(const __time32_t *const Time);
 // void *__cdecl memchr(const void *Buf, int Val, size_t MaxCount);
-// int __cdecl _vsnprintf(char *string, unsigned int count, const char *format, char *ap); idb
-// int _snprintf(char *string, unsigned int count, const char *format, ...); idb
-// unsigned int __cdecl strtoxl(const char *nptr, const char **endptr, int ibase, int flags); idb
-unsigned int __cdecl strtol(const char *nptr, char **endptr, int ibase);
-unsigned int __cdecl strtoul(const char *nptr, char **endptr, int ibase); // idb
-// unsigned int __cdecl fwrite(const void *buffer, unsigned int size, unsigned int count, _iobuf *stream); idb
-// int __usercall make_time_t@<eax>(tm *tb@<eax>, int ultflag); idb
-int __cdecl mktime(tm *tb); // idb
+// int __cdecl _vsnprintf(char *const Buffer, const size_t BufferCount, const char *const Format, va_list ArgList);
+// int _snprintf(char *const Buffer, const size_t BufferCount, const char *const Format, ...);
+// int __cdecl strtol(const char *String, char **EndPtr, int Radix);
+// unsigned int __cdecl strtoul(const char *String, char **EndPtr, int Radix);
+// size_t __cdecl _fwrite_lk(const void *Buffer, size_t ElementSize, size_t ElementCount, FILE *Stream);
+unsigned int __cdecl fwrite(const void *buffer, unsigned int size, unsigned int count, _iobuf *stream); // idb
+// __time32_t __cdecl mktime(struct tm *const Tm);
 // int __cdecl flsall(int flushflag); idb
-// int __cdecl fflush(_iobuf *stream); idb
+// int __cdecl fflush(FILE *Stream);
 int __cdecl _flushall(); // idb
+// void *__cdecl malloc(size_t Size);
+// void __cdecl free(void *Block);
 void __cdecl operator delete[](void *p); // idb
 // char *__cdecl strncpy(char *Destination, const char *Source, size_t Count);
-// int __cdecl abs(int number); idb
+// int __cdecl abs(int Number);
 // void __stdcall `eh vector constructor iterator'(void *ptr, unsigned int size, int count, void (__thiscall *pCtor)(void *), void (__thiscall *pDtor)(void *)); idb
 // void __stdcall `eh vector destructor iterator'(void *ptr, unsigned int size, int count, void (__thiscall *pDtor)(void *)); idb
-// void __cdecl srand(unsigned int seed); idb
-int __cdecl remove(const char *path); // idb
-// int __cdecl _unlink(const char *path); idb
-int __cdecl _chmod(const char *path, int mode); // idb
-// int __cdecl _stat(const char *name, _stat *buf); idb
-// int *__cdecl _errno(); idb
-// void __cdecl _dosmaperr(unsigned int oserrno); idb
+// void __cdecl srand(unsigned int Seed);
+int __cdecl _unlink(const char *FileName);
+// int __cdecl _chmod(const char *FileName, int Mode);
+// int __cdecl _stat(const char *const FileName, struct _stat32 *const Stat);
+// int *__cdecl _errno();
 // char *__cdecl strchr(const char *Str, int Val);
-// int __cdecl tolower(int c); idb
-DWORD __stdcall __crtTlsAlloc(void (__stdcall *lpCallBack)(void *));
-void __cdecl __CxxRestoreUnhandledExceptionFilter(); // idb
-BOOL __cdecl _ValidateRead(const void *data, unsigned int size);
-BOOL __cdecl _ValidateWrite(void *data, unsigned int size);
-int __stdcall _crtInitCritSecNoSpinCount(_RTL_CRITICAL_SECTION *lpCriticalSection, unsigned int dwSpinCount); // idb
-// int __cdecl _stricmp(const char *dst, const char *src); idb
+// int __cdecl tolower(int C);
+// void __cdecl _lock_file(FILE *Stream);
+// void __cdecl _unlock_file(FILE *Stream);
+// void __cdecl __noreturn terminate(); idb
+void __noreturn _inconsistency();
+// int __stdcall __CxxUnhandledExceptionFilter(_EXCEPTION_POINTERS *pPtrs); idb
+int __cdecl __CxxSetUnhandledExceptionFilter(); // idb
+LPTOP_LEVEL_EXCEPTION_FILTER __CxxRestoreUnhandledExceptionFilter();
+void __cdecl _RTC_Initialize();
+void __cdecl _RTC_Terminate(); // idb
+// int __cdecl _stricmp(const char *String1, const char *String2);
 void _E1();
 int _E1_0();
 int _E4();
@@ -703,16 +723,16 @@ void __cdecl _E11(); // idb
 void __cdecl _E14(); // idb
 void __cdecl _E17(); // idb
 void __cdecl _E2_0(); // idb
-// void __usercall _E2_1(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>);
+// void __usercall _E2_1(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>);
 void __cdecl _E5_0(); // idb
 void __cdecl _E8_0(); // idb
 void __cdecl _E11_0(); // idb
-// void __usercall _E2_2(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>);
+// void __usercall _E2_2(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>);
 void __cdecl _E5_1(); // idb
 void __cdecl _E4_3(); // idb
 void __cdecl _E2_3(); // idb
 void __cdecl _E5_2(); // idb
-// void __usercall _E2_4(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>);
+// void __usercall _E2_4(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>);
 // LSTATUS __stdcall RegCloseKey(HKEY hKey);
 // LSTATUS __stdcall RegOpenKeyExA(HKEY hKey, LPCSTR lpSubKey, DWORD ulOptions, REGSAM samDesired, PHKEY phkResult);
 // LSTATUS __stdcall RegSetValueExA(HKEY hKey, LPCSTR lpValueName, DWORD Reserved, DWORD dwType, const BYTE *lpData, DWORD cbData);
@@ -780,10 +800,6 @@ void __cdecl _E5_2(); // idb
 // LONG __stdcall InterlockedExchangeAdd(volatile LONG *Addend, LONG Value);
 // BOOL __stdcall CreateDirectoryA(LPCSTR lpPathName, LPSECURITY_ATTRIBUTES lpSecurityAttributes);
 // UINT __stdcall GetACP();
-// DWORD __stdcall TlsAlloc();
-// DWORD __stdcall GetFileAttributesA(LPCSTR lpFileName);
-// BOOL __stdcall SetFileAttributesA(LPCSTR lpFileName, DWORD dwFileAttributes);
-// BOOL __stdcall IsBadReadPtr(const void *lp, UINT_PTR ucb);
 // BOOL __stdcall WriteFile(HANDLE hFile, LPCVOID lpBuffer, DWORD nNumberOfBytesToWrite, LPDWORD lpNumberOfBytesWritten, LPOVERLAPPED lpOverlapped);
 // int _wsprintfA(LPSTR, LPCSTR, ...);
 // int __stdcall wvsprintfA(LPSTR, LPCSTR, va_list arglist);
@@ -859,17 +875,18 @@ void *lisp::_object::`vftable' = &lisp::_object::GetString; // weak
 _UNKNOWN unk_423470; // weak
 void *lisp::_integer::`vftable' = &lisp::_object::GetString; // weak
 void *lisp::_cons::`vftable' = &lisp::_object::GetString; // weak
-const char Class[4] = { '\0', '\0', '\0', '\0' }; // idb
+const CHAR Class[4] = { '\0', '\0', '\0', '\0' }; // idb
 const char byte_423796[2] = { '\0', '\0' }; // idb
 const char byte_4237A7 = '\0'; // idb
 _UNKNOWN unk_4237EC; // weak
 const unsigned int std::string::npos = 4294967295u; // idb
 _UNKNOWN unk_423F24; // weak
 void *CIOObject::`vftable' = &CIOObject::`vector deleting destructor'; // weak
+void *CIOSocket::`vftable' = &CIOSocket::`scalar deleting destructor'; // weak
 void *CIOServer::`vftable' = &CIOServer::`vector deleting destructor'; // weak
+void *CIOSocket::CIOTimerInstance::`vftable' = &CIOSocket::CIOTimerInstance::`scalar deleting destructor'; // weak
 void *lisp::_null::`vftable' = &lisp::_object::GetString; // weak
 void *CServer::`vftable' = &CServer::`vector deleting destructor'; // weak
-const char aInsertIntoGuil_1[42] = "INSERT INTO Guild VALUES (%d,'%s',0,0,'','"; // idb
 void *CSocket::`vftable' = &CSocket::`vector deleting destructor'; // weak
 void *CPacket::`vftable' = &CIOSocket::CIOTimerInstance::`scalar deleting destructor'; // weak
 void *CSyncPacket::`vftable' = &CSyncPacket::`vector deleting destructor'; // weak
@@ -33904,7 +33921,14 @@ const unsigned __int8 g_chDecodeCode[64][256] =
   }
 }; // idb
 _UNKNOWN unk_42E010; // weak
-const _s__ThrowInfo _TI3_AVout_of_range_std__ = { 0u, &std::out_of_range::~out_of_range, NULL, &_CTA3_AVout_of_range_std__ }; // idb
+void *std::logic_error::`vftable' = &std::logic_error::`vector deleting destructor'; // weak
+void *std::length_error::`vftable' = &std::length_error::`vector deleting destructor'; // weak
+void *std::out_of_range::`vftable' = &std::out_of_range::`vector deleting destructor'; // weak
+void *exception::`vftable' = &exception::`vector deleting destructor'; // weak
+void (__cdecl *const __rtc_izz[1])() = { NULL }; // idb
+void (__cdecl *const __rtc_tzz[1])() = { NULL }; // idb
+const _ThrowInfo _TI3_AVlength_error_std__ = { 0u, &std::length_error::~length_error, NULL, &_CTA3_AVlength_error_std__ }; // idb
+const _ThrowInfo _TI3_AVout_of_range_std__ = { 0u, &std::out_of_range::~out_of_range, NULL, &_CTA3_AVout_of_range_std__ }; // idb
 char p[64] =
 {
   ':',
@@ -34736,9 +34760,9 @@ char p32i[32] =
 }; // idb
 int bytebit[8] = { 128, 64, 32, 16, 8, 4, 2, 1 }; // idb
 int nibblebit[4] = { 8, 4, 2, 1 }; // idb
-LONG g_nEnable = 1; // idb
-LONG g_bRaise = 1; // idb
-LONG g_nAllocBuffer = -1; // idb
+int g_nEnable = 1; // idb
+int g_bRaise = 1; // idb
+int g_nAllocBuffer = -1; // idb
 unsigned int g_Color[3] = { 16711680u, 0u, 255u }; // idb
 int g_denoHP_0[3] = { 10, 14, 13 }; // idb
 int g_denoMP_0[3] = { 13, 10, 12 }; // idb
@@ -35015,94 +35039,243 @@ unsigned int crc_32_tab[256] =
   755167117u
 }; // idb
 unsigned int crc = 4294967295u; // idb
-SQLCHAR g_szPassword[80] =
+void (__cdecl *__pInconsistency)() = &terminate; // idb
+char g_szPassword[80] =
 {
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u,
-  0u
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0'
 }; // idb
-SQLCHAR g_szId = 0u; // idb
-SQLCHAR g_szServer = 0u; // idb
+char g_szId[80] =
+{
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0'
+}; // idb
+char g_szServer[64] =
+{
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0',
+  '\0'
+}; // idb
 CDBConnect *g_pool = NULL; // idb
-SQLHANDLE g_henv = NULL; // idb
-LONG CDB::s_nCount = 0; // idb
+void *g_henv = NULL; // idb
+int CDB::s_nCount = 0; // idb
 CIOSpinLock g_lock = { 0 }; // idb
 unsigned int CDBConfig::s_nEvent = 0u; // idb
 unsigned int CDBConfig::s_nSystem = 0u; // idb
@@ -35115,7 +35288,7 @@ std::string CDBConfig::s_strMailFrom = { { , {  } }, { "" }, 0u, 0u }; // idb
 std::string CDBConfig::s_strMailTo = { { , {  } }, { "" }, 0u, 0u }; // idb
 std::vector<IPAddrMask> CDBConfig::s_vSubNet = { { {  } }, NULL, NULL, NULL }; // idb
 std::map<int,std::string> CDBConfig::s_LanguageMap = { { { { { { {  } }, {  } }, {  } }, {  } }, NULL, 0u } }; // idb
-HANDLE g_hStartThread = NULL; // idb
+void *g_hStartThread = NULL; // idb
 char szWindowClass[100] =
 {
   '\0',
@@ -35322,7 +35495,7 @@ char szTitle[100] =
   '\0',
   '\0'
 }; // idb
-HINSTANCE hInst = NULL; // idb
+HINSTANCE__ *hInst = NULL; // idb
 char kn[16][6] =
 {
   { '\0', '\0', '\0', '\0', '\0', '\0' },
@@ -35468,7 +35641,7 @@ char pcr[56]; // idb
 char pc1m[56]; // idb
 unsigned int g_dwStackTop; // idb
 unsigned int g_dwStack; // idb
-LPTOP_LEVEL_EXCEPTION_FILTER g_pPreviousFilter; // idb
+int (__stdcall *g_pPreviousFilter)(_EXCEPTION_POINTERS *); // idb
 char g_szDumpPath[260]; // idb
 char g_szLogPath[260]; // idb
 int g_timeStart; // idb
@@ -35478,18 +35651,18 @@ const char *g_szMailFrom; // idb
 const char *g_szMailTo; // idb
 CIOException::CInit theInit; // idb
 int BeenHere; // idb
-void *g_nThread; // idb
+int g_nThread; // idb
 void *g_nThreadId; // idb
 void **g_hThread; // idb
-DWORD g_nHandle; // idb
+int g_nHandle; // idb
 CIOObject *g_vObject[64]; // idb
 void *g_vHandle[64]; // idb
 unsigned int g_dwTopTime; // idb
 HANDLE g_hTimer; // idb
-LONG g_nTerminating; // idb
-LONG CIOSocket::s_nRunningThread; // idb
-HANDLE CIOSocket::s_hCompletionPort; // idb
-LONG g_nFreeBuffer; // idb
+int g_nTerminating; // idb
+int CIOSocket::s_nRunningThread; // idb
+void *CIOSocket::s_hCompletionPort; // idb
+int g_nFreeBuffer; // idb
 CIOCriticalSection g_lockTimer; // idb
 CIOSocket::CInit theInit_0; // idb
 std::priority_queue<CIOSocket::CIOTimer> g_timerQueue; // idb
@@ -35505,10 +35678,10 @@ LONG g_nMemoryCount; // idb
 CMemory *g_pMemory[16]; // idb
 CMemory::CInit theInit_2; // idb
 CScreen *CScreen::s_pScreen; // idb
-HWND CScreen::s_hWnd; // idb
+HWND__ *CScreen::s_hWnd; // idb
 int g_nSocket; // idb
 CLink g_link; // idb
-LONG CServer::s_nPendingPacket; // idb
+int CServer::s_nPendingPacket; // idb
 CIOSpinLock g_lock_0; // idb
 CServer g_server; // idb
 int CSocket::s_nIID; // idb
@@ -35517,7 +35690,7 @@ CSyncPacket g_syncPacket[256]; // idb
 CMemoryPool<CPacket>::CPool CMemoryPool<CPacket>::s_pool; // idb
 CScreen CStatus::s_screen; // idb
 unsigned __int8 lower_table[256]; // idb
-LONG g_nRandIndex; // idb
+int g_nRandIndex; // idb
 int dword_43F1BC[]; // weak
 int g_nRandtable[32]; // idb
 unsigned int ACP_ID; // idb
@@ -35606,18 +35779,18 @@ Token __thiscall CConfig::GetToken(CConfig *this)
 {
   Token result; // eax
   int v2; // [esp+10h] [ebp-14h]
-  int c; // [esp+1Ch] [ebp-8h]
-  int ca; // [esp+1Ch] [ebp-8h]
-  int cb; // [esp+1Ch] [ebp-8h]
-  int cc; // [esp+1Ch] [ebp-8h]
-  int cd; // [esp+1Ch] [ebp-8h]
+  int C; // [esp+1Ch] [ebp-8h]
+  int Ca; // [esp+1Ch] [ebp-8h]
+  int Cb; // [esp+1Ch] [ebp-8h]
+  int Cc; // [esp+1Ch] [ebp-8h]
+  int Cd; // [esp+1Ch] [ebp-8h]
   CConfig *pSymbol; // [esp+20h] [ebp-4h]
   char *pSymbola; // [esp+20h] [ebp-4h]
 
   while ( 2 )
   {
-    c = getc(this->m_fp);
-    switch ( c )
+    C = getc(this->m_fp);
+    switch ( C )
     {
       case -1:
         return 0;
@@ -35632,8 +35805,8 @@ Token __thiscall CConfig::GetToken(CConfig *this)
         pSymbol = this;
         while ( 2 )
         {
-          ca = getc(this->m_fp);
-          switch ( ca )
+          Ca = getc(this->m_fp);
+          switch ( Ca )
           {
             case -1:
               return 0;
@@ -35643,13 +35816,13 @@ Token __thiscall CConfig::GetToken(CConfig *this)
             case 13:
               continue;
             case 34:
-              cb = getc(this->m_fp);
-              if ( cb == -1 )
+              Cb = getc(this->m_fp);
+              if ( Cb == -1 )
               {
                 pSymbol->m_szSymbol[0] = 0;
                 return 2;
               }
-              if ( cb == 34 )
+              if ( Cb == 34 )
               {
                 pSymbol->m_szSymbol[0] = 34;
                 pSymbol = (CConfig *)((char *)pSymbol + 1);
@@ -35657,7 +35830,7 @@ Token __thiscall CConfig::GetToken(CConfig *this)
               }
               break;
             default:
-              pSymbol->m_szSymbol[0] = ca;
+              pSymbol->m_szSymbol[0] = Ca;
               pSymbol = (CConfig *)((char *)pSymbol + 1);
               continue;
           }
@@ -35668,8 +35841,8 @@ Token __thiscall CConfig::GetToken(CConfig *this)
         pSymbol = this;
         while ( 2 )
         {
-          cc = getc(this->m_fp);
-          switch ( cc )
+          Cc = getc(this->m_fp);
+          switch ( Cc )
           {
             case -1:
               return 0;
@@ -35679,28 +35852,28 @@ Token __thiscall CConfig::GetToken(CConfig *this)
             case 13:
               continue;
             case 39:
-              cb = getc(this->m_fp);
-              if ( cb == -1 )
+              Cb = getc(this->m_fp);
+              if ( Cb == -1 )
               {
                 pSymbol->m_szSymbol[0] = 0;
                 result = T_STRING;
               }
               else
               {
-                if ( cb == 39 )
+                if ( Cb == 39 )
                 {
                   pSymbol->m_szSymbol[0] = 39;
                   pSymbol = (CConfig *)((char *)pSymbol + 1);
                   continue;
                 }
 LABEL_19:
-                ungetc(cb, this->m_fp);
+                ungetc(Cb, this->m_fp);
                 pSymbol->m_szSymbol[0] = 0;
                 result = T_STRING;
               }
               break;
             default:
-              pSymbol->m_szSymbol[0] = cc;
+              pSymbol->m_szSymbol[0] = Cc;
               pSymbol = (CConfig *)((char *)pSymbol + 1);
               continue;
           }
@@ -35728,19 +35901,19 @@ LABEL_19:
       case 61:
         return 4;
       default:
-        if ( isalnum(c) || c == 45 )
+        if ( isalnum(C) || C == 45 )
         {
-          this->m_szSymbol[0] = c;
+          this->m_szSymbol[0] = C;
           for ( pSymbola = &this->m_szSymbol[1]; ; ++pSymbola )
           {
-            cd = getc(this->m_fp);
-            if ( cd == -1 )
+            Cd = getc(this->m_fp);
+            if ( Cd == -1 )
               goto LABEL_41;
-            if ( !isalnum(cd) )
+            if ( !isalnum(Cd) )
               break;
-            *pSymbola = cd;
+            *pSymbola = Cd;
           }
-          ungetc(cd, this->m_fp);
+          ungetc(Cd, this->m_fp);
 LABEL_41:
           *pSymbola = 0;
           return 1;
@@ -35805,7 +35978,7 @@ lisp::var *__thiscall CConfig::GetValue(CConfig *this, lisp::var *result)
     v7 = (lisp::_string *)operator new(8u);
     if ( v7 )
     {
-      Strdup(this->m_szSymbol);
+      v2 = Strdup(this->m_szSymbol);
       lisp::_string::_string(v7, v2);
       v5 = v3;
     }
@@ -35831,18 +36004,17 @@ lisp::var *__thiscall CConfig::GetValue(CConfig *this, lisp::var *result)
   }
   return v4;
 }
-// 4016F7: variable 'v2' is possibly undefined
 // 4016FC: variable 'v3' is possibly undefined
 
 //----- (00401770) --------------------------------------------------------
-void __cdecl Strdup(const char *str)
+char *__cdecl Strdup(const char *str)
 {
-  unsigned __int8 *v1; // eax
-  unsigned int v2; // [esp-4h] [ebp-8h]
+  CMemory::tagEntry **v1; // eax
+  unsigned int v3; // [esp-4h] [ebp-8h]
 
-  v2 = strlen(str) + 1;
-  v1 = (unsigned __int8 *)CMemory::_malloc(v2);
-  memcpy(v1, (unsigned __int8 *)str, v2);
+  v3 = strlen(str) + 1;
+  v1 = CMemory::_malloc(v3);
+  return (char *)memcpy(v1, str, v3);
 }
 
 //----- (004017B0) --------------------------------------------------------
@@ -35946,51 +36118,50 @@ lisp::var *__thiscall CConfig::GetList(CConfig *this, lisp::var *result)
 //----- (00401920) --------------------------------------------------------
 int __thiscall CConfig::Open(CConfig *this, const char *szFilename)
 {
-  char *v3; // eax
+  lisp::_object *v3; // ecx
   lisp::_object *v4; // ecx
-  lisp::_object *v5; // ecx
-  const char *v6; // eax
-  lisp::_object *v7; // eax
-  lisp::_object *v8; // ecx
-  lisp::var *v9; // eax
-  lisp::_object *v10; // ecx
-  lisp::_object *v11; // eax
-  lisp::_object *v12; // ecx
-  lisp::_object *v13; // eax
-  lisp::_object *v14; // ecx
-  lisp::_object *v15; // eax
-  lisp::var v16; // [esp-8h] [ebp-88h] BYREF
-  int v17; // [esp-4h] [ebp-84h] BYREF
-  lisp::_object *v18; // [esp+0h] [ebp-80h]
-  lisp::var v19; // [esp+4h] [ebp-7Ch]
+  const char *v5; // eax
+  lisp::_object *v6; // eax
+  lisp::_object *v7; // ecx
+  lisp::var *v8; // eax
+  lisp::_object *v9; // ecx
+  lisp::_object *v10; // eax
+  lisp::_object *v11; // ecx
+  lisp::_object *v12; // eax
+  lisp::_object *v13; // ecx
+  lisp::_object *v14; // eax
+  lisp::var v15; // [esp-8h] [ebp-88h] BYREF
+  int v16; // [esp-4h] [ebp-84h] BYREF
+  lisp::_object *v17; // [esp+0h] [ebp-80h]
+  lisp::var v18; // [esp+4h] [ebp-7Ch]
   lisp::var cdr; // [esp+8h] [ebp-78h]
-  lisp::_object *v21; // [esp+Ch] [ebp-74h]
-  Token v22; // [esp+10h] [ebp-70h]
+  lisp::_object *v20; // [esp+Ch] [ebp-74h]
+  Token v21; // [esp+10h] [ebp-70h]
   CConfig *thisa; // [esp+14h] [ebp-6Ch]
-  int *v24; // [esp+18h] [ebp-68h]
-  lisp::_string *v25; // [esp+1Ch] [ebp-64h]
-  lisp::_object *v26; // [esp+20h] [ebp-60h]
-  lisp::var *v27; // [esp+24h] [ebp-5Ch]
-  int *v28; // [esp+28h] [ebp-58h]
-  lisp::_cons *v29; // [esp+2Ch] [ebp-54h]
-  lisp::_object *v30; // [esp+30h] [ebp-50h]
-  lisp::var *v31; // [esp+34h] [ebp-4Ch]
-  int *v32; // [esp+38h] [ebp-48h]
-  lisp::_cons *v33; // [esp+3Ch] [ebp-44h]
-  lisp::_object *v34; // [esp+40h] [ebp-40h]
-  int *v35; // [esp+44h] [ebp-3Ch]
+  int *v23; // [esp+18h] [ebp-68h]
+  lisp::_string *v24; // [esp+1Ch] [ebp-64h]
+  lisp::_object *v25; // [esp+20h] [ebp-60h]
+  lisp::var *v26; // [esp+24h] [ebp-5Ch]
+  int *v27; // [esp+28h] [ebp-58h]
+  lisp::_cons *v28; // [esp+2Ch] [ebp-54h]
+  lisp::_object *v29; // [esp+30h] [ebp-50h]
+  lisp::var *v30; // [esp+34h] [ebp-4Ch]
+  int *v31; // [esp+38h] [ebp-48h]
+  lisp::_cons *v32; // [esp+3Ch] [ebp-44h]
+  lisp::_object *v33; // [esp+40h] [ebp-40h]
+  int *v34; // [esp+44h] [ebp-3Ch]
   lisp::var result; // [esp+48h] [ebp-38h] BYREF
-  int *v37; // [esp+4Ch] [ebp-34h]
-  int *v38; // [esp+50h] [ebp-30h]
-  lisp::_string *v39; // [esp+54h] [ebp-2Ch]
+  int *v36; // [esp+4Ch] [ebp-34h]
+  int *v37; // [esp+50h] [ebp-30h]
+  lisp::_string *v38; // [esp+54h] [ebp-2Ch]
   lisp::_object *p; // [esp+58h] [ebp-28h]
-  int *v41; // [esp+5Ch] [ebp-24h]
+  int *v40; // [esp+5Ch] [ebp-24h]
   lisp::var v; // [esp+60h] [ebp-20h] BYREF
   lisp::var *pLast; // [esp+64h] [ebp-1Ch]
   char *key; // [esp+68h] [ebp-18h]
   Token token; // [esp+6Ch] [ebp-14h]
   lisp::var value; // [esp+70h] [ebp-10h] BYREF
-  int v47; // [esp+7Ch] [ebp-4h]
+  int v46; // [esp+7Ch] [ebp-4h]
 
   thisa = this;
   this->m_fp = fopen(szFilename, "rb");
@@ -36005,13 +36176,12 @@ int __thiscall CConfig::Open(CConfig *this, const char *szFilename)
   while ( 1 )
   {
     token = CConfig::GetToken(thisa);
-    v22 = token;
+    v21 = token;
     if ( token == T_END )
       break;
-    if ( v22 == T_VARIABLE )
+    if ( v21 == T_VARIABLE )
     {
-      Strdup(thisa->m_szSymbol);
-      key = v3;
+      key = Strdup(thisa->m_szSymbol);
       token = CConfig::GetToken(thisa);
       if ( token != T_EQUAL )
         goto invalid;
@@ -36019,119 +36189,119 @@ int __thiscall CConfig::Open(CConfig *this, const char *szFilename)
       lisp::var::var(&v);
       if ( token == T_VARIABLE || token == T_STRING )
       {
-        v39 = (lisp::_string *)operator new(8u);
-        v47 = 0;
-        if ( v39 )
+        v38 = (lisp::_string *)operator new(8u);
+        v46 = 0;
+        if ( v38 )
         {
-          Strdup(thisa->m_szSymbol);
-          lisp::_string::_string(v39, v6);
-          v21 = v7;
+          v5 = Strdup(thisa->m_szSymbol);
+          lisp::_string::_string(v38, v5);
+          v20 = v6;
         }
         else
         {
-          v21 = 0;
+          v20 = 0;
         }
-        p = v21;
-        v47 = -1;
-        v17 = (int)v5;
-        v41 = &v17;
-        std::vector<IPAddrMask>::const_iterator::const_iterator((lisp::var *)&v17, v21);
-        lisp::var::operator=(&v, (lisp::_object *)v17);
+        p = v20;
+        v46 = -1;
+        v16 = (int)v4;
+        v40 = &v16;
+        std::vector<IPAddrMask>::const_iterator::const_iterator((lisp::var *)&v16, v20);
+        lisp::var::operator=(&v, (lisp::_object *)v16);
       }
       else
       {
         if ( token != T_OPEN )
           goto invalid;
-        v17 = (int)v4;
-        v38 = &v17;
-        CConfig::GetList(thisa, (lisp::var *)&v17);
-        lisp::var::operator=(&v, (lisp::_object *)v17);
+        v16 = (int)v3;
+        v37 = &v16;
+        CConfig::GetList(thisa, (lisp::var *)&v16);
+        lisp::var::operator=(&v, (lisp::_object *)v16);
         if ( (unsigned __int8)lisp::var::integerp(&v) )
         {
           token = lisp::var::operator int(&v);
-          v17 = (int)v8;
-          v37 = &v17;
-          lisp::var::var((lisp::var *)&v17, &v);
-          free_var((lisp::var)v17);
+          v16 = (int)v7;
+          v36 = &v16;
+          lisp::var::var((lisp::var *)&v16, &v);
+          free_var((lisp::var)v16);
 invalid:
           LOG_ERR("Invalid format %s(%d) at CConfig::Open", szFilename, thisa->m_nLine);
           CMemory::_free(key);
           goto LABEL_34;
         }
       }
-      v9 = CConfig::Find(thisa, &result, key);
-      if ( (unsigned __int8)lisp::var::null(v9) )
+      v8 = CConfig::Find(thisa, &result, key);
+      if ( (unsigned __int8)lisp::var::null(v8) )
       {
-        v33 = (lisp::_cons *)operator new(0xCu);
-        v47 = 1;
-        if ( v33 )
+        v32 = (lisp::_cons *)operator new(0xCu);
+        v46 = 1;
+        if ( v32 )
         {
-          v29 = (lisp::_cons *)operator new(0xCu);
-          LOBYTE(v47) = 2;
-          if ( v29 )
+          v28 = (lisp::_cons *)operator new(0xCu);
+          LOBYTE(v46) = 2;
+          if ( v28 )
           {
-            v25 = (lisp::_string *)operator new(8u);
-            LOBYTE(v47) = 3;
-            if ( v25 )
+            v24 = (lisp::_string *)operator new(8u);
+            LOBYTE(v46) = 3;
+            if ( v24 )
             {
-              lisp::_string::_string(v25, key);
-              cdr.m_pObject = v11;
+              lisp::_string::_string(v24, key);
+              cdr.m_pObject = v10;
             }
             else
             {
               cdr.m_pObject = 0;
             }
-            v26 = cdr.m_pObject;
-            LOBYTE(v47) = 2;
-            v17 = (int)cdr.m_pObject;
-            v28 = &v17;
-            lisp::var::var((lisp::var *)&v17, &v);
-            v16.m_pObject = v12;
+            v25 = cdr.m_pObject;
+            LOBYTE(v46) = 2;
+            v16 = (int)cdr.m_pObject;
             v27 = &v16;
-            std::vector<IPAddrMask>::const_iterator::const_iterator(&v16, v26);
-            lisp::_cons::_cons(v29, v16, (const lisp::var)v17);
-            v19.m_pObject = v13;
+            lisp::var::var((lisp::var *)&v16, &v);
+            v15.m_pObject = v11;
+            v26 = &v15;
+            std::vector<IPAddrMask>::const_iterator::const_iterator(&v15, v25);
+            lisp::_cons::_cons(v28, v15, (const lisp::var)v16);
+            v18.m_pObject = v12;
           }
           else
           {
-            v19.m_pObject = 0;
+            v18.m_pObject = 0;
           }
-          v30 = v19.m_pObject;
-          LOBYTE(v47) = 1;
-          v17 = (int)v19.m_pObject;
-          v32 = &v17;
-          lisp::var::var((lisp::var *)&v17, &lisp::nil);
-          v16.m_pObject = v14;
+          v29 = v18.m_pObject;
+          LOBYTE(v46) = 1;
+          v16 = (int)v18.m_pObject;
           v31 = &v16;
-          std::vector<IPAddrMask>::const_iterator::const_iterator(&v16, v30);
-          lisp::_cons::_cons(v33, v16, (const lisp::var)v17);
-          v18 = v15;
+          lisp::var::var((lisp::var *)&v16, &lisp::nil);
+          v15.m_pObject = v13;
+          v30 = &v15;
+          std::vector<IPAddrMask>::const_iterator::const_iterator(&v15, v29);
+          lisp::_cons::_cons(v32, v15, (const lisp::var)v16);
+          v17 = v14;
         }
         else
         {
-          v18 = 0;
+          v17 = 0;
         }
-        v34 = v18;
-        v47 = -1;
-        v17 = (int)v10;
-        v35 = &v17;
-        std::vector<IPAddrMask>::const_iterator::const_iterator((lisp::var *)&v17, v18);
-        lisp::var::operator=(pLast, (lisp::_object *)v17);
+        v33 = v17;
+        v46 = -1;
+        v16 = (int)v9;
+        v34 = &v16;
+        std::vector<IPAddrMask>::const_iterator::const_iterator((lisp::var *)&v16, v17);
+        lisp::var::operator=(pLast, (lisp::_object *)v16);
         pLast = lisp::var::cdr(pLast);
       }
       else
       {
         LOG_ERR("Duplicate key %s(%d) at CConfig::Open", szFilename, thisa->m_nLine);
         CMemory::_free(key);
-        v24 = &v17;
-        lisp::var::var((lisp::var *)&v17, &v);
-        free_var((lisp::var)v17);
+        v23 = &v16;
+        lisp::var::var((lisp::var *)&v16, &v);
+        free_var((lisp::var)v16);
       }
 LABEL_34:
       while ( token != T_NEWLINE && token )
         token = CConfig::GetToken(thisa);
     }
-    else if ( v22 != T_NEWLINE )
+    else if ( v21 != T_NEWLINE )
     {
       LOG_ERR("Invalid format %s(%d) at CConfig::Open", szFilename, thisa->m_nLine);
     }
@@ -36140,18 +36310,16 @@ LABEL_34:
   thisa->m_fp = 0;
   return 1;
 }
-// 4019DA: variable 'v3' is possibly undefined
-// 401A3B: variable 'v6' is possibly undefined
-// 401A40: variable 'v7' is possibly undefined
-// 401A59: variable 'v5' is possibly undefined
-// 401A78: variable 'v4' is possibly undefined
-// 401AA9: variable 'v8' is possibly undefined
-// 401B46: variable 'v11' is possibly undefined
-// 401B6B: variable 'v12' is possibly undefined
-// 401B82: variable 'v13' is possibly undefined
-// 401BA8: variable 'v14' is possibly undefined
-// 401BBF: variable 'v15' is possibly undefined
-// 401BD8: variable 'v10' is possibly undefined
+// 401A40: variable 'v6' is possibly undefined
+// 401A59: variable 'v4' is possibly undefined
+// 401A78: variable 'v3' is possibly undefined
+// 401AA9: variable 'v7' is possibly undefined
+// 401B46: variable 'v10' is possibly undefined
+// 401B6B: variable 'v11' is possibly undefined
+// 401B82: variable 'v12' is possibly undefined
+// 401BA8: variable 'v13' is possibly undefined
+// 401BBF: variable 'v14' is possibly undefined
+// 401BD8: variable 'v9' is possibly undefined
 
 //----- (00401CE0) --------------------------------------------------------
 const char *__thiscall CConfig::Get(CConfig *this, const char *key)
@@ -36331,18 +36499,6 @@ const char *__thiscall lisp::_object::GetString(lisp::_object *this)
   return (const char *)&unk_423470;
 }
 
-//----- (00402120) --------------------------------------------------------
-unsigned int __thiscall lisp::_object::GetInteger(lisp::_object *this)
-{
-  return 0;
-}
-
-//----- (00402130) --------------------------------------------------------
-bool __thiscall lisp::_object::integerp(lisp::_object *this)
-{
-  return 0;
-}
-
 //----- (00402140) --------------------------------------------------------
 void __thiscall lisp::_integer::_integer(lisp::_integer *this, int n)
 {
@@ -36385,16 +36541,16 @@ int __stdcall DialogProc(HWND__ *hwndDlg, unsigned int uMsg, unsigned int wParam
 {
   if ( uMsg == 272 )
   {
-    SetDlgItemTextA(hwndDlg, 1000, (LPCSTR)&g_szId);
-    SetDlgItemTextA(hwndDlg, 1001, (LPCSTR)g_szPassword);
+    SetDlgItemTextA(hwndDlg, 1000, g_szId);
+    SetDlgItemTextA(hwndDlg, 1001, g_szPassword);
     return 0;
   }
   if ( uMsg != 273 )
     return 0;
   if ( (unsigned __int16)wParam == 1 )
   {
-    GetDlgItemTextA(hwndDlg, 1000, (LPSTR)&g_szId, 79);
-    GetDlgItemTextA(hwndDlg, 1001, (LPSTR)g_szPassword, 79);
+    GetDlgItemTextA(hwndDlg, 1000, g_szId, 79);
+    GetDlgItemTextA(hwndDlg, 1001, g_szPassword, 79);
     EndDialog(hwndDlg, 1);
     return 1;
   }
@@ -36429,7 +36585,7 @@ int __cdecl CDB::Open(const char *szServer)
   else
   {
     SQLSetEnvAttr(g_henv, 200, (SQLPOINTER)3, 0);
-    strcpy((char *)&g_szServer, szServer);
+    strcpy(g_szServer, szServer);
     if ( SQLAllocHandle(2, g_henv, &hDBC) == -1 )
     {
       LOG_ERR("Can't Allocate SQL Connection Handle");
@@ -36439,14 +36595,14 @@ int __cdecl CDB::Open(const char *szServer)
       if ( !RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\Inixsoft\\KALServer\\DBLogin", 0, 0x20019u, &hKey) )
       {
         dwSize = 80;
-        RegQueryValueExA(hKey, "Id", 0, &dwType, &g_szId, &dwSize);
+        RegQueryValueExA(hKey, "Id", 0, &dwType, (LPBYTE)g_szId, &dwSize);
         dwSize = 80;
-        RegQueryValueExA(hKey, "Password", 0, &dwType, g_szPassword, &dwSize);
+        RegQueryValueExA(hKey, "Password", 0, &dwType, (LPBYTE)g_szPassword, &dwSize);
         RegCloseKey(hKey);
         DesKeyInit("rkakrnl");
-        v1 = strlen((const char *)g_szPassword);
+        v1 = strlen(g_szPassword);
         g_szPassword[DesReadBlockEx(g_szPassword, v1)] = 0;
-        if ( SQLConnect(hDBC, &g_szServer, -3, &g_szId, -3, g_szPassword, -3) != -1 )
+        if ( SQLConnect(hDBC, (SQLCHAR *)g_szServer, -3, (SQLCHAR *)g_szId, -3, (SQLCHAR *)g_szPassword, -3) != -1 )
         {
           SQLFreeHandle(2, hDBC);
           return 1;
@@ -36458,7 +36614,7 @@ int __cdecl CDB::Open(const char *szServer)
         v3 = GetModuleHandleA(0);
         if ( !DialogBoxParamA(v3, (LPCSTR)0x81, v6, DialogProc, 0) )
           break;
-        if ( SQLConnect(hDBC, &g_szServer, -3, &g_szId, -3, g_szPassword, -3) != -1 )
+        if ( SQLConnect(hDBC, (SQLCHAR *)g_szServer, -3, (SQLCHAR *)g_szId, -3, (SQLCHAR *)g_szPassword, -3) != -1 )
         {
           SQLFreeHandle(2, hDBC);
           if ( RegCreateKeyExA(
@@ -36475,12 +36631,12 @@ int __cdecl CDB::Open(const char *szServer)
             LOG_ERR("can't create registry key");
             break;
           }
-          strcpy(szPassword, (const char *)g_szPassword);
+          strcpy(szPassword, g_szPassword);
           DesKeyInit("rkakrnl");
           v4 = strlen(szPassword);
           dwSize = DesWriteBlockEx(szPassword, v4);
-          v5 = strlen((const char *)&g_szId);
-          RegSetValueExA(hKey, "Id", 0, 1u, &g_szId, v5 + 1);
+          v5 = strlen(g_szId);
+          RegSetValueExA(hKey, "Id", 0, 1u, (const BYTE *)g_szId, v5 + 1);
           RegSetValueExA(hKey, "Password", 0, 3u, (const BYTE *)szPassword, dwSize);
           RegCloseKey(hKey);
           return 1;
@@ -36499,7 +36655,7 @@ int __cdecl CDB::Open(const char *szServer)
 }
 
 //----- (00402620) --------------------------------------------------------
-void __cdecl CDB::Close()
+void CDB::Close()
 {
   CDBConnect *pConnect; // [esp+Ch] [ebp-4h]
 
@@ -36740,7 +36896,7 @@ void __thiscall CDBConnect::CDBConnect(CDBConnect *this)
   {
     LOG_ERR("Can't Allocate SQL Connection Handle");
   }
-  else if ( SQLConnect(this->m_hDBC, &g_szServer, -3, &g_szId, -3, g_szPassword, -3) == -1 )
+  else if ( SQLConnect(this->m_hDBC, (SQLCHAR *)g_szServer, -3, (SQLCHAR *)g_szId, -3, (SQLCHAR *)g_szPassword, -3) == -1 )
   {
     LOG_ERR("Can't connect to SQL");
     PostMessageA(CScreen::s_hWnd, 0x111u, 0x8009u, 0);
@@ -36797,10 +36953,10 @@ int __cdecl CDBConfig::Open()
   const char *v2; // eax
   const char *v3; // eax
   const char *v4; // eax
-  int v5; // eax
-  int v6; // eax
-  int v7; // eax
-  int v8; // eax
+  size_t v5; // eax
+  size_t v6; // eax
+  size_t v7; // eax
+  size_t v8; // eax
   const lisp::var *v9; // eax
   lisp::_object *v10; // ecx
   unsigned int v11; // eax
@@ -36849,21 +37005,21 @@ int __cdecl CDBConfig::Open()
     }
     for ( str = CConfig::Get(&config, "Event", byte_423796); ; str += v6 )
     {
-      strspn((unsigned __int8 *)str, " ,");
+      v5 = strspn(str, " ,");
       str += v5;
       if ( !*str )
         break;
       CDBConfig::s_nEvent |= 1 << atoi(str);
-      strcspn((unsigned __int8 *)str, " ,");
+      v6 = strcspn(str, " ,");
     }
     for ( str = CConfig::Get(&config, "System", &byte_4237A7); ; str += v8 )
     {
-      strspn((unsigned __int8 *)str, " ,");
+      v7 = strspn(str, " ,");
       str += v7;
       if ( !*str )
         break;
       CDBConfig::s_nSystem |= 1 << atoi(str);
-      strcspn((unsigned __int8 *)str, " ,");
+      v8 = strcspn(str, " ,");
     }
     CConfig::Find(&config, &v, "SubNet");
     if ( !(unsigned __int8)lisp::var::null(&v) )
@@ -36901,15 +37057,11 @@ int __cdecl CDBConfig::Open()
   }
   return v0;
 }
-// 403111: variable 'v5' is possibly undefined
-// 403164: variable 'v6' is possibly undefined
-// 4031A1: variable 'v7' is possibly undefined
-// 4031F4: variable 'v8' is possibly undefined
 // 40322B: variable 'v10' is possibly undefined
 // 4032E8: variable 'v16' is possibly undefined
 
 //----- (00403330) --------------------------------------------------------
-void __cdecl CDBConfig::Close()
+void CDBConfig::Close()
 {
   std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::clear(&CDBConfig::s_LanguageMap);
 }
@@ -36960,6 +37112,12 @@ lisp::var *__thiscall lisp::var::pop(lisp::var *this, lisp::var *result)
 int __thiscall lisp::var::length(lisp::var *this)
 {
   return ((int (__thiscall *)(lisp::_object *, lisp::var *))this->m_pObject->length)(this->m_pObject, this);
+}
+
+//----- (00403450) --------------------------------------------------------
+std::string *__thiscall std::string::operator=(std::string *this, const char *_Ptr)
+{
+  return std::string::assign(this, _Ptr);
 }
 
 //----- (00403470) --------------------------------------------------------
@@ -37086,6 +37244,24 @@ std::pair<int const ,std::string > *__thiscall std::_Tree<std::_Tmap_traits<int,
   return std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::iterator::operator*(this);
 }
 
+//----- (00403740) --------------------------------------------------------
+std::string *__thiscall std::string::assign(std::string *this, const char *_Ptr)
+{
+  unsigned int v2; // eax
+
+  v2 = std::char_traits<char>::length(_Ptr);
+  return std::string::assign(this, _Ptr, v2);
+}
+
+//----- (00403790) --------------------------------------------------------
+const int *__cdecl std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Key(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Pnode)
+{
+  const std::pair<int const ,std::string > *v1; // eax
+
+  v1 = std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Myval(_Pnode);
+  return std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(v1);
+}
+
 //----- (004037B0) --------------------------------------------------------
 std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::lower_bound(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this, std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *result, const int *_Keyval)
 {
@@ -37114,7 +37290,7 @@ void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std:
     std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Erase(
       this,
       *v3);
-    _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode)->first;
+    _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)*std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode);
     std::allocator<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node>::destroy(
       (std::allocator<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node> *)&this->std::_Tree_val<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >
     + 1,
@@ -37234,6 +37410,19 @@ IPAddrMask *__thiscall std::vector<IPAddrMask>::_Ufill(std::vector<IPAddrMask> *
   return &_Ptr[_Count];
 }
 
+//----- (00403A80) --------------------------------------------------------
+void __thiscall __noreturn std::vector<IPAddrMask>::_Xlen(std::vector<IPAddrMask> *this)
+{
+  std::string _Message; // [esp+4h] [ebp-50h] BYREF
+  std::length_error pExceptionObject; // [esp+20h] [ebp-34h] BYREF
+  int v3; // [esp+50h] [ebp-4h]
+
+  std::string::string(&_Message, "vector<T> too long");
+  v3 = 0;
+  std::length_error::length_error(&pExceptionObject, &_Message);
+  _CxxThrowException(&pExceptionObject, (_ThrowInfo *)&_TI3_AVlength_error_std__);
+}
+
 //----- (00403AE0) --------------------------------------------------------
 CMemory::tagEntry **__thiscall std::allocator<IPAddrMask>::allocate(std::allocator<IPAddrMask> *this, unsigned int _Count)
 {
@@ -37243,8 +37432,25 @@ CMemory::tagEntry **__thiscall std::allocator<IPAddrMask>::allocate(std::allocat
 //----- (00403B00) --------------------------------------------------------
 std::pair<int const ,std::string > *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::iterator::operator*(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *this)
 {
-  return (std::pair<int const ,std::string > *)std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::operator*(this);
+  return std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::operator*(this);
 }
+
+//----- (00403B20) --------------------------------------------------------
+void __thiscall std::length_error::length_error(std::length_error *this, const std::length_error *__that)
+{
+  std::logic_error::logic_error(this, __that);
+  this->__vftable = (std::length_error_vtbl *)&std::length_error::`vftable';
+}
+// 42E064: using guessed type void *std::length_error::`vftable';
+
+//----- (00403B50) --------------------------------------------------------
+void __thiscall std::logic_error::logic_error(std::logic_error *this, const std::logic_error *__that)
+{
+  exception::exception(this, __that);
+  this->__vftable = (std::logic_error_vtbl *)&std::logic_error::`vftable';
+  std::string::string(&this->_Str, &__that->_Str);
+}
+// 42E058: using guessed type void *std::logic_error::`vftable';
 
 //----- (00403BC0) --------------------------------------------------------
 void __thiscall std::string::string(std::string *this, const char *_Ptr)
@@ -37309,6 +37515,30 @@ std::pair<int const ,std::string > *__cdecl std::_Tree<std::_Tmap_traits<int,std
   return &_Pnode->_Myval;
 }
 
+//----- (00403CE0) --------------------------------------------------------
+char *__thiscall std::logic_error::what(std::logic_error *this)
+{
+  return std::string::c_str(&this->_Str);
+}
+
+//----- (00403D00) --------------------------------------------------------
+std::logic_error *__thiscall std::logic_error::`vector deleting destructor'(std::logic_error *this, unsigned int a2)
+{
+  std::logic_error::~logic_error(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}
+
+//----- (00403D30) --------------------------------------------------------
+void __thiscall std::logic_error::~logic_error(std::logic_error *this)
+{
+  this->__vftable = (std::logic_error_vtbl *)&std::logic_error::`vftable';
+  std::string::~string(&this->_Str);
+  exception::~exception(this);
+}
+// 42E058: using guessed type void *std::logic_error::`vftable';
+
 //----- (00403D90) --------------------------------------------------------
 std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Lbound(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this, const int *_Keyval)
 {
@@ -37331,23 +37561,42 @@ std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<s
     else
     {
       _Wherenode = _Pnode;
-      _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode)->first;
+      _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)*std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode);
     }
   }
   return _Wherenode;
 }
 
-//----- (00403E20) --------------------------------------------------------
-const std::pair<int const ,std::string > *__cdecl std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(const std::pair<int const ,std::string > *_Val)
+//----- (00403E30) --------------------------------------------------------
+void __thiscall std::length_error::length_error(std::length_error *this, const std::string *_Message)
 {
-  return _Val;
+  std::logic_error::logic_error(this, _Message);
+  this->__vftable = (std::length_error_vtbl *)&std::length_error::`vftable';
 }
+// 42E064: using guessed type void *std::length_error::`vftable';
+
+//----- (00403E60) --------------------------------------------------------
+void __thiscall std::logic_error::logic_error(std::logic_error *this, const std::string *_Message)
+{
+  exception::exception(this);
+  this->__vftable = (std::logic_error_vtbl *)&std::logic_error::`vftable';
+  std::string::string(&this->_Str, _Message);
+}
+// 42E058: using guessed type void *std::logic_error::`vftable';
 
 //----- (00403EC0) --------------------------------------------------------
 void __thiscall std::allocator<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node>::destroy(std::allocator<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node> *this, std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Ptr)
 {
   std::_Destroy<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node>(_Ptr);
 }
+
+//----- (00403EE0) --------------------------------------------------------
+void __thiscall std::length_error::~length_error(std::length_error *this)
+{
+  this->__vftable = (std::length_error_vtbl *)&std::length_error::`vftable';
+  std::logic_error::~logic_error(this);
+}
+// 42E064: using guessed type void *std::length_error::`vftable';
 
 //----- (00403F00) --------------------------------------------------------
 void __thiscall std::vector<IPAddrMask>::_Insert_n(std::vector<IPAddrMask> *this, std::vector<IPAddrMask>::iterator _Where, unsigned int _Count, const IPAddrMask *_Val)
@@ -37390,7 +37639,11 @@ void __thiscall std::vector<IPAddrMask>::_Insert_n(std::vector<IPAddrMask> *this
       if ( thisa->_Mylast - _Where._Myptr >= _Count )
       {
         _Oldend = thisa->_Mylast;
-        v10 = std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(&thisa->_Alval, &_Oldend[-_Count], _Oldend, thisa->_Mylast);
+        v10 = std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(
+                &thisa->_Alval,
+                (int)&_Oldend[-_Count],
+                (int)_Oldend,
+                thisa->_Mylast);
         thisa->_Mylast = v10;
         std::copy_backward<IPAddrMask *,IPAddrMask *>(_Where._Myptr, &_Oldend[-_Count], _Oldend);
         std::fill<IPAddrMask *,IPAddrMask>(_Where._Myptr, &_Where._Myptr[_Count], &_Tmp);
@@ -37399,8 +37652,8 @@ void __thiscall std::vector<IPAddrMask>::_Insert_n(std::vector<IPAddrMask> *this
       {
         std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(
           &thisa->_Alval,
-          _Where._Myptr,
-          thisa->_Mylast,
+          (int)_Where._Myptr,
+          (int)thisa->_Mylast,
           &_Where._Myptr[_Count]);
         v22 = 2;
         std::vector<IPAddrMask>::_Ufill(thisa, thisa->_Mylast, _Count - (thisa->_Mylast - _Where._Myptr), &_Tmp);
@@ -37424,11 +37677,15 @@ void __thiscall std::vector<IPAddrMask>::_Insert_n(std::vector<IPAddrMask> *this
       _Newvec = (IPAddrMask *)std::allocator<IPAddrMask>::allocate(&thisa->_Alval, _Capacity);
       _Ptr = _Newvec;
       v22 = 0;
-      v13 = std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(&thisa->_Alval, thisa->_Myfirst, _Where._Myptr, _Newvec);
+      v13 = std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(
+              &thisa->_Alval,
+              (int)thisa->_Myfirst,
+              (int)_Where._Myptr,
+              _Newvec);
       _Ptr = v13;
       v12 = std::vector<IPAddrMask>::_Ufill(thisa, v13, _Count, &_Tmp);
       _Ptr = v12;
-      std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(&thisa->_Alval, _Where._Myptr, thisa->_Mylast, v12);
+      std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(&thisa->_Alval, (int)_Where._Myptr, (int)thisa->_Mylast, v12);
       v22 = -1;
       _Counta = _Count + std::vector<IPAddrMask>::size(thisa);
       if ( thisa->_Myfirst )
@@ -37446,10 +37703,25 @@ void __thiscall std::vector<IPAddrMask>::_Insert_n(std::vector<IPAddrMask> *this
   }
 }
 
+//----- (00404230) --------------------------------------------------------
+std::length_error *__thiscall std::length_error::`vector deleting destructor'(std::length_error *this, unsigned int a2)
+{
+  std::length_error::~length_error(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}
+
 //----- (00404260) --------------------------------------------------------
 unsigned int __thiscall std::allocator<IPAddrMask>::max_size(std::allocator<IPAddrMask> *this)
 {
   return 0x1FFFFFFF;
+}
+
+//----- (004042B0) --------------------------------------------------------
+std::pair<int const ,std::string > *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::operator*(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::const_iterator *this)
+{
+  return std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Myval(this->_Ptr);
 }
 
 //----- (004042D0) --------------------------------------------------------
@@ -37511,6 +37783,33 @@ char *__thiscall std::string::c_str(std::string *this)
   return std::string::_Myptr(this);
 }
 
+//----- (00404420) --------------------------------------------------------
+std::string *__thiscall std::string::assign(std::string *this, const std::string *_Right, unsigned int _Roff, unsigned int _Count)
+{
+  char *v4; // eax
+  const char *v6; // [esp-8h] [ebp-10h]
+  unsigned int _Num; // [esp+4h] [ebp-4h]
+
+  if ( std::string::size((std::string *)_Right) < _Roff )
+    std::_String_base::_Xran(this);
+  _Num = std::string::size((std::string *)_Right) - _Roff;
+  if ( _Count < _Num )
+    _Num = _Count;
+  if ( this == _Right )
+  {
+    std::string::erase(this, _Num + _Roff, std::string::npos);
+    std::string::erase(this, 0, _Roff);
+  }
+  else if ( std::string::_Grow(this, _Num, 0) )
+  {
+    v6 = &std::string::_Myptr((std::string *)_Right)[_Roff];
+    v4 = std::string::_Myptr(this);
+    std::char_traits<char>::copy(v4, v6, _Num);
+    std::string::_Eos(this, _Num);
+  }
+  return this;
+}
+
 //----- (004044E0) --------------------------------------------------------
 void __thiscall std::string::_Tidy(std::string *this, bool _Built, unsigned int _Newsize)
 {
@@ -37557,6 +37856,12 @@ std::string *__thiscall std::string::erase(std::string *this, unsigned int _Off,
   return this;
 }
 
+//----- (00404640) --------------------------------------------------------
+char *__cdecl std::char_traits<char>::move(char *_First1, const char *_First2, unsigned int _Count)
+{
+  return (char *)memmove(_First1, _First2, _Count);
+}
+
 //----- (00404680) --------------------------------------------------------
 void __thiscall std::string::_Eos(std::string *this, unsigned int _Newsize)
 {
@@ -37567,6 +37872,92 @@ void __thiscall std::string::_Eos(std::string *this, unsigned int _Newsize)
   this->_Mysize = _Newsize;
   v2 = std::string::_Myptr(this);
   std::char_traits<char>::assign(&v2[_Newsize], &_Right);
+}
+
+//----- (004046D0) --------------------------------------------------------
+BOOL __thiscall std::string::_Grow(std::string *this, unsigned int _Newsize, bool _Trim)
+{
+  if ( std::string::max_size(this) < _Newsize )
+    std::_String_base::_Xlen(this);
+  if ( this->_Myres >= _Newsize )
+  {
+    if ( _Trim && _Newsize < 0x10 )
+    {
+      if ( _Newsize >= this->_Mysize )
+        std::string::_Tidy(this, 1, this->_Mysize);
+      else
+        std::string::_Tidy(this, 1, _Newsize);
+    }
+    else if ( !_Newsize )
+    {
+      std::string::_Eos(this, 0);
+    }
+  }
+  else
+  {
+    std::string::_Copy(this, _Newsize, this->_Mysize);
+  }
+  return _Newsize != 0;
+}
+
+//----- (00404770) --------------------------------------------------------
+void __thiscall std::allocator<CSyncPacket::CElement>::deallocate(std::allocator<char> *this, char *_Ptr, unsigned int __formal)
+{
+  operator delete(_Ptr);
+}
+
+//----- (004047D0) --------------------------------------------------------
+void __thiscall std::string::_Copy(std::string *this, unsigned int _Newsize, unsigned int _Oldlen)
+{
+  unsigned int v3; // eax
+  unsigned int v4; // esi
+  unsigned int v5; // eax
+  const char *v6; // eax
+  int v7; // [esp+0h] [ebp-30h] BYREF
+  char *v8; // [esp+10h] [ebp-20h]
+  std::string *thisa; // [esp+14h] [ebp-1Ch]
+  unsigned int _Newres; // [esp+18h] [ebp-18h]
+  char *_Ptr; // [esp+1Ch] [ebp-14h]
+  int *v12; // [esp+20h] [ebp-10h]
+  int v13; // [esp+2Ch] [ebp-4h]
+
+  v12 = &v7;
+  thisa = this;
+  _Newres = _Newsize | 0xF;
+  v3 = std::string::max_size(this);
+  if ( v3 >= _Newres )
+  {
+    if ( _Newres / 3 < thisa->_Myres >> 1 )
+    {
+      v4 = thisa->_Myres >> 1;
+      v5 = std::string::max_size(thisa);
+      if ( thisa->_Myres <= v5 - v4 )
+        _Newres = thisa->_Myres + (thisa->_Myres >> 1);
+    }
+  }
+  else
+  {
+    _Newres = _Newsize;
+  }
+  v13 = 0;
+  v8 = (char *)std::allocator<char>::allocate(&thisa->_Alval, _Newres + 1);
+  _Ptr = v8;
+  v13 = -1;
+  if ( _Oldlen )
+  {
+    v6 = std::string::_Myptr(thisa);
+    std::char_traits<char>::copy(_Ptr, v6, _Oldlen);
+  }
+  std::string::_Tidy(thisa, 1, 0);
+  thisa->_Bx._Ptr = _Ptr;
+  thisa->_Myres = _Newres;
+  std::string::_Eos(thisa, _Oldlen);
+}
+
+//----- (00404930) --------------------------------------------------------
+CMemory::tagEntry **__thiscall std::allocator<char>::allocate(std::allocator<char> *this, unsigned int _Count)
+{
+  return std::_Allocate<char>(_Count);
 }
 
 //----- (004049A0) --------------------------------------------------------
@@ -37582,26 +37973,26 @@ int __thiscall std::vector<IPAddrMask>::const_iterator::operator-(std::vector<IP
 }
 
 //----- (004049E0) --------------------------------------------------------
-IPAddrMask *__thiscall std::vector<IPAddrMask>::_Ucopy<std::vector<IPAddrMask>::iterator>(std::allocator<IPAddrMask> *this, std::vector<IPAddrMask>::iterator _First, std::vector<IPAddrMask>::iterator _Last, IPAddrMask *_Dest)
+IPAddrMask *__thiscall std::vector<IPAddrMask>::_Ucopy<std::vector<IPAddrMask>::iterator>(std::allocator<IPAddrMask> *this, std::vector<IPAddrMask>::iterator _First, std::vector<IPAddrMask>::iterator _Last, void *_Dest)
 {
   return std::_Uninitialized_copy<std::vector<IPAddrMask>::iterator,IPAddrMask *,std::allocator<IPAddrMask>>(
            _First,
            _Last,
-           _Dest,
+           (IPAddrMask *)_Dest,
            this);
 }
 
 //----- (00404A10) --------------------------------------------------------
 void __cdecl std::_Destroy_range<IPAddrMask>(IPAddrMask *_First, IPAddrMask *_Last, std::allocator<IPAddrMask> *_Al)
 {
-  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>((std::vector<IPAddrMask>::iterator *)&_First, &_Last);
   std::_Destroy_range<IPAddrMask>(_First, _Last, _Al);
 }
 
 //----- (00404A50) --------------------------------------------------------
 void __cdecl std::_Uninitialized_fill_n<IPAddrMask *,unsigned int,IPAddrMask,std::allocator<IPAddrMask>>(IPAddrMask *_First, unsigned int _Count, const IPAddrMask *_Val, std::allocator<IPAddrMask> *_Al)
 {
-  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>((std::vector<IPAddrMask>::iterator *)&_First, &_First);
   std::_Uninit_fill_n<IPAddrMask *,unsigned int,IPAddrMask,std::allocator<IPAddrMask>>(_First, _Count, _Val, _Al);
 }
 
@@ -37611,18 +38002,14 @@ CMemory::tagEntry **__cdecl std::_Allocate<IPAddrMask>(unsigned int _Count)
   return operator new(8 * _Count);
 }
 
-//----- (00404AB0) --------------------------------------------------------
-void __cdecl std::_Destroy<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node>(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Ptr)
-{
-  std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node::`scalar deleting destructor'(
-    _Ptr,
-    0);
-}
-
 //----- (00404AC0) --------------------------------------------------------
-IPAddrMask *__thiscall std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(std::allocator<IPAddrMask> *this, IPAddrMask *_First, IPAddrMask *_Last, IPAddrMask *_Dest)
+IPAddrMask *__thiscall std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(std::allocator<IPAddrMask> *this, int _First, int _Last, void *_Dest)
 {
-  return std::_Uninitialized_copy<IPAddrMask *,IPAddrMask *,std::allocator<IPAddrMask>>(_First, _Last, _Dest, this);
+  return std::_Uninitialized_copy<IPAddrMask *,IPAddrMask *,std::allocator<IPAddrMask>>(
+           (IPAddrMask *)_First,
+           (IPAddrMask *)_Last,
+           (IPAddrMask *)_Dest,
+           this);
 }
 
 //----- (00404AF0) --------------------------------------------------------
@@ -37642,7 +38029,7 @@ void __cdecl std::fill<IPAddrMask *,IPAddrMask>(IPAddrMask *_First, IPAddrMask *
 //----- (00404B20) --------------------------------------------------------
 IPAddrMask *__cdecl std::copy_backward<IPAddrMask *,IPAddrMask *>(IPAddrMask *_First, IPAddrMask *_Last, IPAddrMask *_Dest)
 {
-  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>((std::vector<IPAddrMask>::iterator *)&_First, &_Dest);
   return std::_Copy_backward_opt<IPAddrMask *,IPAddrMask *>(_First, _Last, _Dest);
 }
 
@@ -37661,10 +38048,16 @@ void __thiscall std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,
   std::pair<int const,std::string>::~pair<int const,std::string>(&this->_Myval);
 }
 
+//----- (00404BB0) --------------------------------------------------------
+void __thiscall std::pair<int const,std::string>::~pair<int const,std::string>(std::pair<int const ,std::string > *this)
+{
+  std::string::~string(&this->second);
+}
+
 //----- (00404BD0) --------------------------------------------------------
 IPAddrMask *__cdecl std::_Uninitialized_copy<std::vector<IPAddrMask>::iterator,IPAddrMask *,std::allocator<IPAddrMask>>(std::vector<IPAddrMask>::iterator _First, std::vector<IPAddrMask>::iterator _Last, IPAddrMask *_Dest, std::allocator<IPAddrMask> *_Al)
 {
-  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(&_First, &_Dest);
   return std::_Uninit_copy<std::vector<IPAddrMask>::iterator,IPAddrMask *,std::allocator<IPAddrMask>>(
            _First,
            _Last,
@@ -37703,7 +38096,7 @@ void __cdecl std::_Uninit_fill_n<IPAddrMask *,unsigned int,IPAddrMask,std::alloc
 //----- (00404CE0) --------------------------------------------------------
 IPAddrMask *__cdecl std::_Uninitialized_copy<IPAddrMask *,IPAddrMask *,std::allocator<IPAddrMask>>(IPAddrMask *_First, IPAddrMask *_Last, IPAddrMask *_Dest, std::allocator<IPAddrMask> *_Al)
 {
-  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>((std::vector<IPAddrMask>::iterator *)&_First, &_Dest);
   return std::_Uninit_copy<IPAddrMask *,IPAddrMask *,std::allocator<IPAddrMask>>(_First, _Last, _Dest, _Al);
 }
 
@@ -37728,15 +38121,6 @@ void __thiscall std::allocator<IPAddrMask>::construct(std::allocator<IPAddrMask>
 {
   std::_Construct<IPAddrMask,IPAddrMask>(_Ptr, _Val);
 }
-
-//----- (00404D80) --------------------------------------------------------
-std::_Nonscalar_ptr_iterator_tag __cdecl std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>()
-{
-  char v1; // [esp+3h] [ebp-1h]
-
-  return (std::_Nonscalar_ptr_iterator_tag)v1;
-}
-// 404D84: variable 'v1' is possibly undefined
 
 //----- (00404D90) --------------------------------------------------------
 IPAddrMask *__cdecl std::_Uninit_copy<std::vector<IPAddrMask>::iterator,IPAddrMask *,std::allocator<IPAddrMask>>(std::vector<IPAddrMask>::iterator _First, std::vector<IPAddrMask>::iterator _Last, IPAddrMask *_Dest, std::allocator<IPAddrMask> *_Al)
@@ -37838,12 +38222,6 @@ char __thiscall std::vector<IPAddrMask>::_Buy(std::vector<IPAddrMask> *this, uns
   this->_Mylast = this->_Myfirst;
   this->_Myend = &this->_Myfirst[_Capacity];
   return 1;
-}
-
-//----- (00405080) --------------------------------------------------------
-void __thiscall std::allocator<CSyncPacket::CElement>::allocator<CSyncPacket::CElement>(std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> *this, std::less<int> _Parg)
-{
-  ;
 }
 
 //----- (00405090) --------------------------------------------------------
@@ -38173,7 +38551,7 @@ std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::
   std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **v4; // eax
   std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **v5; // eax
   std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **v6; // eax
-  const std::pair<int const ,std::string > *v7; // esi
+  const int *v7; // esi
   std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **v8; // esi
   std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **v9; // eax
   const std::pair<int const ,std::string > **v10; // eax
@@ -38210,7 +38588,7 @@ std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::
     std::string::string(&_Message, "invalid map/set<T> iterator");
     v38 = 0;
     std::out_of_range::out_of_range(&pExceptionObject, &_Message);
-    _CxxThrowException(&pExceptionObject, &_TI3_AVout_of_range_std__);
+    _CxxThrowException(&pExceptionObject, (_ThrowInfo *)&_TI3_AVout_of_range_std__);
   }
   _Erasednode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::_Mynode((std::vector<IPAddrMask>::const_iterator *)&_Where);
   std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::iterator::operator++(&_Where);
@@ -38225,7 +38603,7 @@ std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::
     v5 = std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Right(_Pnode);
     if ( *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Isnil(*v5) )
     {
-      _Fixnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode)->first;
+      _Fixnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)*std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode);
     }
     else
     {
@@ -38242,9 +38620,9 @@ std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::
     {
       *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Root(this) = _Fixnode;
     }
-    else if ( (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent)->first == _Erasednode )
+    else if ( *(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent) == _Erasednode )
     {
-      std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent)->first = (const int)_Fixnode;
+      *std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent) = (const int)_Fixnode;
     }
     else
     {
@@ -38272,7 +38650,7 @@ std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::
     v6 = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Erasednode);
     *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Parent(*v6) = _Pnode;
     v7 = std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Erasednode);
-    std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode)->first = v7->first;
+    *std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode) = *v7;
     if ( _Pnode == *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Right(_Erasednode) )
     {
       _Fixnodeparent = _Pnode;
@@ -38282,7 +38660,7 @@ std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::
       _Fixnodeparent = *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Parent(_Pnode);
       if ( !*std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Isnil(_Fixnode) )
         *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Parent(_Fixnode) = _Fixnodeparent;
-      std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent)->first = (const int)_Fixnode;
+      *std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent) = (const int)_Fixnode;
       v8 = std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Right(_Erasednode);
       *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Right(_Pnode) = *v8;
       v9 = std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Right(_Erasednode);
@@ -38295,10 +38673,10 @@ std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::
     else
     {
       v10 = (const std::pair<int const ,std::string > **)std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Parent(_Erasednode);
-      if ( (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(*v10)->first == _Erasednode )
+      if ( *(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(*v10) == _Erasednode )
       {
         v11 = (const std::pair<int const ,std::string > **)std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Parent(_Erasednode);
-        std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(*v11)->first = (const int)_Pnode;
+        *std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(*v11) = (const int)_Pnode;
       }
       else
       {
@@ -38323,9 +38701,9 @@ LABEL_63:
         *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Color(_Fixnode) = 1;
         goto LABEL_64;
       }
-      if ( _Fixnode == (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent)->first )
+      if ( _Fixnode == *(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent) )
         break;
-      _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent)->first;
+      _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)*std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent);
       if ( !*std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Color(_Pnode) )
       {
         *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Color(_Pnode) = 1;
@@ -38333,7 +38711,7 @@ LABEL_63:
         std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Rrotate(
           this,
           _Fixnodeparent);
-        _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent)->first;
+        _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)*std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent);
       }
       if ( !*std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Isnil(_Pnode) )
       {
@@ -38351,7 +38729,7 @@ LABEL_63:
             std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Lrotate(
               this,
               _Pnode);
-            _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent)->first;
+            _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)*std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Fixnodeparent);
           }
           v25 = std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Color(_Fixnodeparent);
           *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Color(_Pnode) = *v25;
@@ -38431,6 +38809,31 @@ LABEL_64:
   return result;
 }
 
+//----- (00405E40) --------------------------------------------------------
+void __thiscall std::out_of_range::out_of_range(std::out_of_range *this, const std::string *_Message)
+{
+  std::logic_error::logic_error(this, _Message);
+  this->__vftable = (std::out_of_range_vtbl *)&std::out_of_range::`vftable';
+}
+// 42E070: using guessed type void *std::out_of_range::`vftable';
+
+//----- (00405E70) --------------------------------------------------------
+void __thiscall std::out_of_range::~out_of_range(std::out_of_range *this)
+{
+  this->__vftable = (std::out_of_range_vtbl *)&std::out_of_range::`vftable';
+  std::logic_error::~logic_error(this);
+}
+// 42E070: using guessed type void *std::out_of_range::`vftable';
+
+//----- (00405E90) --------------------------------------------------------
+std::out_of_range *__thiscall std::out_of_range::`vector deleting destructor'(std::out_of_range *this, unsigned int a2)
+{
+  std::out_of_range::~out_of_range(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}
+
 //----- (00405EC0) --------------------------------------------------------
 std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::iterator::operator++(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *this, std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::iterator *result, int __formal)
 {
@@ -38442,10 +38845,18 @@ std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::
   return result;
 }
 
+//----- (00405EF0) --------------------------------------------------------
+void __thiscall std::out_of_range::out_of_range(std::out_of_range *this, const std::out_of_range *__that)
+{
+  std::logic_error::logic_error(this, __that);
+  this->__vftable = (std::out_of_range_vtbl *)&std::out_of_range::`vftable';
+}
+// 42E070: using guessed type void *std::out_of_range::`vftable';
+
 //----- (00405F20) --------------------------------------------------------
 void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Lrotate(std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> > *this, std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Wherenode)
 {
-  const std::pair<int const ,std::string > *v2; // esi
+  std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **v2; // esi
   std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **v3; // eax
   std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **v4; // eax
   std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **v5; // esi
@@ -38455,8 +38866,8 @@ void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std:
   std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Pnode; // [esp+8h] [ebp-4h]
 
   _Pnode = *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Right(_Wherenode);
-  v2 = std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode);
-  *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Right(_Wherenode) = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)v2->first;
+  v2 = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode);
+  *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Right(_Wherenode) = *v2;
   v3 = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode);
   if ( !*std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Isnil(*v3) )
   {
@@ -38472,10 +38883,10 @@ void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std:
   else
   {
     v6 = (const std::pair<int const ,std::string > **)std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Parent(_Wherenode);
-    if ( _Wherenode == (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(*v6)->first )
+    if ( _Wherenode == *(std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(*v6) )
     {
       v7 = (const std::pair<int const ,std::string > **)std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Parent(_Wherenode);
-      std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(*v7)->first = (const int)_Pnode;
+      *std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(*v7) = (const int)_Pnode;
     }
     else
     {
@@ -38483,7 +38894,7 @@ void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std:
       *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Right(*v8) = _Pnode;
     }
   }
-  std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode)->first = (const int)_Wherenode;
+  *std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode) = (const int)_Wherenode;
   *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Parent(_Wherenode) = _Pnode;
 }
 
@@ -38512,7 +38923,7 @@ std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<s
     v1 = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node **)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode);
     if ( *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Isnil(*v1) )
       break;
-    _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode)->first;
+    _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)*std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Pnode);
   }
   return _Pnode;
 }
@@ -38529,9 +38940,9 @@ void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std:
   const std::pair<int const ,std::string > **v8; // eax
   std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *_Pnode; // [esp+8h] [ebp-4h]
 
-  _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Wherenode)->first;
+  _Pnode = (std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::_Node *)*std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Wherenode);
   v2 = (const int *)std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Right(_Pnode);
-  std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Wherenode)->first = *v2;
+  *std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn((const std::pair<int const ,std::string > *)_Wherenode) = *v2;
   v3 = std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Right(_Pnode);
   if ( !*std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Isnil(*v3) )
   {
@@ -38555,7 +38966,7 @@ void __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std:
     else
     {
       v8 = (const std::pair<int const ,std::string > **)std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Parent(_Wherenode);
-      std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(*v8)->first = (const int)_Pnode;
+      *std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>::_Kfn(*v8) = (const int)_Pnode;
     }
   }
   *std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Right(_Pnode) = _Wherenode;
@@ -38619,7 +39030,7 @@ void __cdecl std::swap<char>(char *_Left, char *_Right)
 }
 
 //----- (00406330) --------------------------------------------------------
-unsigned int __stdcall WinMain(HINSTANCE__ *hInstance, HINSTANCE__ *hPrevInstance, char *lpCmdLine, int nCmdShow)
+int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
   unsigned int nStartThreadId; // [esp+0h] [ebp-24h] BYREF
   tagMSG msg; // [esp+4h] [ebp-20h] BYREF
@@ -38631,10 +39042,10 @@ unsigned int __stdcall WinMain(HINSTANCE__ *hInstance, HINSTANCE__ *hPrevInstanc
   CScreen::Open(&CLog::s_screen, 200, 50);
   CScreen::Open(&CStatus::s_screen, 80, 20);
   CScreen::s_pScreen = &CLog::s_screen;
-  if ( !InitInstance(hInstance, nCmdShow) )
+  if ( !InitInstance(hInstance, nShowCmd) )
     return 0;
   hAccelTable = LoadAcceleratorsA(hInstance, (LPCSTR)0x6D);
-  g_hStartThread = (HANDLE)_beginthreadex(0, 0, (unsigned int (__stdcall *)(void *))StartThread, 0, 0, &nStartThreadId);
+  g_hStartThread = (void *)_beginthreadex(0, 0, (_beginthreadex_proc_type)StartThread, 0, 0, &nStartThreadId);
   while ( GetMessageA(&msg, 0, 0, 0) )
   {
     if ( !TranslateAcceleratorA(msg.hwnd, hAccelTable, &msg) )
@@ -38659,8 +39070,8 @@ ATOM __cdecl MyRegisterClass(HINSTANCE__ *hInstance)
   wcex.hInstance = hInstance;
   wcex.hIcon = LoadIconA(hInstance, (LPCSTR)0x6B);
   wcex.hCursor = LoadCursorA(0, (LPCSTR)0x7F00);
-  wcex.hbrBackground = (HBRUSH__ *)6;
-  wcex.lpszMenuName = (const char *)109;
+  wcex.hbrBackground = (HBRUSH)6;
+  wcex.lpszMenuName = (LPCSTR)109;
   wcex.lpszClassName = szWindowClass;
   wcex.hIconSm = LoadIconA(hInstance, (LPCSTR)0x6C);
   return RegisterClassExA(&wcex);
@@ -38682,10 +39093,14 @@ int __cdecl InitInstance(HINSTANCE__ *hInstance, int nCmdShow)
 }
 
 //----- (00406520) --------------------------------------------------------
-void __cdecl TestException()
+int TestException()
 {
+  int result; // eax
+
   ELOG("Exception Test\n");
+  result = 0;
   MEMORY[0] = 0;
+  return result;
 }
 
 //----- (004065C0) --------------------------------------------------------
@@ -38715,7 +39130,7 @@ LRESULT __stdcall WndProc(HWND__ *hWnd, unsigned int message, unsigned int wPara
             LOG_INFO("Log Flushed");
             return 0;
           case 0x800Du:
-            nThreadID = CIOSocket::AddIOThread();
+            nThreadID = CIOSocket::AddIOThread((void *)((unsigned __int16)wParam - 32780));
             if ( nThreadID )
               ++CDBConfig::s_nNumberOfThreads;
             KillTimer(hWnd, 1u);
@@ -38764,7 +39179,7 @@ LRESULT __stdcall WndProc(HWND__ *hWnd, unsigned int message, unsigned int wPara
               hThread = (void *)_beginthreadex(
                                   0,
                                   0,
-                                  (unsigned int (__stdcall *)(void *))StopThread,
+                                  (_beginthreadex_proc_type)StopThread,
                                   (void *)lParam,
                                   0,
                                   &nThreadId);
@@ -38840,7 +39255,7 @@ int __stdcall About(HWND__ *hDlg, unsigned int message, unsigned int wParam, int
 }
 
 //----- (004069E0) --------------------------------------------------------
-unsigned int __userpurge StartThread@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, void *__formal)
+unsigned int __userpurge StartThread@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, void *__formal)
 {
   unsigned int result; // eax
   char *v5; // eax
@@ -38910,7 +39325,7 @@ unsigned int __userpurge StartThread@<eax>(unsigned int a1@<ebx>, unsigned int a
 }
 
 //----- (00406B90) --------------------------------------------------------
-unsigned int __userpurge StopThread@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, void *arglist)
+unsigned int __userpurge StopThread@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, void *arglist)
 {
   LOG_NORMAL("Shutdown started");
   CServer::Stop();
@@ -38954,17 +39369,24 @@ void __cdecl endes(char *inblock, char *outblock)
 {
   char swap[8]; // [esp+0h] [ebp-A4h] BYREF
   char *t; // [esp+8h] [ebp-9Ch] BYREF
-  char iters[17][8]; // [esp+Ch] [ebp-98h] BYREF
+  char iters[132]; // [esp+Ch] [ebp-98h] BYREF
+  char v5[8]; // [esp+90h] [ebp-14h] BYREF
   char *s; // [esp+9Ch] [ebp-8h]
   int i; // [esp+A0h] [ebp-4h]
 
-  permute(inblock, iperm, (char *)iters);
+  permute(inblock, iperm, iters);
   for ( i = 0; i < 16; ++i )
-    iter(i, iters[i], iters[i + 1]);
-  *(_DWORD *)swap = *(_DWORD *)&iters[16][4];
-  *(_DWORD *)&swap[4] = *(_DWORD *)&iters[16][0];
+    iter(i, &iters[8 * i], &iters[8 * i + 8]);
+  swap[0] = v5[0];
+  swap[1] = v5[1];
+  swap[2] = v5[2];
+  swap[3] = v5[3];
+  swap[4] = iters[128];
+  swap[5] = iters[129];
+  swap[6] = iters[130];
+  swap[7] = iters[131];
   s = (char *)&t;
-  t = &iters[16][4];
+  t = v5;
   permute(swap, fperm, outblock);
 }
 
@@ -39110,17 +39532,24 @@ void __cdecl dedes(char *inblock, char *outblock)
 {
   char swap[8]; // [esp+0h] [ebp-A4h] BYREF
   char *t; // [esp+8h] [ebp-9Ch] BYREF
-  char iters[17][8]; // [esp+Ch] [ebp-98h] BYREF
+  char iters[132]; // [esp+Ch] [ebp-98h] BYREF
+  char v5[8]; // [esp+90h] [ebp-14h] BYREF
   char *s; // [esp+9Ch] [ebp-8h]
   int i; // [esp+A0h] [ebp-4h]
 
-  permute(inblock, iperm, (char *)iters);
+  permute(inblock, iperm, iters);
   for ( i = 0; i < 16; ++i )
-    iter(15 - i, iters[i], iters[i + 1]);
-  *(_DWORD *)swap = *(_DWORD *)&iters[16][4];
-  *(_DWORD *)&swap[4] = *(_DWORD *)&iters[16][0];
+    iter(15 - i, &iters[8 * i], &iters[8 * i + 8]);
+  swap[0] = v5[0];
+  swap[1] = v5[1];
+  swap[2] = v5[2];
+  swap[3] = v5[3];
+  swap[4] = iters[128];
+  swap[5] = iters[129];
+  swap[6] = iters[130];
+  swap[7] = iters[131];
   s = (char *)&t;
-  t = &iters[16][4];
+  t = v5;
   permute(swap, fperm, outblock);
 }
 
@@ -39345,11 +39774,11 @@ int __cdecl DesReadBlockEx(void *buf, int len)
 }
 
 //----- (00407FC0) --------------------------------------------------------
-unsigned int __usercall SnapCurrentProcessMiniDump@<eax>(unsigned int a1@<eax>, unsigned int a2@<edx>, unsigned int a3@<ecx>, unsigned int a4@<ebx>, unsigned int a5@<edi>, unsigned int a6@<esi>, _CONTEXT *lpContext)
+unsigned int __usercall SnapCurrentProcessMiniDump@<eax>(DWORD a1@<eax>, DWORD a2@<edx>, DWORD a3@<ecx>, DWORD a4@<ebx>, DWORD a5@<edi>, DWORD a6@<esi>, _CONTEXT *lpContext)
 {
   HANDLE v7; // eax
-  unsigned int vars0; // [esp+2ECh] [ebp+0h]
-  unsigned int retaddr; // [esp+2F0h] [ebp+4h]
+  DWORD vars0; // [esp+2ECh] [ebp+0h]
+  DWORD retaddr; // [esp+2F0h] [ebp+4h]
 
   memset(lpContext, 0, sizeof(_CONTEXT));
   lpContext->ContextFlags = 65599;
@@ -39377,7 +39806,7 @@ unsigned int __usercall SnapCurrentProcessMiniDump@<eax>(unsigned int a1@<eax>, 
 //----- (00408180) --------------------------------------------------------
 void __thiscall CIOException::CInit::CInit(CIOException::CInit *this)
 {
-  char *v1; // eax
+  CHAR *v1; // eax
   char *FilePart; // [esp+4h] [ebp-4h]
 
   InitializeCriticalSection(&CIOException::s_lock);
@@ -39395,20 +39824,19 @@ void __thiscall CIOException::CInit::CInit(CIOException::CInit *this)
 //----- (00408230) --------------------------------------------------------
 char *__cdecl GetFilePart(char *source)
 {
-  int v1; // eax
   char *result; // [esp+0h] [ebp-4h]
+  char *resulta; // [esp+0h] [ebp-4h]
 
-  strrchr((unsigned __int8 *)source, 0x5Cu);
-  if ( v1 )
-    result = (char *)(v1 + 1);
+  result = strrchr(source, 92);
+  if ( result )
+    resulta = result + 1;
   else
-    result = source;
-  return result;
+    resulta = source;
+  return resulta;
 }
-// 408249: variable 'v1' is possibly undefined
 
 //----- (00408270) --------------------------------------------------------
-void __usercall __noreturn SecurityHandler(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>)
+void __usercall __noreturn SecurityHandler(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>)
 {
   if ( g_nEnable )
   {
@@ -39420,6 +39848,8 @@ void __usercall __noreturn SecurityHandler(unsigned int a1@<ebx>, unsigned int a
   }
   ExitProcess(1u);
 }
+// 40A6E0: using guessed type int CIOException::Lock(void);
+// 40A6F0: using guessed type int CIOException::Unlock(void);
 
 //----- (004082B0) --------------------------------------------------------
 BOOL sendMail()
@@ -39470,8 +39900,6 @@ int __cdecl sendMail_0(const char *host, const char *from, const char *to, const
   int v10; // eax
   int v11; // eax
   int v12; // eax
-  int v13; // eax
-  int v14; // eax
   int namelen; // [esp+0h] [ebp-9D8h] BYREF
   int len; // [esp+4h] [ebp-9D4h]
   hostent *h; // [esp+8h] [ebp-9D0h]
@@ -39528,29 +39956,27 @@ LABEL_11:
                 recv(sock, packetBuffer, 2048, 0);
                 for ( str = to; ; str += len )
                 {
-                  strspn((unsigned __int8 *)str, " ,");
-                  str += v7;
+                  str += strspn(str, " ,");
                   if ( !*str )
                     break;
-                  strcspn((unsigned __int8 *)str, ",");
-                  len = v8;
-                  sprintf(packetBuffer, "RCPT To: <%.*s>\r\n", v8, str);
-                  v9 = strlen(packetBuffer);
-                  if ( send(sock, packetBuffer, v9, 0) <= 0 )
+                  len = strcspn(str, ",");
+                  sprintf(packetBuffer, "RCPT To: <%.*s>\r\n", len, str);
+                  v7 = strlen(packetBuffer);
+                  if ( send(sock, packetBuffer, v7, 0) <= 0 )
                     goto exit;
                   recv(sock, packetBuffer, 2048, 0);
                 }
                 str = "DATA\r\n";
-                v10 = strlen("DATA\r\n");
-                if ( send(sock, "DATA\r\n", v10, 0) > 0 )
+                v8 = strlen("DATA\r\n");
+                if ( send(sock, "DATA\r\n", v8, 0) > 0 )
                 {
                   recv(sock, packetBuffer, 2048, 0);
                   memset(&sockname, 0, sizeof(sockname));
                   namelen = 16;
                   getsockname(sock, (struct sockaddr *)&sockname, &namelen);
                   sprintf(packetBuffer, "From: <%s>\r\n", from);
-                  v11 = strlen(packetBuffer);
-                  if ( send(sock, packetBuffer, v11, 0) > 0 )
+                  v9 = strlen(packetBuffer);
+                  if ( send(sock, packetBuffer, v9, 0) > 0 )
                   {
                     sprintf(
                       packetBuffer,
@@ -39559,19 +39985,19 @@ LABEL_11:
                       sockname.sin_addr.S_un.S_un_b.s_b2,
                       sockname.sin_addr.S_un.S_un_b.s_b3,
                       sockname.sin_addr.S_un.S_un_b.s_b4);
-                    v12 = strlen(packetBuffer);
-                    if ( send(sock, packetBuffer, v12, 0) > 0 )
+                    v10 = strlen(packetBuffer);
+                    if ( send(sock, packetBuffer, v10, 0) > 0 )
                     {
                       if ( sendFile(sock, body) )
                       {
                         str = "\r\n.\r\n";
-                        v13 = strlen("\r\n.\r\n");
-                        if ( send(sock, str, v13, 0) > 0 )
+                        v11 = strlen("\r\n.\r\n");
+                        if ( send(sock, str, v11, 0) > 0 )
                         {
                           recv(sock, packetBuffer, 2048, 0);
                           str = "QUIT\r\n";
-                          v14 = strlen("QUIT\r\n");
-                          if ( send(sock, str, v14, 0) > 0 )
+                          v12 = strlen("QUIT\r\n");
+                          if ( send(sock, str, v12, 0) > 0 )
                           {
                             recv(sock, packetBuffer, 2048, 0);
                             bReturn = 1;
@@ -39589,7 +40015,7 @@ LABEL_11:
         h = gethostbyname(host);
         if ( h )
         {
-          memcpy((unsigned __int8 *)&addr.sin_addr, *(unsigned __int8 **)h->h_addr_list, h->h_length);
+          memcpy(&addr.sin_addr, *(const void **)h->h_addr_list, h->h_length);
           goto LABEL_11;
         }
       }
@@ -39600,8 +40026,6 @@ exit:
   WSACleanup();
   return bReturn;
 }
-// 4086C1: variable 'v7' is possibly undefined
-// 4086ED: variable 'v8' is possibly undefined
 
 //----- (00408990) --------------------------------------------------------
 int __cdecl sendFile(unsigned int sock, const char *name)
@@ -39626,12 +40050,12 @@ int __cdecl sendFile(unsigned int sock, const char *name)
 }
 
 //----- (00408A40) --------------------------------------------------------
-void __usercall GenerateExceptionReport(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, _EXCEPTION_POINTERS *data)
+void __usercall GenerateExceptionReport(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, _EXCEPTION_POINTERS *data)
 {
   DWORD v4; // eax
-  unsigned int v5; // eax
-  unsigned int v6; // ecx
-  char *v7; // eax
+  DWORD v5; // eax
+  DWORD v6; // ecx
+  const char *v7; // eax
   HANDLE v8; // eax
   HANDLE v9; // eax
   int v10; // [esp-1Ch] [ebp-B8Ch]
@@ -39641,8 +40065,8 @@ void __usercall GenerateExceptionReport(unsigned int a1@<ebx>, unsigned int a2@<
   int v14; // [esp-Ch] [ebp-B7Ch]
   char *v15; // [esp-Ch] [ebp-B7Ch]
   int v16; // [esp-8h] [ebp-B78h]
-  unsigned int v17; // [esp-8h] [ebp-B78h]
-  unsigned int v18; // [esp-4h] [ebp-B74h]
+  DWORD v17; // [esp-8h] [ebp-B78h]
+  DWORD v18; // [esp-4h] [ebp-B74h]
   const char *v19; // [esp+Ch] [ebp-B64h]
   unsigned int dwOpts; // [esp+10h] [ebp-B60h]
   int codebyte; // [esp+14h] [ebp-B5Ch]
@@ -39654,9 +40078,9 @@ void __usercall GenerateExceptionReport(unsigned int a1@<ebx>, unsigned int a2@<
   _CONTEXT Context; // [esp+6F8h] [ebp-478h] BYREF
   tm *tm; // [esp+9CCh] [ebp-1A4h]
   _SYSTEMTIME st; // [esp+9D0h] [ebp-1A0h] BYREF
-  _EXCEPTION_RECORD stExRec; // [esp+9E0h] [ebp-190h] BYREF
+  int stExRec[21]; // [esp+9E0h] [ebp-190h] BYREF
   unsigned __int8 *code; // [esp+A34h] [ebp-13Ch]
-  _EXCEPTION_POINTERS stExpPtrs; // [esp+A38h] [ebp-138h] BYREF
+  int stExpPtrs[2]; // [esp+A38h] [ebp-138h] BYREF
   _EXCEPTION_RECORD *Exception; // [esp+A40h] [ebp-130h]
   void *LogFile; // [esp+A44h] [ebp-12Ch]
   char CrashModulePathName[260]; // [esp+A48h] [ebp-128h] BYREF
@@ -39701,12 +40125,12 @@ void __usercall GenerateExceptionReport(unsigned int a1@<ebx>, unsigned int a2@<
     CrashModuleFileName = "Unknown";
     if ( !data )
     {
-      SnapCurrentProcessMiniDump(v5, (unsigned int)&stContext, v6, a1, a2, a3, &stContext);
-      memset(&stExRec, 0, sizeof(stExRec));
-      stExRec.ExceptionAddress = (void *)stContext.Eip;
-      stExpPtrs.ContextRecord = &stContext;
-      stExpPtrs.ExceptionRecord = &stExRec;
-      data = &stExpPtrs;
+      SnapCurrentProcessMiniDump(v5, (DWORD)&stContext, v6, a1, a2, a3, &stContext);
+      memset(stExRec, 0, 0x50u);
+      stExRec[3] = stContext.Eip;
+      stExpPtrs[1] = (int)&stContext;
+      stExpPtrs[0] = (int)stExRec;
+      data = (_EXCEPTION_POINTERS *)stExpPtrs;
     }
     qmemcpy(&Context, data->ContextRecord, sizeof(Context));
     if ( VirtualQuery((LPCVOID)Context.Eip, &MemInfo, 0x1Cu)
@@ -39816,7 +40240,7 @@ void __cdecl CreateMiniDump(_EXCEPTION_POINTERS *pException)
   DWORD v4; // [esp-18h] [ebp-2Ch]
   _MINIDUMP_EXCEPTION_INFORMATION *pExceptionParam; // [esp+0h] [ebp-14h]
   HANDLE hFile; // [esp+4h] [ebp-10h]
-  _MINIDUMP_EXCEPTION_INFORMATION stExInfo; // [esp+8h] [ebp-Ch] BYREF
+  int stExInfo[3]; // [esp+8h] [ebp-Ch] BYREF
 
   hFile = CreateFileA(g_szDumpPath, 0x40000000u, 1u, 0, 2u, 0x80000080, 0);
   if ( hFile != (HANDLE)-1 )
@@ -39825,10 +40249,10 @@ void __cdecl CreateMiniDump(_EXCEPTION_POINTERS *pException)
     SetThreadPriority(v1, 2);
     if ( pException )
     {
-      stExInfo.ThreadId = GetCurrentThreadId();
-      stExInfo.ClientPointers = 1;
-      stExInfo.ExceptionPointers = pException;
-      pExceptionParam = &stExInfo;
+      stExInfo[0] = GetCurrentThreadId();
+      stExInfo[2] = 1;
+      stExInfo[1] = (int)pException;
+      pExceptionParam = (_MINIDUMP_EXCEPTION_INFORMATION *)stExInfo;
     }
     else
     {
@@ -39846,71 +40270,70 @@ void __cdecl CreateMiniDump(_EXCEPTION_POINTERS *pException)
 //----- (00409150) --------------------------------------------------------
 void __cdecl RecordModuleList(void *LogFile)
 {
-  HMODULE v1; // eax
-
   hprintf(LogFile, "Module list:\r\n");
-  v1 = GetModuleHandleA(0);
-  ShowModuleInfo(LogFile, v1);
+  GetModuleHandleA(0);
+  ShowModuleInfo();
 }
 
 //----- (004093F0) --------------------------------------------------------
-char *__cdecl GetExceptionDescription(unsigned int ExceptionCode)
+const char *__cdecl GetExceptionDescription(unsigned int ExceptionCode)
 {
   unsigned int i; // [esp+0h] [ebp-C4h]
-  GetExceptionDescription::__l2::ExceptionNames ExceptionMap[24]; // [esp+4h] [ebp-C0h]
+  int ExceptionMap; // [esp+4h] [ebp-C0h]
+  int v4[47]; // [esp+8h] [ebp-BCh]
 
-  ExceptionMap[0].ExceptionCode = 1073807365;
-  ExceptionMap[0].ExceptionName = "a Control-C";
-  ExceptionMap[1].ExceptionCode = 1073807368;
-  ExceptionMap[1].ExceptionName = "a Control-Break";
-  ExceptionMap[2].ExceptionCode = -2147483646;
-  ExceptionMap[2].ExceptionName = "a Datatype Misalignment";
-  ExceptionMap[3].ExceptionCode = -2147483645;
-  ExceptionMap[3].ExceptionName = "a Breakpoint";
-  ExceptionMap[4].ExceptionCode = -1073741819;
-  ExceptionMap[4].ExceptionName = "an Access Violation";
-  ExceptionMap[5].ExceptionCode = -1073741818;
-  ExceptionMap[5].ExceptionName = "an In Page Error";
-  ExceptionMap[6].ExceptionCode = -1073741801;
-  ExceptionMap[6].ExceptionName = "a No Memory";
-  ExceptionMap[7].ExceptionCode = -1073741795;
-  ExceptionMap[7].ExceptionName = "an Illegal Instruction";
-  ExceptionMap[8].ExceptionCode = -1073741787;
-  ExceptionMap[8].ExceptionName = "a Noncontinuable Exception";
-  ExceptionMap[9].ExceptionCode = -1073741786;
-  ExceptionMap[9].ExceptionName = "an Invalid Disposition";
-  ExceptionMap[10].ExceptionCode = -1073741684;
-  ExceptionMap[10].ExceptionName = "a Array Bounds Exceeded";
-  ExceptionMap[11].ExceptionCode = -1073741683;
-  ExceptionMap[11].ExceptionName = "a Float Denormal Operand";
-  ExceptionMap[12].ExceptionCode = -1073741682;
-  ExceptionMap[12].ExceptionName = "a Float Divide by Zero";
-  ExceptionMap[13].ExceptionCode = -1073741681;
-  ExceptionMap[13].ExceptionName = "a Float Inexact Result";
-  ExceptionMap[14].ExceptionCode = -1073741680;
-  ExceptionMap[14].ExceptionName = "a Float Invalid Operation";
-  ExceptionMap[15].ExceptionCode = -1073741679;
-  ExceptionMap[15].ExceptionName = "a Float Overflow";
-  ExceptionMap[16].ExceptionCode = -1073741678;
-  ExceptionMap[16].ExceptionName = "a Float Stack Check";
-  ExceptionMap[17].ExceptionCode = -1073741677;
-  ExceptionMap[17].ExceptionName = "a Float Underflow";
-  ExceptionMap[18].ExceptionCode = -1073741676;
-  ExceptionMap[18].ExceptionName = "an Integer Divide by Zero";
-  ExceptionMap[19].ExceptionCode = -1073741675;
-  ExceptionMap[19].ExceptionName = "an Integer Overflow";
-  ExceptionMap[20].ExceptionCode = -1073741674;
-  ExceptionMap[20].ExceptionName = "a Privileged Instruction";
-  ExceptionMap[21].ExceptionCode = -1073741571;
-  ExceptionMap[21].ExceptionName = "a Stack Overflow";
-  ExceptionMap[22].ExceptionCode = -1073741502;
-  ExceptionMap[22].ExceptionName = "a DLL Initialization Failed";
-  ExceptionMap[23].ExceptionCode = -529697949;
-  ExceptionMap[23].ExceptionName = "a Microsoft C++ Exception";
+  ExceptionMap = 1073807365;
+  v4[0] = (int)"a Control-C";
+  v4[1] = 1073807368;
+  v4[2] = (int)"a Control-Break";
+  v4[3] = -2147483646;
+  v4[4] = (int)"a Datatype Misalignment";
+  v4[5] = -2147483645;
+  v4[6] = (int)"a Breakpoint";
+  v4[7] = -1073741819;
+  v4[8] = (int)"an Access Violation";
+  v4[9] = -1073741818;
+  v4[10] = (int)"an In Page Error";
+  v4[11] = -1073741801;
+  v4[12] = (int)"a No Memory";
+  v4[13] = -1073741795;
+  v4[14] = (int)"an Illegal Instruction";
+  v4[15] = -1073741787;
+  v4[16] = (int)"a Noncontinuable Exception";
+  v4[17] = -1073741786;
+  v4[18] = (int)"an Invalid Disposition";
+  v4[19] = -1073741684;
+  v4[20] = (int)"a Array Bounds Exceeded";
+  v4[21] = -1073741683;
+  v4[22] = (int)"a Float Denormal Operand";
+  v4[23] = -1073741682;
+  v4[24] = (int)"a Float Divide by Zero";
+  v4[25] = -1073741681;
+  v4[26] = (int)"a Float Inexact Result";
+  v4[27] = -1073741680;
+  v4[28] = (int)"a Float Invalid Operation";
+  v4[29] = -1073741679;
+  v4[30] = (int)"a Float Overflow";
+  v4[31] = -1073741678;
+  v4[32] = (int)"a Float Stack Check";
+  v4[33] = -1073741677;
+  v4[34] = (int)"a Float Underflow";
+  v4[35] = -1073741676;
+  v4[36] = (int)"an Integer Divide by Zero";
+  v4[37] = -1073741675;
+  v4[38] = (int)"an Integer Overflow";
+  v4[39] = -1073741674;
+  v4[40] = (int)"a Privileged Instruction";
+  v4[41] = -1073741571;
+  v4[42] = (int)"a Stack Overflow";
+  v4[43] = -1073741502;
+  v4[44] = (int)"a DLL Initialization Failed";
+  v4[45] = -529697949;
+  v4[46] = (int)"a Microsoft C++ Exception";
   for ( i = 0; i < 0x18; ++i )
   {
-    if ( ExceptionCode == ExceptionMap[i].ExceptionCode )
-      return ExceptionMap[i].ExceptionName;
+    if ( ExceptionCode == *(&ExceptionMap + 2 * i) )
+      return (const char *)v4[2 * i];
   }
   return "Unknown exception type";
 }
@@ -39920,7 +40343,10 @@ void __cdecl PrintStack(void *LogFile, unsigned int begin, unsigned int end)
 {
   int v3; // eax
   int v4; // eax
-  char buffer[92]; // [esp+Ch] [ebp-80h] BYREF
+  char buffer; // [esp+Ch] [ebp-80h] BYREF
+  char v6[88]; // [esp+Dh] [ebp-7Fh] BYREF
+  __int16 v7; // [esp+65h] [ebp-27h]
+  char v8; // [esp+67h] [ebp-25h]
   char *output; // [esp+70h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+74h] [ebp-18h]
   unsigned int enda; // [esp+9Ch] [ebp+10h]
@@ -39932,11 +40358,11 @@ void __cdecl PrintStack(void *LogFile, unsigned int begin, unsigned int end)
   else
     enda = g_dwStackTop;
   ms_exc.registration.TryLevel = 0;
-  buffer[0] = 0;
-  memset(&buffer[1], 0, 0x58u);
-  *(_WORD *)&buffer[89] = 0;
-  buffer[91] = 0;
-  output = buffer;
+  buffer = 0;
+  memset(v6, 0, sizeof(v6));
+  v7 = 0;
+  v8 = 0;
+  output = &buffer;
   while ( g_dwStack < enda )
   {
     if ( (g_dwStack & 0x1F) == 0 )
@@ -39949,9 +40375,9 @@ void __cdecl PrintStack(void *LogFile, unsigned int begin, unsigned int end)
     g_dwStack += 4;
     if ( (g_dwStack & 0x1F) == 0 )
     {
-      hprintf(LogFile, "%s\r\n", buffer);
-      buffer[0] = 0;
-      output = buffer;
+      hprintf(LogFile, "%s\r\n", &buffer);
+      buffer = 0;
+      output = &buffer;
     }
   }
 }
@@ -39973,7 +40399,7 @@ void __cdecl ImageHelpStackWalk(void *LogFile, _CONTEXT *ptrContext)
   char UnDName[512]; // [esp+14Ch] [ebp-510h] BYREF
   unsigned __int8 symbolBuffer[600]; // [esp+34Ch] [ebp-310h] BYREF
   unsigned __int64 symDisplacement; // [esp+5ACh] [ebp-B0h] BYREF
-  _tagSTACKFRAME StackFrame; // [esp+5B4h] [ebp-A8h] BYREF
+  struct _tagSTACKFRAME StackFrame; // [esp+5B4h] [ebp-A8h] BYREF
 
   hprintf(LogFile, "Call Stack Information:\r\n");
   memset(&StackFrame, 0, sizeof(StackFrame));
@@ -40069,7 +40495,7 @@ void __cdecl IntelStackWalk(void *LogFile, _CONTEXT *ptrContext)
 }
 
 //----- (00409C00) --------------------------------------------------------
-int __userpurge RecordExceptionInfo@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, _EXCEPTION_POINTERS *data)
+int __userpurge RecordExceptionInfo@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, _EXCEPTION_POINTERS *data)
 {
   int result; // eax
 
@@ -40090,6 +40516,8 @@ int __userpurge RecordExceptionInfo@<eax>(unsigned int a1@<ebx>, unsigned int a2
     result = 0;
   return result;
 }
+// 40A6E0: using guessed type int CIOException::Lock(void);
+// 40A6F0: using guessed type int CIOException::Unlock(void);
 
 //----- (00409C70) --------------------------------------------------------
 void __thiscall CIOException::CInit::~CInit(CIOException::CInit *this)
@@ -40109,7 +40537,7 @@ void ELOG(const char *lpszFormat, ...)
   int v5; // [esp-Ch] [ebp-43Ch]
   int v6; // [esp-8h] [ebp-438h]
   int v7; // [esp-4h] [ebp-434h]
-  unsigned __int8 *p; // [esp+0h] [ebp-430h]
+  char *p; // [esp+0h] [ebp-430h]
   unsigned int dwWritten; // [esp+4h] [ebp-42Ch] BYREF
   int start; // [esp+8h] [ebp-428h]
   _SYSTEMTIME st; // [esp+Ch] [ebp-424h] BYREF
@@ -40150,13 +40578,13 @@ void ELOG(const char *lpszFormat, ...)
         {
           for ( start = 0; start < n; start += 2 )
           {
-            p = (unsigned __int8 *)memchr(&buff[start], 10, n - start);
+            p = (char *)memchr(&buff[start], 10, n - start);
             if ( !p )
               break;
             if ( (unsigned int)n < 0x400 )
               ++n;
-            start = p - (unsigned __int8 *)buff;
-            memmove(p + 1, p, n - (p - (unsigned __int8 *)buff) - 1);
+            start = p - buff;
+            memmove(p + 1, p, n - (p - buff) - 1);
             *p = 13;
           }
           WriteFile(hFile, buff, n, &dwWritten, 0);
@@ -40168,9 +40596,11 @@ void ELOG(const char *lpszFormat, ...)
     }
   }
 }
+// 40A6E0: using guessed type int CIOException::Lock(void);
+// 40A6F0: using guessed type int CIOException::Unlock(void);
 
 //----- (00409EF0) --------------------------------------------------------
-void __usercall EBREAK(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>)
+void __usercall __spoils<edx,ecx> EBREAK(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>)
 {
   if ( g_nEnable && InterlockedExchange(&g_bRaise, 0) )
   {
@@ -40180,17 +40610,19 @@ void __usercall EBREAK(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned in
 }
 
 //----- (00409F30) --------------------------------------------------------
-void __usercall EBreak(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>)
+int __usercall EBreak@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>)
 {
   ELOG("EASSERT\n");
   CIOException::Lock();
   GenerateExceptionReport(a1, a2, a3, 0);
   sendMail();
-  CIOException::Unlock();
+  return CIOException::Unlock();
 }
+// 40A6E0: using guessed type int CIOException::Lock(void);
+// 40A6F0: using guessed type int CIOException::Unlock(void);
 
 //----- (00409F60) --------------------------------------------------------
-int __usercall CIOException::Filter@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, _EXCEPTION_POINTERS *pExp)
+int __usercall CIOException::Filter@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, _EXCEPTION_POINTERS *pExp)
 {
   if ( g_nEnable && pExp->ExceptionRecord->ExceptionCode != -536870911 )
   {
@@ -40200,6 +40632,8 @@ int __usercall CIOException::Filter@<eax>(unsigned int a1@<ebx>, unsigned int a2
   }
   return 1;
 }
+// 40A6E0: using guessed type int CIOException::Lock(void);
+// 40A6F0: using guessed type int CIOException::Unlock(void);
 
 //----- (00409FA0) --------------------------------------------------------
 void __cdecl CIOException::Open(const char *szMailServer, const char *szMailFrom, const char *szMailTo)
@@ -40239,21 +40673,23 @@ LONG __cdecl CIOException::Disable()
 }
 
 //----- (0040A070) --------------------------------------------------------
-LONG __cdecl CIOException::IsEnable()
+int __cdecl CIOException::IsEnable()
 {
   return g_nEnable;
 }
 
 //----- (0040A080) --------------------------------------------------------
-void __cdecl CIOException::SendMail()
+int CIOException::SendMail()
 {
   CIOException::Lock();
   sendMail();
-  CIOException::Unlock();
+  return CIOException::Unlock();
 }
+// 40A6E0: using guessed type int CIOException::Lock(void);
+// 40A6F0: using guessed type int CIOException::Unlock(void);
 
 //----- (0040A0A0) --------------------------------------------------------
-LONG __cdecl CIOException::ToggleRaise()
+int __cdecl CIOException::ToggleRaise()
 {
   g_bRaise = g_bRaise == 0;
   return g_bRaise;
@@ -40345,6 +40781,8 @@ void __cdecl CIOException::DumpStack(int nThread, void **hThread, unsigned int *
     SetThreadPriority(v7, 0);
   }
 }
+// 40A6E0: using guessed type int CIOException::Lock(void);
+// 40A6F0: using guessed type int CIOException::Unlock(void);
 
 //----- (0040A2A0) --------------------------------------------------------
 void __cdecl ImageHelpStackWalk_0(void *LogFile, void *hThread)
@@ -40363,7 +40801,7 @@ void __cdecl ImageHelpStackWalk_0(void *LogFile, void *hThread)
   unsigned __int8 symbolBuffer[600]; // [esp+34Ch] [ebp-5E0h] BYREF
   unsigned __int64 symDisplacement; // [esp+5A4h] [ebp-388h] BYREF
   _CONTEXT context; // [esp+5ACh] [ebp-380h] BYREF
-  _tagSTACKFRAME StackFrame; // [esp+884h] [ebp-A8h] BYREF
+  struct _tagSTACKFRAME StackFrame; // [esp+884h] [ebp-A8h] BYREF
 
   SuspendThread(hThread);
   memset(&context, 0, sizeof(context));
@@ -40481,7 +40919,7 @@ void __thiscall CIOCriticalSection::CIOCriticalSection(CIOCriticalSection *this,
 }
 
 //----- (0040A7F0) --------------------------------------------------------
-void __usercall CIOCriticalSection::~CIOCriticalSection(CIOCriticalSection *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CIOCriticalSection::~CIOCriticalSection(CIOCriticalSection *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   if ( this->m_dwEIP[0] )
     EBREAK(a2, a3, a4);
@@ -40489,9 +40927,9 @@ void __usercall CIOCriticalSection::~CIOCriticalSection(CIOCriticalSection *this
 }
 
 //----- (0040A820) --------------------------------------------------------
-void __usercall CIOCriticalSection::Enter(CIOCriticalSection *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CIOCriticalSection::Enter(CIOCriticalSection *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
-  unsigned int dwEIP_4; // [esp+8h] [ebp-4h]
+  unsigned int v5; // [esp+8h] [ebp-4h]
   int vars0; // [esp+Ch] [ebp+0h]
   unsigned int retaddr; // [esp+10h] [ebp+4h]
 
@@ -40502,14 +40940,14 @@ void __usercall CIOCriticalSection::Enter(CIOCriticalSection *this@<ecx>, unsign
     ELOG("CIOCriticalSection::Enter EIP(%p %p)\n", (const void *)this->m_dwEIP[0], (const void *)this->m_dwEIP[1]);
     EBREAK(a2, a3, a4);
   }
-  dwEIP_4 = *(_DWORD *)(vars0 + 4);
+  v5 = *(_DWORD *)(vars0 + 4);
   this->m_dwEIP[0] = retaddr;
-  this->m_dwEIP[1] = dwEIP_4;
+  this->m_dwEIP[1] = v5;
 }
 // 40A885: variable 'vars0' is possibly undefined
 
 //----- (0040A8B0) --------------------------------------------------------
-int __usercall CIOCriticalSection::TryEnter@<eax>(CIOCriticalSection *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+int __usercall CIOCriticalSection::TryEnter@<eax>(CIOCriticalSection *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   unsigned int dwEIP_4; // [esp+8h] [ebp-4h]
   int vars0; // [esp+Ch] [ebp+0h]
@@ -40527,7 +40965,7 @@ int __usercall CIOCriticalSection::TryEnter@<eax>(CIOCriticalSection *this@<ecx>
 // 40A8DE: variable 'vars0' is possibly undefined
 
 //----- (0040A910) --------------------------------------------------------
-void __usercall CIOCriticalSection::Leave(CIOCriticalSection *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CIOCriticalSection::Leave(CIOCriticalSection *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   if ( !this->m_dwEIP[0] )
     EBREAK(a2, a3, a4);
@@ -40544,7 +40982,7 @@ void __thiscall CIOSocket::CInit::~CInit(CIOSocket::CInit *this)
 }
 
 //----- (0040A970) --------------------------------------------------------
-int __usercall CIOSocket::CreateIOThread@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, int nThread)
+int __usercall CIOSocket::CreateIOThread@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, int nThread)
 {
   HANDLE v4; // eax
   int result; // eax
@@ -40561,12 +40999,12 @@ int __usercall CIOSocket::CreateIOThread@<eax>(unsigned int a1@<ebx>, unsigned i
   {
     g_hThread = (void **)CMemory::_malloc(4 * nThread);
     g_nThreadId = CMemory::_malloc(4 * nThread);
-    g_nThread = (void *)nThread;
+    g_nThread = nThread;
     for ( i = 0; i < nThread; ++i )
       g_hThread[i] = (void *)_beginthreadex(
                                0,
                                0,
-                               (unsigned int (__stdcall *)(void *))CIOSocket::IOThread,
+                               (_beginthreadex_proc_type)CIOSocket::IOThread,
                                (void *)i,
                                0,
                                (unsigned int *)g_nThreadId + i);
@@ -40581,23 +41019,23 @@ int __usercall CIOSocket::CreateIOThread@<eax>(unsigned int a1@<ebx>, unsigned i
 }
 
 //----- (0040AA80) --------------------------------------------------------
-unsigned int __cdecl CIOSocket::AddIOThread()
+unsigned int __thiscall CIOSocket::AddIOThread(void *this)
 {
   unsigned int nThreadID; // [esp+0h] [ebp-4h] BYREF
 
+  nThreadID = (unsigned int)this;
   if ( !CIOSocket::s_hCompletionPort )
     return 0;
-  g_hThread = (void **)CMemory::_realloc(g_hThread, 4 * (_DWORD)g_nThread + 4);
-  g_nThreadId = CMemory::_realloc(g_nThreadId, 4 * (_DWORD)g_nThread + 4);
-  g_hThread[(_DWORD)g_nThread] = (void *)_beginthreadex(
-                                           0,
-                                           0,
-                                           (unsigned int (__stdcall *)(void *))CIOSocket::IOThread,
-                                           g_nThread,
-                                           0,
-                                           &nThreadID);
-  *((_DWORD *)g_nThreadId + (_DWORD)g_nThread) = nThreadID;
-  g_nThread = (char *)g_nThread + 1;
+  g_hThread = (void **)CMemory::_realloc(g_hThread, 4 * g_nThread + 4);
+  g_nThreadId = CMemory::_realloc(g_nThreadId, 4 * g_nThread + 4);
+  g_hThread[g_nThread] = (void *)_beginthreadex(
+                                   0,
+                                   0,
+                                   (_beginthreadex_proc_type)CIOSocket::IOThread,
+                                   (void *)g_nThread,
+                                   0,
+                                   &nThreadID);
+  *((_DWORD *)g_nThreadId + g_nThread++) = nThreadID;
   return nThreadID;
 }
 
@@ -40611,7 +41049,7 @@ int __cdecl CIOSocket::CloseIOThread()
 }
 
 //----- (0040AB60) --------------------------------------------------------
-void __cdecl CIOSocket::FreeIOThread()
+void CIOSocket::FreeIOThread()
 {
   CMemory::_free(g_hThread);
   CMemory::_free(g_nThreadId);
@@ -40627,7 +41065,7 @@ void __thiscall CIOObject::~CIOObject(CIOObject *this)
 // 42452C: using guessed type void *CIOObject::`vftable';
 
 //----- (0040ABC0) --------------------------------------------------------
-void __userpurge CIOObject::AddRef(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, volatile int *pRef)
+void __userpurge CIOObject::AddRef(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, volatile int *pRef)
 {
   if ( InterlockedIncrement(&this->m_nRef) == 1 )
   {
@@ -40638,7 +41076,7 @@ void __userpurge CIOObject::AddRef(CIOObject *this@<ecx>, unsigned int a2@<ebx>,
 }
 
 //----- (0040AC00) --------------------------------------------------------
-void __userpurge CIOObject::Release(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, volatile int *pRef)
+void __userpurge CIOObject::Release(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, volatile int *pRef)
 {
   int nRef1; // [esp+4h] [ebp-8h]
   int nRef2; // [esp+8h] [ebp-4h]
@@ -40681,10 +41119,10 @@ void __userpurge CIOObject::Release(CIOObject *this@<ecx>, unsigned int a2@<ebx>
 }
 
 //----- (0040AD00) --------------------------------------------------------
-int __userpurge CIOObject::RegisterWait@<eax>(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, void *handle)
+int __userpurge CIOObject::RegisterWait@<eax>(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, void *handle)
 {
   CIOCriticalSection::Enter(&g_lockTimer, a2, a3, a4);
-  if ( (int)g_nHandle >= 64 )
+  if ( g_nHandle >= 64 )
     return 0;
   g_vHandle[g_nHandle] = handle;
   g_vObject[g_nHandle++] = this;
@@ -40694,7 +41132,7 @@ int __userpurge CIOObject::RegisterWait@<eax>(CIOObject *this@<ecx>, unsigned in
 }
 
 //----- (0040AD70) --------------------------------------------------------
-void __userpurge CIOObject::AddTimer(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, unsigned int dwTime, int nId)
+void __userpurge CIOObject::AddTimer(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int dwTime, int nId)
 {
   const CIOSocket::CIOTimer *v6; // eax
   CIOSocket::CIOTimer v8; // [esp+4h] [ebp-Ch] BYREF
@@ -40719,7 +41157,7 @@ void __userpurge CIOObject::AddTimer(CIOObject *this@<ecx>, unsigned int a2@<ebx
 // 40ADB8: variable 'v6' is possibly undefined
 
 //----- (0040AE00) --------------------------------------------------------
-void __userpurge CIOObject::OnTimerCallback(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nId)
+void __userpurge CIOObject::OnTimerCallback(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nId)
 {
   if ( !PostQueuedCompletionStatus(CIOSocket::s_hCompletionPort, nId, (ULONG_PTR)this, 0) )
   {
@@ -40729,7 +41167,7 @@ void __userpurge CIOObject::OnTimerCallback(CIOObject *this@<ecx>, unsigned int 
 }
 
 //----- (0040AE40) --------------------------------------------------------
-void __userpurge CIOObject::OnIOCallback(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int bSucess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped)
+void __userpurge CIOObject::OnIOCallback(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int bSucess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped)
 {
   if ( lpOverlapped )
     EBREAK(a2, a3, a4);
@@ -40765,7 +41203,7 @@ void __thiscall CIOSocket::CIOTimerInstance::OnIOCallback(CIOSocket::CIOTimerIns
 }
 
 //----- (0040AF10) --------------------------------------------------------
-unsigned int __userpurge CIOSocket::WaitThread@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, void *__formal)
+unsigned int __userpurge CIOSocket::WaitThread@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, void *__formal)
 {
   IPAddrMask *v4; // eax
   IPAddrMask *v5; // eax
@@ -40824,7 +41262,7 @@ unsigned int __userpurge CIOSocket::WaitThread@<eax>(unsigned int a1@<ebx>, unsi
     std::priority_queue<CIOSocket::CIOTimer>::pop(&g_timerQueue);
   }
   CIOCriticalSection::Leave(&g_lockTimer, a1, a2, a3);
-  CIOObject::PostObject(&g_instance, (int)g_nThread - 1);
+  CIOObject::PostObject(&g_instance, g_nThread - 1);
   WaitForSingleObject(g_hTimer, 0xFFFFFFFF);
   CloseHandle(g_hTimer);
   return 0;
@@ -40856,10 +41294,10 @@ void __stdcall __noreturn CIOSocket::IOThread(void *arglist)
 }
 
 //----- (0040B170) --------------------------------------------------------
-void __cdecl CIOSocket::DumpStack()
+int CIOSocket::DumpStack()
 {
-  CIOException::DumpStack((int)g_nThread, g_hThread, (unsigned int *)g_nThreadId);
-  CIOException::SendMail();
+  CIOException::DumpStack(g_nThread, g_hThread, (unsigned int *)g_nThreadId);
+  return CIOException::SendMail();
 }
 
 //----- (0040B1A0) --------------------------------------------------------
@@ -40904,8 +41342,9 @@ void __thiscall CIOBuffer::Free(CIOBuffer *this)
 }
 
 //----- (0040B2B0) --------------------------------------------------------
-void __cdecl CIOBuffer::FreeAll()
+int CIOBuffer::FreeAll()
 {
+  int result; // eax
   CIOBuffer *pBuffer; // [esp+8h] [ebp-8h]
   int i; // [esp+Ch] [ebp-4h]
 
@@ -40921,35 +41360,68 @@ void __cdecl CIOBuffer::FreeAll()
       operator delete(pBuffer);
     }
     CIOSpinLock::Leave((CIOSpinLock *)(8 * i + 4432764));
+    result = i + 1;
   }
+  return result;
 }
 
-//----- (0040B4A0) --------------------------------------------------------
-void __thiscall CIOSocket::OnClose(CIOSocket *this)
+//----- (0040B330) --------------------------------------------------------
+void __userpurge CIOSocket::CIOSocket(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int s)
 {
-  ;
+  CIOObject::CIOObject(this);
+  this->__vftable = (CIOSocket_vtbl *)&CIOSocket::`vftable';
+  CIOCriticalSection::CIOCriticalSection(&this->m_lock);
+  this->m_hSocket = s;
+  if ( this->m_hSocket != -1 )
+    CIOObject::AddRef(this, a2, a3, a4);
+  memset(&this->m_overlappedRead, 0, sizeof(this->m_overlappedRead));
+  memset(&this->m_overlappedWrite, 0, sizeof(this->m_overlappedWrite));
+  this->m_pReadBuf = (CIOBuffer *)CIOBuffer::Alloc();
+  this->m_nPendingWrite = 0;
+  this->m_pLastBuf = 0;
+  this->m_pFirstBuf = 0;
 }
+// 424544: using guessed type void *CIOSocket::`vftable';
+
+//----- (0040B400) --------------------------------------------------------
+void __usercall CIOSocket::~CIOSocket(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
+{
+  CIOBuffer *pBuf; // [esp+4h] [ebp-10h]
+
+  this->__vftable = (CIOSocket_vtbl *)&CIOSocket::`vftable';
+  CIOBuffer::Release(this->m_pReadBuf);
+  while ( this->m_pFirstBuf )
+  {
+    pBuf = this->m_pFirstBuf;
+    this->m_pFirstBuf = pBuf->m_pNext;
+    CIOBuffer::Free(pBuf);
+  }
+  CIOCriticalSection::~CIOCriticalSection(&this->m_lock, a2, a3, a4);
+  CIOObject::~CIOObject(this);
+}
+// 424544: using guessed type void *CIOSocket::`vftable';
 
 //----- (0040B4B0) --------------------------------------------------------
-void __usercall CIOSocket::Close(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CIOSocket::Close(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
-  linger linger; // [esp+4h] [ebp-8h] BYREF
+  char linger[2]; // [esp+4h] [ebp-8h] BYREF
+  __int16 v6; // [esp+6h] [ebp-6h]
   unsigned int hSocket; // [esp+8h] [ebp-4h]
 
   hSocket = InterlockedExchange((volatile LONG *)&this->m_hSocket, -1);
   if ( hSocket != -1 )
   {
     this->OnClose(this);
-    linger.l_onoff = 1;
-    linger.l_linger = 0;
-    setsockopt(hSocket, 0xFFFF, 128, (const char *)&linger, 4);
+    *(_WORD *)linger = 1;
+    v6 = 0;
+    setsockopt(hSocket, 0xFFFF, 128, linger, 4);
     closesocket(hSocket);
     CIOObject::Release(this, a2, a3, a4);
   }
 }
 
 //----- (0040B520) --------------------------------------------------------
-void __usercall CIOSocket::GracefulClose(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CIOSocket::GracefulClose(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   linger linger; // [esp+4h] [ebp-8h] BYREF
   unsigned int hSocket; // [esp+8h] [ebp-4h]
@@ -40968,7 +41440,7 @@ void __usercall CIOSocket::GracefulClose(CIOSocket *this@<ecx>, unsigned int a2@
 }
 
 //----- (0040B5A0) --------------------------------------------------------
-void __userpurge CIOSocket::OnIOCallback(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped)
+void __userpurge CIOSocket::OnIOCallback(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped)
 {
   if ( bSuccess )
   {
@@ -40997,13 +41469,13 @@ void __userpurge CIOSocket::OnIOCallback(CIOSocket *this@<ecx>, unsigned int a2@
 }
 
 //----- (0040B630) --------------------------------------------------------
-void __usercall CIOSocket::OnCreate(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CIOSocket::OnCreate(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   CIOSocket::Read(this, a2, a3, a4, 0);
 }
 
 //----- (0040B650) --------------------------------------------------------
-void __userpurge CIOSocket::ReadCallback(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, unsigned int dwTransferred)
+void __userpurge CIOSocket::ReadCallback(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int dwTransferred)
 {
   if ( dwTransferred )
   {
@@ -41017,7 +41489,7 @@ void __userpurge CIOSocket::ReadCallback(CIOSocket *this@<ecx>, unsigned int a2@
 }
 
 //----- (0040B6A0) --------------------------------------------------------
-void __userpurge CIOSocket::Read(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, unsigned int dwLeft)
+void __userpurge CIOSocket::Read(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int dwLeft)
 {
   int nErr; // [esp+4h] [ebp-18h]
   CIOBuffer *pNextBuf; // [esp+8h] [ebp-14h]
@@ -41028,18 +41500,12 @@ void __userpurge CIOSocket::Read(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, u
   this->m_pReadBuf->m_dwSize -= dwLeft;
   if ( this->m_pReadBuf->m_nRef == 1 )
   {
-    memmove(
-      (unsigned __int8 *)this->m_pReadBuf,
-      (unsigned __int8 *)&this->m_pReadBuf->m_buffer[this->m_pReadBuf->m_dwSize],
-      dwLeft);
+    memmove(this->m_pReadBuf, &this->m_pReadBuf->m_buffer[this->m_pReadBuf->m_dwSize], dwLeft);
   }
   else
   {
     pNextBuf = (CIOBuffer *)CIOBuffer::Alloc();
-    memcpy(
-      (unsigned __int8 *)pNextBuf,
-      (unsigned __int8 *)&this->m_pReadBuf->m_buffer[this->m_pReadBuf->m_dwSize],
-      dwLeft);
+    memcpy(pNextBuf, &this->m_pReadBuf->m_buffer[this->m_pReadBuf->m_dwSize], dwLeft);
     CIOBuffer::Release(this->m_pReadBuf);
     this->m_pReadBuf = pNextBuf;
   }
@@ -41059,7 +41525,7 @@ void __userpurge CIOSocket::Read(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, u
 }
 
 //----- (0040B810) --------------------------------------------------------
-void __userpurge CIOSocket::WriteCallback(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, unsigned int dwTransferred)
+void __userpurge CIOSocket::WriteCallback(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int dwTransferred)
 {
   int nErr; // [esp+4h] [ebp-14h]
   _WSABUF wsabuf; // [esp+8h] [ebp-10h] BYREF
@@ -41101,7 +41567,7 @@ void __userpurge CIOSocket::WriteCallback(CIOSocket *this@<ecx>, unsigned int a2
 }
 
 //----- (0040B980) --------------------------------------------------------
-void __userpurge CIOSocket::Write(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, CIOBuffer *pBuffer)
+void __userpurge CIOSocket::Write(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, CIOBuffer *pBuffer)
 {
   int nErr; // [esp+4h] [ebp-10h]
   _WSABUF wsabuf; // [esp+8h] [ebp-Ch] BYREF
@@ -41123,10 +41589,7 @@ void __userpurge CIOSocket::Write(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, 
       }
       else
       {
-        memcpy(
-          (unsigned __int8 *)&this->m_pLastBuf->m_buffer[this->m_pLastBuf->m_dwSize],
-          (unsigned __int8 *)pBuffer,
-          pBuffer->m_dwSize);
+        memcpy(&this->m_pLastBuf->m_buffer[this->m_pLastBuf->m_dwSize], pBuffer, pBuffer->m_dwSize);
         this->m_pLastBuf->m_dwSize += pBuffer->m_dwSize;
         CIOCriticalSection::Leave(&this->m_lock, a2, a3, a4);
         CIOBuffer::Free(pBuffer);
@@ -41139,7 +41602,7 @@ void __userpurge CIOSocket::Write(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, 
       CIOCriticalSection::Leave(&this->m_lock, a2, a3, a4);
       CIOObject::AddRef(this, a2, a3, a4);
       wsabuf.len = pBuffer->m_dwSize;
-      wsabuf.buf = (char *)pBuffer;
+      wsabuf.buf = (CHAR *)pBuffer;
       if ( WSASend(this->m_hSocket, &wsabuf, 1u, &dwSent, 0, &this->m_overlappedWrite, 0) && GetLastError() != 997 )
       {
         nErr = GetLastError();
@@ -41156,7 +41619,7 @@ void __userpurge CIOSocket::Write(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, 
 }
 
 //----- (0040BB50) --------------------------------------------------------
-void __userpurge CIOSocket::Write(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, char *buf, unsigned int size)
+void __userpurge CIOSocket::Write(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, char *buf, unsigned int size)
 {
   unsigned int v6; // [esp+0h] [ebp-10h]
   CIOBuffer *pBuffer; // [esp+Ch] [ebp-4h]
@@ -41168,7 +41631,7 @@ void __userpurge CIOSocket::Write(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, 
       v6 = size;
     else
       v6 = 8000;
-    memcpy((unsigned __int8 *)pBuffer, (unsigned __int8 *)buf, v6);
+    memcpy(pBuffer, buf, v6);
     pBuffer->m_dwSize = v6;
     CIOSocket::Write(this, a2, a3, a4, pBuffer);
     buf += v6;
@@ -41211,7 +41674,7 @@ void __thiscall CIOServer::Close(CIOServer *this)
 }
 
 //----- (0040BCC0) --------------------------------------------------------
-int __userpurge CIOServer::Start@<eax>(CIOServer *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPort)
+int __userpurge CIOServer::Start@<eax>(CIOServer *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPort)
 {
   int v5; // eax
   int v7; // eax
@@ -41268,7 +41731,7 @@ void __thiscall CIOServer::Stop(CIOServer *this)
 }
 
 //----- (0040BE50) --------------------------------------------------------
-void __userpurge CIOServer::OnIOCallback(CIOServer *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped)
+void __userpurge CIOServer::OnIOCallback(CIOServer *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped)
 {
   int v7; // eax
   sockaddr_in clientAddress; // [esp+4h] [ebp-20h] BYREF
@@ -41302,11 +41765,11 @@ void __userpurge CIOServer::OnIOCallback(CIOServer *this@<ecx>, unsigned int a2@
 }
 
 //----- (0040BF00) --------------------------------------------------------
-void __usercall CIOSocket::Initialize(CIOSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CIOSocket::Initialize(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   DWORD v4; // eax
   unsigned int v5; // [esp-8h] [ebp-10h]
-  HANDLE v6; // [esp-4h] [ebp-Ch]
+  void *v6; // [esp-4h] [ebp-Ch]
   int zero; // [esp+4h] [ebp-4h] BYREF
 
   if ( CreateIoCompletionPort((HANDLE)this->m_hSocket, CIOSocket::s_hCompletionPort, (ULONG_PTR)this, 0) )
@@ -41334,18 +41797,6 @@ void __thiscall CIOObject::OnFree(CIOObject *this)
     ((void (__thiscall *)(CIOObject *, int))this->~CIOObject)(this, 1);
 }
 
-//----- (0040BFF0) --------------------------------------------------------
-void __thiscall CIOObject::OnTimer(CIOObject *this, int nId)
-{
-  ;
-}
-
-//----- (0040C000) --------------------------------------------------------
-void __thiscall CIOObject::OnWaitCallback(CIOObject *this)
-{
-  ;
-}
-
 //----- (0040C010) --------------------------------------------------------
 CIOObject *__thiscall CIOObject::`vector deleting destructor'(CIOObject *this, unsigned int a2)
 {
@@ -41364,7 +41815,7 @@ void __thiscall CIOSocket::CIOTimer::CIOTimer(CIOSocket::CIOTimer *this, CIOObje
 }
 
 //----- (0040C070) --------------------------------------------------------
-void __usercall CIOObject::Release(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CIOObject::Release(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   CIOObject::Release(this, a2, a3, a4, &this->m_nGeneralRef);
 }
@@ -41386,16 +41837,16 @@ void __thiscall CIOObject::CIOObject(CIOObject *this)
 // 42452C: using guessed type void *CIOObject::`vftable';
 
 //----- (0040C130) --------------------------------------------------------
-void __usercall CIOObject::AddRef(CIOObject *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CIOObject::AddRef(CIOObject *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   CIOObject::AddRef(this, a2, a3, a4, &this->m_nGeneralRef);
 }
 
 //----- (0040C150) --------------------------------------------------------
-CIOSocket *__thiscall CIOSocket::`scalar deleting destructor'(CIOSocket *this, unsigned int a2)
+CIOSocket *__userpurge CIOSocket::`scalar deleting destructor'@<eax>(CIOSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int a5)
 {
-  CIOSocket::~CIOSocket(this);
-  if ( (a2 & 1) != 0 )
+  CIOSocket::~CIOSocket(this, a2, a3, a4);
+  if ( (a5 & 1) != 0 )
     operator delete(this);
   return this;
 }
@@ -41638,8 +42089,8 @@ void __thiscall std::vector<CIOSocket::CIOTimer>::_Insert_n(std::vector<CIOSocke
         _Oldend = thisa->_Mylast;
         v9 = std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(
                &thisa->_Alval,
-               &_Oldend[-_Count],
-               _Oldend,
+               (int)&_Oldend[-_Count],
+               (int)_Oldend,
                thisa->_Mylast);
         thisa->_Mylast = v9;
         std::copy_backward<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(_Where._Myptr, &_Oldend[-_Count], _Oldend);
@@ -41649,8 +42100,8 @@ void __thiscall std::vector<CIOSocket::CIOTimer>::_Insert_n(std::vector<CIOSocke
       {
         std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(
           &thisa->_Alval,
-          _Where._Myptr,
-          thisa->_Mylast,
+          (int)_Where._Myptr,
+          (int)thisa->_Mylast,
           &_Where._Myptr[_Count]);
         v21 = 2;
         std::vector<CIOSocket::CIOTimer>::_Ufill(
@@ -41680,16 +42131,16 @@ void __thiscall std::vector<CIOSocket::CIOTimer>::_Insert_n(std::vector<CIOSocke
       v21 = 0;
       v12 = std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(
               &thisa->_Alval,
-              thisa->_Myfirst,
-              _Where._Myptr,
+              (int)thisa->_Myfirst,
+              (int)_Where._Myptr,
               _Newvec);
       _Ptr = v12;
       v11 = std::vector<CIOSocket::CIOTimer>::_Ufill(thisa, v12, _Count, &_Tmp);
       _Ptr = v11;
       std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(
         &thisa->_Alval,
-        _Where._Myptr,
-        thisa->_Mylast,
+        (int)_Where._Myptr,
+        (int)thisa->_Mylast,
         v11);
       v21 = -1;
       _Counta = _Count + std::vector<CIOSocket::CIOTimer>::size(thisa);
@@ -41712,6 +42163,19 @@ void __thiscall std::vector<CIOSocket::CIOTimer>::_Insert_n(std::vector<CIOSocke
 unsigned int __thiscall std::vector<CIOSocket::CIOTimer>::max_size(std::vector<CIOSocket::CIOTimer> *this)
 {
   return std::allocator<CIOSocket::CIOTimer>::max_size(&this->_Alval);
+}
+
+//----- (0040C8A0) --------------------------------------------------------
+void __thiscall __noreturn std::vector<CIOSocket::CIOTimer>::_Xlen(std::vector<CIOSocket::CIOTimer> *this)
+{
+  std::string _Message; // [esp+4h] [ebp-50h] BYREF
+  std::length_error pExceptionObject; // [esp+20h] [ebp-34h] BYREF
+  int v3; // [esp+50h] [ebp-4h]
+
+  std::string::string(&_Message, "vector<T> too long");
+  v3 = 0;
+  std::length_error::length_error(&pExceptionObject, &_Message);
+  _CxxThrowException(&pExceptionObject, (_ThrowInfo *)&_TI3_AVlength_error_std__);
 }
 
 //----- (0040C900) --------------------------------------------------------
@@ -41795,14 +42259,18 @@ void __cdecl std::pop_heap<std::vector<CIOSocket::CIOTimer>::iterator,std::less<
 //----- (0040CA80) --------------------------------------------------------
 void __cdecl std::_Destroy_range<CIOSocket::CIOTimer>(CIOSocket::CIOTimer *_First, CIOSocket::CIOTimer *_Last, std::allocator<CIOSocket::CIOTimer> *_Al)
 {
-  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(
+    (std::vector<IPAddrMask>::iterator *)&_First,
+    (IPAddrMask **)&_Last);
   std::_Destroy_range<CIOSocket::CIOTimer>(_First, _Last, _Al);
 }
 
 //----- (0040CAC0) --------------------------------------------------------
 void __cdecl std::_Uninitialized_fill_n<CIOSocket::CIOTimer *,unsigned int,CIOSocket::CIOTimer,std::allocator<CIOSocket::CIOTimer>>(CIOSocket::CIOTimer *_First, unsigned int _Count, const CIOSocket::CIOTimer *_Val, std::allocator<CIOSocket::CIOTimer> *_Al)
 {
-  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(
+    (std::vector<IPAddrMask>::iterator *)&_First,
+    (IPAddrMask **)&_First);
   std::_Uninit_fill_n<CIOSocket::CIOTimer *,unsigned int,CIOSocket::CIOTimer,std::allocator<CIOSocket::CIOTimer>>(
     _First,
     _Count,
@@ -41811,12 +42279,12 @@ void __cdecl std::_Uninitialized_fill_n<CIOSocket::CIOTimer *,unsigned int,CIOSo
 }
 
 //----- (0040CB00) --------------------------------------------------------
-CIOSocket::CIOTimer *__thiscall std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(std::allocator<CIOSocket::CIOTimer> *this, CIOSocket::CIOTimer *_First, CIOSocket::CIOTimer *_Last, CIOSocket::CIOTimer *_Dest)
+CIOSocket::CIOTimer *__thiscall std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(std::allocator<CIOSocket::CIOTimer> *this, int _First, int _Last, void *_Dest)
 {
   return std::_Uninitialized_copy<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *,std::allocator<CIOSocket::CIOTimer>>(
-           _First,
-           _Last,
-           _Dest,
+           (CIOSocket::CIOTimer *)_First,
+           (CIOSocket::CIOTimer *)_Last,
+           (CIOSocket::CIOTimer *)_Dest,
            this);
 }
 
@@ -41830,7 +42298,9 @@ void __cdecl std::fill<CIOSocket::CIOTimer *,CIOSocket::CIOTimer>(CIOSocket::CIO
 //----- (0040CB60) --------------------------------------------------------
 CIOSocket::CIOTimer *__cdecl std::copy_backward<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(CIOSocket::CIOTimer *_First, CIOSocket::CIOTimer *_Last, CIOSocket::CIOTimer *_Dest)
 {
-  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(
+    (std::vector<IPAddrMask>::iterator *)&_First,
+    (IPAddrMask **)&_Dest);
   return std::_Copy_backward_opt<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(_First, _Last, _Dest);
 }
 
@@ -41950,7 +42420,9 @@ void __cdecl std::_Uninit_fill_n<CIOSocket::CIOTimer *,unsigned int,CIOSocket::C
 //----- (0040CE10) --------------------------------------------------------
 CIOSocket::CIOTimer *__cdecl std::_Uninitialized_copy<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *,std::allocator<CIOSocket::CIOTimer>>(CIOSocket::CIOTimer *_First, CIOSocket::CIOTimer *_Last, CIOSocket::CIOTimer *_Dest, std::allocator<CIOSocket::CIOTimer> *_Al)
 {
-  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(
+    (std::vector<IPAddrMask>::iterator *)&_First,
+    (IPAddrMask **)&_Dest);
   return std::_Uninit_copy<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *,std::allocator<CIOSocket::CIOTimer>>(
            _First,
            _Last,
@@ -42035,7 +42507,6 @@ void std::_Push_heap<std::vector<CIOSocket::CIOTimer>::iterator,int,CIOSocket::C
 }
 
 //----- (0040CFD0) --------------------------------------------------------
-// local variable allocation has failed, the output may be wrong!
 void __cdecl std::_Pop_heap<std::vector<CIOSocket::CIOTimer>::iterator,int,CIOSocket::CIOTimer,std::less<CIOSocket::CIOTimer>>(std::vector<CIOSocket::CIOTimer>::iterator _First, std::vector<CIOSocket::CIOTimer>::iterator _Last, std::vector<CIOSocket::CIOTimer>::iterator _Dest, __int128 _Val)
 {
   IPAddrMask *v4; // esi
@@ -42058,7 +42529,6 @@ void __cdecl std::_Pop_heap<std::vector<CIOSocket::CIOTimer>::iterator,int,CIOSo
     v7,
     v8);
 }
-// 40CFD0: variables would overlap: ^34.16 and stkvar "_Val" ^34.12(has user info)
 
 //----- (0040D030) --------------------------------------------------------
 CIOSocket::CIOTimer *__cdecl std::_Uninit_copy<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *,std::allocator<CIOSocket::CIOTimer>>(CIOSocket::CIOTimer *_First, CIOSocket::CIOTimer *_Last, CIOSocket::CIOTimer *_Dest, std::allocator<CIOSocket::CIOTimer> *_Al)
@@ -42216,6 +42686,14 @@ char __thiscall std::vector<CIOSocket::CIOTimer>::_Buy(std::vector<CIOSocket::CI
   return 1;
 }
 
+//----- (0040D3A0) --------------------------------------------------------
+void __thiscall CIOSocket::CIOTimerInstance::CIOTimerInstance(CIOSocket::CIOTimerInstance *this)
+{
+  CIOObject::CIOObject(this);
+  this->__vftable = (CIOSocket::CIOTimerInstance_vtbl *)&CIOSocket::CIOTimerInstance::`vftable';
+}
+// 424584: using guessed type void *CIOSocket::CIOTimerInstance::`vftable';
+
 //----- (0040D3F0) --------------------------------------------------------
 void __thiscall std::priority_queue<CIOSocket::CIOTimer>::~priority_queue<CIOSocket::CIOTimer,std::vector<CIOSocket::CIOTimer>,std::less<CIOSocket::CIOTimer>>(std::priority_queue<CIOSocket::CIOTimer> *this)
 {
@@ -42258,7 +42736,7 @@ lisp::var *__thiscall lisp::var::operator=(lisp::var *this, lisp::_object *a2)
 }
 
 //----- (0040D4C0) --------------------------------------------------------
-unsigned int __thiscall lisp::_string::GetInteger(lisp::_string *this)
+int __thiscall lisp::_string::GetInteger(lisp::_string *this)
 {
   return strtol(this->m_pString, 0, 0);
 }
@@ -42303,12 +42781,6 @@ void __thiscall lisp::_null::_null(lisp::_null *this)
   this->__vftable = (lisp::_null_vtbl *)&lisp::_null::`vftable';
 }
 // 42459C: using guessed type void *lisp::_null::`vftable';
-
-//----- (0040D580) --------------------------------------------------------
-char __thiscall lisp::_string::stringp(lisp::_cons *this)
-{
-  return 1;
-}
 
 //----- (0040D590) --------------------------------------------------------
 void __thiscall CLog::CInit::~CInit(CLog::CInit *this)
@@ -42375,7 +42847,7 @@ void __cdecl CLog::AddV(int nType, char *format, char *va)
 }
 
 //----- (0040D870) --------------------------------------------------------
-void __cdecl CLog::Flush()
+void CLog::Flush()
 {
   unsigned int i; // [esp+0h] [ebp-4h]
 
@@ -42457,15 +42929,15 @@ void __thiscall CMemory::CInit::CInit(CMemory::CInit *this)
 {
   CMemory *v1; // eax
   CMemory *v2; // [esp+0h] [ebp-20h]
-  CMemory *v3; // [esp+8h] [ebp-18h]
+  CMemory *Block; // [esp+8h] [ebp-18h]
   int i; // [esp+10h] [ebp-10h]
 
   for ( i = 0; i < 16; ++i )
   {
-    v3 = (CMemory *)CNoMemoryObject::operator new(0x38u);
-    if ( v3 )
+    Block = (CMemory *)CNoMemoryObject::operator new(0x38u);
+    if ( Block )
     {
-      CMemory::CMemory(v3);
+      CMemory::CMemory(Block);
       v2 = v1;
     }
     else
@@ -42987,8 +43459,8 @@ void __thiscall CMemory::__sbh_free_block(CMemory *this, CMemory::tagHeader *pHe
           VirtualFree(this->__sbh_pHeaderDefer->pHeapData, 0, 0x8000u);
           HeapFree(this->_crtheap, 0, this->__sbh_pHeaderDefer->pRegion);
           memmove(
-            (unsigned __int8 *)this->__sbh_pHeaderDefer,
-            (unsigned __int8 *)&this->__sbh_pHeaderDefer[1],
+            this->__sbh_pHeaderDefer,
+            &this->__sbh_pHeaderDefer[1],
             (char *)&this->__sbh_pHeaderList[this->__sbh_cntHeaderList] - (char *)&this->__sbh_pHeaderDefer[1]);
           --this->__sbh_cntHeaderList;
           if ( pHeader > this->__sbh_pHeaderDefer )
@@ -43056,7 +43528,7 @@ CMemory::tagEntry **__cdecl CMemory::_realloc(void *pBlock, unsigned int newsize
 {
   CMemory::tagEntry **result; // eax
   CMemory *pMemory; // [esp+0h] [ebp-8h]
-  unsigned __int8 *ppMemory; // [esp+4h] [ebp-4h]
+  CMemory **ppMemory; // [esp+4h] [ebp-4h]
 
   if ( !pBlock )
     return CMemory::_malloc(newsize);
@@ -43064,12 +43536,9 @@ CMemory::tagEntry **__cdecl CMemory::_realloc(void *pBlock, unsigned int newsize
   {
     pMemory = (CMemory *)*((_DWORD *)pBlock - 1);
     *((_DWORD *)pBlock - 1) = 0;
-    ppMemory = CMemory::_realloc_base(pMemory, (char *)pBlock - 4, newsize + 4);
+    ppMemory = (CMemory **)CMemory::_realloc_base(pMemory, (char *)pBlock - 4, newsize + 4);
     if ( ppMemory )
-    {
-      *(_DWORD *)ppMemory = pMemory;
-      ppMemory += 4;
-    }
+      *ppMemory++ = pMemory;
     result = (CMemory::tagEntry **)ppMemory;
   }
   else
@@ -43081,13 +43550,13 @@ CMemory::tagEntry **__cdecl CMemory::_realloc(void *pBlock, unsigned int newsize
 }
 
 //----- (0040EE80) --------------------------------------------------------
-unsigned __int8 *__thiscall CMemory::_realloc_base(CMemory *this, void *pBlock, unsigned int newsize)
+void *__thiscall CMemory::_realloc_base(CMemory *this, void *pBlock, unsigned int newsize)
 {
-  unsigned __int8 *result; // eax
+  void *result; // eax
   CMemory::tagHeader *pHeader; // [esp+Ch] [ebp-Ch]
-  unsigned int oldsize; // [esp+10h] [ebp-8h]
-  unsigned int oldsizea; // [esp+10h] [ebp-8h]
-  unsigned __int8 *pvReturn; // [esp+14h] [ebp-4h]
+  size_t oldsize; // [esp+10h] [ebp-8h]
+  size_t oldsizea; // [esp+10h] [ebp-8h]
+  void *pvReturn; // [esp+14h] [ebp-4h]
 
   pvReturn = 0;
   if ( newsize <= 0xFFFFFFE0 )
@@ -43100,18 +43569,18 @@ unsigned __int8 *__thiscall CMemory::_realloc_base(CMemory *this, void *pBlock, 
       {
         if ( CMemory::__sbh_resize_block(this, pHeader, pBlock, newsize) )
         {
-          pvReturn = (unsigned __int8 *)pBlock;
+          pvReturn = pBlock;
         }
         else
         {
-          pvReturn = (unsigned __int8 *)CMemory::__sbh_alloc_block(this, newsize);
+          pvReturn = CMemory::__sbh_alloc_block(this, newsize);
           if ( pvReturn )
           {
             oldsize = *((_DWORD *)pBlock - 1) - 1;
             if ( oldsize >= newsize )
-              memcpy(pvReturn, (unsigned __int8 *)pBlock, newsize);
+              memcpy(pvReturn, pBlock, newsize);
             else
-              memcpy(pvReturn, (unsigned __int8 *)pBlock, oldsize);
+              memcpy(pvReturn, pBlock, oldsize);
             pHeader = CMemory::__sbh_find_block(this, pBlock);
             CMemory::__sbh_free_block(this, pHeader, pBlock);
           }
@@ -43122,14 +43591,14 @@ unsigned __int8 *__thiscall CMemory::_realloc_base(CMemory *this, void *pBlock, 
         if ( !newsize )
           newsize = 1;
         newsize = (newsize + 15) & 0xFFFFFFF0;
-        pvReturn = (unsigned __int8 *)HeapAlloc(this->_crtheap, 0, newsize);
+        pvReturn = HeapAlloc(this->_crtheap, 0, newsize);
         if ( pvReturn )
         {
           oldsizea = *((_DWORD *)pBlock - 1) - 1;
           if ( oldsizea >= newsize )
-            memcpy(pvReturn, (unsigned __int8 *)pBlock, newsize);
+            memcpy(pvReturn, pBlock, newsize);
           else
-            memcpy(pvReturn, (unsigned __int8 *)pBlock, oldsizea);
+            memcpy(pvReturn, pBlock, oldsizea);
           CMemory::__sbh_free_block(this, pHeader, pBlock);
         }
       }
@@ -43139,7 +43608,7 @@ unsigned __int8 *__thiscall CMemory::_realloc_base(CMemory *this, void *pBlock, 
     {
       if ( !newsize )
         newsize = 1;
-      pvReturn = (unsigned __int8 *)HeapReAlloc(this->_crtheap, 0, pBlock, (newsize + 15) & 0xFFFFFFF0);
+      pvReturn = HeapReAlloc(this->_crtheap, 0, pBlock, (newsize + 15) & 0xFFFFFFF0);
     }
   }
   if ( pvReturn )
@@ -43376,6 +43845,18 @@ unsigned int __thiscall CMemory::_msize_base(CMemory *this, void *pblock)
 }
 // 40F7A5: variable 'retval' is possibly undefined
 
+//----- (0040F7B0) --------------------------------------------------------
+void *__cdecl CNoMemoryObject::operator new(unsigned int nSize)
+{
+  return malloc(nSize);
+}
+
+//----- (0040F7D0) --------------------------------------------------------
+void __cdecl CNoMemoryObject::operator delete(void *pData)
+{
+  free(pData);
+}
+
 //----- (0040F7F0) --------------------------------------------------------
 void __thiscall CMemory::_mlock(CMemory *this)
 {
@@ -43400,7 +43881,7 @@ void __thiscall CRWLock::CRWLock(CRWLock *this)
 }
 
 //----- (0040F890) --------------------------------------------------------
-void __usercall CRWLock::~CRWLock(CRWLock *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CRWLock::~CRWLock(CRWLock *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   if ( this->m_nCount )
     EBREAK(a2, a3, a4);
@@ -43494,7 +43975,7 @@ void __thiscall CRWLock::ReadLock(CRWLock *this)
 // 40FAFA: variable 'vars0' is possibly undefined
 
 //----- (0040FB20) --------------------------------------------------------
-void __usercall CRWLock::ReadUnlock(CRWLock *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CRWLock::ReadUnlock(CRWLock *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   int nCount; // [esp+4h] [ebp-4h]
 
@@ -43539,16 +44020,14 @@ void __thiscall CRWLock::WriteLock(CRWLock *this)
 // 40FC3D: variable 'vars0' is possibly undefined
 
 //----- (0040FC60) --------------------------------------------------------
-void __usercall CRWLock::WriteUnlock(CRWLock *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CRWLock::WriteUnlock(CRWLock *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   LONG v4; // eax
-  int nCount; // [esp+4h] [ebp-4h]
 
   v4 = InterlockedExchangeAdd(&this->m_nCount, -256);
-  nCount = v4 - 256;
   if ( (((_WORD)v4 - 256) & 0x8080) != 0 )
     EBREAK(a2, a3, a4);
-  if ( !(_WORD)nCount && (nCount & 0xFF000000) != 0 )
+  if ( (_WORD)v4 == 256 && ((v4 - 256) & 0xFF000000) != 0 )
     SetEvent(this->m_hWEvent);
 }
 
@@ -43601,7 +44080,7 @@ void __thiscall CScreen::CScreen(CScreen *this)
 }
 
 //----- (0040FDC0) --------------------------------------------------------
-void __usercall CScreen::~CScreen(CScreen *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CScreen::~CScreen(CScreen *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   operator delete[](this->m_pBuffer);
   CIOCriticalSection::~CIOCriticalSection(&this->m_lock, a2, a3, a4);
@@ -43629,10 +44108,7 @@ void CScreen::Add(CScreen *this, unsigned int color, const char *format, ...)
   if ( this->m_nLine == this->m_nHeight )
   {
     nLine = this->m_nLine - 1;
-    memmove(
-      (unsigned __int8 *)this->m_pBuffer,
-      (unsigned __int8 *)&this->m_pBuffer[this->m_nPitch],
-      this->m_nPitch * nLine);
+    memmove(this->m_pBuffer, &this->m_pBuffer[this->m_nPitch], this->m_nPitch * nLine);
   }
   else
   {
@@ -43641,7 +44117,7 @@ void CScreen::Add(CScreen *this, unsigned int color, const char *format, ...)
   }
   pBuffer = (unsigned int *)&this->m_pBuffer[this->m_nPitch * nLine];
   *pBuffer = color;
-  _vsnprintf((char *)pBuffer + 4, this->m_nWidth, format, va);
+  _vsnprintf((char *const)pBuffer + 4, this->m_nWidth, format, va);
 }
 
 //----- (0040FF20) --------------------------------------------------------
@@ -43653,10 +44129,7 @@ void __thiscall CScreen::AddString(CScreen *this, unsigned int color, const char
   if ( this->m_nLine == this->m_nHeight )
   {
     nLine = this->m_nLine - 1;
-    memmove(
-      (unsigned __int8 *)this->m_pBuffer,
-      (unsigned __int8 *)&this->m_pBuffer[this->m_nPitch],
-      this->m_nPitch * nLine);
+    memmove(this->m_pBuffer, &this->m_pBuffer[this->m_nPitch], this->m_nPitch * nLine);
   }
   else
   {
@@ -43706,11 +44179,25 @@ void __thiscall CScreen::OnPaint(CScreen *this)
 }
 
 //----- (00410120) --------------------------------------------------------
-void __usercall CServer::Start(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>)
+void __usercall CServer::Start(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>)
 {
   CIOServer::Start(&g_server, a1, a2, a3, CDBConfig::s_nPort);
   CLink::Initialize(&g_link);
 }
+
+//----- (00410140) --------------------------------------------------------
+CIOSocket *__userpurge CServer::CreateSocket@<eax>(CServer *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int newSocket, sockaddr_in *addr)
+{
+  int v6; // eax
+  CSocket *v9; // [esp+8h] [ebp-14h]
+
+  v9 = (CSocket *)operator new(0x78u);
+  if ( !v9 )
+    return 0;
+  CSocket::CSocket(v9, a2, a3, a4, newSocket, addr->sin_addr);
+  return (CIOSocket *)v6;
+}
+// 41018B: variable 'v6' is possibly undefined
 
 //----- (004101C0) --------------------------------------------------------
 void __cdecl CServer::Add(CSocket *pSocket)
@@ -43737,13 +44224,13 @@ int __cdecl CServer::Size()
 }
 
 //----- (00410250) --------------------------------------------------------
-void __cdecl CServer::Stop()
+void CServer::Stop()
 {
   CIOServer::Stop(&g_server);
 }
 
 //----- (00410260) --------------------------------------------------------
-void __usercall CServer::Shutdown(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>)
+void __usercall CServer::Shutdown(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>)
 {
   CLink *pLink; // [esp+4h] [ebp-4h]
 
@@ -43828,7 +44315,7 @@ void __thiscall CServer::~CServer(CServer *this)
 }
 
 //----- (00410440) --------------------------------------------------------
-void __userpurge CPacket::OnIOCallback(CPacket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped)
+void __userpurge CPacket::OnIOCallback(CPacket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped)
 {
   CSocket::Process(this->m_pSocket, a2, a3, a4, (DBPACKET *)dwTransferred);
   CIOObject::Release(this->m_pSocket, a2, a3, a4);
@@ -43838,10 +44325,12 @@ void __userpurge CPacket::OnIOCallback(CPacket *this@<ecx>, unsigned int a2@<ebx
 }
 
 //----- (00410490) --------------------------------------------------------
-void __userpurge CSyncPacket::OnIOCallback(CSyncPacket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped)
+void __userpurge CSyncPacket::OnIOCallback(CSyncPacket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped)
 {
+  IPAddrMask *v7; // eax
   int nSize; // [esp+0h] [ebp-1Ch]
-  CSyncPacket::CElement top; // [esp+8h] [ebp-14h]
+  IPAddrMask top; // [esp+8h] [ebp-14h]
+  IPAddrMask dbpacket; // [esp+10h] [ebp-Ch]
 
   if ( dwTransferred )
     EBREAK(a2, a3, a4);
@@ -43854,14 +44343,16 @@ void __userpurge CSyncPacket::OnIOCallback(CSyncPacket *this@<ecx>, unsigned int
             (std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::const_iterator *)&this->m_front,
             (const std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::const_iterator *)&this->m_back) )
       EBREAK(a2, a3, a4);
-    top = *CSyncPacket::Front(this);
+    v7 = CSyncPacket::Front(this);
+    top = *v7;
+    dbpacket = v7[1];
     CSyncPacket::Pop(this);
     CIOCriticalSection::Leave(&this->m_lock, a2, a3, a4);
-    if ( top.m_packet && this - g_syncPacket == (unsigned __int8)top.m_packet->data[0] )
+    if ( dbpacket.m_nAddr && this - g_syncPacket == *(unsigned __int8 *)(dbpacket.m_nAddr + 3) )
     {
-      CSocket::Process(top.m_pSocket, a2, a3, a4, top.m_packet);
-      CIOObject::Release(top.m_pSocket, a2, a3, a4);
-      CIOBuffer::Release(top.m_pBuf);
+      CSocket::Process((CSocket *)top.m_nAddr, a2, a3, a4, (DBPACKET *)dbpacket.m_nAddr);
+      CIOObject::Release((CIOObject *)top.m_nAddr, a2, a3, a4);
+      CIOBuffer::Release((CIOBuffer *)top.m_nMask);
     }
     else
     {
@@ -43871,21 +44362,24 @@ void __userpurge CSyncPacket::OnIOCallback(CSyncPacket *this@<ecx>, unsigned int
         this->m_front._Myptr,
         this->m_back._Myptr,
         this->m_nSize,
-        top.m_packet,
-        top.data[0],
-        top.data[1],
-        top.data[2],
-        top.data[3],
-        top.m_pBuf,
-        top.m_pSocket,
-        top.m_pBuf->m_nRef,
-        top.m_pBuf->m_dwSize);
-      LogPacket(top.m_packet->byType, top.m_packet->wSize, top.m_packet->data);
-      if ( (char *)top.m_packet - (char *)top.m_pBuf >= 1024 )
+        (const void *)dbpacket.m_nAddr,
+        LOBYTE(dbpacket.m_nMask),
+        BYTE1(dbpacket.m_nMask),
+        BYTE2(dbpacket.m_nMask),
+        HIBYTE(dbpacket.m_nMask),
+        (const void *)top.m_nMask,
+        (const void *)top.m_nAddr,
+        *(_DWORD *)(top.m_nMask + 8004),
+        *(_DWORD *)(top.m_nMask + 8000));
+      LogPacket(
+        *(unsigned __int8 *)(dbpacket.m_nAddr + 2),
+        *(unsigned __int16 *)dbpacket.m_nAddr,
+        (char *)(dbpacket.m_nAddr + 3));
+      if ( dbpacket.m_nAddr - top.m_nMask >= 1024 )
         nSize = 1024;
       else
-        nSize = (char *)top.m_packet - (char *)top.m_pBuf;
-      LogPacket(-1, nSize, top.m_pBuf->m_buffer);
+        nSize = dbpacket.m_nAddr - top.m_nMask;
+      LogPacket(-1, nSize, (char *)top.m_nMask);
       EBREAK(a2, a3, a4);
     }
     InterlockedDecrement(&CServer::s_nPendingPacket);
@@ -43894,24 +44388,24 @@ void __userpurge CSyncPacket::OnIOCallback(CSyncPacket *this@<ecx>, unsigned int
 }
 
 //----- (00410640) --------------------------------------------------------
-void __thiscall CSocket::CSocket(CSocket *this, unsigned int socket, in_addr addr)
+void __userpurge CSocket::CSocket(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int socket, in_addr addr)
 {
-  CIOSocket::CIOSocket(this, socket);
+  CIOSocket::CIOSocket(this, a2, a3, a4, socket);
   this->__vftable = (CSocket_vtbl *)&CSocket::`vftable';
   this->m_addr = addr;
 }
 // 425F58: using guessed type void *CSocket::`vftable';
 
 //----- (00410670) --------------------------------------------------------
-void __thiscall CSocket::~CSocket(CSocket *this)
+void __usercall CSocket::~CSocket(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   this->__vftable = (CSocket_vtbl *)&CSocket::`vftable';
-  CIOSocket::~CIOSocket(this);
+  CIOSocket::~CIOSocket(this, a2, a3, a4);
 }
 // 425F58: using guessed type void *CSocket::`vftable';
 
 //----- (00410690) --------------------------------------------------------
-void __usercall CSocket::OnCreate(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CSocket::OnCreate(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, unsigned int a4@<esi>)
 {
   char *v4; // eax
   const std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const ,std::string > >,0> >::const_iterator *v5; // eax
@@ -43987,7 +44481,7 @@ void __usercall CSocket::OnCreate(CSocket *this@<ecx>, unsigned int a2@<ebx>, un
 }
 
 //----- (00410880) --------------------------------------------------------
-void __usercall CSocket::OnRead(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>)
+void __usercall CSocket::OnRead(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
 {
   CPacket *v5; // [esp+4h] [ebp-2Ch]
   CSyncPacket *pPacket; // [esp+8h] [ebp-28h]
@@ -44054,7 +44548,7 @@ void __thiscall CSocket::OnClose(CSocket *this)
 }
 
 //----- (00410A50) --------------------------------------------------------
-void __usercall CSocket::Write(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, CSocket *this, D2S_PROTOCOL nType, const char *__formal, ...)
+void __usercall CSocket::Write(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, CSocket *this, D2S_PROTOCOL nType, const char *__formal, ...)
 {
   CIOBuffer *dbpacket; // [esp+8h] [ebp-8h]
 
@@ -44067,7 +44561,7 @@ void __usercall CSocket::Write(unsigned int a1@<ebx>, unsigned int a2@<edi>, uns
 }
 
 //----- (00410AC0) --------------------------------------------------------
-void __userpurge CSocket::Process(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, DBPACKET *dbpacket)
+void __userpurge CSocket::Process(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, DBPACKET *dbpacket)
 {
   int v6; // [esp+10h] [ebp-1ACh] BYREF
   int v7; // [esp+14h] [ebp-1A8h] BYREF
@@ -44151,7 +44645,7 @@ void __userpurge CSocket::Process(CSocket *this@<ecx>, unsigned int a2@<ebx>, un
   int v85; // [esp+140h] [ebp-7Ch] BYREF
   unsigned __int8 bySkill; // [esp+147h] [ebp-75h] BYREF
   unsigned __int16 v87; // [esp+148h] [ebp-74h] BYREF
-  int v88; // [esp+14Ch] [ebp-70h] BYREF
+  int Number; // [esp+14Ch] [ebp-70h] BYREF
   int v89; // [esp+150h] [ebp-6Ch] BYREF
   unsigned __int8 v90; // [esp+157h] [ebp-65h] BYREF
   int v91; // [esp+158h] [ebp-64h] BYREF
@@ -44217,8 +44711,8 @@ void __userpurge CSocket::Process(CSocket *this@<ecx>, unsigned int a2@<ebx>, un
       CSocket::UpdateItemPID(this, v97, nOldPID, nNewPID, v92, v94, v96);
       break;
     case 8:
-      ReadPacket(a2, a3, a4, packet, "ddwdb", &v91, &v89, &v87, &v88, &v90);
-      CSocket::UpdateItemNum(this, v91, v89, v87, v88, v90);
+      ReadPacket(a2, a3, a4, packet, "ddwdb", &v91, &v89, &v87, &Number, &v90);
+      CSocket::UpdateItemNum(this, v91, v89, v87, Number, v90);
       break;
     case 9:
       ReadPacket(a2, a3, a4, packet, "dbw", &v85, &bySkill, &wSUPoint);
@@ -44352,7 +44846,7 @@ void __userpurge CSocket::Process(CSocket *this@<ecx>, unsigned int a2@<ebx>, un
 }
 
 //----- (00411680) --------------------------------------------------------
-void __userpurge CSocket::DelPlayer(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPID, int nUID, int nId)
+void __userpurge CSocket::DelPlayer(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPID, int nUID, int nId)
 {
   int nSecedeDate; // [esp+4h] [ebp-2Ch]
   int nGID; // [esp+8h] [ebp-28h] BYREF
@@ -44394,7 +44888,7 @@ void __userpurge CSocket::DelPlayer(CSocket *this@<ecx>, unsigned int a2@<ebx>, 
 }
 
 //----- (00411820) --------------------------------------------------------
-void __userpurge CSocket::LoadPlayer(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPID, int nLoadGID, int nUID, int nId)
+void __userpurge CSocket::LoadPlayer(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPID, int nLoadGID, int nUID, int nId)
 {
   __int16 snContribute; // [esp+4h] [ebp-228h] BYREF
   char szMemberName[15]; // [esp+8h] [ebp-224h] BYREF
@@ -44752,9 +45246,10 @@ void __userpurge CSocket::LoadPlayer(CSocket *this@<ecx>, unsigned int a2@<ebx>,
 }
 
 //----- (00412780) --------------------------------------------------------
-void __userpurge CSocket::SaveAllProperty(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, char *packet)
+void __userpurge CSocket::SaveAllProperty(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, char *packet)
 {
-  tagPOINT ptP; // [esp+4h] [ebp-60h] BYREF
+  int ptP; // [esp+4h] [ebp-60h] BYREF
+  int v6; // [esp+8h] [ebp-5Ch] BYREF
   unsigned __int8 byWis; // [esp+Eh] [ebp-56h] BYREF
   unsigned __int8 byDex; // [esp+Fh] [ebp-55h] BYREF
   unsigned __int16 wCurMP; // [esp+10h] [ebp-54h] BYREF
@@ -44775,7 +45270,7 @@ void __userpurge CSocket::SaveAllProperty(CSocket *this@<ecx>, unsigned int a2@<
   CDB db; // [esp+44h] [ebp-20h] BYREF
   unsigned __int8 bySpecialty; // [esp+56h] [ebp-Eh] BYREF
   unsigned __int8 byKilled; // [esp+57h] [ebp-Dh] BYREF
-  int v26; // [esp+60h] [ebp-4h]
+  int v27; // [esp+60h] [ebp-4h]
 
   ReadPacket(
     a2,
@@ -44801,11 +45296,11 @@ void __userpurge CSocket::SaveAllProperty(CSocket *this@<ecx>, unsigned int a2@<
     &byKilled,
     &byMap,
     &ptP,
-    &ptP.y,
+    &v6,
     &nZ,
     &byLevelUp);
   CDB::CDB(&db);
-  v26 = 0;
+  v27 = 0;
   if ( CDB::Execute(
          &db,
          "UPDATE Player SET [Level] = %d, [Specialty] = %d, [Contribute] = %d, [Exp] = %I64d, [GRole] = %d, [Strength] = "
@@ -44827,8 +45322,8 @@ void __userpurge CSocket::SaveAllProperty(CSocket *this@<ecx>, unsigned int a2@<
          wSUPoint,
          byKilled,
          byMap,
-         ptP.x,
-         ptP.y,
+         ptP,
+         v6,
          nZ,
          nPID)
     && byLevelUp )
@@ -44837,7 +45332,7 @@ void __userpurge CSocket::SaveAllProperty(CSocket *this@<ecx>, unsigned int a2@<
     LOG_DB(0, 18, nPID, 0, 0, 23, wPUPoint, 0, 0);
     LOG_DB(0, 18, nPID, 0, 0, 24, wSUPoint, 0, 0);
   }
-  v26 = -1;
+  v27 = -1;
   CDB::~CDB(&db);
 }
 
@@ -44882,7 +45377,7 @@ void __thiscall CSocket::PutOffItem(CSocket *this, int nIID)
 }
 
 //----- (00412A80) --------------------------------------------------------
-void __userpurge CSocket::InsertItem(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, char *packet)
+void __userpurge CSocket::InsertItem(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, char *packet)
 {
   unsigned __int8 byEnd; // [esp+7h] [ebp-35h] BYREF
   unsigned __int16 wIndex; // [esp+8h] [ebp-34h] BYREF
@@ -45139,7 +45634,7 @@ void __thiscall CSocket::SaveSpecialty(CSocket *this, int nPID, int nSpecialty)
 }
 
 //----- (00413330) --------------------------------------------------------
-void __userpurge CSocket::UpdateProperty(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPID, int nPrtyType, char *packet)
+void __userpurge CSocket::UpdateProperty(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPID, int nPrtyType, char *packet)
 {
   unsigned __int16 wContribute; // [esp+8h] [ebp-38h] BYREF
   unsigned __int16 wSUPoint[3]; // [esp+Ch] [ebp-34h] BYREF
@@ -45303,7 +45798,7 @@ void __thiscall CSocket::UpdateTransformItem(CSocket *this, int nIID, int nPID, 
 }
 
 //----- (00413950) --------------------------------------------------------
-void __userpurge CSocket::Login(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nId, int nUID)
+void __userpurge CSocket::Login(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nId, int nUID)
 {
   unsigned __int8 *pn; // [esp+4h] [ebp-74h]
   unsigned __int16 wIndex; // [esp+8h] [ebp-70h] BYREF
@@ -45398,25 +45893,34 @@ void __userpurge CSocket::Login(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsi
 }
 
 //----- (00413C70) --------------------------------------------------------
-void __userpurge CSocket::NewPlayer(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, char *packet)
+void __userpurge CSocket::NewPlayer(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, char *packet)
 {
+  tagRECT *v5; // ecx
   int nPID; // [esp+4h] [ebp-6Ch] BYREF
   int i; // [esp+8h] [ebp-68h]
   int nId; // [esp+Ch] [ebp-64h] BYREF
   int nCurMP; // [esp+10h] [ebp-60h]
   unsigned __int8 byHair; // [esp+17h] [ebp-59h] BYREF
-  tagRECT rt; // [esp+18h] [ebp-58h]
+  int rt; // [esp+18h] [ebp-58h]
+  int nMin; // [esp+1Ch] [ebp-54h]
+  int nMax; // [esp+20h] [ebp-50h]
+  int v15; // [esp+24h] [ebp-4Ch]
   int nCurHP; // [esp+28h] [ebp-48h]
   unsigned __int8 byClass; // [esp+2Eh] [ebp-42h] BYREF
   unsigned __int8 byFace; // [esp+2Fh] [ebp-41h] BYREF
   char *szName; // [esp+30h] [ebp-40h] BYREF
-  tagPOINT pt; // [esp+34h] [ebp-3Ch]
-  unsigned __int8 prty[5]; // [esp+3Ch] [ebp-34h] BYREF
+  unsigned int pt; // [esp+34h] [ebp-3Ch]
+  unsigned int v21; // [esp+38h] [ebp-38h]
+  unsigned __int8 prty; // [esp+3Ch] [ebp-34h] BYREF
+  unsigned __int8 v23; // [esp+3Dh] [ebp-33h] BYREF
+  unsigned __int8 v24; // [esp+3Eh] [ebp-32h] BYREF
+  unsigned __int8 v25; // [esp+3Fh] [ebp-31h] BYREF
+  char v26[4]; // [esp+40h] [ebp-30h] BYREF
   int nCount; // [esp+48h] [ebp-28h] BYREF
   int nUID; // [esp+4Ch] [ebp-24h] BYREF
   CDB db; // [esp+50h] [ebp-20h] BYREF
   int nBonus; // [esp+60h] [ebp-10h]
-  int v22; // [esp+6Ch] [ebp-4h]
+  int v31; // [esp+6Ch] [ebp-4h]
 
   ReadPacket(
     a2,
@@ -45428,22 +45932,22 @@ void __userpurge CSocket::NewPlayer(CSocket *this@<ecx>, unsigned int a2@<ebx>, 
     &szName,
     &nUID,
     &byClass,
-    prty,
-    &prty[1],
-    &prty[2],
-    &prty[3],
-    &prty[4],
+    &prty,
+    &v23,
+    &v24,
+    &v25,
+    v26,
     &byFace,
     &byHair);
   if ( byClass <= 2u )
   {
     CDB::CDB(&db);
-    v22 = 0;
+    v31 = 0;
     CDB::Bind(&db, &nCount);
     if ( CDB::Execute(&db, "SELECT COUNT(*) FROM Player WHERE UID = %d", nUID) && CDB::Fetch(&db) && nCount > 2 )
     {
       CSocket::Write(a2, a3, a4, this, D2S_ANS_NEWPLAYER, "db", nId, 3);
-      v22 = -1;
+      v31 = -1;
       CDB::~CDB(&db);
     }
     else
@@ -45453,7 +45957,7 @@ void __userpurge CSocket::NewPlayer(CSocket *this@<ecx>, unsigned int a2@<ebx>, 
       if ( CDB::Execute(&db, "SELECT COUNT(*) FROM Player WHERE Name = '%s'", szName) && CDB::Fetch(&db) && nCount > 0 )
       {
         CSocket::Write(a2, a3, a4, this, D2S_ANS_NEWPLAYER, "db", nId, 4);
-        v22 = -1;
+        v31 = -1;
         CDB::~CDB(&db);
       }
       else
@@ -45461,17 +45965,22 @@ void __userpurge CSocket::NewPlayer(CSocket *this@<ecx>, unsigned int a2@<ebx>, 
         nBonus = 0;
         for ( i = 0; i < 5; ++i )
         {
-          nBonus += prty[i];
-          prty[i] += LOBYTE(g_baseproperty_0[byClass].prty[i]);
+          nBonus += *(&prty + i);
+          *(&prty + i) += LOBYTE(g_baseproperty_0[byClass].prty[i]);
         }
         if ( nBonus == 5 )
         {
           CDB::Reset(&db);
-          rt = g_rtCreate[g_nCreate++ & 3];
-          pt.x = Random(rt.left, rt.right);
-          pt.y = Random(rt.top, rt.bottom);
-          nCurHP = 2 * prty[1] * prty[1] / g_denoHP_0[byClass] + 132;
-          nCurMP = 2 * prty[3] * prty[3] / g_denoMP_0[byClass] + prty[3] + 148;
+          v5 = &g_rtCreate[g_nCreate & 3];
+          rt = v5->left;
+          nMin = v5->top;
+          nMax = v5->right;
+          v15 = v5->bottom;
+          ++g_nCreate;
+          pt = Random(rt, nMax);
+          v21 = Random(nMin, v15);
+          nCurHP = 2 * v23 * v23 / g_denoHP_0[byClass] + 132;
+          nCurMP = 2 * v25 * v25 / g_denoMP_0[byClass] + v25 + 148;
           if ( CDB::ExecuteInsertUnique(
                  &db,
                  "INSERT INTO Player ( UID, Name, Class,Strength, Health, Intelligence, Wisdom, Dexterity,CurHP, CurMP, M"
@@ -45479,16 +45988,16 @@ void __userpurge CSocket::NewPlayer(CSocket *this@<ecx>, unsigned int a2@<ebx>, 
                  nUID,
                  szName,
                  byClass,
-                 prty[0],
-                 prty[1],
-                 prty[2],
-                 prty[3],
-                 prty[4],
+                 prty,
+                 v23,
+                 v24,
+                 v25,
+                 (unsigned __int8)v26[0],
                  nCurHP,
                  nCurMP,
                  0,
-                 pt.x,
-                 pt.y,
+                 pt,
+                 v21,
                  0,
                  byFace,
                  byHair) )
@@ -45523,13 +46032,13 @@ void __userpurge CSocket::NewPlayer(CSocket *this@<ecx>, unsigned int a2@<ebx>, 
               CSocket::Write(a2, a3, a4, this, D2S_ANS_NEWPLAYER, "db", nId, 0);
             }
           }
-          v22 = -1;
+          v31 = -1;
           CDB::~CDB(&db);
         }
         else
         {
           CSocket::Write(a2, a3, a4, this, D2S_ANS_NEWPLAYER, "db", nId, 5);
-          v22 = -1;
+          v31 = -1;
           CDB::~CDB(&db);
         }
       }
@@ -45591,7 +46100,7 @@ void __thiscall CSocket::EventSave(CSocket *this, int nPID, int nCount, const ch
 }
 
 //----- (00414290) --------------------------------------------------------
-void __userpurge CSocket::ProcessEvent(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nId, int nEventCode, char *packet)
+void __userpurge CSocket::ProcessEvent(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nId, int nEventCode, char *packet)
 {
   char *szSponsor; // [esp+8h] [ebp-28h] BYREF
   int nFlag; // [esp+Ch] [ebp-24h]
@@ -45615,7 +46124,7 @@ void __userpurge CSocket::ProcessEvent(CSocket *this@<ecx>, unsigned int a2@<ebx
 }
 
 //----- (00414370) --------------------------------------------------------
-void __userpurge CSocket::GuildCreateSecedeCheck(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPlayer, int nCount, const char *info)
+void __userpurge CSocket::GuildCreateSecedeCheck(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPlayer, int nCount, const char *info)
 {
   int nLoop; // [esp+4h] [ebp-2Ch]
   int nPID; // [esp+Ch] [ebp-24h] BYREF
@@ -45651,7 +46160,7 @@ void __userpurge CSocket::GuildCreateSecedeCheck(CSocket *this@<ecx>, unsigned i
 }
 
 //----- (004144B0) --------------------------------------------------------
-void __userpurge CSocket::GuildSecedeCheck(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPlayer, int nPID, int nGID)
+void __userpurge CSocket::GuildSecedeCheck(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPlayer, int nPID, int nGID)
 {
   int nDate; // [esp+4h] [ebp-20h] BYREF
   CDB db; // [esp+8h] [ebp-1Ch] BYREF
@@ -45679,7 +46188,7 @@ void __userpurge CSocket::GuildSecedeCheck(CSocket *this@<ecx>, unsigned int a2@
 }
 
 //----- (004145B0) --------------------------------------------------------
-void __userpurge CSocket::GuildSameNameCheck(CSocket *this@<ecx>, unsigned int a2@<ebx>, unsigned int a3@<edi>, unsigned int a4@<esi>, int nPlayer, char *szGuildName)
+void __userpurge CSocket::GuildSameNameCheck(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, int nPlayer, char *szGuildName)
 {
   int nCount; // [esp+4h] [ebp-20h] BYREF
   CDB db; // [esp+8h] [ebp-1Ch] BYREF
@@ -45703,7 +46212,16 @@ void __thiscall CSocket::GuildCreate(CSocket *this, int nGID, char *szGuildName)
 
   CDB::CDB(&db);
   v4 = 0;
-  CDB::Execute(&db, aInsertIntoGuil_1, nGID, szGuildName, 3, 1, 1, 0, 0);
+  CDB::Execute(
+    &db,
+    "INSERT INTO Guild VALUES (%d,'%s',0,0,'','군주','부군주','백부장','십부장','정식구성원','임시구성원',%d,%d,%d,%d,%d)",
+    nGID,
+    szGuildName,
+    3,
+    1,
+    1,
+    0,
+    0);
   CDB::Execute(&db, "INSERT INTO GuildMember VALUES (%d,%d,%d,1,0)", nGID, nGID, 1);
   CDB::Execute(&db, "UPDATE Player SET GID=%d WHERE PID=%d", nGID, nGID);
   v4 = -1;
@@ -45877,16 +46395,22 @@ void __thiscall CSyncPacket::CElement::CElement(CSyncPacket::CElement *this, CSo
   this->m_pBuf = pBuf;
   this->m_packet = packet;
   if ( packet )
-    memcpy(this->data, (unsigned __int8 *)packet, sizeof(this->data));
+    memcpy(this->data, packet, sizeof(this->data));
   else
     memset(this->data, 0, sizeof(this->data));
 }
 
-//----- (00414CA0) --------------------------------------------------------
-CSocket *__thiscall CSocket::`vector deleting destructor'(CSocket *this, unsigned int a2)
+//----- (00414C80) --------------------------------------------------------
+IPAddrMask *__thiscall CSyncPacket::Front(CSyncPacket *this)
 {
-  CSocket::~CSocket(this);
-  if ( (a2 & 1) != 0 )
+  return std::vector<CSyncPacket::CElement>::iterator::operator*((std::vector<IPAddrMask>::iterator *)&this->m_front);
+}
+
+//----- (00414CA0) --------------------------------------------------------
+CSocket *__userpurge CSocket::`vector deleting destructor'@<eax>(CSocket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int a5)
+{
+  CSocket::~CSocket(this, a2, a3, a4);
+  if ( (a5 & 1) != 0 )
     operator delete(this);
   return this;
 }
@@ -46172,8 +46696,8 @@ void __thiscall std::vector<CSyncPacket::CElement>::_Insert_n(std::vector<CSyncP
         _Oldend = thisa->_Mylast;
         v9 = std::vector<CSyncPacket::CElement>::_Ucopy<CSyncPacket::CElement *>(
                &thisa->_Alval,
-               &_Oldend[-_Count],
-               _Oldend,
+               (int)&_Oldend[-_Count],
+               (int)_Oldend,
                thisa->_Mylast);
         thisa->_Mylast = v9;
         std::copy_backward<CSyncPacket::CElement *,CSyncPacket::CElement *>(_Where._Myptr, &_Oldend[-_Count], _Oldend);
@@ -46183,8 +46707,8 @@ void __thiscall std::vector<CSyncPacket::CElement>::_Insert_n(std::vector<CSyncP
       {
         std::vector<CSyncPacket::CElement>::_Ucopy<CSyncPacket::CElement *>(
           &thisa->_Alval,
-          _Where._Myptr,
-          thisa->_Mylast,
+          (int)_Where._Myptr,
+          (int)thisa->_Mylast,
           &_Where._Myptr[_Count]);
         v21 = 2;
         std::vector<CSyncPacket::CElement>::_Ufill(
@@ -46214,16 +46738,16 @@ void __thiscall std::vector<CSyncPacket::CElement>::_Insert_n(std::vector<CSyncP
       v21 = 0;
       v12 = std::vector<CSyncPacket::CElement>::_Ucopy<CSyncPacket::CElement *>(
               &thisa->_Alval,
-              thisa->_Myfirst,
-              _Where._Myptr,
+              (int)thisa->_Myfirst,
+              (int)_Where._Myptr,
               _Newvec);
       _Ptr = v12;
       v11 = std::vector<CSyncPacket::CElement>::_Ufill(thisa, v12, _Count, &_Tmp);
       _Ptr = v11;
       std::vector<CSyncPacket::CElement>::_Ucopy<CSyncPacket::CElement *>(
         &thisa->_Alval,
-        _Where._Myptr,
-        thisa->_Mylast,
+        (int)_Where._Myptr,
+        (int)thisa->_Mylast,
         v11);
       v21 = -1;
       _Counta = _Count + std::vector<CSyncPacket::CElement>::size(thisa);
@@ -46293,6 +46817,19 @@ CSyncPacket::CElement *__thiscall std::vector<CSyncPacket::CElement>::_Ufill(std
   return &_Ptr[_Count];
 }
 
+//----- (004156E0) --------------------------------------------------------
+void __thiscall __noreturn std::vector<CSyncPacket::CElement>::_Xlen(std::vector<CSyncPacket::CElement> *this)
+{
+  std::string _Message; // [esp+4h] [ebp-50h] BYREF
+  std::length_error pExceptionObject; // [esp+20h] [ebp-34h] BYREF
+  int v3; // [esp+50h] [ebp-4h]
+
+  std::string::string(&_Message, "vector<T> too long");
+  v3 = 0;
+  std::length_error::length_error(&pExceptionObject, &_Message);
+  _CxxThrowException(&pExceptionObject, (_ThrowInfo *)&_TI3_AVlength_error_std__);
+}
+
 //----- (00415740) --------------------------------------------------------
 CMemory::tagEntry **__thiscall std::allocator<CSyncPacket::CElement>::allocate(std::allocator<CSyncPacket::CElement> *this, unsigned int _Count)
 {
@@ -46354,12 +46891,12 @@ char *__cdecl GetNumeric<int>(char *packet, int *Num)
 }
 
 //----- (00415870) --------------------------------------------------------
-CSyncPacket::CElement *__thiscall std::vector<CSyncPacket::CElement>::_Ucopy<CSyncPacket::CElement *>(std::allocator<CSyncPacket::CElement> *this, CSyncPacket::CElement *_First, CSyncPacket::CElement *_Last, CSyncPacket::CElement *_Dest)
+CSyncPacket::CElement *__thiscall std::vector<CSyncPacket::CElement>::_Ucopy<CSyncPacket::CElement *>(std::allocator<CSyncPacket::CElement> *this, int _First, int _Last, void *_Dest)
 {
   return std::_Uninitialized_copy<CSyncPacket::CElement *,CSyncPacket::CElement *,std::allocator<CSyncPacket::CElement>>(
-           _First,
-           _Last,
-           _Dest,
+           (CSyncPacket::CElement *)_First,
+           (CSyncPacket::CElement *)_Last,
+           (CSyncPacket::CElement *)_Dest,
            this);
 }
 
@@ -46373,21 +46910,27 @@ void __cdecl std::fill<CSyncPacket::CElement *,CSyncPacket::CElement>(CSyncPacke
 //----- (004158E0) --------------------------------------------------------
 CSyncPacket::CElement *__cdecl std::copy_backward<CSyncPacket::CElement *,CSyncPacket::CElement *>(CSyncPacket::CElement *_First, CSyncPacket::CElement *_Last, CSyncPacket::CElement *_Dest)
 {
-  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(
+    (std::vector<IPAddrMask>::iterator *)&_First,
+    (IPAddrMask **)&_Dest);
   return std::_Copy_backward_opt<CSyncPacket::CElement *,CSyncPacket::CElement *>(_First, _Last, _Dest);
 }
 
 //----- (00415920) --------------------------------------------------------
 void __cdecl std::_Destroy_range<CSyncPacket::CElement>(CSyncPacket::CElement *_First, CSyncPacket::CElement *_Last, std::allocator<CSyncPacket::CElement> *_Al)
 {
-  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(
+    (std::vector<IPAddrMask>::iterator *)&_First,
+    (IPAddrMask **)&_Last);
   std::_Destroy_range<CSyncPacket::CElement>(_First, _Last, _Al);
 }
 
 //----- (00415960) --------------------------------------------------------
 void __cdecl std::_Uninitialized_fill_n<CSyncPacket::CElement *,unsigned int,CSyncPacket::CElement,std::allocator<CSyncPacket::CElement>>(CSyncPacket::CElement *_First, unsigned int _Count, const CSyncPacket::CElement *_Val, std::allocator<CSyncPacket::CElement> *_Al)
 {
-  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(
+    (std::vector<IPAddrMask>::iterator *)&_First,
+    (IPAddrMask **)&_First);
   std::_Uninit_fill_n<CSyncPacket::CElement *,unsigned int,CSyncPacket::CElement,std::allocator<CSyncPacket::CElement>>(
     _First,
     _Count,
@@ -46404,7 +46947,9 @@ CMemory::tagEntry **__cdecl std::_Allocate<CSyncPacket::CElement>(unsigned int _
 //----- (004159C0) --------------------------------------------------------
 CSyncPacket::CElement *__cdecl std::_Uninitialized_copy<CSyncPacket::CElement *,CSyncPacket::CElement *,std::allocator<CSyncPacket::CElement>>(CSyncPacket::CElement *_First, CSyncPacket::CElement *_Last, CSyncPacket::CElement *_Dest, std::allocator<CSyncPacket::CElement> *_Al)
 {
-  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>();
+  std::_Ptr_cat<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(
+    (std::vector<IPAddrMask>::iterator *)&_First,
+    (IPAddrMask **)&_Dest);
   return std::_Uninit_copy<CSyncPacket::CElement *,CSyncPacket::CElement *,std::allocator<CSyncPacket::CElement>>(
            _First,
            _Last,
@@ -46522,12 +47067,20 @@ void __thiscall CSyncPacket::CSyncPacket(CSyncPacket *this)
 // 425F94: using guessed type void *CSyncPacket::`vftable';
 
 //----- (00415D20) --------------------------------------------------------
-CSyncPacket *__thiscall CSyncPacket::`vector deleting destructor'(CSyncPacket *this, unsigned int a2)
+CSyncPacket *__userpurge CSyncPacket::`vector deleting destructor'@<eax>(CSyncPacket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>, unsigned int a5)
 {
-  CSyncPacket::~CSyncPacket(this);
-  if ( (a2 & 1) != 0 )
+  CSyncPacket::~CSyncPacket(this, a2, a3, a4);
+  if ( (a5 & 1) != 0 )
     operator delete(this);
   return this;
+}
+
+//----- (00415D50) --------------------------------------------------------
+void __usercall CSyncPacket::~CSyncPacket(CSyncPacket *this@<ecx>, DWORD a2@<ebx>, DWORD a3@<edi>, DWORD a4@<esi>)
+{
+  CIOCriticalSection::~CIOCriticalSection(&this->m_lock, a2, a3, a4);
+  std::vector<CSyncPacket::CElement>::~vector<CSyncPacket::CElement>(&this->m_queue);
+  CIOObject::~CIOObject(this);
 }
 
 //----- (00415DB0) --------------------------------------------------------
@@ -46587,12 +47140,6 @@ void __thiscall std::vector<CSyncPacket::CElement>::_Tidy(std::vector<CSyncPacke
   this->_Myend = 0;
 }
 
-//----- (00415F10) --------------------------------------------------------
-void __thiscall std::allocator<CSyncPacket::CElement>::allocator<CSyncPacket::CElement>(std::allocator<std::pair<int const ,std::string > > *this)
-{
-  ;
-}
-
 //----- (00415F20) --------------------------------------------------------
 void __thiscall CMemoryPool<CPacket>::CPool::CPool(CMemoryPool<CPacket>::CPool *this)
 {
@@ -46624,7 +47171,7 @@ void CMemoryPool<CPacket>::FreeAll()
 }
 
 //----- (00415FC0) --------------------------------------------------------
-void __cdecl CStatus::Update()
+BOOL CStatus::Update()
 {
   int v0; // eax
 
@@ -46636,11 +47183,11 @@ void __cdecl CStatus::Update()
   CScreen::Add(&CStatus::s_screen, 0, " Pending Output : %d", v0);
   CScreen::Add(&CStatus::s_screen, 0, " Pending Packet : %d", CServer::s_nPendingPacket);
   CScreen::Unlock(&CStatus::s_screen);
-  InvalidateRect(CScreen::s_hWnd, 0, 1);
+  return InvalidateRect(CScreen::s_hWnd, 0, 1);
 }
 
 //----- (00416060) --------------------------------------------------------
-void __userpurge Encode(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char chCodeNum, unsigned __int8 *ptr, int len)
+void __userpurge Encode(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char chCodeNum, unsigned __int8 *ptr, int len)
 {
   unsigned __int8 *end; // [esp+0h] [ebp-4h]
 
@@ -46655,7 +47202,7 @@ void __userpurge Encode(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned i
 }
 
 //----- (004160C0) --------------------------------------------------------
-void __userpurge Decode(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char chCodeNum, unsigned __int8 *ptr, int len)
+void __userpurge Decode(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char chCodeNum, unsigned __int8 *ptr, int len)
 {
   unsigned __int8 *end; // [esp+0h] [ebp-4h]
 
@@ -46670,20 +47217,26 @@ void __userpurge Decode(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned i
 }
 
 //----- (00416110) --------------------------------------------------------
-void __cdecl InitRandom()
+int InitRandom()
 {
   unsigned int v0; // eax
+  int result; // eax
   int i; // [esp+0h] [ebp-4h]
   int ia; // [esp+0h] [ebp-4h]
 
   v0 = time(0);
   srand(v0);
-  g_nRandtable[0] = time(0);
+  result = time(0);
+  g_nRandtable[0] = result;
   for ( i = 1; i < 32; ++i )
+  {
     g_nRandtable[i] = 1103515245 * dword_43F1BC[i] + 12345;
+    result = i + 1;
+  }
   g_nRandIndex = 2;
   for ( ia = 0; ia < 310; ++ia )
-    Random();
+    result = Random();
+  return result;
 }
 // 43F1BC: using guessed type int dword_43F1BC[];
 
@@ -46722,12 +47275,12 @@ int __fastcall BitReset(unsigned int *pBit, int nOffset)
 }
 
 //----- (00416210) --------------------------------------------------------
-char *__userpurge WritePacketV@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, char *va)
+char *__userpurge WritePacketV@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, char *va)
 {
   int v5; // ecx
   int v7; // [esp+4h] [ebp-14h]
   int size; // [esp+8h] [ebp-10h]
-  unsigned __int8 *ptr; // [esp+Ch] [ebp-Ch]
+  char *ptr; // [esp+Ch] [ebp-Ch]
   char *str; // [esp+10h] [ebp-8h]
   char *format; // [esp+14h] [ebp-4h]
   char *vaa; // [esp+24h] [ebp+Ch]
@@ -46756,10 +47309,10 @@ char *__userpurge WritePacketV@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi
       case 77:
       case 109:
         vab = vaa + 4;
-        ptr = (unsigned __int8 *)*((_DWORD *)vab - 1);
+        ptr = (char *)*((_DWORD *)vab - 1);
         vaa = vab + 4;
         size = *((_DWORD *)vaa - 1);
-        memcpy((unsigned __int8 *)packet, ptr, size);
+        memcpy(packet, ptr, size);
         packet += size;
         break;
       case 83:
@@ -46800,13 +47353,13 @@ char *__userpurge WritePacketV@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi
 }
 
 //----- (00416430) --------------------------------------------------------
-char *__usercall WritePacket@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, const char *__formal, ...)
+char *__usercall WritePacket@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, const char *__formal, ...)
 {
   return WritePacketV(a1, a2, a3, packet, (char *)&__formal);
 }
 
 //----- (00416460) --------------------------------------------------------
-char *__userpurge ReadPacketV@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, char *va)
+char *__userpurge ReadPacketV@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, char *va)
 {
   _DWORD *v5; // edx
   int v7; // ecx
@@ -46814,7 +47367,7 @@ char *__userpurge ReadPacketV@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>
   int v10; // [esp+8h] [ebp-18h]
   char **v11; // [esp+Ch] [ebp-14h]
   int size; // [esp+10h] [ebp-10h]
-  unsigned __int8 *ptr; // [esp+14h] [ebp-Ch]
+  char *ptr; // [esp+14h] [ebp-Ch]
   char *str; // [esp+18h] [ebp-8h]
   char *format; // [esp+1Ch] [ebp-4h]
   char *vaa; // [esp+2Ch] [ebp+Ch]
@@ -46876,10 +47429,10 @@ char *__userpurge ReadPacketV@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>
         break;
       case 109:
         vab = vaa + 4;
-        ptr = (unsigned __int8 *)*((_DWORD *)vab - 1);
+        ptr = (char *)*((_DWORD *)vab - 1);
         vaa = vab + 4;
         size = *((_DWORD *)vaa - 1);
-        memcpy(ptr, (unsigned __int8 *)packet, size);
+        memcpy(ptr, packet, size);
         packet += size;
         break;
       case 115:
@@ -46901,21 +47454,21 @@ char *__userpurge ReadPacketV@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>
 }
 
 //----- (00416740) --------------------------------------------------------
-char *__usercall ReadPacket@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, const char *__formal, ...)
+char *__usercall ReadPacket@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, const char *__formal, ...)
 {
   return ReadPacketV(a1, a2, a3, packet, (char *)&__formal);
 }
 
 //----- (00416770) --------------------------------------------------------
-char *__userpurge ScanPacketV@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, char *end, char *va)
+char *__userpurge ScanPacketV@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, char *end, char *va)
 {
   _DWORD *v6; // edx
   int v8; // edx
   char *v10; // [esp+0h] [ebp-34h]
   char *v11; // [esp+4h] [ebp-30h]
   int v12; // [esp+Ch] [ebp-28h]
-  unsigned int count; // [esp+10h] [ebp-24h]
-  unsigned __int8 *ptr; // [esp+14h] [ebp-20h]
+  size_t Size; // [esp+10h] [ebp-24h]
+  char *ptr; // [esp+14h] [ebp-20h]
   char *str; // [esp+18h] [ebp-1Ch]
   int v16; // [esp+1Ch] [ebp-18h]
   int size; // [esp+24h] [ebp-10h]
@@ -47007,13 +47560,13 @@ LABEL_2:
         continue;
       case 109:
         vad = vaa + 4;
-        ptr = (unsigned __int8 *)*((_DWORD *)vad - 1);
+        ptr = (char *)*((_DWORD *)vad - 1);
         vaa = vad + 4;
-        count = *((_DWORD *)vaa - 1);
-        if ( &packet[count] <= end )
+        Size = *((_DWORD *)vaa - 1);
+        if ( &packet[Size] <= end )
         {
-          memcpy(ptr, (unsigned __int8 *)packet, count);
-          packet += count;
+          memcpy(ptr, packet, Size);
+          packet += Size;
         }
         continue;
       case 115:
@@ -47049,7 +47602,7 @@ LABEL_2:
 }
 
 //----- (00416B10) --------------------------------------------------------
-char *__usercall ScanPacket@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, char *end, const char *__formal, ...)
+char *__usercall ScanPacket@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, char *end, const char *__formal, ...)
 {
   return ScanPacketV(a1, a2, a3, packet, end, (char *)&__formal);
 }
@@ -47078,7 +47631,7 @@ char *__stdcall GetString(char *packet, char *str)
 }
 
 //----- (00416BA0) --------------------------------------------------------
-char *__userpurge ScanString@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, char *end, int size)
+char *__userpurge ScanString@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, char *end, int size)
 {
   char *v8; // [esp+0h] [ebp-8h]
 
@@ -47102,7 +47655,7 @@ char *__userpurge ScanString@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>,
 }
 
 //----- (00416C20) --------------------------------------------------------
-char *__userpurge ScanString@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *packet, char *end, char *str, int size)
+char *__userpurge ScanString@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *packet, char *end, char *str, int size)
 {
   char *result; // eax
   int v8; // ecx
@@ -47157,14 +47710,14 @@ char *__stdcall PutString(char *packet, const char *str)
 //----- (00416CF0) --------------------------------------------------------
 BOOL __cdecl CreatePath(const char *szPath)
 {
-  _BYTE *v1; // eax
+  char *str; // [esp+0h] [ebp-114h]
   char szParent[260]; // [esp+4h] [ebp-110h] BYREF
 
   strcpy(szParent, szPath);
-  strrchr((unsigned __int8 *)szParent, 0x5Cu);
-  if ( !v1 )
+  str = strrchr(szParent, 92);
+  if ( !str )
     return 0;
-  *v1 = 0;
+  *str = 0;
   if ( CreateDirectoryA(szParent, 0) )
     return 1;
   if ( GetLastError() != 3 )
@@ -47173,7 +47726,6 @@ BOOL __cdecl CreatePath(const char *szPath)
     return CreateDirectoryA(szParent, 0);
   return 0;
 }
-// 416D32: variable 'v1' is possibly undefined
 
 //----- (00416DA0) --------------------------------------------------------
 BOOL __cdecl MovePath(const char *szOldFile, const char *szNewFile)
@@ -47192,7 +47744,7 @@ BOOL __cdecl DeletePath(const char *ofname)
 {
   _stat ostat; // [esp+0h] [ebp-24h] BYREF
 
-  if ( _stat(ofname, &ostat) )
+  if ( _stat(ofname, (struct _stat32 *const)&ostat) )
     return 1;
   _chmod(ofname, 511);
   return _unlink(ofname) == 0;
@@ -47214,7 +47766,7 @@ _iobuf *__cdecl FOpen(const char *filename)
 }
 
 //----- (00416EB0) --------------------------------------------------------
-int __usercall CheckResidentNum@<eax>(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>, char *szResident, char *szNum1, char *szNum2)
+int __usercall CheckResidentNum@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, char *szResident, char *szNum1, char *szNum2)
 {
   char *pHyphen; // [esp+0h] [ebp-18h]
   char num1[7]; // [esp+4h] [ebp-14h] BYREF
@@ -47257,20 +47809,24 @@ int __usercall CheckResidentNum@<eax>(unsigned int a1@<ebx>, unsigned int a2@<ed
 BOOL __cdecl CheckResidentNum(char *szNum1, char *szNum2)
 {
   int nCount; // [esp+0h] [ebp-54h]
-  char szNum[14]; // [esp+4h] [ebp-50h] BYREF
+  CHAR szNum; // [esp+4h] [ebp-50h] BYREF
+  int v5; // [esp+5h] [ebp-4Fh]
+  int v6; // [esp+9h] [ebp-4Bh]
+  int v7; // [esp+Dh] [ebp-47h]
+  char v8; // [esp+11h] [ebp-43h]
   int nMultiNum[12]; // [esp+20h] [ebp-34h]
   int nTotal; // [esp+50h] [ebp-4h]
 
-  szNum[0] = 0;
-  *(_DWORD *)&szNum[1] = 0;
-  *(_DWORD *)&szNum[5] = 0;
-  *(_DWORD *)&szNum[9] = 0;
-  szNum[13] = 0;
-  strcat(szNum, szNum1);
-  strcat(szNum, szNum2);
-  if ( !szNum )
+  szNum = 0;
+  v5 = 0;
+  v6 = 0;
+  v7 = 0;
+  v8 = 0;
+  strcat(&szNum, szNum1);
+  strcat(&szNum, szNum2);
+  if ( !&szNum )
     return 0;
-  if ( lstrlenA(szNum) != 13 )
+  if ( lstrlenA(&szNum) != 13 )
     return 0;
   nMultiNum[0] = 2;
   nMultiNum[1] = 3;
@@ -47286,8 +47842,8 @@ BOOL __cdecl CheckResidentNum(char *szNum1, char *szNum2)
   nMultiNum[11] = 5;
   nTotal = 0;
   for ( nCount = 0; nCount < 12; ++nCount )
-    nTotal += nMultiNum[nCount] * (szNum[nCount] - 48);
-  return (11 * (nTotal / 11) + 11 - nTotal) % 10 == szNum[12] - 48;
+    nTotal += nMultiNum[nCount] * (*(&szNum + nCount) - 48);
+  return (11 * (nTotal / 11) + 11 - nTotal) % 10 == SHIBYTE(v7) - 48;
 }
 
 //----- (00417110) --------------------------------------------------------
@@ -47488,28 +48044,16 @@ void __thiscall InitCodePage::InitCodePage(InitCodePage *this)
   ACP_ID = GetACP();
 }
 
-//----- (00417912) --------------------------------------------------------
-// positive sp value has been detected, the output may be wrong!
-void __stdcall _CallMemberFunction1(void *pthis, void *pmfn, void *pthat, int val2)
-{
-  __int32 v4; // [esp-8h] [ebp-8h]
-  void *retaddr; // [esp+0h] [ebp+0h] BYREF
-
-  ((void (__stdcall *)(void *, void *))_InterlockedExchange((volatile __int32 *)&retaddr, v4))(pthis, pmfn);
-}
-// 417914: positive sp value 8 has been found
-// 417914: variable 'v4' is possibly undefined
-
 //----- (00417DAE) --------------------------------------------------------
-void __cdecl ___00011(unsigned __int8 *a1, unsigned __int8 *a2, unsigned int a3)
+void *__cdecl ___00011(void *a1, const void *Src, size_t Size)
 {
   __debugbreak();
   __debugbreak();
-  memcpy(a1, a2, a3);
+  return memcpy(a1, Src, Size);
 }
 
 //----- (00418519) --------------------------------------------------------
-void __cdecl ___00003_0(unsigned __int8 *a1, unsigned __int8 *a2)
+size_t __cdecl ___00003_0(const char *Str, const char *Control)
 {
   __debugbreak();
   __debugbreak();
@@ -47518,7 +48062,37 @@ void __cdecl ___00003_0(unsigned __int8 *a1, unsigned __int8 *a2)
   __debugbreak();
   __debugbreak();
   __debugbreak();
-  strcspn(a1, a2);
+  return strcspn(Str, Control);
+}
+
+//----- (004186D8) --------------------------------------------------------
+void __thiscall exception::exception(exception *this)
+{
+  this->_m_what = 0;
+  this->_m_doFree = 0;
+  this->__vftable = (exception_vtbl *)&exception::`vftable';
+}
+// 42E120: using guessed type void *exception::`vftable';
+
+//----- (00418733) --------------------------------------------------------
+void __thiscall exception::~exception(exception *this)
+{
+  bool v1; // zf
+
+  v1 = this->_m_doFree == 0;
+  this->__vftable = (exception_vtbl *)&exception::`vftable';
+  if ( !v1 )
+    free((void *)this->_m_what);
+}
+// 42E120: using guessed type void *exception::`vftable';
+
+//----- (00418756) --------------------------------------------------------
+exception *__thiscall exception::`vector deleting destructor'(exception *this, unsigned int a2)
+{
+  exception::~exception(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
 }
 
 //----- (00419018) --------------------------------------------------------
@@ -47531,22 +48105,15 @@ void (__cdecl *__cdecl _set_security_error_handler(void (__cdecl *handler)(int, 
   return result;
 }
 
-//----- (0041954D) --------------------------------------------------------
-unsigned int __cdecl strtol(const char *nptr, char **endptr, int ibase)
+//----- (00419682) --------------------------------------------------------
+unsigned int __cdecl fwrite(const void *buffer, unsigned int size, unsigned int count, _iobuf *stream)
 {
-  return strtoxl(nptr, (const char **)endptr, ibase, 0);
-}
+  unsigned int retval; // [esp+Ch] [ebp-1Ch]
 
-//----- (00419564) --------------------------------------------------------
-unsigned int __cdecl strtoul(const char *nptr, char **endptr, int ibase)
-{
-  return strtoxl(nptr, (const char **)endptr, ibase, 1);
-}
-
-//----- (0041988E) --------------------------------------------------------
-int __cdecl mktime(tm *tb)
-{
-  return make_time_t(tb, 1);
+  _lock_file(stream);
+  retval = _fwrite_lk(buffer, size, count, stream);
+  _unlock_file(stream);
+  return retval;
 }
 
 //----- (00419A4B) --------------------------------------------------------
@@ -47555,70 +48122,49 @@ int __cdecl _flushall()
   return flsall(1);
 }
 
-//----- (00419DEC) --------------------------------------------------------
-int __cdecl remove(const char *path)
+//----- (0041B9A6) --------------------------------------------------------
+void __noreturn _inconsistency()
 {
-  unsigned int v1; // eax
-
-  if ( DeleteFileA(path) )
-    v1 = 0;
-  else
-    v1 = GetLastError();
-  if ( !v1 )
-    return 0;
-  _dosmaperr(v1);
-  return -1;
+  if ( __pInconsistency )
+    __pInconsistency();
+  terminate();
 }
 
-//----- (00419E1B) --------------------------------------------------------
-int __cdecl _chmod(const char *path, int mode)
+//----- (0041C972) --------------------------------------------------------
+int __cdecl __CxxSetUnhandledExceptionFilter()
 {
-  DWORD v2; // eax
-  DWORD v3; // eax
-  unsigned int v4; // eax
-
-  v2 = GetFileAttributesA(path);
-  if ( v2 != -1 )
-  {
-    v3 = (mode & 0x80u) == 0 ? v2 | 1 : v2 & 0xFFFFFFFE;
-    if ( SetFileAttributesA(path, v3) )
-      return 0;
-  }
-  v4 = GetLastError();
-  _dosmaperr(v4);
-  return -1;
-}
-
-//----- (0041AC93) --------------------------------------------------------
-// attributes: thunk
-DWORD __stdcall __crtTlsAlloc(void (__stdcall *lpCallBack)(void *))
-{
-  return TlsAlloc();
+  pOldExceptFilter = SetUnhandledExceptionFilter(__CxxUnhandledExceptionFilter);
+  return 0;
 }
 
 //----- (0041C985) --------------------------------------------------------
-void __cdecl __CxxRestoreUnhandledExceptionFilter()
+LPTOP_LEVEL_EXCEPTION_FILTER __CxxRestoreUnhandledExceptionFilter()
 {
-  SetUnhandledExceptionFilter(pOldExceptFilter);
+  return SetUnhandledExceptionFilter(pOldExceptFilter);
 }
 
-//----- (00420B87) --------------------------------------------------------
-BOOL __cdecl _ValidateRead(const void *data, unsigned int size)
+//----- (0041F950) --------------------------------------------------------
+void __cdecl _RTC_Initialize()
 {
-  return !IsBadReadPtr(data, size);
+  void (__cdecl *const *f)(); // [esp+Ch] [ebp-1Ch]
+
+  for ( f = __rtc_izz; f < __rtc_izz; ++f )
+  {
+    if ( *f )
+      (*f)();
+  }
 }
 
-//----- (00420BA3) --------------------------------------------------------
-BOOL __cdecl _ValidateWrite(void *data, unsigned int size)
+//----- (0041F994) --------------------------------------------------------
+void __cdecl _RTC_Terminate()
 {
-  return !IsBadWritePtr(data, size);
-}
+  void (__cdecl *const *f)(); // [esp+Ch] [ebp-1Ch]
 
-//----- (00420F2B) --------------------------------------------------------
-int __stdcall _crtInitCritSecNoSpinCount(_RTL_CRITICAL_SECTION *lpCriticalSection, unsigned int dwSpinCount)
-{
-  InitializeCriticalSection(lpCriticalSection);
-  return 1;
+  for ( f = __rtc_tzz; f < __rtc_tzz; ++f )
+  {
+    if ( *f )
+      (*f)();
+  }
 }
 
 //----- (00422B30) --------------------------------------------------------
@@ -47828,7 +48374,7 @@ void __cdecl _E2_0()
 }
 
 //----- (00422E50) --------------------------------------------------------
-void __usercall _E2_1(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>)
+void __usercall _E2_1(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>)
 {
   CIOCriticalSection::~CIOCriticalSection(&g_lockTimer, a1, a2, a3);
 }
@@ -47852,7 +48398,7 @@ void __cdecl _E11_0()
 }
 
 //----- (00422E90) --------------------------------------------------------
-void __usercall _E2_2(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>)
+void __usercall _E2_2(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>)
 {
   CScreen::~CScreen(&CLog::s_screen, a1, a2, a3);
 }
@@ -47882,10 +48428,10 @@ void __cdecl _E5_2()
 }
 
 //----- (00422EF0) --------------------------------------------------------
-void __usercall _E2_4(unsigned int a1@<ebx>, unsigned int a2@<edi>, unsigned int a3@<esi>)
+void __usercall _E2_4(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>)
 {
   CScreen::~CScreen(&CStatus::s_screen, a1, a2, a3);
 }
 
-// nfuncs=948 queued=597 decompiled=597 lumina nreq=0 worse=0 better=0
-// ALL OK, 597 function(s) have been successfully decompiled
+// nfuncs=950 queued=619 decompiled=619 lumina nreq=0 worse=0 better=0
+// ALL OK, 619 function(s) have been successfully decompiled
