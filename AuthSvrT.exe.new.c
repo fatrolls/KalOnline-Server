@@ -240,7 +240,7 @@ int __thiscall lisp::var::integerp(lisp::var *this);
 void __thiscall lisp::_string::_string(lisp::_string *this, const char *str);
 lisp::var *__thiscall lisp::_object::car(lisp::_object *this);
 void __thiscall lisp::_object::_object(lisp::_object *this);
-const char *__thiscall lisp::_null::`vftable'(lisp::_object *this);
+const char *__thiscall lisp::_cons::`vftable'(lisp::_object *this);
 void __thiscall lisp::_integer::_integer(lisp::_integer *this, int n);
 void __thiscall lisp::_cons::_cons(lisp::_cons *this, const lisp::var car, const lisp::var cdr);
 int __thiscall lisp::var::operator int(_DWORD *this);
@@ -952,7 +952,7 @@ int (__stdcall *off_42E0F0)(int) = &CCmdServer::`vftable'; // weak
 int (__stdcall *off_42E10C)(int) = &CServer::`vftable'; // weak
 int (*off_42E1EC[20])() =
 {
-  &unknown_libname_12,
+  &lisp::_string::`vftable',
   &lisp::_string::GetInteger,
   &lisp::_string::GetUnsigned,
   &lisp::_object::car,
@@ -962,7 +962,7 @@ int (*off_42E1EC[20])() =
   &unknown_libname_17,
   &unknown_libname_10,
   &unknown_libname_11,
-  &lisp::_null::`vftable',
+  &lisp::_cons::`vftable',
   &unknown_libname_11,
   &unknown_libname_11,
   &lisp::_object::car,
@@ -975,7 +975,7 @@ int (*off_42E1EC[20])() =
 }; // weak
 int (*off_42E214[10])() =
 {
-  &lisp::_null::`vftable',
+  &lisp::_cons::`vftable',
   &unknown_libname_11,
   &unknown_libname_11,
   &lisp::_object::car,
@@ -989,9 +989,9 @@ int (*off_42E214[10])() =
 _UNKNOWN unk_42E23C; // weak
 int (*off_42E240[20])() =
 {
-  &lisp::_null::`vftable',
-  &unknown_libname_12,
-  &unknown_libname_12,
+  &lisp::_cons::`vftable',
+  &lisp::_string::`vftable',
+  &lisp::_string::`vftable',
   &lisp::_object::car,
   &lisp::_object::car,
   &unknown_libname_10,
@@ -999,7 +999,7 @@ int (*off_42E240[20])() =
   &unknown_libname_10,
   &unknown_libname_17,
   &unknown_libname_11,
-  &lisp::_null::`vftable',
+  &lisp::_cons::`vftable',
   &unknown_libname_11,
   &unknown_libname_11,
   &unknown_libname_13,
@@ -1012,7 +1012,7 @@ int (*off_42E240[20])() =
 }; // weak
 int (*off_42E268[10])() =
 {
-  &lisp::_null::`vftable',
+  &lisp::_cons::`vftable',
   &unknown_libname_11,
   &unknown_libname_11,
   &unknown_libname_13,
@@ -1030,7 +1030,7 @@ int (__stdcall *off_42EFC8)(int) = &CIOServer::`vftable'; // weak
 int (__stdcall *off_42EFE4)(int) = &CPacket::`vftable'; // weak
 int (*off_42EFFC[10])() =
 {
-  &lisp::_null::`vftable',
+  &lisp::_cons::`vftable',
   &unknown_libname_11,
   &unknown_libname_11,
   &lisp::_object::car,
@@ -36192,11 +36192,11 @@ int g_bStop_0;
 CNMSocket CNMSocket::s_socket;
 int CMemoryPool<CNMPacket>::s_pool; // weak
 LONG dword_445900; // idb
-CScreen *stru_445904;
+CScreen *CScreen::s_pScreen;
 int CSocket::s_nPayUser;
 int CSocket::s_nMaxPayUser;
 int CSocket::s_nMaxUser;
-LONG dword_445954; // idb
+int CSocket::s_nId;
 SERVERSTATUS g_status[2][17];
 int dword_44595C[67]; // idb
 int g_mapUser[3]; // idb
@@ -36301,7 +36301,7 @@ int __cdecl CAuthConfig::Open()
     if ( *Str )
     {
       sprintf(String, "%s on port %d", Str, CAuthConfig::s_nPort);
-      SetWindowTextA((HWND)*(&stru_445904 + 1), String);
+      SetWindowTextA((HWND)*(&CScreen::s_pScreen + 1), String);
     }
     for ( Str = (char *)CConfig::Get(&v56, "Event", byte_42D3EE); ; Str += v6 )
     {
@@ -36384,7 +36384,7 @@ int __cdecl CAuthConfig::Open()
     if ( (CAuthConfig::s_nSystem & 8) != 0 )
     {
       v32.m_pObject = (lisp::_object *)1;
-      v29 = GetMenu((HWND)*(&stru_445904 + 1));
+      v29 = GetMenu((HWND)*(&CScreen::s_pScreen + 1));
       EnableMenuItem(v29, 0x8004u, (UINT)v32.m_pObject);
     }
     SizePointer = 2560;
@@ -37405,7 +37405,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
   MyRegisterClass(hInstance);
   CScreen::Open(&CLog::s_screen, 200, 50);
   CScreen::Open(&CStatus::s_screen, 80, 20);
-  stru_445904 = &CLog::s_screen;
+  CScreen::s_pScreen = &CLog::s_screen;
   if ( !InitInstance(hInstance, nShowCmd) )
     return 0;
   hAccTable = LoadAcceleratorsA(hInstance, (LPCSTR)0x6D);
@@ -37450,7 +37450,7 @@ int __cdecl InitInstance(HINSTANCE__ *hInstance, int nCmdShow)
   hWnd = CreateWindowExA(0x300u, ClassName, WindowName, 0xCF0840u, 0, 0, 624, 256, 0, 0, hInstance, 0);
   if ( !hWnd )
     return 0;
-  *(&stru_445904 + 1) = (CScreen *)hWnd;
+  *(&CScreen::s_pScreen + 1) = (CScreen *)hWnd;
   ShowWindow(hWnd, nCmdShow);
   UpdateWindow(hWnd);
   return 1;
@@ -37487,7 +37487,7 @@ LRESULT __stdcall WndProc(HWND__ *hWnd, unsigned int message, unsigned int wPara
       {
         if ( message != 15 )
           return DefWindowProcA(hWnd, message, wParam, lParam);
-        CScreen::OnPaint(stru_445904);
+        CScreen::OnPaint(CScreen::s_pScreen);
       }
       return 0;
     }
@@ -37515,7 +37515,7 @@ LRESULT __stdcall WndProc(HWND__ *hWnd, unsigned int message, unsigned int wPara
       {
         case 0x800Cu:
           KillTimer(hWnd, 1u);
-          stru_445904 = &CLog::s_screen;
+          CScreen::s_pScreen = &CLog::s_screen;
           CLog::Flush();
           LOG_INFO("Log Flushed");
           return 0;
@@ -37524,14 +37524,14 @@ LRESULT __stdcall WndProc(HWND__ *hWnd, unsigned int message, unsigned int wPara
           if ( v6 )
             ++CAuthConfig::s_nNumberOfThreads;
           KillTimer(hWnd, 1u);
-          stru_445904 = &CLog::s_screen;
+          CScreen::s_pScreen = &CLog::s_screen;
           LOG_ERR("Add thread count(%d) thread id(%x)", CAuthConfig::s_nNumberOfThreads, v6);
           return 0;
         case 0x8012u:
           goto LABEL_25;
         case 0x8013u:
           KillTimer(hWnd, 1u);
-          stru_445904 = &CStatus::s_screen;
+          CScreen::s_pScreen = &CStatus::s_screen;
           CStatus::Update();
           SetTimer(hWnd, 1u, 0xBB8u, 0);
           return 0;
@@ -37542,7 +37542,7 @@ LRESULT __stdcall WndProc(HWND__ *hWnd, unsigned int message, unsigned int wPara
     if ( (unsigned __int16)wParam == 32779 )
     {
       KillTimer(hWnd, 1u);
-      stru_445904 = &CLog::s_screen;
+      CScreen::s_pScreen = &CLog::s_screen;
       LOG_INFO("Stack dump started");
       UpdateWindow(hWnd);
       CIOSocket::DumpStack();
@@ -37558,7 +37558,7 @@ LRESULT __stdcall WndProc(HWND__ *hWnd, unsigned int message, unsigned int wPara
           CloseHandle(hObject);
 LABEL_25:
           KillTimer(hWnd, 1u);
-          stru_445904 = &CLog::s_screen;
+          CScreen::s_pScreen = &CLog::s_screen;
           InvalidateRect(hWnd, 0, 1);
         }
       }
@@ -37567,7 +37567,7 @@ LABEL_25:
         if ( (unsigned __int16)wParam != 32778 )
           return DefWindowProcA(hWnd, message, wParam, lParam);
         KillTimer(hWnd, 1u);
-        stru_445904 = &CLog::s_screen;
+        CScreen::s_pScreen = &CLog::s_screen;
         LOG_INFO("Exception test started");
         UpdateWindow(hWnd);
         TestException();
@@ -37700,7 +37700,7 @@ unsigned int __stdcall StopThread(void *arglist)
   CBillingSocket::Stop();
   do
     Sleep(0x3E8u);
-  while ( *(&stru_445904 + 5) );
+  while ( *(&CScreen::s_pScreen + 5) );
   CIOSocket::CloseIOThread();
   CDB::Close();
   CAuthConfig::Close();
@@ -37708,7 +37708,7 @@ unsigned int __stdcall StopThread(void *arglist)
   LOG_NORMAL("Shutdown completed. (MaxUser:%d)", CSocket::s_nMaxUser);
   CLog::Flush();
   if ( arglist )
-    PostMessageA((HWND)*(&stru_445904 + 1), 0x10u, 0, 0);
+    PostMessageA((HWND)*(&CScreen::s_pScreen + 1), 0x10u, 0, 0);
   return 0;
 }
 
@@ -39418,7 +39418,7 @@ void __thiscall CCmdPacket::OnIOCallback(CCmdPacket *this, int bSuccess, unsigne
   CIOObject::Release(*((CIOObject **)this + 4));
   CIOBuffer::Release(*((CIOBuffer **)this + 5));
   CMemoryPool<CCmdPacket>::Free((int)this);
-  InterlockedDecrement((volatile LONG *)&stru_445904 + 5);
+  InterlockedDecrement((volatile LONG *)&CScreen::s_pScreen + 5);
 }
 
 //----- (004065B0) --------------------------------------------------------
@@ -39486,7 +39486,7 @@ void __thiscall CCmdSocket::OnRead(CCmdSocket *this)
       break;
     *v3 = 0;
     v4 = (CIOBuffer *)(v3 + 1);
-    InterlockedIncrement((volatile LONG *)&stru_445904 + 5);
+    InterlockedIncrement((volatile LONG *)&CScreen::s_pScreen + 5);
     v2 = (CIOObject *)CMemoryPool<CCmdPacket>::Alloc();
     v2[1].m_nRef = (int)this->m_pReadBuf->m_buffer;
     CIOBuffer::AddRef(this->m_pReadBuf);
@@ -41050,7 +41050,7 @@ void __thiscall lisp::_object::_object(lisp::_object *this)
 // 42E214: using guessed type int (*off_42E214[10])();
 
 //----- (004094C0) --------------------------------------------------------
-const char *__thiscall lisp::_null::`vftable'(lisp::_object *this)
+const char *__thiscall lisp::_cons::`vftable'(lisp::_object *this)
 {
   return (const char *)&unk_42E23C;
 }
@@ -41155,7 +41155,7 @@ int __cdecl CDB::Open(const char *szServer)
       }
       while ( 1 )
       {
-        v6 = (HWND)*(&stru_445904 + 1);
+        v6 = (HWND)*(&CScreen::s_pScreen + 1);
         v3 = GetModuleHandleA(0);
         if ( !DialogBoxParamA(v3, (LPCSTR)0x81, v6, DialogProc, 0) )
           break;
@@ -41269,7 +41269,7 @@ int CDB::Execute(CDB *this, const char *format, ...)
     if ( !strcmp((const char *)Sqlstate, "08S01") )
     {
       LOG_ERR("SQL Disconnected");
-      PostMessageA((HWND)*(&stru_445904 + 1), 0x111u, 0x8009u, 0);
+      PostMessageA((HWND)*(&CScreen::s_pScreen + 1), 0x111u, 0x8009u, 0);
     }
   }
   return 0;
@@ -41309,7 +41309,7 @@ __int16 CDB::ExecuteInsertUnique(CDB *this, const char *format, ...)
     if ( !strcmp((const char *)Sqlstate, "08S01") )
     {
       LOG_ERR("SQL Disconnected");
-      PostMessageA((HWND)*(&stru_445904 + 1), 0x111u, 0x8009u, 0);
+      PostMessageA((HWND)*(&CScreen::s_pScreen + 1), 0x111u, 0x8009u, 0);
     }
   }
   return -1;
@@ -41349,7 +41349,7 @@ int CDB::ExecuteNoData(CDB *this, const char *format, ...)
     if ( !strcmp((const char *)Sqlstate, "08S01") )
     {
       LOG_ERR("SQL Disconnected");
-      PostMessageA((HWND)*(&stru_445904 + 1), 0x111u, 0x8009u, 0);
+      PostMessageA((HWND)*(&CScreen::s_pScreen + 1), 0x111u, 0x8009u, 0);
     }
   }
   return 0;
@@ -41441,7 +41441,7 @@ void __thiscall CDBConnect::CDBConnect(CDBConnect *this)
   else if ( SQLConnect(this->m_hDBC, Destination, -3, &UserName, -3, buf, -3) == -1 )
   {
     LOG_ERR("Can't connect to SQL");
-    PostMessageA((HWND)*(&stru_445904 + 1), 0x111u, 0x8009u, 0);
+    PostMessageA((HWND)*(&CScreen::s_pScreen + 1), 0x111u, 0x8009u, 0);
   }
   else
   {
@@ -44785,8 +44785,8 @@ void __cdecl CLog::AddV(int nType, char *format, char *va)
       fwrite_0(buffer, 1u, ElementCount, *(&stream + nType));
   }
   Concurrency::details::_CancellationTokenCallback<_lambda_bd6029e2426d7ec37458070853043c08_>::_Exec(&CLog::s_screen);
-  if ( stru_445904 == &CLog::s_screen )
-    InvalidateRect((HWND)*(&stru_445904 + 1), 0, 1);
+  if ( CScreen::s_pScreen == &CLog::s_screen )
+    InvalidateRect((HWND)*(&CScreen::s_pScreen + 1), 0, 1);
 }
 // 410C90: using guessed type int __thiscall Concurrency::details::_CancellationTokenCallback<_lambda_bd6029e2426d7ec37458070853043c08_>::_Exec(_DWORD);
 // 410CB0: using guessed type int __thiscall Concurrency::details::_CancellationTokenCallback<_lambda_bd6029e2426d7ec37458070853043c08_>::_Exec(_DWORD);
@@ -46363,9 +46363,9 @@ void __thiscall CScreen::OnPaint(CScreen *this)
   char *v8; // [esp+98h] [ebp-8h]
   int v9; // [esp+9Ch] [ebp-4h]
 
-  hdc = BeginPaint((HWND)*(&stru_445904 + 1), &Paint);
+  hdc = BeginPaint((HWND)*(&CScreen::s_pScreen + 1), &Paint);
   GetTextMetricsA(hdc, &tm);
-  GetClientRect((HWND)*(&stru_445904 + 1), &Rect);
+  GetClientRect((HWND)*(&CScreen::s_pScreen + 1), &Rect);
   y = 0;
   v9 = Rect.bottom / tm.tmHeight;
   if ( this->m_nLine <= Rect.bottom / tm.tmHeight )
@@ -46385,14 +46385,14 @@ void __thiscall CScreen::OnPaint(CScreen *this)
     v8 += this->m_nPitch;
     y += tm.tmHeight;
   }
-  EndPaint((HWND)*(&stru_445904 + 1), &Paint);
+  EndPaint((HWND)*(&CScreen::s_pScreen + 1), &Paint);
 }
 
 //----- (00413D60) --------------------------------------------------------
 void __stdcall CServer::Start()
 {
-  CIOServer::Start((CIOServer *)(&stru_445904 + 10), CAuthConfig::s_nPort);
-  CLink::Initialize((CLink *)(&stru_445904 + 3));
+  CIOServer::Start((CIOServer *)(&CScreen::s_pScreen + 10), CAuthConfig::s_nPort);
+  CLink::Initialize((CLink *)(&CScreen::s_pScreen + 3));
 }
 
 //----- (00413D80) --------------------------------------------------------
@@ -46417,16 +46417,16 @@ void __cdecl CServer::Add(CSocket *pSocket)
   unsigned int v3; // [esp+8h] [ebp-Ch] BYREF
   int v4; // [esp+Ch] [ebp-8h] BYREF
 
-  CIOSpinLock::Enter((CIOSpinLock *)&stru_445904 + 9);
-  CLink::Insert(&pSocket->m_link, (CLink *)(&stru_445904 + 3));
+  CIOSpinLock::Enter((CIOSpinLock *)&CScreen::s_pScreen + 9);
+  CLink::Insert(&pSocket->m_link, (CLink *)(&CScreen::s_pScreen + 3));
   v3 = Concurrency::details::VirtualProcessor::GetId((Concurrency::details::VirtualProcessor *)pSocket);
   v1 = std::pair<char const * const,CBillingLogin *>::pair<char const * const,CBillingLogin *>(&v4, &v3, &pSocket);
   std::_Tree<std::_Tmap_traits<int,CSocket *,std::less<int>,std::allocator<std::pair<int const,CSocket *>>,0>>::insert(
-    &stru_445904 + 6,
+    &CScreen::s_pScreen + 6,
     v2,
     (int)v1);
-  *(&stru_445904 + 2) = (CScreen *)((char *)*(&stru_445904 + 2) + 1);
-  CIOSpinLock::Leave((CIOSpinLock *)&stru_445904 + 9);
+  *(&CScreen::s_pScreen + 2) = (CScreen *)((char *)*(&CScreen::s_pScreen + 2) + 1);
+  CIOSpinLock::Leave((CIOSpinLock *)&CScreen::s_pScreen + 9);
 }
 
 //----- (00413E70) --------------------------------------------------------
@@ -46434,20 +46434,20 @@ void __cdecl CServer::Remove(CSocket *pSocket)
 {
   unsigned int v1; // [esp+0h] [ebp-4h] BYREF
 
-  CIOSpinLock::Enter((CIOSpinLock *)&stru_445904 + 9);
+  CIOSpinLock::Enter((CIOSpinLock *)&CScreen::s_pScreen + 9);
   CLink::Remove(&pSocket->m_link);
-  *(&stru_445904 + 2) = (CScreen *)((char *)*(&stru_445904 + 2) - 1);
+  *(&CScreen::s_pScreen + 2) = (CScreen *)((char *)*(&CScreen::s_pScreen + 2) - 1);
   v1 = Concurrency::details::VirtualProcessor::GetId((Concurrency::details::VirtualProcessor *)pSocket);
   std::_Tree<std::_Tmap_traits<int,CSocket *,std::less<int>,std::allocator<std::pair<int const,CSocket *>>,0>>::erase(
-    &stru_445904 + 6,
+    &CScreen::s_pScreen + 6,
     (int)&v1);
-  CIOSpinLock::Leave((CIOSpinLock *)&stru_445904 + 9);
+  CIOSpinLock::Leave((CIOSpinLock *)&CScreen::s_pScreen + 9);
 }
 
 //----- (00413ED0) --------------------------------------------------------
 void __stdcall CServer::Stop()
 {
-  CIOServer::Stop((CIOServer *)(&stru_445904 + 10));
+  CIOServer::Stop((CIOServer *)(&CScreen::s_pScreen + 10));
 }
 
 //----- (00413EE0) --------------------------------------------------------
@@ -46457,16 +46457,16 @@ void __stdcall CServer::Shutdown()
 
   while ( 1 )
   {
-    CIOSpinLock::Enter((CIOSpinLock *)&stru_445904 + 9);
-    v0 = (int)*(&stru_445904 + 3);
-    if ( *(&stru_445904 + 3) == (CScreen *)(&stru_445904 + 3) )
+    CIOSpinLock::Enter((CIOSpinLock *)&CScreen::s_pScreen + 9);
+    v0 = (int)*(&CScreen::s_pScreen + 3);
+    if ( *(&CScreen::s_pScreen + 3) == (CScreen *)(&CScreen::s_pScreen + 3) )
       break;
-    CIOObject::AddRef((CIOObject *)&(*(&stru_445904 + 3))[-3].m_lock.m_dwEIP[1]);
-    CIOSpinLock::Leave((CIOSpinLock *)&stru_445904 + 9);
+    CIOObject::AddRef((CIOObject *)&(*(&CScreen::s_pScreen + 3))[-3].m_lock.m_dwEIP[1]);
+    CIOSpinLock::Leave((CIOSpinLock *)&CScreen::s_pScreen + 9);
     CIOSocket::Close((CIOSocket *)(v0 - 108));
     CIOObject::Release((CIOObject *)(v0 - 108));
   }
-  CIOSpinLock::Leave((CIOSpinLock *)&stru_445904 + 9);
+  CIOSpinLock::Leave((CIOSpinLock *)&CScreen::s_pScreen + 9);
 }
 
 //----- (00413F40) --------------------------------------------------------
@@ -46477,15 +46477,15 @@ int __cdecl CServer::PendingWrite()
   CScreen **v3; // [esp+8h] [ebp-4h]
 
   v2 = 0;
-  CIOSpinLock::Enter((CIOSpinLock *)&stru_445904 + 9);
-  v3 = (CScreen **)*(&stru_445904 + 3);
-  while ( v3 != &stru_445904 + 3 )
+  CIOSpinLock::Enter((CIOSpinLock *)&CScreen::s_pScreen + 9);
+  v3 = (CScreen **)*(&CScreen::s_pScreen + 3);
+  while ( v3 != &CScreen::s_pScreen + 3 )
   {
     v1 = (Concurrency::details::UMSFreeVirtualProcessorRoot *)(v3 - 27);
     v3 = (CScreen **)*v3;
     v2 = Concurrency::details::UMSFreeVirtualProcessorRoot::GetExecutingProxy(v1);
   }
-  CIOSpinLock::Leave((CIOSpinLock *)&stru_445904 + 9);
+  CIOSpinLock::Leave((CIOSpinLock *)&CScreen::s_pScreen + 9);
   return (int)v2;
 }
 
@@ -46499,14 +46499,14 @@ CSocket *__cdecl CServer::FindSocket(int nId)
   char v6[4]; // [esp+Ch] [ebp-4h] BYREF
 
   v5 = 0;
-  CIOSpinLock::Enter((CIOSpinLock *)&stru_445904 + 9);
+  CIOSpinLock::Enter((CIOSpinLock *)&CScreen::s_pScreen + 9);
   v4 = nId;
   std::_Tree<std::_Tmap_traits<int,CUser *,std::less<int>,std::allocator<std::pair<int const,CUser *>>,0>>::find(
-    &stru_445904 + 6,
+    &CScreen::s_pScreen + 6,
     v6,
     &v4);
   v1 = std::_Tree<std::_Tmap_traits<char const *,CBillingLogin *,StrCmp,std::allocator<std::pair<char const * const,CBillingLogin *>>,0>>::end(
-         &stru_445904 + 6,
+         &CScreen::s_pScreen + 6,
          (int)v3);
   if ( std::_Tree<std::_Tmap_traits<int,CUser *,std::less<int>,std::allocator<std::pair<int const,CUser *>>,0>>::const_iterator::operator!=(v1) )
   {
@@ -46514,7 +46514,7 @@ CSocket *__cdecl CServer::FindSocket(int nId)
                        + 4);
     CIOObject::AddRef(v5);
   }
-  CIOSpinLock::Leave((CIOSpinLock *)&stru_445904 + 9);
+  CIOSpinLock::Leave((CIOSpinLock *)&CScreen::s_pScreen + 9);
   return (CSocket *)v5;
 }
 
@@ -46528,14 +46528,14 @@ CSocket *__cdecl CServer::ScanSocket(int nSvrId)
   CIOObject *v6; // [esp+Ch] [ebp-4h]
 
   v6 = 0;
-  CIOSpinLock::Enter((CIOSpinLock *)&stru_445904 + 9);
+  CIOSpinLock::Enter((CIOSpinLock *)&CScreen::s_pScreen + 9);
   std::_Tree<std::_Tmap_traits<char const *,CBillingLogin *,StrCmp,std::allocator<std::pair<char const * const,CBillingLogin *>>,0>>::begin(
-    &stru_445904 + 6,
+    &CScreen::s_pScreen + 6,
     (int)v5);
   while ( 1 )
   {
     v1 = std::_Tree<std::_Tmap_traits<char const *,CBillingLogin *,StrCmp,std::allocator<std::pair<char const * const,CBillingLogin *>>,0>>::end(
-           &stru_445904 + 6,
+           &CScreen::s_pScreen + 6,
            (int)v3);
     if ( !std::_Tree<std::_Tmap_traits<int,CUser *,std::less<int>,std::allocator<std::pair<int const,CUser *>>,0>>::const_iterator::operator!=(v1) )
       break;
@@ -46553,7 +46553,7 @@ CSocket *__cdecl CServer::ScanSocket(int nSvrId)
       v4,
       0);
   }
-  CIOSpinLock::Leave((CIOSpinLock *)&stru_445904 + 9);
+  CIOSpinLock::Leave((CIOSpinLock *)&CScreen::s_pScreen + 9);
   return (CSocket *)v6;
 }
 
@@ -48050,7 +48050,7 @@ void __thiscall CPacket::OnIOCallback(CPacket *this, int bSuccess, unsigned int 
   CIOObject::Release(*((CIOObject **)this + 4));
   CIOBuffer::Release(*((CIOBuffer **)this + 5));
   CMemoryPool<CPacket>::Free((int)this);
-  InterlockedDecrement((volatile LONG *)&stru_445904 + 5);
+  InterlockedDecrement((volatile LONG *)&CScreen::s_pScreen + 5);
 }
 
 //----- (004163A0) --------------------------------------------------------
@@ -48071,7 +48071,7 @@ void __thiscall CSyncPacket::OnIOCallback(CSyncPacket *this, int bSuccess, unsig
     CSocket::Process((CSocket *)v6.m_nAddr, authpacket);
     CIOObject::Release((CIOObject *)v6.m_nAddr);
     CIOBuffer::Release((CIOBuffer *)v6.m_nMask);
-    InterlockedDecrement((volatile LONG *)&stru_445904 + 5);
+    InterlockedDecrement((volatile LONG *)&CScreen::s_pScreen + 5);
   }
   while ( InterlockedDecrement((volatile LONG *)this + 18) );
 }
@@ -48081,7 +48081,7 @@ void __thiscall CSocket::CSocket(CSocket *this, unsigned int socket, in_addr add
 {
   CIOSocket::CIOSocket(this, socket);
   this->__vftable = (CSocket_vtbl *)&off_42FFD4;
-  this->m_nId = InterlockedIncrement(&dword_445954);
+  this->m_nId = InterlockedIncrement(&CSocket::s_nId);
   this->m_addr = addr;
   this->m_nSvrId = 0;
   this->m_nSection = 1;
@@ -48162,7 +48162,7 @@ void __thiscall CSocket::OnRead(CSocket *this)
       break;
     Size -= v4;
     v5 = (CIOBuffer *)((char *)v5 + v4);
-    InterlockedIncrement((volatile LONG *)&stru_445904 + 5);
+    InterlockedIncrement((volatile LONG *)&CScreen::s_pScreen + 5);
     v2 = (CIOObject *)CMemoryPool<CPacket>::Alloc();
     v2[1].m_nRef = (int)this->m_pReadBuf->m_buffer;
     CIOBuffer::AddRef(this->m_pReadBuf);
@@ -52505,14 +52505,14 @@ BOOL __stdcall CStatus::Update()
   CScreen::Add(&CStatus::s_screen, 0, " Pending NM Auth Output : %d", v0);
   v1 = CServer::PendingWrite();
   CScreen::Add(&CStatus::s_screen, 0, " Pending Output : %d", v1);
-  CScreen::Add(&CStatus::s_screen, 0, " Pending Packet : %d", *(&stru_445904 + 5));
+  CScreen::Add(&CStatus::s_screen, 0, " Pending Packet : %d", *(&CScreen::s_pScreen + 5));
   CScreen::Add(&CStatus::s_screen, 0, " ====================");
   CScreen::Add(&CStatus::s_screen, 0, " Total Max User: %d (%d)", CSocket::s_nMaxUser, CSocket::s_nMaxPayUser);
   v4 = CSocket::s_nPayUser;
   v2 = CUser::Count();
   CScreen::Add(&CStatus::s_screen, 0, " Total Current User: %d (%d)", v2, v4);
   Concurrency::details::_CancellationTokenCallback<_lambda_bd6029e2426d7ec37458070853043c08_>::_Exec(&CStatus::s_screen);
-  return InvalidateRect((HWND)*(&stru_445904 + 1), 0, 1);
+  return InvalidateRect((HWND)*(&CScreen::s_pScreen + 1), 0, 1);
 }
 // 410C90: using guessed type int __thiscall Concurrency::details::_CancellationTokenCallback<_lambda_bd6029e2426d7ec37458070853043c08_>::_Exec(_DWORD);
 // 410CB0: using guessed type int __thiscall Concurrency::details::_CancellationTokenCallback<_lambda_bd6029e2426d7ec37458070853043c08_>::_Exec(_DWORD);
@@ -53317,13 +53317,13 @@ void __cdecl _E5_4()
 //----- (0042C080) --------------------------------------------------------
 void __cdecl _E2_6()
 {
-  std::map<int,CSocket *>::~map<int,CSocket *>(&stru_445904 + 6);
+  std::map<int,CSocket *>::~map<int,CSocket *>(&CScreen::s_pScreen + 6);
 }
 
 //----- (0042C090) --------------------------------------------------------
 void __cdecl _E7_2()
 {
-  CServer::~CServer((CServer *)(&stru_445904 + 10));
+  CServer::~CServer((CServer *)(&CScreen::s_pScreen + 10));
 }
 
 //----- (0042C0A0) --------------------------------------------------------

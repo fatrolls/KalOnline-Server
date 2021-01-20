@@ -29,7 +29,7 @@ const char *__thiscall CConfig::Get(CConfig *this, const char *key);
 const char *__thiscall CConfig::Get(CConfig *this, const char *key, const char *defaultValue);
 int __thiscall CConfig::GetInt(CConfig *this, const char *key, int defaultValue);
 unsigned int __cdecl CConfig::GetTimeStamp();
-_DWORD *__thiscall lisp::var::var(_DWORD *this);
+void __thiscall lisp::var::var(lisp::var *this);
 // _DWORD __stdcall std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(_DWORD); weak
 int __thiscall lisp::var::stringp(lisp::var *this);
 int __thiscall lisp::var::integerp(lisp::var *this);
@@ -38,19 +38,19 @@ lisp::var *__thiscall lisp::var::car(lisp::var *this);
 lisp::var *__thiscall lisp::var::cdr(lisp::var *this);
 int __thiscall lisp::var::operator char const *(_DWORD *this);
 int __thiscall lisp::var::null(lisp::var *this);
-_DWORD *__thiscall lisp::_string::_string(_DWORD *this, int a2);
+void __thiscall lisp::_string::_string(lisp::_string *this, const char *str);
 const char *__thiscall lisp::_object::GetString(lisp::_object *this);
-_DWORD *__thiscall sub_4020E0(_DWORD *this);
-void *sub_402100();
-_DWORD *__thiscall lisp::_integer::_integer(_DWORD *this, int a2);
-_DWORD *__thiscall lisp::_cons::_cons(_DWORD *this, int a2, char a3);
+_DWORD *__thiscall lisp::_object::_object(_DWORD *this);
+void *lisp::_cons::`vftable'();
+void __thiscall lisp::_integer::_integer(lisp::_integer *this, int n);
+void __thiscall lisp::_cons::_cons(lisp::_cons *this, const lisp::var car, const lisp::var cdr);
 int __thiscall lisp::var::operator int(_DWORD *this);
 CMemory **__cdecl operator new(size_t Size);
 void __cdecl operator delete(int a1);
 int __stdcall DialogProc(HWND__ *hwndDlg, unsigned int uMsg, unsigned int wParam, int lParam);
 int __cdecl CDB::Open(const char *szServer);
 void __stdcall CDB::Close();
-CDB *__thiscall CDB::CDB(CDB *this);
+void __thiscall CDB::CDB(CDB *this);
 void __thiscall CDB::~CDB(CDB *this);
 int CDB::Execute(CDB *this, const char *format, ...);
 __int16 CDB::ExecuteInsertUnique(CDB *this, const char *format, ...);
@@ -58,17 +58,17 @@ int CDB::ExecuteNoData(CDB *this, const char *format, ...);
 int __thiscall CDB::Fetch(CDB *this);
 void __thiscall CDB::Reset(CDB *this);
 CDBConnect *__cdecl CDBConnect::Alloc();
-LONG __thiscall CDBConnect::Free(_DWORD *this);
+void __thiscall CDBConnect::Free(CDBConnect *this);
 void __thiscall CDBConnect::CDBConnect(CDBConnect *this);
 void __thiscall CDBConnect::~CDBConnect(CDBConnect *this);
-void __thiscall CIOSpinLock::Enter(volatile LONG *this);
-LONG __thiscall CIOSpinLock::Leave(volatile LONG *this);
+void __thiscall CIOSpinLock::Enter(CIOSpinLock *this);
+void __thiscall CIOSpinLock::Leave(CIOSpinLock *this);
 SQLHANDLE *__thiscall CDBConnect::`scalar deleting destructor'(SQLHANDLE *this, char a2);
 // int __thiscall unknown_libname_7(_DWORD); weak
 int __cdecl CDBConfig::Open();
-_DWORD *CDBConfig::Close();
+void __stdcall CDBConfig::Close();
 // _DWORD __stdcall unknown_libname_8(_DWORD, _DWORD); weak
-int __thiscall lisp::var::pop(int *this, int a2);
+lisp::var *__thiscall lisp::var::pop(lisp::var *this, lisp::var *result);
 int __thiscall lisp::var::length(lisp::var *this);
 void *__thiscall std::string::operator=(void *this, char *Str);
 _DWORD *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::clear(_DWORD *this);
@@ -87,21 +87,21 @@ BOOL __stdcall std::less<int>::operator()(_DWORD *a1, _DWORD *a2);
 int __thiscall std::vector<IPAddrMask>::capacity(_DWORD *this);
 int __thiscall std::vector<CIOSocket::CIOTimer>::end(_DWORD *this, int a2);
 int __thiscall std::vector<IPAddrMask>::size(_DWORD *this);
-int __thiscall sub_403B00(void *this);
+int __thiscall std::vector<IPAddrMask>::max_size(void *this);
 int __thiscall std::vector<IPAddrMask>::insert(_DWORD *this, int a2, int a3, int a4);
 int __thiscall std::vector<IPAddrMask>::_Destroy(void *this, int a2, int a3);
-int __thiscall sub_403BD0(void *this, void *a2, int a3, int a4);
+int __thiscall std::vector<IPAddrMask>::_Ufill(void *this, void *a2, int a3, int a4);
 void __noreturn std::vector<IPAddrMask>::_Xlen();
 void __thiscall std::length_error::length_error(std::length_error *this, const std::length_error *that);
 void __thiscall std::logic_error::logic_error(std::logic_error *this, const std::logic_error *that);
-int __thiscall sub_403CF0(char *this);
+const char *__thiscall std::logic_error::what(std::logic_error *this);
 void *__thiscall std::logic_error::`vector deleting destructor'(void *this, char a2);
 void __thiscall std::logic_error::~logic_error(std::logic_error *this);
 void __thiscall std::length_error::~length_error(std::length_error *this);
 _DWORD *__thiscall std::length_error::`vector deleting destructor'(_DWORD *this, char a2);
 void __stdcall std::allocator<CSyncPacket::CElement>::deallocate(int a1, int a2);
-CMemory **__stdcall sub_403E10(int a1);
-void *__thiscall sub_403E30(void *this, int a2);
+CMemory **__stdcall std::allocator<IPAddrMask>::allocate(int a1);
+void *__thiscall std::vector<CSyncPacket::CElement>::iterator::iterator(void *this, int a2);
 int __thiscall sub_403E50(void *this);
 _DWORD *__thiscall std::length_error::length_error(_DWORD *this, struct exception *a2);
 exception *__thiscall std::logic_error::logic_error(exception *this, struct exception *a2);
@@ -131,21 +131,21 @@ int __thiscall std::string::_Eos(_DWORD *this, int a2);
 int std::allocator<IPAddrMask>::max_size();
 BOOL __thiscall std::string::_Grow(size_t *this, unsigned int a2, char a3);
 // _DWORD __stdcall unknown_libname_13(_DWORD); weak
-int __thiscall sub_404840(int *this);
+int __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::operator*(int *this);
 _DWORD *__stdcall std::vector<IPAddrMask>::iterator::operator+(_DWORD *a1, int a2);
 int __thiscall std::vector<IPAddrMask>::iterator::operator-(int *this, int a1);
 // int __thiscall unknown_libname_24(_DWORD); weak
 bool __thiscall std::string::_Inside(_DWORD *this, unsigned int a2);
 int __thiscall std::string::_Copy(_DWORD *this, int a2, size_t Size);
 CMemory **__stdcall std::allocator<char>::allocate(size_t Size);
-CMemory **__cdecl sub_404AF0(size_t Size);
+CMemory **__cdecl std::_Allocate<char>(size_t Size);
 int __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Root(int *this);
 // _DWORD __stdcall unknown_libname_14(_DWORD); weak
 int __thiscall std::vector<IPAddrMask>::const_iterator::operator-(_DWORD *this, _DWORD *a2);
 void *__thiscall std::vector<IPAddrMask>::_Ucopy<std::vector<IPAddrMask>::iterator>(void *this, int a2, int a3, void *a4);
 int __cdecl std::_Destroy_range<IPAddrMask>(int a1, int a2);
 void *__cdecl std::_Uninitialized_fill_n<IPAddrMask *,unsigned int,IPAddrMask,std::allocator<IPAddrMask>>(void *a1, int a2, int a3);
-CMemory **__cdecl sub_404C20(int a1);
+CMemory **__cdecl std::_Allocate<IPAddrMask>(int a1);
 // void __cdecl __ExceptionPtrDestroy(void *); idb
 void *__thiscall std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(void *this, int a2, int a3, void *a4);
 _DWORD *__cdecl std::fill<IPAddrMask *,IPAddrMask>(_DWORD *a1, _DWORD *a2, _DWORD *a3);
@@ -172,7 +172,7 @@ _DWORD *__thiscall sub_405160(void *this);
 char __thiscall sub_405190(_DWORD *this, unsigned int a2);
 void *__thiscall sub_405210(void *this);
 void *__thiscall sub_405240(void *this, int a2, int a3);
-int *__thiscall sub_405280(int *this);
+int *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Init(int *this);
 void *__thiscall sub_4052F0(void *this, int a2, char a3);
 CMemory **__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Buynode(void *this);
 void __stdcall std::allocator<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node *>::destroy(int a1);
@@ -182,7 +182,7 @@ void *__thiscall sub_405510(void *this, _BYTE *a2, char a3);
 CMemory **__stdcall std::allocator<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node>::allocate(int a1);
 _DWORD *__stdcall std::allocator<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node *>::construct(void *a1, int a2);
 // _DWORD __stdcall unknown_libname_19(_DWORD); weak
-CMemory **__cdecl sub_405590(int a1);
+CMemory **__cdecl std::_Allocate<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node>(int a1);
 _DWORD *__cdecl std::_Construct<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node *,std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node *>(void *a1, int a2);
 int *__thiscall std::vector<IPAddrMask>::~vector<IPAddrMask>(void *this);
 int *__thiscall std::vector<IPAddrMask>::_Tidy(int *this);
@@ -206,7 +206,7 @@ void *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std
 int __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::_Inc(int *this);
 char __cdecl std::swap<char>(char *a1, char *a2);
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd);
-ATOM __cdecl MyRegisterClass(HINSTANCE hInstance);
+ATOM __cdecl MyRegisterClass(HINSTANCE__ *hInstance);
 int __cdecl InitInstance(HINSTANCE__ *hInstance, int nCmdShow);
 int __stdcall TestException();
 LRESULT __stdcall WndProc(HWND__ *hWnd, unsigned int message, unsigned int wParam, int lParam);
@@ -219,10 +219,10 @@ void __cdecl DesMem(void *buf, int mlen, int isencrypting);
 void __cdecl endes(char *inblock, char *outblock);
 void __cdecl permute(char *inblock, char (*perm)[16][8], char *outblock);
 void __cdecl iter(int num, char *inblock, char *outblock);
-void __cdecl f(int a1, int a2, int a3);
+void __cdecl f(char *right, int num, char *fret);
 void __cdecl perm32(char *inblock, char *outblock);
 void __cdecl expand(char *right, char *bigright);
-_BYTE *__cdecl sub_4078C0(char *a1, _BYTE *a2);
+_BYTE *__cdecl contract(char *a1, _BYTE *a2);
 void __cdecl dedes(char *inblock, char *outblock);
 void __cdecl DesKeyInit(char *password);
 void __stdcall sinit();
@@ -241,7 +241,7 @@ BOOL __stdcall sendMail();
 int __cdecl sendMail_0(const char *host, const char *from, const char *to, const char *body);
 int __cdecl sendFile(unsigned int sock, const char *name);
 // void __usercall GenerateExceptionReport(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, _EXCEPTION_POINTERS *data);
-BOOL hprintf(HANDLE hFile, LPCSTR a2, ...);
+void hprintf(void *LogFile, char *Format, ...);
 void __cdecl CreateMiniDump(_EXCEPTION_POINTERS *pException);
 void __cdecl RecordModuleList(void *LogFile);
 // int __cdecl _getdrive();
@@ -257,71 +257,71 @@ void __stdcall __spoils<edx,ecx> EBREAK();
 // int __usercall EBreak@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>);
 // int __usercall CIOException::Filter@<eax>(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3@<esi>, _EXCEPTION_POINTERS *pExp);
 void __cdecl CIOException::Open(const char *szMailServer, const char *szMailFrom, const char *szMailTo);
-BOOL CIOException::Enable();
-LONG CIOException::Disable();
-LONG CIOException::IsEnable();
+BOOL __cdecl CIOException::Enable();
+LONG __cdecl CIOException::Disable();
+int __cdecl CIOException::IsEnable();
 int __stdcall CIOException::SendMail();
 void __cdecl CIOException::DumpStack(int nThread, void **hThread, unsigned int *nThreadId);
 void __cdecl ImageHelpStackWalk_0(void *LogFile, void *hThread);
 // int cleanup(void); weak
 // int cleanup_0(void); weak
 void __thiscall CIOSpinLock::Wait(CIOSpinLock *this);
-struct _RTL_CRITICAL_SECTION *__thiscall CIOCriticalSection::CIOCriticalSection(struct _RTL_CRITICAL_SECTION *this);
+void __thiscall CIOCriticalSection::CIOCriticalSection(CIOCriticalSection *this);
 void __thiscall CIOCriticalSection::~CIOCriticalSection(CIOCriticalSection *this);
 void __thiscall CIOCriticalSection::Enter(CIOCriticalSection *this);
 void __thiscall CIOCriticalSection::Leave(CIOCriticalSection *this);
-int __thiscall sub_40ACE0(void *this);
+void __thiscall CIOSocket::CInit::~CInit(CIOSocket::CInit *this);
 int __cdecl CIOSocket::CreateIOThread(int nThread);
 unsigned int __thiscall CIOSocket::AddIOThread(void *this);
 int __cdecl CIOSocket::CloseIOThread();
-void sub_40AEF0();
-_DWORD *__thiscall CIOObject::~CIOObject(_DWORD *this);
+void __stdcall CIOSocket::FreeIOThread();
+void __thiscall CIOObject::~CIOObject(CIOObject *this);
 void __thiscall CIOObject::AddRef(CIOObject *this, volatile int *pRef);
 void __thiscall CIOObject::Release(CIOObject *this, volatile int *pRef);
-int __thiscall CIOObject::RegisterWait(void *this, void *a2);
+int __thiscall CIOObject::RegisterWait(CIOObject *this, void *handle);
 void __thiscall CIOObject::OnTimerCallback(CIOObject *this, int nId);
 void __thiscall CIOObject::OnIOCallback(CIOObject *this, int bSucess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
-int *__thiscall CIOSocket::CIOTimerInstance::OnTimerCallback(void *this, int a2);
+void __thiscall CIOSocket::CIOTimerInstance::OnTimerCallback(CIOSocket::CIOTimerInstance *this, int nId);
 void __thiscall CIOSocket::CIOTimerInstance::OnIOCallback(CIOSocket::CIOTimerInstance *this, int bSucess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
-int __stdcall CIOSocket::WaitThread(int a1);
+unsigned int __stdcall CIOSocket::WaitThread(void *formal);
 void __stdcall __noreturn CIOSocket::IOThread(void *arglist);
-int CIOSocket::DumpStack();
+int __stdcall CIOSocket::DumpStack();
 CIOBuffer *__cdecl CIOBuffer::Alloc();
-LONG __thiscall CIOBuffer::Free(_DWORD *this);
+void __thiscall CIOBuffer::Free(CIOBuffer *this);
 int __stdcall CIOBuffer::FreeAll();
 void __thiscall CIOSocket::CIOSocket(CIOSocket *this, unsigned int s);
 void __thiscall CIOSocket::~CIOSocket(CIOSocket *this);
-void __thiscall CIOSocket::Close(char *this);
+void __thiscall CIOSocket::Close(CIOSocket *this);
 void __thiscall CIOSocket::OnIOCallback(CIOSocket *this, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
 void __thiscall CIOSocket::OnCreate(CIOSocket *this);
 void __thiscall CIOSocket::ReadCallback(CIOSocket *this, unsigned int dwTransferred);
 void __thiscall CIOSocket::Read(CIOSocket *this, unsigned int dwLeft);
 void __thiscall CIOSocket::WriteCallback(CIOSocket *this, unsigned int dwTransferred);
 void __thiscall CIOSocket::Write(CIOSocket *this, CIOBuffer *pBuffer);
-_DWORD *__thiscall sub_40BF80(_DWORD *this);
+void __thiscall CIOServer::CIOServer(CIOServer *this);
 void __thiscall CIOServer::~CIOServer(CIOServer *this);
 void __thiscall CIOServer::Close(CIOServer *this);
 int __thiscall CIOServer::Start(CIOServer *this, int nPort);
 BOOL __thiscall sub_40C1A0(HANDLE *this);
-int __thiscall sub_40C1D0(_DWORD *this);
+int __thiscall CIOServer::Stop(_DWORD *this);
 void __thiscall CIOServer::OnIOCallback(CIOServer *this, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
 void __thiscall CIOSocket::Initialize(CIOSocket *this);
 void __thiscall CIOObject::OnFree(CIOObject *this);
-_DWORD *__thiscall CIOObject::`vector deleting destructor'(_DWORD *this, char a2);
+_DWORD *__thiscall CIOObject::`vftable'(_DWORD *this, char a2);
 void __thiscall CIOSocket::CIOTimer::CIOTimer(CIOSocket::CIOTimer *this, CIOObject *pObject, unsigned int dwTime, int nId);
-void __thiscall CIOObject::Release(volatile LONG *this);
-BOOL __thiscall CIOObject::PostObject(void *this, DWORD dwNumberOfBytesTransferred);
-CIOObject *__thiscall CIOObject::CIOObject(CIOObject *this);
-void __thiscall CIOObject::AddRef(volatile LONG *this);
+void __thiscall CIOObject::Release(CIOObject *this);
+BOOL __thiscall CIOObject::PostObject(CIOObject *this, int nId);
+void __thiscall CIOObject::CIOObject(CIOObject *this);
+void __thiscall CIOObject::AddRef(CIOObject *this);
 void *__thiscall CIOSocket::`vftable'(void *this, char a2);
 void __thiscall CIOBuffer::Release(CIOBuffer *this);
 _DWORD *__thiscall CIOServer::`vftable'(_DWORD *this, char a2);
 BOOL __thiscall sub_40C590(void *this);
-int __thiscall sub_40C5B0(void *this);
-int *__thiscall sub_40C5D0(int this, int a2);
-int __thiscall sub_40C620(int this);
+int __thiscall std::priority_queue<CIOSocket::CIOTimer>::top(void *this);
+int *__thiscall std::priority_queue<CIOSocket::CIOTimer>::push(int this, int a2);
+int __thiscall std::priority_queue<CIOSocket::CIOTimer>::pop(int this);
 BOOL __thiscall std::vector<CIOSocket::CIOTimer>::empty(void *this);
-int __thiscall sub_40C690(int *this);
+int __thiscall std::vector<CIOSocket::CIOTimer>::front(int *this);
 int __thiscall std::vector<CIOSocket::CIOTimer>::push_back(int this, int a2);
 int __thiscall std::vector<CIOSocket::CIOTimer>::pop_back(_DWORD *this);
 int __thiscall std::vector<CIOSocket::CIOTimer>::capacity(_DWORD *this);
@@ -341,10 +341,10 @@ int __thiscall std::vector<CIOSocket::CIOTimer>::const_iterator::operator-(_DWOR
 int *__cdecl std::push_heap<std::vector<CIOSocket::CIOTimer>::iterator,std::less<CIOSocket::CIOTimer>>(int a1, int a2);
 int __cdecl std::pop_heap<std::vector<CIOSocket::CIOTimer>::iterator,std::less<CIOSocket::CIOTimer>>(int a1, int a2, char a3);
 int __cdecl std::_Destroy_range<CIOSocket::CIOTimer>(int a1, int a2);
-void *__cdecl sub_40CE50(void *a1, int a2, int a3);
-void *__thiscall sub_40CE90(void *this, int a2, int a3, void *a4);
+void *__cdecl std::_Uninitialized_fill_n<CIOSocket::CIOTimer *,unsigned int,CIOSocket::CIOTimer,std::allocator<CIOSocket::CIOTimer>>(void *a1, int a2, int a3);
+void *__thiscall std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(void *this, int a2, int a3, void *a4);
 _DWORD *__cdecl std::fill<CIOSocket::CIOTimer *,CIOSocket::CIOTimer>(_DWORD *a1, _DWORD *a2, _DWORD *a3);
-_DWORD *__cdecl sub_40CEF0(int a1, int a2, int a3);
+_DWORD *__cdecl std::copy_backward<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(int a1, int a2, int a3);
 CMemory **__cdecl std::_Allocate<CIOSocket::CIOTimer>(int a1);
 _DWORD *__thiscall std::vector<CIOSocket::CIOTimer>::iterator::operator--(_DWORD *this);
 BOOL __stdcall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::operator!=(int a1);
@@ -353,13 +353,13 @@ int *__cdecl std::_Push_heap_0<std::vector<CIOSocket::CIOTimer>::iterator,int,CI
 int *std::_Pop_heap_0<std::vector<CIOSocket::CIOTimer>::iterator,CIOSocket::CIOTimer,std::less<CIOSocket::CIOTimer>>(int a1, int a2, ...);
 int __cdecl std::_Destroy_range<CIOSocket::CIOTimer>(int a1, int a2);
 void *__cdecl std::_Uninit_fill_n<CIOSocket::CIOTimer *,unsigned int,CIOSocket::CIOTimer,std::allocator<CIOSocket::CIOTimer>>(void *a1, int a2, int a3);
-void *__cdecl sub_40D180(int a1, int a2, void *a3);
+void *__cdecl std::_Uninitialized_copy<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *,std::allocator<CIOSocket::CIOTimer>>(int a1, int a2, void *a3);
 _DWORD *__cdecl std::_Copy_backward_opt<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(_DWORD *a1, _DWORD *a2, _DWORD *a3);
 _DWORD *__stdcall std::allocator<CIOSocket::CIOTimer>::construct(void *a1, int a2);
 _DWORD *__thiscall std::vector<CIOSocket::CIOTimer>::iterator::operator-(int *this, _DWORD *a1, int a2);
 _DWORD *__thiscall std::vector<CIOSocket::CIOTimer>::iterator::operator-=(_DWORD *this, int a2);
 int *__cdecl std::_Push_heap<std::vector<CIOSocket::CIOTimer>::iterator,int,CIOSocket::CIOTimer,std::less<CIOSocket::CIOTimer>>(int a1, int a2, int a3, int a4, int a5, int a6);
-int *__cdecl sub_40D340(int a1, int a2, int a3, int a4, int a5, int a6);
+int *__cdecl std::_Pop_heap<std::vector<CIOSocket::CIOTimer>::iterator,int,CIOSocket::CIOTimer,std::less<CIOSocket::CIOTimer>>(int a1, int a2, int a3, int a4, int a5, int a6);
 void *__cdecl std::_Uninit_copy<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *,std::allocator<CIOSocket::CIOTimer>>(int a1, int a2, void *a3);
 _DWORD *__cdecl std::_Construct<CIOSocket::CIOTimer,CIOSocket::CIOTimer>(void *a1, int a2);
 void sub_40D4A0();
@@ -368,10 +368,10 @@ BOOL __thiscall CIOSocket::CIOTimer::operator<(_DWORD *this, _DWORD *a2);
 int *__cdecl std::_Adjust_heap<std::vector<CIOSocket::CIOTimer>::iterator,int,CIOSocket::CIOTimer,std::less<CIOSocket::CIOTimer>>(int a1, int a2, int a3, int a4, int a5, int a6);
 void *__thiscall std::priority_queue<CIOSocket::CIOTimer>::priority_queue<CIOSocket::CIOTimer,std::vector<CIOSocket::CIOTimer>,std::less<CIOSocket::CIOTimer>>(void *this);
 _DWORD *__thiscall std::vector<CIOSocket::CIOTimer>::vector<CIOSocket::CIOTimer>(void *this);
-char __thiscall sub_40D690(_DWORD *this, unsigned int a2);
-void *__thiscall sub_40D710(void *this, char a2);
-_DWORD *__thiscall sub_40D730(_DWORD *this);
-void *__thiscall CServer::`vector deleting destructor'(void *this, char a2);
+char __thiscall std::vector<CIOSocket::CIOTimer>::_Buy(_DWORD *this, unsigned int a2);
+void *__thiscall std::_String_val<char>::_String_val<char>(void *this, char a2);
+void __thiscall CIOSocket::CIOTimerInstance::CIOTimerInstance(CIOSocket::CIOTimerInstance *this);
+void *__thiscall CIOSocket::CIOTimerInstance::`vftable'(void *this, char a2);
 int *__thiscall std::priority_queue<CIOSocket::CIOTimer>::~priority_queue<CIOSocket::CIOTimer,std::vector<CIOSocket::CIOTimer>,std::less<CIOSocket::CIOTimer>>(void *this);
 int *__thiscall std::vector<CIOSocket::CIOTimer>::~vector<CIOSocket::CIOTimer>(void *this);
 int *__thiscall std::vector<CIOSocket::CIOTimer>::_Tidy(int *this);
@@ -391,17 +391,17 @@ void __cdecl LOG_PAY(int nLogType, int nID, int nPayType, int nValue);
 // int __thiscall Concurrency::details::_CancellationTokenCallback<_lambda_bd6029e2426d7ec37458070853043c08_>::_Exec(_DWORD); weak
 // int __thiscall Concurrency::details::_CancellationTokenCallback<_lambda_bd6029e2426d7ec37458070853043c08_>::_Exec(_DWORD); weak
 void __thiscall CMemory::CInit::CInit(CMemory::CInit *this);
-CMemory *__thiscall CMemory::CMemory(CMemory *this);
+void __thiscall CMemory::CMemory(CMemory *this);
 int __thiscall CMemory::_heap_init(CMemory *this);
 void __thiscall CMemory::_heap_term(CMemory *this);
 int __thiscall CMemory::__sbh_heap_init(CMemory *this, unsigned int threshold);
-CMemory **__cdecl CMemory::_malloc(size_t Size);
+CMemory **__cdecl CMemory::_malloc(unsigned int size);
 void *__thiscall CMemory::_heap_alloc_base(CMemory *this, unsigned int size);
 CMemory::tagEntry **__thiscall CMemory::__sbh_alloc_block(CMemory *this, int intSize);
 CMemory::tagHeader *__thiscall CMemory::__sbh_alloc_new_region(CMemory *this);
 int __thiscall CMemory::__sbh_alloc_new_group(CMemory *this, CMemory::tagHeader *pHeader);
 void __cdecl CMemory::_free(void *pBlock);
-void __thiscall CMemory::_free_base(HANDLE *this, LPCVOID lpMem);
+void __thiscall CMemory::_free_base(CMemory *this, void *pBlock);
 CMemory::tagHeader *__thiscall CMemory::__sbh_find_block(CMemory *this, void *pvAlloc);
 void __thiscall CMemory::__sbh_free_block(CMemory *this, CMemory::tagHeader *pHeader, void *pvAlloc);
 void *__thiscall CMemory::_calloc_base(CMemory *this, unsigned int size);
@@ -412,24 +412,24 @@ void *__thiscall CMemory::_expand_base(CMemory *this, void *pBlock, unsigned int
 unsigned int __thiscall CMemory::_msize_base(CMemory *this, void *pblock);
 void *__cdecl CNoMemoryObject::operator new(size_t Size);
 void __cdecl CNoMemoryObject::operator delete(void *Block);
-void __thiscall CMemory::_mlock(int this);
-void __thiscall CMemory::_munlock(int this);
+void __thiscall CMemory::_mlock(CMemory *this);
+void __thiscall CMemory::_munlock(CMemory *this);
 void __thiscall CRWLock::Wait(CRWLock *this);
 void __thiscall sub_410140(volatile LONG *this);
 LONG __thiscall sub_410170(volatile LONG *this);
-char *__thiscall sub_410190(char *this);
-void __thiscall sub_4101E0(char *this);
+void __thiscall CScreen::CScreen(CScreen *this);
+void __thiscall CScreen::~CScreen(CScreen *this);
 void __thiscall CScreen::Open(CScreen *this, int nWidth, int nHeight);
 void CScreen::Add(CScreen *this, unsigned int color, const char *format, ...);
 void __thiscall CScreen::AddString(CScreen *this, unsigned int color, const char *string);
 // void __thiscall Concurrency::details::WorkSearchContext::ResetLRCBias(Concurrency::details::WorkSearchContext *__hidden this); idb
 void __thiscall CScreen::OnPaint(CScreen *this);
-void sub_410560();
+void CServer::Start();
 CIOSocket *__thiscall CServer::CreateSocket(CServer *this, unsigned int newSocket, sockaddr_in *addr);
-LONG __cdecl CServer::Add(int a1);
-LONG __cdecl CServer::Remove(int a1);
-int CServer::Size();
-int CServer::Stop();
+void __cdecl CServer::Add(CSocket *pSocket);
+void __cdecl CServer::Remove(CSocket *pSocket);
+int __cdecl CServer::Size();
+void __stdcall CServer::Stop();
 void __stdcall CServer::Shutdown();
 int __cdecl CServer::PendingWrite();
 void __thiscall CLink::Initialize(CLink *this);
@@ -438,15 +438,15 @@ void __thiscall CLink::Remove(CLink *this);
 // struct Concurrency::details::UMSThreadProxy *__thiscall Concurrency::details::UMSFreeVirtualProcessorRoot::GetExecutingProxy(Concurrency::details::UMSFreeVirtualProcessorRoot *__hidden this); idb
 _DWORD *__thiscall sub_410810(_DWORD *this);
 void *__thiscall CSocket::`vector deleting destructor'(void *this, char a2);
-void __thiscall sub_410860(_DWORD *this);
-LONG __thiscall sub_410880(int this, int a2, int a3, int a4);
+void __thiscall CServer::~CServer(CServer *this);
+void __thiscall CPacket::OnIOCallback(CPacket *this, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
 void __thiscall CSyncPacket::OnIOCallback(CSyncPacket *this, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped);
-CSocket *__thiscall CSocket::CSocket(CSocket *this, int a2, int a3);
-void __thiscall sub_410AB0(_DWORD *this);
+void __thiscall CSocket::CSocket(CSocket *this, unsigned int socket, in_addr addr);
+void __thiscall CSocket::~CSocket(CSocket *this);
 void __thiscall CSocket::OnCreate(CSocket *this);
 void __thiscall CSocket::OnRead(CSocket *this);
 void __thiscall CSocket::OnClose(CSocket *this);
-void CSocket::Write(int a1, char a2, ...);
+void CSocket::Write(CSocket *this, D2S_PROTOCOL nType, const char *formal, ...);
 void __thiscall CSocket::Process(CSocket *this, DBPACKET *dbpacket);
 void __thiscall CSocket::DelPlayer(CSocket *this, int nPID, int nUID, int nId);
 void __thiscall CSocket::LoadPlayer(CSocket *this, int nPID, int nLoadGID, int nUID, int nId);
@@ -529,9 +529,9 @@ void __stdcall sub_41AD20(int a1, int a2);
 int __stdcall sub_41AD90(int a1, int a2);
 void __thiscall CSyncPacket::Pop(CSyncPacket *this);
 void __thiscall CSyncPacket::CElement::CElement(CSyncPacket::CElement *this, CSocket *pSocket, CIOBuffer *pBuf, DBPACKET *packet);
-int __thiscall CSyncPacket::Front(char *this);
-_DWORD *__thiscall CIOSocket::CIOTimerInstance::`scalar deleting destructor'(_DWORD *this, char a2);
-LONG __thiscall CIOBuffer::AddRef(volatile LONG *this);
+IPAddrMask *__thiscall CSyncPacket::Front(CSyncPacket *this);
+_DWORD *__thiscall CSocket::`vftable'(_DWORD *this, char a2);
+void __thiscall CIOBuffer::AddRef(CIOBuffer *this);
 void __thiscall CSyncPacket::Push(CSyncPacket *this, CSyncPacket::CElement *element);
 // void __thiscall Concurrency::details::UMSFreeVirtualProcessorRoot::~UMSFreeVirtualProcessorRoot(Concurrency::details::UMSFreeVirtualProcessorRoot *__hidden this); idb
 // int __thiscall CDB::Skip(_DWORD); weak
@@ -546,16 +546,16 @@ int __cdecl sub_41B360(int a1, int a2);
 void __thiscall CDB::Bind(CDB *this, unsigned __int16 *n);
 BOOL __thiscall std::vector<IPAddrMask>::empty(_DWORD *this);
 _DWORD *CMemoryPool<CPacket>::Alloc();
-LONG __cdecl sub_41B4B0(int a1);
+void __cdecl CMemoryPool<CPacket>::Free(int a1);
 void *__thiscall std::vector<CSyncPacket::CElement>::begin(int *this, void *a2);
 int __thiscall std::vector<CSyncPacket::CElement>::insert(int *this, int a2, int a3, int a4);
 int __thiscall std::vector<CSyncPacket::CElement>::iterator::operator*(void *this);
 _DWORD *__thiscall std::vector<CSyncPacket::CElement>::iterator::operator++(_DWORD *this);
-_DWORD *__thiscall sub_41B5C0(int *this, _DWORD *a1, int a2);
+_DWORD *__thiscall std::vector<CSyncPacket::CElement>::iterator::operator+(int *this, _DWORD *a1, int a2);
 int __thiscall std::vector<IPAddrMask>::iterator::operator->(void *this);
 _DWORD *__thiscall std::vector<IPAddrMask>::iterator::operator++(int *this, _DWORD *a2, int a3);
-_DWORD *__thiscall sub_41B640(_DWORD *this);
-_DWORD *__thiscall sub_41B660(_DWORD *this);
+void __thiscall CPacket::CPacket(CPacket *this);
+void __thiscall CPacket::~CPacket(CIOSocket::CIOTimerInstance *this);
 int __thiscall std::vector<CSyncPacket::CElement>::size(_DWORD *this);
 void *__thiscall std::vector<CSyncPacket::CElement>::_Insert_n(_DWORD *this, int a2, unsigned int a3, int *a4);
 _DWORD *__thiscall std::vector<CSyncPacket::CElement>::iterator::operator+=(_DWORD *this, int a2);
@@ -576,15 +576,15 @@ _BYTE *__cdecl GetNumeric<unsigned char>(_BYTE *a1, _BYTE *a2);
 _DWORD *__cdecl GetNumeric<int>(_DWORD *a1, _DWORD *a2);
 void *__thiscall std::vector<CSyncPacket::CElement>::_Ucopy<CSyncPacket::CElement *>(void *this, int a2, int a3, void *a4);
 _DWORD *__cdecl std::fill<CSyncPacket::CElement *,CSyncPacket::CElement>(_DWORD *a1, _DWORD *a2, _DWORD *a3);
-_DWORD *__cdecl sub_41BD10(int a1, int a2, int a3);
-int __cdecl sub_41BD50(int a1, int a2);
-void *__cdecl sub_41BD90(void *a1, int a2, int a3);
-CMemory **__cdecl sub_41BDD0(int a1);
-void *__cdecl sub_41BDF0(int a1, int a2, void *a3);
+_DWORD *__cdecl std::copy_backward<CSyncPacket::CElement *,CSyncPacket::CElement *>(int a1, int a2, int a3);
+int __cdecl std::_Destroy_range<CSyncPacket::CElement>(int a1, int a2);
+void *__cdecl std::_Uninitialized_fill_n<CSyncPacket::CElement *,unsigned int,CSyncPacket::CElement,std::allocator<CSyncPacket::CElement>>(void *a1, int a2, int a3);
+CMemory **__cdecl std::_Allocate<CSyncPacket::CElement>(int a1);
+void *__cdecl std::_Uninitialized_copy<CSyncPacket::CElement *,CSyncPacket::CElement *,std::allocator<CSyncPacket::CElement>>(int a1, int a2, void *a3);
 _DWORD *__cdecl std::_Copy_backward_opt<CSyncPacket::CElement *,CSyncPacket::CElement *>(_DWORD *a1, _DWORD *a2, _DWORD *a3);
 int __cdecl std::_Destroy_range<CSyncPacket::CElement>(int a1, int a2);
 void *__cdecl std::_Uninit_fill_n<CSyncPacket::CElement *,unsigned int,CSyncPacket::CElement,std::allocator<CSyncPacket::CElement>>(void *a1, int a2, int a3);
-_DWORD *__stdcall sub_41BF40(void *a1, int a2);
+_DWORD *__stdcall std::allocator<CSyncPacket::CElement>::construct(void *a1, int a2);
 void *__cdecl std::_Uninit_copy<CSyncPacket::CElement *,CSyncPacket::CElement *,std::allocator<CSyncPacket::CElement>>(int a1, int a2, void *a3);
 _DWORD *__cdecl std::_Construct<CSyncPacket::CElement,CSyncPacket::CElement>(void *a1, int a2);
 void __thiscall CSyncPacket::CSyncPacket(CSyncPacket *this);
@@ -596,8 +596,8 @@ void *__thiscall sub_41C210(void *this);
 char __thiscall sub_41C230(_DWORD *this, unsigned int a2);
 int *__thiscall std::vector<CSyncPacket::CElement>::_Tidy(int *this);
 char *__thiscall sub_41C320(char *this);
-LONG __thiscall CMemoryPool<CPacket>::CPool::~CPool(void *this);
-LONG CMemoryPool<CPacket>::FreeAll();
+void __thiscall CMemoryPool<CPacket>::CPool::~CPool(void *this);
+void CMemoryPool<CPacket>::FreeAll();
 BOOL __stdcall CStatus::Update();
 __time32_t __stdcall InitRandom();
 int sub_41C5A0();
@@ -653,7 +653,7 @@ void *__thiscall exception::`vector deleting destructor'(void *this, char a2);
 // struct tm *__cdecl gmtime(const __time32_t *const Time);
 // __time32_t __cdecl time(__time32_t *const Time);
 // void *__cdecl memset(void *, int Val, size_t Size);
-int __cdecl _set_security_error_handler(int a1);
+void (__cdecl *__cdecl _set_security_error_handler(void (__cdecl *handler)(int, void *)))(int, void *);
 // char *__cdecl strrchr(const char *Str, int Ch);
 // struct tm *__cdecl localtime(const __time32_t *const Time);
 // void *__cdecl memchr(const void *Buf, int Val, size_t MaxCount);
@@ -682,23 +682,23 @@ void __stdcall __noreturn _inconsistency();
 void __cdecl _RTC_Initialize();
 void __cdecl _RTC_Terminate();
 // int __cdecl _stricmp(const char *String1, const char *String2);
-int sub_429900();
-int sub_429910();
-int sub_429920();
-int sub_429930();
-int *sub_429940();
-int sub_429950();
-void sub_429960();
-void sub_429970();
-int sub_429980();
-int *sub_429990();
-_DWORD *sub_4299A0();
+void __cdecl _E5();
+void __cdecl _E2();
+void __cdecl _E8();
+void __cdecl _E11();
+void __cdecl _E14();
+void __cdecl _E17();
+void __cdecl _E2_0();
+void __cdecl _E2_1();
+void sub_429980();
+void __cdecl _E8_0();
+void __cdecl _E11_0();
 void sub_4299B0();
-void sub_4299C0();
+void __cdecl _E5_1();
 void sub_4299D0();
-void sub_4299E0();
-LONG sub_429A00();
-void sub_429A10();
+void __cdecl _E2_3();
+void __cdecl _E5_2();
+void __cdecl _E2_4();
 // LSTATUS __stdcall RegCloseKey(HKEY hKey);
 // LSTATUS __stdcall RegOpenKeyExA(HKEY hKey, LPCSTR lpSubKey, DWORD ulOptions, REGSAM samDesired, PHKEY phkResult);
 // LSTATUS __stdcall RegSetValueExA(HKEY hKey, LPCSTR lpValueName, DWORD Reserved, DWORD dwType, const BYTE *lpData, DWORD cbData);
@@ -847,7 +847,7 @@ int (*off_42A420[20])() =
   &unknown_libname_4,
   &unknown_libname_1,
   &unknown_libname_2,
-  &sub_402100,
+  &lisp::_cons::`vftable',
   &unknown_libname_2,
   &unknown_libname_2,
   &lisp::_object::GetString,
@@ -860,7 +860,7 @@ int (*off_42A420[20])() =
 }; // weak
 int (*off_42A448[10])() =
 {
-  &sub_402100,
+  &lisp::_cons::`vftable',
   &unknown_libname_2,
   &unknown_libname_2,
   &lisp::_object::GetString,
@@ -874,7 +874,7 @@ int (*off_42A448[10])() =
 _UNKNOWN unk_42A470; // weak
 int (*off_42A474[20])() =
 {
-  &sub_402100,
+  &lisp::_cons::`vftable',
   &unknown_libname_3,
   &unknown_libname_3,
   &lisp::_object::GetString,
@@ -884,7 +884,7 @@ int (*off_42A474[20])() =
   &unknown_libname_1,
   &unknown_libname_4,
   &unknown_libname_2,
-  &sub_402100,
+  &lisp::_cons::`vftable',
   &unknown_libname_2,
   &unknown_libname_2,
   &unknown_libname_5,
@@ -897,7 +897,7 @@ int (*off_42A474[20])() =
 }; // weak
 int (*off_42A49C[10])() =
 {
-  &sub_402100,
+  &lisp::_cons::`vftable',
   &unknown_libname_2,
   &unknown_libname_2,
   &unknown_libname_5,
@@ -913,13 +913,13 @@ const char byte_42A816[2] = { '\0', '\0' }; // idb
 const char byte_42A827 = '\0'; // idb
 const unsigned int std::string::npos = 4294967295u;
 _UNKNOWN unk_42AFCC; // weak
-int (__stdcall *off_42B5BC)(int) = &CIOObject::`vector deleting destructor'; // weak
+int (__stdcall *off_42B5BC)(int) = &CIOObject::`vftable'; // weak
 int (__stdcall *off_42B5D4)(int) = &CIOSocket::`vftable'; // weak
 int (__stdcall *off_42B5F8)(int) = &CIOServer::`vftable'; // weak
-int (__stdcall *off_42B614)(int) = &CServer::`vector deleting destructor'; // weak
+int (__stdcall *off_42B614)(int) = &CIOSocket::CIOTimerInstance::`vftable'; // weak
 int (*off_42B62C[10])() =
 {
-  &sub_402100,
+  &lisp::_cons::`vftable',
   &unknown_libname_2,
   &unknown_libname_2,
   &lisp::_object::GetString,
@@ -936,8 +936,8 @@ _UNKNOWN unk_42ED6D; // weak
 _UNKNOWN unk_42ED6E; // weak
 _UNKNOWN unk_42EDA8; // weak
 _UNKNOWN unk_42EDA9; // weak
-int (__stdcall *off_42F84C)(int) = &CIOSocket::CIOTimerInstance::`scalar deleting destructor'; // weak
-int (__stdcall *off_42F870)(int) = &CServer::`vector deleting destructor'; // weak
+int (__stdcall *off_42F84C)(int) = &CSocket::`vftable'; // weak
+int (__stdcall *off_42F870)(int) = &CIOSocket::CIOTimerInstance::`vftable'; // weak
 int (__stdcall *off_42F888)(int) = &CSyncPacket::`vector deleting destructor'; // weak
 _UNKNOWN unk_437900; // weak
 void *std::logic_error::`vftable' = &std::logic_error::`vector deleting destructor'; // weak
@@ -1937,7 +1937,7 @@ CIOSpinLock g_lock = { 0 };
 unsigned int CDBConfig::s_nSystem = 0u;
 unsigned int dword_43D974 = 0u;
 u_short nPort = 0u; // idb
-int dword_43D97C = 0; // weak
+int CDBConfig::s_nTimeStamp = 0;
 int dword_43D980 = 0; // weak
 int CDBConfig::s_nNumberOfThreads = 0;
 _DWORD CDBConfig::s_strODBC[7] = { 0, 0, 0, 0, 0, 0, 0 }; // idb
@@ -1945,7 +1945,7 @@ _DWORD CDBConfig::s_strMailServer[7] = { 0, 0, 0, 0, 0, 0, 0 }; // idb
 _DWORD CDBConfig::s_strMailFrom[7] = { 0, 0, 0, 0, 0, 0, 0 }; // idb
 _DWORD CDBConfig::s_strMailTo[7] = { 0, 0, 0, 0, 0, 0, 0 }; // idb
 _DWORD CDBConfig::s_vSubNet[4] = { 0, 0, 0, 0 }; // idb
-_DWORD dword_43DA08[4] = { 0, 0, 0, 0 }; // idb
+_DWORD CDBConfig::s_LanguageMap[4] = { 0, 0, 0, 0 }; // idb
 HANDLE hHandle = NULL; // idb
 CHAR ClassName[104] =
 {
@@ -3486,32 +3486,32 @@ void *nThread; // idb
 void *g_nThreadId;
 void **g_hThread;
 DWORD nCount; // idb
-int dword_443E20[64]; // idb
+CIOObject *g_vObject[64];
 HANDLE Handles[64]; // idb
-int dword_444020; // weak
-HANDLE hEvent; // idb
+unsigned int g_dwTopTime;
+HANDLE handle; // idb
 int g_nTerminating;
 int CIOSocket::s_nRunningThread;
 HANDLE CompletionPort; // idb
-LONG dword_444034; // idb
-CIOCriticalSection stru_444038; // idb
-_UNKNOWN unk_444058; // weak
-_UNKNOWN unk_44405C; // weak
+int g_nFreeBuffer;
+CIOCriticalSection g_lockTimer; // idb
+CIOSocket::CInit unk_444058; // idb
+_UNKNOWN g_timerQueue; // weak
 CIOSocket::CIOTimerInstance g_instance;
 _DWORD dword_444080[32]; // idb
 lisp::var lisp::nil;
-_UNKNOWN unk_444104; // weak
+lisp::_null lisp::s_nil;
 unsigned int g_nNext[3];
 FILE *stream; // idb
 CScreen *CScreen::s_pScreen;
 CLog::CInit unk_444154; // idb
-LONG dword_444158; // idb
+LONG g_nMemoryCount; // idb
 CMemory *g_pMemory[16];
 CScreen *stru_4441A4;
 int CSocket::s_nIID;
 int g_nCreate;
 _UNKNOWN g_syncPacket; // weak
-int dword_448DE0; // weak
+int CMemoryPool<CPacket>::s_pool; // weak
 LONG dword_448DE4; // idb
 CScreen CStatus::s_screen;
 unsigned int CDBConfig::s_nEvent;
@@ -3520,13 +3520,13 @@ LONG dword_448F28; // idb
 int dword_448F2C[]; // weak
 int dword_448F30[32]; // idb
 int dword_448FB0; // weak
-int dword_448FDC; // weak
+void (__cdecl *user_handler)(int, void *);
 
 
 //----- (00401000) --------------------------------------------------------
 void __thiscall CConfig::CConfig(CConfig *this)
 {
-  lisp::var::var(&this->m_root.m_pObject);
+  lisp::var::var(&this->m_root);
   this->m_fp = 0;
 }
 
@@ -3784,44 +3784,47 @@ lisp::var *__thiscall CConfig::Find(CConfig *this, lisp::var *result, const char
 lisp::var *__thiscall CConfig::GetValue(CConfig *this, lisp::var *result)
 {
   char *v2; // eax
-  lisp::var *v3; // eax
-  _DWORD *v4; // [esp+0h] [ebp-20h]
-  CMemory **v6; // [esp+8h] [ebp-18h]
-  Token v7; // [esp+10h] [ebp-10h]
+  int v3; // eax
+  lisp::var *v4; // eax
+  int v5; // [esp+0h] [ebp-20h]
+  lisp::_string *v7; // [esp+8h] [ebp-18h]
+  Token v8; // [esp+10h] [ebp-10h]
 
   do
-    v7 = CConfig::GetToken(this);
-  while ( v7 == T_NEWLINE );
-  if ( v7 == T_VARIABLE || v7 == T_STRING )
+    v8 = CConfig::GetToken(this);
+  while ( v8 == T_NEWLINE );
+  if ( v8 == T_VARIABLE || v8 == T_STRING )
   {
-    v6 = operator new(8u);
-    if ( v6 )
+    v7 = (lisp::_string *)operator new(8u);
+    if ( v7 )
     {
       v2 = Strdup(this->m_szSymbol);
-      v4 = lisp::_string::_string(v6, (int)v2);
+      lisp::_string::_string(v7, v2);
+      v5 = v3;
     }
     else
     {
-      v4 = 0;
+      v5 = 0;
     }
-    unknown_libname_13(v4);
-    v3 = result;
+    unknown_libname_13(v5);
+    v4 = result;
   }
   else
   {
-    if ( v7 == T_OPEN )
+    if ( v8 == T_OPEN )
     {
       CConfig::GetList(this, result);
     }
     else
     {
-      this->m_token = v7;
+      this->m_token = v8;
       std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&lisp::nil);
     }
-    v3 = result;
+    v4 = result;
   }
-  return v3;
+  return v4;
 }
+// 4016FC: variable 'v3' is possibly undefined
 // 401F90: using guessed type _DWORD __stdcall std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(_DWORD);
 // 404820: using guessed type _DWORD __stdcall unknown_libname_13(_DWORD);
 
@@ -3829,7 +3832,7 @@ lisp::var *__thiscall CConfig::GetValue(CConfig *this, lisp::var *result)
 char *__cdecl Strdup(const char *str)
 {
   CMemory **v1; // eax
-  size_t v3; // [esp-4h] [ebp-8h]
+  unsigned int v3; // [esp-4h] [ebp-8h]
 
   v3 = strlen(str) + 1;
   v1 = CMemory::_malloc(v3);
@@ -3840,89 +3843,99 @@ char *__cdecl Strdup(const char *str)
 lisp::var *__thiscall CConfig::GetList(CConfig *this, lisp::var *result)
 {
   lisp::var *v2; // eax
-  lisp::_object *v3; // ecx
+  int v3; // eax
   lisp::_object *v4; // ecx
-  int v5; // ecx
-  int v6; // [esp-8h] [ebp-44h] BYREF
-  lisp::var v7; // [esp-4h] [ebp-40h] BYREF
-  _DWORD *v8; // [esp+0h] [ebp-3Ch]
-  _DWORD *v9; // [esp+4h] [ebp-38h]
-  CConfig *v10; // [esp+8h] [ebp-34h]
-  int *v11; // [esp+Ch] [ebp-30h]
-  lisp::var *v12; // [esp+10h] [ebp-2Ch]
-  CMemory **v13; // [esp+14h] [ebp-28h]
-  _DWORD *v14; // [esp+18h] [ebp-24h]
-  lisp::var *v15; // [esp+1Ch] [ebp-20h]
-  CMemory **v16; // [esp+20h] [ebp-1Ch]
-  _DWORD *v17; // [esp+24h] [ebp-18h]
-  lisp::var v18; // [esp+28h] [ebp-14h] BYREF
-  lisp::var v19; // [esp+2Ch] [ebp-10h] BYREF
-  int v20; // [esp+38h] [ebp-4h]
+  lisp::_object *v5; // ecx
+  lisp::_object *v6; // ecx
+  int v7; // eax
+  lisp::var v8; // [esp-8h] [ebp-44h] BYREF
+  int v9; // [esp-4h] [ebp-40h] BYREF
+  int v10; // [esp+0h] [ebp-3Ch]
+  int v11; // [esp+4h] [ebp-38h]
+  CConfig *v12; // [esp+8h] [ebp-34h]
+  lisp::var *v13; // [esp+Ch] [ebp-30h]
+  int *v14; // [esp+10h] [ebp-2Ch]
+  lisp::_cons *v15; // [esp+14h] [ebp-28h]
+  int v16; // [esp+18h] [ebp-24h]
+  int *v17; // [esp+1Ch] [ebp-20h]
+  lisp::_integer *v18; // [esp+20h] [ebp-1Ch]
+  int v19; // [esp+24h] [ebp-18h]
+  lisp::var v20; // [esp+28h] [ebp-14h] BYREF
+  lisp::var v21; // [esp+2Ch] [ebp-10h] BYREF
+  int v22; // [esp+38h] [ebp-4h]
 
-  v10 = this;
-  CConfig::GetValue(this, &v19);
-  if ( (unsigned __int8)lisp::var::null(&v19) )
+  v12 = this;
+  CConfig::GetValue(this, &v21);
+  if ( (unsigned __int8)lisp::var::null(&v21) )
   {
-    if ( v10->m_token == T_CLOSE )
+    if ( v12->m_token == T_CLOSE )
     {
       std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&lisp::nil);
       v2 = result;
     }
     else
     {
-      v16 = operator new(8u);
-      v20 = 0;
-      if ( v16 )
-        v9 = lisp::_integer::_integer(v16, v10->m_token);
+      v18 = (lisp::_integer *)operator new(8u);
+      v22 = 0;
+      if ( v18 )
+      {
+        lisp::_integer::_integer(v18, v12->m_token);
+        v11 = v3;
+      }
       else
-        v9 = 0;
-      v17 = v9;
-      v20 = -1;
-      unknown_libname_13(v9);
+      {
+        v11 = 0;
+      }
+      v19 = v11;
+      v22 = -1;
+      unknown_libname_13(v11);
       v2 = result;
     }
   }
   else
   {
-    CConfig::GetList(v10, &v18);
-    if ( (unsigned __int8)lisp::var::cdr(&v18) )
+    CConfig::GetList(v12, &v20);
+    if ( (unsigned __int8)lisp::var::cdr(&v20) )
     {
-      v7.m_pObject = v3;
-      v15 = &v7;
-      std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v19);
-      free_var(v7);
-      std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v18);
+      v9 = (int)v4;
+      v17 = &v9;
+      std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v21);
+      free_var((lisp::var)v9);
+      std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v20);
       v2 = result;
     }
     else
     {
-      v13 = operator new(0xCu);
-      v20 = 1;
-      if ( v13 )
+      v15 = (lisp::_cons *)operator new(0xCu);
+      v22 = 1;
+      if ( v15 )
       {
-        v7.m_pObject = v4;
-        v12 = &v7;
-        std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v18);
-        v6 = v5;
-        v11 = &v6;
-        std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v19);
-        v8 = lisp::_cons::_cons(v13, v6, (char)v7.m_pObject);
+        v9 = (int)v5;
+        v14 = &v9;
+        std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v20);
+        v8.m_pObject = v6;
+        v13 = &v8;
+        std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v21);
+        lisp::_cons::_cons(v15, v8, (const lisp::var)v9);
+        v10 = v7;
       }
       else
       {
-        v8 = 0;
+        v10 = 0;
       }
-      v14 = v8;
-      v20 = -1;
-      unknown_libname_13(v8);
+      v16 = v10;
+      v22 = -1;
+      unknown_libname_13(v10);
       v2 = result;
     }
   }
   return v2;
 }
-// 40187E: variable 'v3' is possibly undefined
-// 4018C0: variable 'v4' is possibly undefined
-// 4018CF: variable 'v5' is possibly undefined
+// 401836: variable 'v3' is possibly undefined
+// 40187E: variable 'v4' is possibly undefined
+// 4018C0: variable 'v5' is possibly undefined
+// 4018CF: variable 'v6' is possibly undefined
+// 4018E6: variable 'v7' is possibly undefined
 // 401F90: using guessed type _DWORD __stdcall std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(_DWORD);
 // 404820: using guessed type _DWORD __stdcall unknown_libname_13(_DWORD);
 
@@ -3932,43 +3945,47 @@ int __thiscall CConfig::Open(CConfig *this, const char *szFilename)
   lisp::_object *v3; // ecx
   lisp::_object *v4; // ecx
   char *v5; // eax
-  lisp::_object *v6; // ecx
-  lisp::var *v7; // eax
-  lisp::_object *v8; // ecx
-  int v9; // ecx
-  int v10; // ecx
-  int v11; // [esp-8h] [ebp-88h] BYREF
-  lisp::var v12; // [esp-4h] [ebp-84h] BYREF
-  _DWORD *v13; // [esp+0h] [ebp-80h]
-  lisp::_object *v14; // [esp+4h] [ebp-7Ch]
-  lisp::_object *v15; // [esp+8h] [ebp-78h]
-  _DWORD *v16; // [esp+Ch] [ebp-74h]
-  int v17; // [esp+10h] [ebp-70h]
+  int v6; // eax
+  lisp::_object *v7; // ecx
+  lisp::var *v8; // eax
+  lisp::_object *v9; // ecx
+  lisp::_object *v10; // eax
+  lisp::_object *v11; // ecx
+  lisp::_object *v12; // eax
+  lisp::_object *v13; // ecx
+  int v14; // eax
+  lisp::var v15; // [esp-8h] [ebp-88h] BYREF
+  int v16; // [esp-4h] [ebp-84h] BYREF
+  int v17; // [esp+0h] [ebp-80h]
+  lisp::var v18; // [esp+4h] [ebp-7Ch]
+  lisp::var cdr; // [esp+8h] [ebp-78h]
+  int v20; // [esp+Ch] [ebp-74h]
+  int v21; // [esp+10h] [ebp-70h]
   void *Src; // [esp+14h] [ebp-6Ch]
-  lisp::var *v19; // [esp+18h] [ebp-68h]
-  CMemory **v20; // [esp+1Ch] [ebp-64h]
-  lisp::_object *v21; // [esp+20h] [ebp-60h]
-  int *v22; // [esp+24h] [ebp-5Ch]
-  lisp::var *v23; // [esp+28h] [ebp-58h]
-  CMemory **v24; // [esp+2Ch] [ebp-54h]
-  lisp::_object *v25; // [esp+30h] [ebp-50h]
-  int *v26; // [esp+34h] [ebp-4Ch]
-  lisp::var *v27; // [esp+38h] [ebp-48h]
-  CMemory **v28; // [esp+3Ch] [ebp-44h]
-  _DWORD *v29; // [esp+40h] [ebp-40h]
-  lisp::var *v30; // [esp+44h] [ebp-3Ch]
+  int *v23; // [esp+18h] [ebp-68h]
+  lisp::_string *v24; // [esp+1Ch] [ebp-64h]
+  lisp::_object *v25; // [esp+20h] [ebp-60h]
+  lisp::var *v26; // [esp+24h] [ebp-5Ch]
+  int *v27; // [esp+28h] [ebp-58h]
+  lisp::_cons *v28; // [esp+2Ch] [ebp-54h]
+  lisp::_object *v29; // [esp+30h] [ebp-50h]
+  lisp::var *v30; // [esp+34h] [ebp-4Ch]
+  int *v31; // [esp+38h] [ebp-48h]
+  lisp::_cons *v32; // [esp+3Ch] [ebp-44h]
+  int v33; // [esp+40h] [ebp-40h]
+  int *v34; // [esp+44h] [ebp-3Ch]
   lisp::var result; // [esp+48h] [ebp-38h] BYREF
-  lisp::var *v32; // [esp+4Ch] [ebp-34h]
-  lisp::var *v33; // [esp+50h] [ebp-30h]
-  CMemory **v34; // [esp+54h] [ebp-2Ch]
-  _DWORD *v35; // [esp+58h] [ebp-28h]
-  lisp::var *v36; // [esp+5Ch] [ebp-24h]
-  lisp::var v37; // [esp+60h] [ebp-20h] BYREF
-  lisp::var *v38; // [esp+64h] [ebp-1Ch]
+  int *v36; // [esp+4Ch] [ebp-34h]
+  int *v37; // [esp+50h] [ebp-30h]
+  lisp::_string *v38; // [esp+54h] [ebp-2Ch]
+  int v39; // [esp+58h] [ebp-28h]
+  int *v40; // [esp+5Ch] [ebp-24h]
+  lisp::var v41; // [esp+60h] [ebp-20h] BYREF
+  lisp::var *v42; // [esp+64h] [ebp-1Ch]
   char *String2; // [esp+68h] [ebp-18h]
-  int v40; // [esp+6Ch] [ebp-14h]
-  char v41[4]; // [esp+70h] [ebp-10h] BYREF
-  int v42; // [esp+7Ch] [ebp-4h]
+  int v44; // [esp+6Ch] [ebp-14h]
+  lisp::var v45; // [esp+70h] [ebp-10h] BYREF
+  int v46; // [esp+7Ch] [ebp-4h]
 
   Src = this;
   this->m_fp = fopen(szFilename, "rb");
@@ -3977,130 +3994,138 @@ int __thiscall CConfig::Open(CConfig *this, const char *szFilename)
     LOG_ERR("'%s' File open failed at CConfig::Open", szFilename);
     return 0;
   }
-  lisp::var::var(v41);
-  v38 = (lisp::var *)((char *)Src + 520);
+  lisp::var::var(&v45);
+  v42 = (lisp::var *)((char *)Src + 520);
   *((_DWORD *)Src + 129) = 1;
   while ( 1 )
   {
-    v40 = CConfig::GetToken((CConfig *)Src);
-    v17 = v40;
-    if ( !v40 )
+    v44 = CConfig::GetToken((CConfig *)Src);
+    v21 = v44;
+    if ( !v44 )
       break;
-    if ( v17 == 1 )
+    if ( v21 == 1 )
     {
       String2 = Strdup((const char *)Src);
-      v40 = CConfig::GetToken((CConfig *)Src);
-      if ( v40 != 4 )
+      v44 = CConfig::GetToken((CConfig *)Src);
+      if ( v44 != 4 )
         goto invalid;
-      v40 = CConfig::GetToken((CConfig *)Src);
-      lisp::var::var(&v37);
-      if ( v40 == 1 || v40 == 2 )
+      v44 = CConfig::GetToken((CConfig *)Src);
+      lisp::var::var(&v41);
+      if ( v44 == 1 || v44 == 2 )
       {
-        v34 = operator new(8u);
-        v42 = 0;
-        if ( v34 )
+        v38 = (lisp::_string *)operator new(8u);
+        v46 = 0;
+        if ( v38 )
         {
           v5 = Strdup((const char *)Src);
-          v16 = lisp::_string::_string(v34, (int)v5);
+          lisp::_string::_string(v38, v5);
+          v20 = v6;
         }
         else
         {
-          v16 = 0;
+          v20 = 0;
         }
-        v35 = v16;
-        v42 = -1;
-        v12.m_pObject = v4;
-        v36 = &v12;
-        unknown_libname_13(v16);
-        lisp::var::operator=(&v37, (int)v12.m_pObject);
+        v39 = v20;
+        v46 = -1;
+        v16 = (int)v4;
+        v40 = &v16;
+        unknown_libname_13(v20);
+        lisp::var::operator=(&v41, v16);
       }
       else
       {
-        if ( v40 != 7 )
+        if ( v44 != 7 )
           goto invalid;
-        v12.m_pObject = v3;
-        v33 = &v12;
-        CConfig::GetList((CConfig *)Src, &v12);
-        lisp::var::operator=(&v37, (int)v12.m_pObject);
-        if ( (unsigned __int8)lisp::var::cdr(&v37) )
+        v16 = (int)v3;
+        v37 = &v16;
+        CConfig::GetList((CConfig *)Src, (lisp::var *)&v16);
+        lisp::var::operator=(&v41, v16);
+        if ( (unsigned __int8)lisp::var::cdr(&v41) )
         {
-          v40 = lisp::var::operator int(&v37);
-          v12.m_pObject = v6;
-          v32 = &v12;
-          std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v37);
-          free_var(v12);
+          v44 = lisp::var::operator int(&v41);
+          v16 = (int)v7;
+          v36 = &v16;
+          std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v41);
+          free_var((lisp::var)v16);
 invalid:
           LOG_ERR("Invalid format %s(%d) at CConfig::Open", szFilename, *((_DWORD *)Src + 129));
           CMemory::_free(String2);
           goto LABEL_34;
         }
       }
-      v7 = CConfig::Find((CConfig *)Src, &result, String2);
-      if ( (unsigned __int8)lisp::var::null(v7) )
+      v8 = CConfig::Find((CConfig *)Src, &result, String2);
+      if ( (unsigned __int8)lisp::var::null(v8) )
       {
-        v28 = operator new(0xCu);
-        v42 = 1;
-        if ( v28 )
+        v32 = (lisp::_cons *)operator new(0xCu);
+        v46 = 1;
+        if ( v32 )
         {
-          v24 = operator new(0xCu);
-          LOBYTE(v42) = 2;
-          if ( v24 )
+          v28 = (lisp::_cons *)operator new(0xCu);
+          LOBYTE(v46) = 2;
+          if ( v28 )
           {
-            v20 = operator new(8u);
-            LOBYTE(v42) = 3;
-            if ( v20 )
-              v15 = (lisp::_object *)lisp::_string::_string(v20, (int)String2);
+            v24 = (lisp::_string *)operator new(8u);
+            LOBYTE(v46) = 3;
+            if ( v24 )
+            {
+              lisp::_string::_string(v24, String2);
+              cdr.m_pObject = v10;
+            }
             else
-              v15 = 0;
-            v21 = v15;
-            LOBYTE(v42) = 2;
-            v12.m_pObject = v15;
-            v23 = &v12;
-            std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v37);
-            v11 = v9;
-            v22 = &v11;
-            unknown_libname_13(v21);
-            v14 = (lisp::_object *)lisp::_cons::_cons(v24, v11, (char)v12.m_pObject);
+            {
+              cdr.m_pObject = 0;
+            }
+            v25 = cdr.m_pObject;
+            LOBYTE(v46) = 2;
+            v16 = (int)cdr.m_pObject;
+            v27 = &v16;
+            std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v41);
+            v15.m_pObject = v11;
+            v26 = &v15;
+            unknown_libname_13(v25);
+            lisp::_cons::_cons(v28, v15, (const lisp::var)v16);
+            v18.m_pObject = v12;
           }
           else
           {
-            v14 = 0;
+            v18.m_pObject = 0;
           }
-          v25 = v14;
-          LOBYTE(v42) = 1;
-          v12.m_pObject = v14;
-          v27 = &v12;
+          v29 = v18.m_pObject;
+          LOBYTE(v46) = 1;
+          v16 = (int)v18.m_pObject;
+          v31 = &v16;
           std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&lisp::nil);
-          v11 = v10;
-          v26 = &v11;
-          unknown_libname_13(v25);
-          v13 = lisp::_cons::_cons(v28, v11, (char)v12.m_pObject);
+          v15.m_pObject = v13;
+          v30 = &v15;
+          unknown_libname_13(v29);
+          lisp::_cons::_cons(v32, v15, (const lisp::var)v16);
+          v17 = v14;
         }
         else
         {
-          v13 = 0;
+          v17 = 0;
         }
-        v29 = v13;
-        v42 = -1;
-        v12.m_pObject = v8;
-        v30 = &v12;
-        unknown_libname_13(v13);
-        lisp::var::operator=(v38, (int)v12.m_pObject);
-        v38 = (lisp::var *)lisp::var::integerp(v38);
+        v33 = v17;
+        v46 = -1;
+        v16 = (int)v9;
+        v34 = &v16;
+        unknown_libname_13(v17);
+        lisp::var::operator=(v42, v16);
+        v42 = (lisp::var *)lisp::var::integerp(v42);
       }
       else
       {
         LOG_ERR("Duplicate key %s(%d) at CConfig::Open", szFilename, *((_DWORD *)Src + 129));
         CMemory::_free(String2);
-        v19 = &v12;
-        std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v37);
-        free_var(v12);
+        v23 = &v16;
+        std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&v41);
+        free_var((lisp::var)v16);
       }
 LABEL_34:
-      while ( v40 != 3 && v40 )
-        v40 = CConfig::GetToken((CConfig *)Src);
+      while ( v44 != 3 && v44 )
+        v44 = CConfig::GetToken((CConfig *)Src);
     }
-    else if ( v17 != 3 )
+    else if ( v21 != 3 )
     {
       LOG_ERR("Invalid format %s(%d) at CConfig::Open", szFilename, *((_DWORD *)Src + 129));
     }
@@ -4109,12 +4134,16 @@ LABEL_34:
   *((_DWORD *)Src + 128) = 0;
   return 1;
 }
+// 401A40: variable 'v6' is possibly undefined
 // 401A59: variable 'v4' is possibly undefined
 // 401A78: variable 'v3' is possibly undefined
-// 401AA9: variable 'v6' is possibly undefined
-// 401B6B: variable 'v9' is possibly undefined
-// 401BA8: variable 'v10' is possibly undefined
-// 401BD8: variable 'v8' is possibly undefined
+// 401AA9: variable 'v7' is possibly undefined
+// 401B46: variable 'v10' is possibly undefined
+// 401B6B: variable 'v11' is possibly undefined
+// 401B82: variable 'v12' is possibly undefined
+// 401BA8: variable 'v13' is possibly undefined
+// 401BBF: variable 'v14' is possibly undefined
+// 401BD8: variable 'v9' is possibly undefined
 // 401F90: using guessed type _DWORD __stdcall std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(_DWORD);
 // 404820: using guessed type _DWORD __stdcall unknown_libname_13(_DWORD);
 
@@ -4177,10 +4206,9 @@ unsigned int __cdecl CConfig::GetTimeStamp()
 }
 
 //----- (00401F70) --------------------------------------------------------
-_DWORD *__thiscall lisp::var::var(_DWORD *this)
+void __thiscall lisp::var::var(lisp::var *this)
 {
-  *this = &unk_444104;
-  return this;
+  this->m_pObject = &lisp::s_nil;
 }
 
 //----- (00401FB0) --------------------------------------------------------
@@ -4230,12 +4258,11 @@ int __thiscall lisp::var::null(lisp::var *this)
 }
 
 //----- (00402090) --------------------------------------------------------
-_DWORD *__thiscall lisp::_string::_string(_DWORD *this, int a2)
+void __thiscall lisp::_string::_string(lisp::_string *this, const char *str)
 {
-  sub_4020E0(this);
-  *this = off_42A420;
-  this[1] = a2;
-  return this;
+  lisp::_object::_object(this);
+  this->__vftable = (lisp::_string_vtbl *)off_42A420;
+  this->m_pString = str;
 }
 // 42A420: using guessed type int (*off_42A420[20])();
 
@@ -4246,7 +4273,7 @@ const char *__thiscall lisp::_object::GetString(lisp::_object *this)
 }
 
 //----- (004020E0) --------------------------------------------------------
-_DWORD *__thiscall sub_4020E0(_DWORD *this)
+_DWORD *__thiscall lisp::_object::_object(_DWORD *this)
 {
   *this = off_42A448;
   return this;
@@ -4254,29 +4281,27 @@ _DWORD *__thiscall sub_4020E0(_DWORD *this)
 // 42A448: using guessed type int (*off_42A448[10])();
 
 //----- (00402100) --------------------------------------------------------
-void *sub_402100()
+void *lisp::_cons::`vftable'()
 {
   return &unk_42A470;
 }
 
 //----- (00402120) --------------------------------------------------------
-_DWORD *__thiscall lisp::_integer::_integer(_DWORD *this, int a2)
+void __thiscall lisp::_integer::_integer(lisp::_integer *this, int n)
 {
-  sub_4020E0(this);
-  *this = off_42A474;
-  this[1] = a2;
-  return this;
+  lisp::_object::_object(this);
+  this->__vftable = (lisp::_integer_vtbl *)off_42A474;
+  this->m_nValue = n;
 }
 // 42A474: using guessed type int (*off_42A474[20])();
 
 //----- (00402180) --------------------------------------------------------
-_DWORD *__thiscall lisp::_cons::_cons(_DWORD *this, int a2, char a3)
+void __thiscall lisp::_cons::_cons(lisp::_cons *this, const lisp::var car, const lisp::var cdr)
 {
-  sub_4020E0(this);
-  *this = off_42A49C;
-  std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&a2);
-  std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&a3);
-  return this;
+  lisp::_object::_object(this);
+  this->__vftable = (lisp::_cons_vtbl *)off_42A49C;
+  std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&car);
+  std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(&cdr);
 }
 // 401F90: using guessed type _DWORD __stdcall std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(_DWORD);
 // 42A49C: using guessed type int (*off_42A49C[10])();
@@ -4422,7 +4447,7 @@ void __stdcall CDB::Close()
 {
   CDBConnect *v0; // [esp+Ch] [ebp-4h]
 
-  CIOSpinLock::Enter(&g_lock.lock);
+  CIOSpinLock::Enter(&g_lock);
   while ( g_pool )
   {
     v0 = g_pool;
@@ -4430,7 +4455,7 @@ void __stdcall CDB::Close()
     if ( v0 )
       CDBConnect::`scalar deleting destructor'(&v0->m_hStmt, 1);
   }
-  CIOSpinLock::Leave(&g_lock.lock);
+  CIOSpinLock::Leave(&g_lock);
   if ( EnvironmentHandle )
   {
     SQLFreeHandle(1, EnvironmentHandle);
@@ -4439,12 +4464,11 @@ void __stdcall CDB::Close()
 }
 
 //----- (004026C0) --------------------------------------------------------
-CDB *__thiscall CDB::CDB(CDB *this)
+void __thiscall CDB::CDB(CDB *this)
 {
   this->m_pDBConnect = CDBConnect::Alloc();
   this->m_hStmt = this->m_pDBConnect->m_hStmt;
   this->m_nBind = 0;
-  return this;
 }
 
 //----- (004026F0) --------------------------------------------------------
@@ -4453,7 +4477,7 @@ void __thiscall CDB::~CDB(CDB *this)
   SQLFreeStmt(this->m_hStmt, 2u);
   SQLFreeStmt(this->m_hStmt, 0);
   SQLFreeStmt(this->m_hStmt, 3u);
-  CDBConnect::Free(&this->m_pDBConnect->m_hStmt);
+  CDBConnect::Free(this->m_pDBConnect);
 }
 
 //----- (00402730) --------------------------------------------------------
@@ -4685,17 +4709,17 @@ CDBConnect *__cdecl CDBConnect::Alloc()
   CDBConnect *v3; // [esp+4h] [ebp-18h]
   CDBConnect *v4; // [esp+Ch] [ebp-10h]
 
-  CIOSpinLock::Enter(&g_lock.lock);
+  CIOSpinLock::Enter(&g_lock);
   if ( g_pool )
   {
     v4 = g_pool;
     g_pool = g_pool->m_pNext;
-    CIOSpinLock::Leave(&g_lock.lock);
+    CIOSpinLock::Leave(&g_lock);
     result = v4;
   }
   else
   {
-    CIOSpinLock::Leave(&g_lock.lock);
+    CIOSpinLock::Leave(&g_lock);
     v3 = (CDBConnect *)operator new(0xCu);
     if ( v3 )
     {
@@ -4713,12 +4737,12 @@ CDBConnect *__cdecl CDBConnect::Alloc()
 // 402E58: variable 'v1' is possibly undefined
 
 //----- (00402E90) --------------------------------------------------------
-LONG __thiscall CDBConnect::Free(_DWORD *this)
+void __thiscall CDBConnect::Free(CDBConnect *this)
 {
-  CIOSpinLock::Enter(&g_lock.lock);
-  this[2] = g_pool;
-  g_pool = (CDBConnect *)this;
-  return CIOSpinLock::Leave(&g_lock.lock);
+  CIOSpinLock::Enter(&g_lock);
+  this->m_pNext = g_pool;
+  g_pool = this;
+  CIOSpinLock::Leave(&g_lock);
 }
 
 //----- (00402ED0) --------------------------------------------------------
@@ -4758,16 +4782,16 @@ void __thiscall CDBConnect::~CDBConnect(CDBConnect *this)
 }
 
 //----- (00403000) --------------------------------------------------------
-void __thiscall CIOSpinLock::Enter(volatile LONG *this)
+void __thiscall CIOSpinLock::Enter(CIOSpinLock *this)
 {
-  if ( InterlockedCompareExchange(this, 1, 0) )
-    CIOSpinLock::Wait((CIOSpinLock *)this);
+  if ( InterlockedCompareExchange(&this->lock, 1, 0) )
+    CIOSpinLock::Wait(this);
 }
 
 //----- (00403030) --------------------------------------------------------
-LONG __thiscall CIOSpinLock::Leave(volatile LONG *this)
+void __thiscall CIOSpinLock::Leave(CIOSpinLock *this)
 {
-  return InterlockedExchange(this, 0);
+  InterlockedExchange(&this->lock, 0);
 }
 
 //----- (00403050) --------------------------------------------------------
@@ -4794,19 +4818,19 @@ int __cdecl CDBConfig::Open()
   int v9; // eax
   int v10; // ecx
   int v11; // eax
-  _DWORD *v12; // eax
+  lisp::var *v12; // eax
   const char *v13; // eax
-  _DWORD *v14; // eax
+  lisp::var *v14; // eax
   const char *v15; // eax
   int v16; // eax
   int v17; // [esp-4h] [ebp-298h] BYREF
   int v18; // [esp+0h] [ebp-294h]
-  char v19[4]; // [esp+Ch] [ebp-288h] BYREF
-  char v20[4]; // [esp+10h] [ebp-284h] BYREF
+  lisp::var v19; // [esp+Ch] [ebp-288h] BYREF
+  lisp::var v20; // [esp+10h] [ebp-284h] BYREF
   int *v21; // [esp+14h] [ebp-280h]
   unsigned int v22; // [esp+1Ch] [ebp-278h]
   unsigned int v23; // [esp+20h] [ebp-274h]
-  char v24[4]; // [esp+24h] [ebp-270h] BYREF
+  lisp::var v24; // [esp+24h] [ebp-270h] BYREF
   CHAR String[32]; // [esp+28h] [ebp-26Ch] BYREF
   char *Str; // [esp+48h] [ebp-24Ch]
   struct _SYSTEM_INFO SystemInfo; // [esp+4Ch] [ebp-248h] BYREF
@@ -4821,7 +4845,7 @@ int __cdecl CDBConfig::Open()
     GetSystemInfo(&SystemInfo);
     CDBConfig::s_nNumberOfThreads = CConfig::GetInt(&v28, "NumberOfThreads", 2 * SystemInfo.dwNumberOfProcessors);
     dword_43D980 = CConfig::GetInt(&v28, "NewUID", 0);
-    dword_43D97C = CConfig::GetTimeStamp();
+    CDBConfig::s_nTimeStamp = CConfig::GetTimeStamp();
     v1 = (char *)CConfig::Get(&v28, "ODBC", "KAL");
     std::string::operator=(CDBConfig::s_strODBC, v1);
     v2 = (char *)CConfig::Get(&v28, "MailServer");
@@ -4869,11 +4893,11 @@ int __cdecl CDBConfig::Open()
       std::vector<IPAddrMask>::reserve(CDBConfig::s_vSubNet, v11);
       while ( !(unsigned __int8)lisp::var::null(&result) )
       {
-        lisp::var::pop((int *)&result, (int)v24);
-        v12 = (_DWORD *)lisp::var::pop((int *)v24, (int)v20);
+        lisp::var::pop(&result, &v24);
+        v12 = lisp::var::pop(&v24, &v20);
         v13 = (const char *)lisp::var::operator char const *(v12);
         v22 = inet_addr(v13);
-        v14 = (_DWORD *)lisp::var::pop((int *)v24, (int)v19);
+        v14 = lisp::var::pop(&v24, &v19);
         v15 = (const char *)lisp::var::operator char const *(v14);
         v23 = inet_addr(v15);
         v16 = unknown_libname_8(v23 & v22, v23);
@@ -4897,26 +4921,25 @@ int __cdecl CDBConfig::Open()
 // 401F90: using guessed type _DWORD __stdcall std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(_DWORD);
 // 403550: using guessed type _DWORD __stdcall unknown_libname_8(_DWORD, _DWORD);
 // 43C0A0: using guessed type int dword_43C0A0;
-// 43D97C: using guessed type int dword_43D97C;
 // 43D980: using guessed type int dword_43D980;
 
 //----- (004034D0) --------------------------------------------------------
-_DWORD *CDBConfig::Close()
+void __stdcall CDBConfig::Close()
 {
-  return std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::clear(dword_43DA08);
+  std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::clear(CDBConfig::s_LanguageMap);
 }
 
 //----- (00403580) --------------------------------------------------------
-int __thiscall lisp::var::pop(int *this, int a2)
+lisp::var *__thiscall lisp::var::pop(lisp::var *this, lisp::var *result)
 {
   int v2; // eax
-  int v4; // [esp+4h] [ebp-4h]
+  lisp::_object *v4; // [esp+4h] [ebp-4h]
 
-  v4 = *this;
-  *this = *(_DWORD *)(*(int (__thiscall **)(int *))(*(_DWORD *)*this + 16))(this);
-  v2 = (*(int (__thiscall **)(int))(*(_DWORD *)v4 + 12))(v4);
+  v4 = this->m_pObject;
+  this->m_pObject = this->m_pObject->cdr(this)->m_pObject;
+  v2 = (int)v4->car(v4);
   std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(v2);
-  return a2;
+  return result;
 }
 // 401F90: using guessed type _DWORD __stdcall std::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>::_Callable_base<bool (__cdecl *)(enum Concurrency::agent_status const &),0>(_DWORD);
 
@@ -5000,12 +5023,12 @@ int *__thiscall std::vector<IPAddrMask>::reserve(_DWORD *this, unsigned int a2)
 
   v11 = &v3;
   v6 = this;
-  if ( sub_403B00(this) < a2 )
+  if ( std::vector<IPAddrMask>::max_size(this) < a2 )
     std::vector<IPAddrMask>::_Xlen();
   result = (int *)std::vector<IPAddrMask>::capacity(v6);
   if ( (unsigned int)result < a2 )
   {
-    v10 = sub_403E10(a2);
+    v10 = std::allocator<IPAddrMask>::allocate(a2);
     v12 = 0;
     v5 = (int *)std::vector<CIOSocket::CIOTimer>::end(v6, (int)v8);
     v4 = (int *)std::vector<CSyncPacket::CElement>::begin(v6, v7);
@@ -5042,7 +5065,7 @@ void *__thiscall std::vector<IPAddrMask>::push_back(void **this, int a2)
   }
   else
   {
-    result = (void *)sub_403BD0(this, this[2], 1, a2);
+    result = (void *)std::vector<IPAddrMask>::_Ufill(this, this[2], 1, a2);
     this[2] = result;
   }
   return result;
@@ -5081,7 +5104,7 @@ int __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::
   v3 = std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Lbound(
          this,
          (_DWORD *)a2);
-  sub_403E30((void *)a1, v3);
+  std::vector<CSyncPacket::CElement>::iterator::iterator((void *)a1, v3);
   return a1;
 }
 
@@ -5146,7 +5169,7 @@ int __thiscall std::vector<IPAddrMask>::capacity(_DWORD *this)
 //----- (00403AA0) --------------------------------------------------------
 int __thiscall std::vector<CIOSocket::CIOTimer>::end(_DWORD *this, int a2)
 {
-  sub_403E30((void *)a2, this[2]);
+  std::vector<CSyncPacket::CElement>::iterator::iterator((void *)a2, this[2]);
   return a2;
 }
 
@@ -5163,7 +5186,7 @@ int __thiscall std::vector<IPAddrMask>::size(_DWORD *this)
 }
 
 //----- (00403B00) --------------------------------------------------------
-int __thiscall sub_403B00(void *this)
+int __thiscall std::vector<IPAddrMask>::max_size(void *this)
 {
   return std::allocator<IPAddrMask>::max_size();
 }
@@ -5202,7 +5225,7 @@ int __thiscall std::vector<IPAddrMask>::_Destroy(void *this, int a2, int a3)
 }
 
 //----- (00403BD0) --------------------------------------------------------
-int __thiscall sub_403BD0(void *this, void *a2, int a3, int a4)
+int __thiscall std::vector<IPAddrMask>::_Ufill(void *this, void *a2, int a3, int a4)
 {
   std::_Uninitialized_fill_n<IPAddrMask *,unsigned int,IPAddrMask,std::allocator<IPAddrMask>>(a2, a3, a4);
   return (int)a2 + 8 * a3;
@@ -5239,9 +5262,9 @@ void __thiscall std::logic_error::logic_error(std::logic_error *this, const std:
 // 437954: using guessed type void *std::logic_error::`vftable';
 
 //----- (00403CF0) --------------------------------------------------------
-int __thiscall sub_403CF0(char *this)
+const char *__thiscall std::logic_error::what(std::logic_error *this)
 {
-  return std::string::c_str(this + 12);
+  return (const char *)std::string::c_str((char *)this + 12);
 }
 
 //----- (00403D10) --------------------------------------------------------
@@ -5286,13 +5309,13 @@ void __stdcall std::allocator<CSyncPacket::CElement>::deallocate(int a1, int a2)
 }
 
 //----- (00403E10) --------------------------------------------------------
-CMemory **__stdcall sub_403E10(int a1)
+CMemory **__stdcall std::allocator<IPAddrMask>::allocate(int a1)
 {
-  return sub_404C20(a1);
+  return std::_Allocate<IPAddrMask>(a1);
 }
 
 //----- (00403E30) --------------------------------------------------------
-void *__thiscall sub_403E30(void *this, int a2)
+void *__thiscall std::vector<CSyncPacket::CElement>::iterator::iterator(void *this, int a2)
 {
   unknown_libname_13(a2);
   return this;
@@ -5302,7 +5325,7 @@ void *__thiscall sub_403E30(void *this, int a2)
 //----- (00403E50) --------------------------------------------------------
 int __thiscall sub_403E50(void *this)
 {
-  return sub_404840((int *)this);
+  return std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::operator*((int *)this);
 }
 
 //----- (00403E70) --------------------------------------------------------
@@ -5333,7 +5356,7 @@ _DWORD *__thiscall std::string::string(void *this, char *Str)
   v4 = this;
   v3 = this;
   unknown_libname_9(&v3);
-  sub_40D710(v4, (char)v3);
+  std::_String_val<char>::_String_val<char>(v4, (char)v3);
   std::string::_Tidy(v4, 0, 0);
   std::string::assign(v4, Str);
   return v4;
@@ -5423,7 +5446,7 @@ void *__thiscall std::string::string(void *this, int a2)
 
   v3 = (char)this;
   unknown_libname_19(a2);
-  sub_40D710(this, v3);
+  std::_String_val<char>::_String_val<char>(this, v3);
   std::string::_Tidy(this, 0, 0);
   std::string::assign((std::_String_base *)this, (std::_String_base *)a2, 0, std::string::npos);
   return this;
@@ -5483,7 +5506,7 @@ int *__thiscall std::vector<IPAddrMask>::_Insert_n(int *this, int a2, unsigned i
   if ( a3 )
   {
     v6 = std::vector<IPAddrMask>::size(v16);
-    if ( sub_403B00(v16) - v6 < a3 )
+    if ( std::vector<IPAddrMask>::max_size(v16) - v6 < a3 )
       std::vector<IPAddrMask>::_Xlen();
     v7 = std::vector<IPAddrMask>::size(v16);
     if ( v20 >= a3 + v7 )
@@ -5500,7 +5523,7 @@ int *__thiscall std::vector<IPAddrMask>::_Insert_n(int *this, int a2, unsigned i
       {
         std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(v16, a2, v16[2], (void *)(a2 + 8 * a3));
         v22 = 2;
-        sub_403BD0(v16, (void *)v16[2], a3 - ((v16[2] - a2) >> 3), (int)v21);
+        std::vector<IPAddrMask>::_Ufill(v16, (void *)v16[2], a3 - ((v16[2] - a2) >> 3), (int)v21);
         v22 = -1;
         v16[2] += 8 * a3;
         result = std::fill<IPAddrMask *,IPAddrMask>((_DWORD *)a2, (_DWORD *)(v16[2] - 8 * a3), v21);
@@ -5509,7 +5532,7 @@ int *__thiscall std::vector<IPAddrMask>::_Insert_n(int *this, int a2, unsigned i
     else
     {
       v8 = v20 >> 1;
-      v9 = sub_403B00(v16);
+      v9 = std::vector<IPAddrMask>::max_size(v16);
       if ( v9 - v8 >= v20 )
         v15 = v20 + (v20 >> 1);
       else
@@ -5518,12 +5541,12 @@ int *__thiscall std::vector<IPAddrMask>::_Insert_n(int *this, int a2, unsigned i
       v10 = std::vector<IPAddrMask>::size(v16);
       if ( v20 < a3 + v10 )
         v20 = a3 + std::vector<IPAddrMask>::size(v16);
-      v18 = sub_403E10(v20);
+      v18 = std::allocator<IPAddrMask>::allocate(v20);
       v19 = v18;
       v22 = 0;
       v14 = std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(v16, v16[1], a2, v18);
       v19 = v14;
-      v13 = (void *)sub_403BD0(v16, v14, a3, (int)v21);
+      v13 = (void *)std::vector<IPAddrMask>::_Ufill(v16, v14, a3, (int)v21);
       v19 = v13;
       std::vector<IPAddrMask>::_Ucopy<IPAddrMask *>(v16, a2, v16[2], v13);
       v22 = -1;
@@ -5664,7 +5687,7 @@ BOOL __thiscall std::string::_Grow(size_t *this, unsigned int a2, char a3)
 // 4048C0: using guessed type int __thiscall unknown_libname_24(_DWORD);
 
 //----- (00404840) --------------------------------------------------------
-int __thiscall sub_404840(int *this)
+int __thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::operator*(int *this)
 {
   return std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Myval(*this);
 }
@@ -5746,11 +5769,11 @@ int __thiscall std::string::_Copy(_DWORD *this, int a2, size_t Size)
 //----- (00404AA0) --------------------------------------------------------
 CMemory **__stdcall std::allocator<char>::allocate(size_t Size)
 {
-  return sub_404AF0(Size);
+  return std::_Allocate<char>(Size);
 }
 
 //----- (00404AF0) --------------------------------------------------------
-CMemory **__cdecl sub_404AF0(size_t Size)
+CMemory **__cdecl std::_Allocate<char>(size_t Size)
 {
   return operator new(Size);
 }
@@ -5790,7 +5813,7 @@ void *__cdecl std::_Uninitialized_fill_n<IPAddrMask *,unsigned int,IPAddrMask,st
 // 404F10: using guessed type int __cdecl unknown_libname_15(_DWORD, _DWORD);
 
 //----- (00404C20) --------------------------------------------------------
-CMemory **__cdecl sub_404C20(int a1)
+CMemory **__cdecl std::_Allocate<IPAddrMask>(int a1)
 {
   return operator new(8 * a1);
 }
@@ -5984,7 +6007,7 @@ _DWORD *__thiscall sub_405130(_DWORD *this)
   v3 = this;
   v2 = this;
   unknown_libname_9(&v2);
-  sub_40D710(v3, (char)v2);
+  std::_String_val<char>::_String_val<char>(v3, (char)v2);
   std::string::_Tidy(v3, 0, 0);
   return v3;
 }
@@ -5999,7 +6022,7 @@ _DWORD *__thiscall sub_405160(void *this)
   v3 = this;
   v2 = this;
   unknown_libname_9(&v2);
-  sub_40D710(v3, (char)v2);
+  std::_String_val<char>::_String_val<char>(v3, (char)v2);
   sub_405190(v3, 0);
   return v3;
 }
@@ -6013,9 +6036,9 @@ char __thiscall sub_405190(_DWORD *this, unsigned int a2)
   this[3] = 0;
   if ( !a2 )
     return 0;
-  if ( sub_403B00(this) < a2 )
+  if ( std::vector<IPAddrMask>::max_size(this) < a2 )
     std::vector<IPAddrMask>::_Xlen();
-  this[1] = sub_403E10(a2);
+  this[1] = std::allocator<IPAddrMask>::allocate(a2);
   this[2] = this[1];
   this[3] = this[1] + 8 * a2;
   return 1;
@@ -6042,13 +6065,13 @@ void *__thiscall sub_405240(void *this, int a2, int a3)
   v4 = (char)this;
   unknown_libname_19(a3);
   sub_4052F0(this, a2, v4);
-  sub_405280((int *)this);
+  std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Init((int *)this);
   return this;
 }
 // 405580: using guessed type _DWORD __stdcall unknown_libname_19(_DWORD);
 
 //----- (00405280) --------------------------------------------------------
-int *__thiscall sub_405280(int *this)
+int *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Init(int *this)
 {
   int *result; // eax
 
@@ -6161,7 +6184,7 @@ void *__thiscall sub_405510(void *this, _BYTE *a2, char a3)
 //----- (00405540) --------------------------------------------------------
 CMemory **__stdcall std::allocator<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node>::allocate(int a1)
 {
-  return sub_405590(a1);
+  return std::_Allocate<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node>(a1);
 }
 
 //----- (00405560) --------------------------------------------------------
@@ -6173,7 +6196,7 @@ _DWORD *__stdcall std::allocator<std::_Tree_nod<std::_Tmap_traits<int,std::strin
 }
 
 //----- (00405590) --------------------------------------------------------
-CMemory **__cdecl sub_405590(int a1)
+CMemory **__cdecl std::_Allocate<std::_Tree_nod<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Node>(int a1)
 {
   return operator new(48 * a1);
 }
@@ -6270,7 +6293,7 @@ void *__thiscall std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std
   int *v2; // eax
 
   v2 = (int *)std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::_Lmost(this);
-  sub_403E30(a2, *v2);
+  std::vector<CSyncPacket::CElement>::iterator::iterator(a2, *v2);
   return a2;
 }
 
@@ -6845,7 +6868,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 }
 
 //----- (004065D0) --------------------------------------------------------
-ATOM __cdecl MyRegisterClass(HINSTANCE hInstance)
+ATOM __cdecl MyRegisterClass(HINSTANCE__ *hInstance)
 {
   WNDCLASSEXA v2; // [esp+0h] [ebp-30h] BYREF
 
@@ -7098,8 +7121,8 @@ unsigned int __stdcall StartThread(void *formal)
         v18 = -1;
         CDB::~CDB(&v13);
         CIOSocket::CreateIOThread(CDBConfig::s_nNumberOfThreads);
-        sub_410560();
-        Time = dword_43D97C + 32400;
+        CServer::Start();
+        Time = CDBConfig::s_nTimeStamp + 32400;
         v15 = gmtime(&Time);
         LOG_NORMAL(
           "Server is ready on port %d (time stamp: %02d/%02d/%02d %02d:%02d:%02d (KR))",
@@ -7127,7 +7150,6 @@ unsigned int __stdcall StartThread(void *formal)
   }
   return result;
 }
-// 43D97C: using guessed type int dword_43D97C;
 
 //----- (00406E30) --------------------------------------------------------
 unsigned int __stdcall StopThread(void *arglist)
@@ -7259,25 +7281,25 @@ void __cdecl permute(char *inblock, char (*perm)[16][8], char *outblock)
 void __cdecl iter(int num, char *inblock, char *outblock)
 {
   char v3[4]; // [esp+4h] [ebp-Ch] BYREF
-  char *v4; // [esp+8h] [ebp-8h]
+  char *right; // [esp+8h] [ebp-8h]
   char *v5; // [esp+Ch] [ebp-4h]
 
-  v4 = inblock + 4;
-  f((int)(inblock + 4), num, (int)v3);
-  *outblock = *v4++;
-  outblock[1] = *v4++;
-  outblock[2] = *v4++;
-  outblock[3] = *v4;
-  v4 = inblock;
+  right = inblock + 4;
+  f(inblock + 4, num, v3);
+  *outblock = *right++;
+  outblock[1] = *right++;
+  outblock[2] = *right++;
+  outblock[3] = *right;
+  right = inblock;
   v5 = v3;
   outblock[4] = v3[0] ^ *inblock;
-  outblock[5] = *++v5 ^ *++v4;
-  outblock[6] = *++v5 ^ *++v4;
-  outblock[7] = *++v5 ^ *++v4;
+  outblock[5] = *++v5 ^ *++right;
+  outblock[6] = *++v5 ^ *++right;
+  outblock[7] = *++v5 ^ *++right;
 }
 
 //----- (00407450) --------------------------------------------------------
-void __cdecl f(int a1, int a2, int a3)
+void __cdecl f(char *right, int num, char *fret)
 {
   char v3[8]; // [esp+0h] [ebp-24h] BYREF
   char *v4; // [esp+8h] [ebp-1Ch]
@@ -7286,10 +7308,10 @@ void __cdecl f(int a1, int a2, int a3)
   char *bigright; // [esp+14h] [ebp-10h]
   char v8[8]; // [esp+18h] [ebp-Ch] BYREF
 
-  v5 = &byte_43DAF0[6 * a2];
+  v5 = &byte_43DAF0[6 * num];
   bigright = v8;
   v4 = v3;
-  expand((char *)a1, v8);
+  expand(right, v8);
   *v4++ = *v5++ ^ *bigright;
   *v4++ = *v5 ^ *++bigright;
   *v4++ = *++v5 ^ *++bigright;
@@ -7298,8 +7320,8 @@ void __cdecl f(int a1, int a2, int a3)
   *v4++ = *++v5 ^ *++bigright;
   ++v5;
   ++bigright;
-  sub_4078C0(v3, v6);
-  perm32(v6, (char *)a3);
+  contract(v3, v6);
+  perm32(v6, fret);
 }
 
 //----- (004075D0) --------------------------------------------------------
@@ -7344,7 +7366,7 @@ void __cdecl expand(char *right, char *bigright)
 }
 
 //----- (004078C0) --------------------------------------------------------
-_BYTE *__cdecl sub_4078C0(char *a1, _BYTE *a2)
+_BYTE *__cdecl contract(char *a1, _BYTE *a2)
 {
   unsigned __int8 v3; // [esp+0h] [ebp-20h]
   int v4; // [esp+8h] [ebp-18h]
@@ -7649,7 +7671,7 @@ void __thiscall CIOException::CInit::CInit(CIOException::CInit *this)
   lstrcpyA(lpString1, "Exception.dmp");
   Time = time(0);
   lpTopLevelExceptionFilter = SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)RecordExceptionInfo);
-  _set_security_error_handler((int)SecurityHandler);
+  _set_security_error_handler((void (__cdecl *)(int, void *))SecurityHandler);
 }
 
 //----- (004085B0) --------------------------------------------------------
@@ -7949,17 +7971,17 @@ void __usercall GenerateExceptionReport(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3
     v11 = SystemTime.wMonth;
     v10 = SystemTime.wYear;
     v4 = GetCurrentThreadId();
-    v5 = hprintf(
-           hFile,
-           "[%x %04d/%02d/%02d %02d:%02d:%02d]: ======================= %s\r\n",
-           v4,
-           v10,
-           v11,
-           v12,
-           v13,
-           v14,
-           v16,
-           v19);
+    hprintf(
+      hFile,
+      "[%x %04d/%02d/%02d %02d:%02d:%02d]: ======================= %s\r\n",
+      v4,
+      v10,
+      v11,
+      v12,
+      v13,
+      v14,
+      v16,
+      v19);
     v26 = "Unknown";
     if ( !data )
     {
@@ -8063,10 +8085,11 @@ void __usercall GenerateExceptionReport(DWORD a1@<ebx>, DWORD a2@<edi>, DWORD a3
     CreateMiniDump(data);
   }
 }
+// 408EF9: variable 'v5' is possibly undefined
 // 408EF9: variable 'v6' is possibly undefined
 
 //----- (004093B0) --------------------------------------------------------
-BOOL hprintf(HANDLE hFile, LPCSTR a2, ...)
+void hprintf(void *LogFile, char *Format, ...)
 {
   int v2; // eax
   CHAR String[2004]; // [esp+0h] [ebp-7E0h] BYREF
@@ -8074,12 +8097,12 @@ BOOL hprintf(HANDLE hFile, LPCSTR a2, ...)
   va_list arglist; // [esp+7DCh] [ebp-4h]
   va_list va; // [esp+7F0h] [ebp+10h] BYREF
 
-  va_start(va, a2);
+  va_start(va, Format);
   va_copy(arglist, va);
-  wvsprintfA(String, a2, va);
+  wvsprintfA(String, Format, va);
   arglist = 0;
   v2 = lstrlenA(String);
-  return WriteFile(hFile, String, v2, &NumberOfBytesWritten, 0);
+  WriteFile(LogFile, String, v2, &NumberOfBytesWritten, 0);
 }
 
 //----- (00409420) --------------------------------------------------------
@@ -8529,19 +8552,19 @@ void __cdecl CIOException::Open(const char *szMailServer, const char *szMailFrom
 }
 
 //----- (0040A3B0) --------------------------------------------------------
-BOOL CIOException::Enable()
+BOOL __cdecl CIOException::Enable()
 {
   return InterlockedExchange(&g_nEnable, 1) == 0;
 }
 
 //----- (0040A3D0) --------------------------------------------------------
-LONG CIOException::Disable()
+LONG __cdecl CIOException::Disable()
 {
   return InterlockedExchange(&g_nEnable, 0);
 }
 
 //----- (0040A3F0) --------------------------------------------------------
-LONG CIOException::IsEnable()
+int __cdecl CIOException::IsEnable()
 {
   return g_nEnable;
 }
@@ -8758,12 +8781,11 @@ void __thiscall CIOSpinLock::Wait(CIOSpinLock *this)
 }
 
 //----- (0040AB10) --------------------------------------------------------
-struct _RTL_CRITICAL_SECTION *__thiscall CIOCriticalSection::CIOCriticalSection(struct _RTL_CRITICAL_SECTION *this)
+void __thiscall CIOCriticalSection::CIOCriticalSection(CIOCriticalSection *this)
 {
-  InitializeCriticalSection(this);
-  this[1].LockCount = 0;
-  this[1].DebugInfo = 0;
-  return this;
+  InitializeCriticalSection(&this->m_critical_section);
+  this->m_dwEIP[1] = 0;
+  this->m_dwEIP[0] = 0;
 }
 
 //----- (0040AB80) --------------------------------------------------------
@@ -8805,10 +8827,10 @@ void __thiscall CIOCriticalSection::Leave(CIOCriticalSection *this)
 }
 
 //----- (0040ACE0) --------------------------------------------------------
-int __thiscall sub_40ACE0(void *this)
+void __thiscall CIOSocket::CInit::~CInit(CIOSocket::CInit *this)
 {
-  sub_40AEF0();
-  return CIOBuffer::FreeAll();
+  CIOSocket::FreeIOThread();
+  CIOBuffer::FreeAll();
 }
 
 //----- (0040AD00) --------------------------------------------------------
@@ -8821,11 +8843,11 @@ int __cdecl CIOSocket::CreateIOThread(int nThread)
   v1 = GetCurrentProcess();
   SetProcessPriorityBoost(v1, 1);
   g_nTerminating = 0;
-  hEvent = CreateEventA(0, 0, 0, 0);
+  handle = CreateEventA(0, 0, 0, 0);
   CompletionPort = CreateIoCompletionPort((HANDLE)0xFFFFFFFF, 0, 0, 0);
   CIOSocket::CIOTimerInstance::OnTimerCallback(&g_instance, 0);
   CIOObject::AddRef(&g_instance, &g_instance.m_nTimerRef);
-  if ( CIOObject::RegisterWait(&g_instance, hEvent) )
+  if ( CIOObject::RegisterWait(&g_instance, handle) )
   {
     g_hThread = (void **)CMemory::_malloc(4 * nThread);
     g_nThreadId = CMemory::_malloc(4 * nThread);
@@ -8875,12 +8897,12 @@ int __cdecl CIOSocket::CloseIOThread()
 {
   if ( InterlockedExchange(&g_nTerminating, 1) )
     return 0;
-  SetEvent(hEvent);
+  SetEvent(handle);
   return 1;
 }
 
 //----- (0040AEF0) --------------------------------------------------------
-void sub_40AEF0()
+void __stdcall CIOSocket::FreeIOThread()
 {
   CMemory::_free(g_hThread);
   CMemory::_free(g_nThreadId);
@@ -8889,13 +8911,9 @@ void sub_40AEF0()
 }
 
 //----- (0040AF30) --------------------------------------------------------
-_DWORD *__thiscall CIOObject::~CIOObject(_DWORD *this)
+void __thiscall CIOObject::~CIOObject(CIOObject *this)
 {
-  _DWORD *result; // eax
-
-  result = this;
-  *this = &off_42B5BC;
-  return result;
+  this->__vftable = (CIOObject_vtbl *)&off_42B5BC;
 }
 // 42B5BC: using guessed type int (__stdcall *off_42B5BC)(int);
 
@@ -8954,22 +8972,22 @@ void __thiscall CIOObject::Release(CIOObject *this, volatile int *pRef)
 }
 
 //----- (0040B090) --------------------------------------------------------
-int __thiscall CIOObject::RegisterWait(void *this, void *a2)
+int __thiscall CIOObject::RegisterWait(CIOObject *this, void *handle)
 {
   int result; // eax
 
-  CIOCriticalSection::Enter(&stru_444038);
+  CIOCriticalSection::Enter(&g_lockTimer);
   if ( (int)nCount < 64 )
   {
-    Handles[nCount] = a2;
-    dword_443E20[nCount++] = (int)this;
-    SetEvent(hEvent);
-    CIOCriticalSection::Leave(&stru_444038);
+    Handles[nCount] = handle;
+    g_vObject[nCount++] = this;
+    SetEvent(::handle);
+    CIOCriticalSection::Leave(&g_lockTimer);
     result = 1;
   }
   else
   {
-    CIOCriticalSection::Leave(&stru_444038);
+    CIOCriticalSection::Leave(&g_lockTimer);
     result = 0;
   }
   return result;
@@ -8981,7 +8999,7 @@ void __thiscall CIOObject::OnTimerCallback(CIOObject *this, int nId)
   if ( !PostQueuedCompletionStatus(CompletionPort, nId, (ULONG_PTR)this, 0) )
   {
     EBREAK();
-    CIOObject::Release((volatile LONG *)this);
+    CIOObject::Release(this);
   }
 }
 
@@ -8995,22 +9013,18 @@ void __thiscall CIOObject::OnIOCallback(CIOObject *this, int bSucess, unsigned i
 }
 
 //----- (0040B220) --------------------------------------------------------
-int *__thiscall CIOSocket::CIOTimerInstance::OnTimerCallback(void *this, int a2)
+void __thiscall CIOSocket::CIOTimerInstance::OnTimerCallback(CIOSocket::CIOTimerInstance *this, int nId)
 {
   DWORD v2; // eax
   int v3; // eax
-  int *result; // eax
-  CIOSocket::CIOTimer v6; // [esp+4h] [ebp-Ch] BYREF
+  CIOSocket::CIOTimer v5; // [esp+4h] [ebp-Ch] BYREF
 
   v2 = GetTickCount();
-  CIOSocket::CIOTimer::CIOTimer(&v6, (CIOObject *)this, v2 + 86400000, a2);
-  sub_40C5D0((int)&unk_44405C, v3);
-  result = (int *)sub_40C5B0(&unk_44405C);
-  dword_444020 = *result;
-  return result;
+  CIOSocket::CIOTimer::CIOTimer(&v5, this, v2 + 86400000, nId);
+  std::priority_queue<CIOSocket::CIOTimer>::push((int)&g_timerQueue, v3);
+  g_dwTopTime = *(_DWORD *)std::priority_queue<CIOSocket::CIOTimer>::top(&g_timerQueue);
 }
 // 40B24B: variable 'v3' is possibly undefined
-// 444020: using guessed type int dword_444020;
 
 //----- (0040B270) --------------------------------------------------------
 void __thiscall CIOSocket::CIOTimerInstance::OnIOCallback(CIOSocket::CIOTimerInstance *this, int bSucess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped)
@@ -9020,68 +9034,67 @@ void __thiscall CIOSocket::CIOTimerInstance::OnIOCallback(CIOSocket::CIOTimerIns
   if ( dwTransferred )
     CIOObject::PostObject(&g_instance, dwTransferred - 1);
   else
-    SetEvent(hEvent);
+    SetEvent(handle);
   v4 = GetCurrentThread();
   SuspendThread(v4);
 }
 
 //----- (0040B2B0) --------------------------------------------------------
-int __stdcall CIOSocket::WaitThread(int a1)
+unsigned int __stdcall CIOSocket::WaitThread(void *formal)
 {
-  int *v4; // eax
-  int v5; // eax
-  int *v7; // [esp+4h] [ebp-18h]
-  int v8; // [esp+8h] [ebp-14h]
-  int i; // [esp+Ch] [ebp-10h]
+  unsigned int *v1; // eax
+  int v2; // eax
+  unsigned int *v4; // [esp+4h] [ebp-18h]
+  unsigned int v5; // [esp+8h] [ebp-14h]
+  unsigned int i; // [esp+Ch] [ebp-10h]
   int dwMilliseconds; // [esp+10h] [ebp-Ch]
-  DWORD v11; // [esp+14h] [ebp-8h]
-  DWORD v12; // [esp+18h] [ebp-4h]
+  DWORD v8; // [esp+14h] [ebp-8h]
+  DWORD v9; // [esp+18h] [ebp-4h]
 
   while ( 1 )
   {
-    v11 = GetTickCount();
-    dwMilliseconds = dword_444020 - v11;
-    if ( (int)(dword_444020 - v11) <= 0 )
+    v8 = GetTickCount();
+    dwMilliseconds = g_dwTopTime - v8;
+    if ( (int)(g_dwTopTime - v8) <= 0 )
     {
-      CIOCriticalSection::Enter(&stru_444038);
-      v7 = (int *)sub_40C5B0(&unk_44405C);
-      v8 = v7[1];
-      for ( i = v7[2]; ; i = v7[2] )
+      CIOCriticalSection::Enter(&g_lockTimer);
+      v4 = (unsigned int *)std::priority_queue<CIOSocket::CIOTimer>::top(&g_timerQueue);
+      v5 = v4[1];
+      for ( i = v4[2]; ; i = v4[2] )
       {
-        sub_40C620((int)&unk_44405C);
-        (*(void (__thiscall **)(int, int))(*(_DWORD *)v8 + 12))(v8, i);
-        v4 = (int *)sub_40C5B0(&unk_44405C);
-        *v7 = *v4;
-        v7[1] = v4[1];
-        v7[2] = v4[2];
-        dwMilliseconds = *v7 - v11;
+        std::priority_queue<CIOSocket::CIOTimer>::pop((int)&g_timerQueue);
+        (*(void (__thiscall **)(unsigned int, unsigned int))(*(_DWORD *)v5 + 12))(v5, i);
+        v1 = (unsigned int *)std::priority_queue<CIOSocket::CIOTimer>::top(&g_timerQueue);
+        *v4 = *v1;
+        v4[1] = v1[1];
+        v4[2] = v1[2];
+        dwMilliseconds = *v4 - v8;
         if ( dwMilliseconds > 0 )
           break;
-        v8 = v7[1];
+        v5 = v4[1];
       }
-      dword_444020 = *v7;
-      CIOCriticalSection::Leave(&stru_444038);
+      g_dwTopTime = *v4;
+      CIOCriticalSection::Leave(&g_lockTimer);
     }
-    v12 = WaitForMultipleObjects(nCount, Handles, 0, dwMilliseconds);
+    v9 = WaitForMultipleObjects(nCount, Handles, 0, dwMilliseconds);
     if ( g_nTerminating )
       break;
-    if ( v12 < nCount )
-      (*(void (__thiscall **)(int))(*(_DWORD *)dword_443E20[v12] + 16))(dword_443E20[v12]);
+    if ( v9 < nCount )
+      g_vObject[v9]->OnWaitCallback(g_vObject[v9]);
   }
-  CIOCriticalSection::Enter(&stru_444038);
-  while ( !sub_40C590(&unk_44405C) )
+  CIOCriticalSection::Enter(&g_lockTimer);
+  while ( !sub_40C590(&g_timerQueue) )
   {
-    v5 = sub_40C5B0(&unk_44405C);
-    CIOObject::Release(*(CIOObject **)(v5 + 4), (volatile int *)(*(_DWORD *)(v5 + 4) + 8));
-    sub_40C620((int)&unk_44405C);
+    v2 = std::priority_queue<CIOSocket::CIOTimer>::top(&g_timerQueue);
+    CIOObject::Release(*(CIOObject **)(v2 + 4), (volatile int *)(*(_DWORD *)(v2 + 4) + 8));
+    std::priority_queue<CIOSocket::CIOTimer>::pop((int)&g_timerQueue);
   }
-  CIOCriticalSection::Leave(&stru_444038);
-  CIOObject::PostObject(&g_instance, (DWORD)nThread - 1);
-  WaitForSingleObject(hEvent, 0xFFFFFFFF);
-  CloseHandle(hEvent);
+  CIOCriticalSection::Leave(&g_lockTimer);
+  CIOObject::PostObject(&g_instance, (int)nThread - 1);
+  WaitForSingleObject(handle, 0xFFFFFFFF);
+  CloseHandle(handle);
   return 0;
 }
-// 444020: using guessed type int dword_444020;
 
 //----- (0040B460) --------------------------------------------------------
 void __stdcall __noreturn CIOSocket::IOThread(void *arglist)
@@ -9108,7 +9121,7 @@ void __stdcall __noreturn CIOSocket::IOThread(void *arglist)
 }
 
 //----- (0040B4D0) --------------------------------------------------------
-int CIOSocket::DumpStack()
+int __stdcall CIOSocket::DumpStack()
 {
   CIOException::DumpStack((int)nThread, g_hThread, (unsigned int *)g_nThreadId);
   return CIOException::SendMail();
@@ -9123,16 +9136,16 @@ CIOBuffer *__cdecl CIOBuffer::Alloc()
 
   v0 = InterlockedIncrement(&g_nAllocBuffer);
   v3 = 8 * (v0 & 0xF) + 4472960;
-  CIOSpinLock::Enter((volatile LONG *)(8 * (v0 & 0xF) + 4472964));
+  CIOSpinLock::Enter((CIOSpinLock *)(8 * (v0 & 0xF) + 4472964));
   v2 = *(CIOBuffer **)v3;
   if ( *(_DWORD *)v3 )
   {
     *(_DWORD *)v3 = v2->m_pNext;
-    CIOSpinLock::Leave((volatile LONG *)(v3 + 4));
+    CIOSpinLock::Leave((CIOSpinLock *)(v3 + 4));
   }
   else
   {
-    CIOSpinLock::Leave((volatile LONG *)(v3 + 4));
+    CIOSpinLock::Leave((CIOSpinLock *)(v3 + 4));
     v2 = (CIOBuffer *)operator new(0x1F4Cu);
   }
   v2->m_dwSize = 0;
@@ -9142,17 +9155,17 @@ CIOBuffer *__cdecl CIOBuffer::Alloc()
 }
 
 //----- (0040B5B0) --------------------------------------------------------
-LONG __thiscall CIOBuffer::Free(_DWORD *this)
+void __thiscall CIOBuffer::Free(CIOBuffer *this)
 {
   char v1; // al
-  int v4; // [esp+4h] [ebp-4h]
+  int v3; // [esp+4h] [ebp-4h]
 
-  v1 = InterlockedDecrement(&dword_444034);
-  v4 = 8 * (v1 & 0xF) + 4472960;
-  CIOSpinLock::Enter((volatile LONG *)(8 * (v1 & 0xF) + 4472964));
-  this[2002] = *(_DWORD *)v4;
-  *(_DWORD *)v4 = this;
-  return CIOSpinLock::Leave((volatile LONG *)(v4 + 4));
+  v1 = InterlockedDecrement(&g_nFreeBuffer);
+  v3 = 8 * (v1 & 0xF) + 4472960;
+  CIOSpinLock::Enter((CIOSpinLock *)(8 * (v1 & 0xF) + 4472964));
+  this->m_pNext = *(CIOBuffer **)v3;
+  *(_DWORD *)v3 = this;
+  CIOSpinLock::Leave((CIOSpinLock *)(v3 + 4));
 }
 
 //----- (0040B610) --------------------------------------------------------
@@ -9164,7 +9177,7 @@ int __stdcall CIOBuffer::FreeAll()
 
   for ( i = 0; i < 16; ++i )
   {
-    CIOSpinLock::Enter((volatile LONG *)(8 * i + 4472964));
+    CIOSpinLock::Enter((CIOSpinLock *)(8 * i + 4472964));
     while ( 1 )
     {
       v1 = dword_444080[2 * i];
@@ -9173,7 +9186,7 @@ int __stdcall CIOBuffer::FreeAll()
       dword_444080[2 * i] = *(_DWORD *)(v1 + 8008);
       operator delete(v1);
     }
-    CIOSpinLock::Leave((volatile LONG *)(8 * i + 4472964));
+    CIOSpinLock::Leave((CIOSpinLock *)(8 * i + 4472964));
     result = i + 1;
   }
   return result;
@@ -9184,10 +9197,10 @@ void __thiscall CIOSocket::CIOSocket(CIOSocket *this, unsigned int s)
 {
   CIOObject::CIOObject(this);
   this->__vftable = (CIOSocket_vtbl *)&off_42B5D4;
-  CIOCriticalSection::CIOCriticalSection(&this->m_lock.m_critical_section);
+  CIOCriticalSection::CIOCriticalSection(&this->m_lock);
   this->m_hSocket = s;
   if ( this->m_hSocket != -1 )
-    CIOObject::AddRef((volatile LONG *)this);
+    CIOObject::AddRef(this);
   memset(&this->m_overlappedRead, 0, sizeof(this->m_overlappedRead));
   memset(&this->m_overlappedWrite, 0, sizeof(this->m_overlappedWrite));
   this->m_pReadBuf = CIOBuffer::Alloc();
@@ -9216,23 +9229,23 @@ void __thiscall CIOSocket::~CIOSocket(CIOSocket *this)
 // 42B5D4: using guessed type int (__stdcall *off_42B5D4)(int);
 
 //----- (0040B810) --------------------------------------------------------
-void __thiscall CIOSocket::Close(char *this)
+void __thiscall CIOSocket::Close(CIOSocket *this)
 {
   char optval[2]; // [esp+4h] [ebp-8h] BYREF
-  __int16 v6; // [esp+6h] [ebp-6h]
+  __int16 v3; // [esp+6h] [ebp-6h]
   SOCKET s; // [esp+8h] [ebp-4h]
 
-  CIOCriticalSection::Enter((CIOCriticalSection *)(this + 20));
-  s = InterlockedExchange((volatile LONG *)this + 4, -1);
-  CIOCriticalSection::Leave((CIOCriticalSection *)(this + 20));
+  CIOCriticalSection::Enter(&this->m_lock);
+  s = InterlockedExchange((volatile LONG *)&this->m_hSocket, -1);
+  CIOCriticalSection::Leave(&this->m_lock);
   if ( s != -1 )
   {
-    (*(void (__thiscall **)(char *))(*(_DWORD *)this + 28))(this);
+    this->OnClose(this);
     *(_WORD *)optval = 1;
-    v6 = 0;
+    v3 = 0;
     setsockopt(s, 0xFFFF, 128, optval, 4);
     closesocket(s);
-    CIOObject::Release((volatile LONG *)this);
+    CIOObject::Release(this);
   }
 }
 
@@ -9244,12 +9257,12 @@ void __thiscall CIOSocket::OnIOCallback(CIOSocket *this, int bSuccess, unsigned 
     if ( lpOverlapped == &this->m_overlappedWrite )
     {
       CIOSocket::WriteCallback(this, dwTransferred);
-      CIOObject::Release((volatile LONG *)this);
+      CIOObject::Release(this);
     }
     else if ( lpOverlapped == &this->m_overlappedRead )
     {
       CIOSocket::ReadCallback(this, dwTransferred);
-      CIOObject::Release((volatile LONG *)this);
+      CIOObject::Release(this);
     }
     else
     {
@@ -9260,8 +9273,8 @@ void __thiscall CIOSocket::OnIOCallback(CIOSocket *this, int bSuccess, unsigned 
   else
   {
     if ( lpOverlapped == &this->m_overlappedRead )
-      CIOSocket::Close((char *)this);
-    CIOObject::Release((volatile LONG *)this);
+      CIOSocket::Close(this);
+    CIOObject::Release(this);
   }
 }
 
@@ -9281,7 +9294,7 @@ void __thiscall CIOSocket::ReadCallback(CIOSocket *this, unsigned int dwTransfer
   }
   else
   {
-    CIOSocket::Close((char *)this);
+    CIOSocket::Close(this);
   }
 }
 
@@ -9307,7 +9320,7 @@ void __thiscall CIOSocket::Read(CIOSocket *this, unsigned int dwLeft)
     this->m_pReadBuf = v4;
   }
   this->m_pReadBuf->m_dwSize = dwLeft;
-  CIOObject::AddRef((volatile LONG *)this);
+  CIOObject::AddRef(this);
   Buffers.len = 8000 - this->m_pReadBuf->m_dwSize;
   Buffers.buf = &this->m_pReadBuf->m_buffer[this->m_pReadBuf->m_dwSize];
   Flags = 0;
@@ -9323,8 +9336,8 @@ void __thiscall CIOSocket::Read(CIOSocket *this, unsigned int dwLeft)
     CIOCriticalSection::Leave(&this->m_lock);
     if ( v3 != 10038 && v3 != 10054 && v3 != 10053 && v3 != 10058 )
       LOG_ERR("CIOSocket::Read %x(%x) err = %d", this->m_hSocket, this, v3);
-    CIOSocket::Close((char *)this);
-    CIOObject::Release((volatile LONG *)this);
+    CIOSocket::Close(this);
+    CIOObject::Release(this);
   }
 }
 
@@ -9344,7 +9357,7 @@ void __thiscall CIOSocket::WriteCallback(CIOSocket *this, unsigned int dwTransfe
     this->m_pFirstBuf = this->m_pFirstBuf->m_pNext;
     if ( this->m_pFirstBuf )
     {
-      CIOObject::AddRef((volatile LONG *)this);
+      CIOObject::AddRef(this);
       Buffers.len = this->m_pFirstBuf->m_dwSize;
       Buffers.buf = this->m_pFirstBuf->m_buffer;
       if ( !WSASend(this->m_hSocket, &Buffers, 1u, &NumberOfBytesSent, 0, &this->m_overlappedWrite, 0)
@@ -9358,7 +9371,7 @@ void __thiscall CIOSocket::WriteCallback(CIOSocket *this, unsigned int dwTransfe
         CIOCriticalSection::Leave(&this->m_lock);
         if ( v3 != 10038 && v3 != 10054 && v3 != 10053 && v3 != 10058 )
           LOG_ERR("CIOSocket::WriteCallback %x(%x) err=%d", this->m_hSocket, this, v3);
-        CIOObject::Release((volatile LONG *)this);
+        CIOObject::Release(this);
       }
     }
     else
@@ -9408,7 +9421,7 @@ void __thiscall CIOSocket::Write(CIOSocket *this, CIOBuffer *pBuffer)
     {
       this->m_pLastBuf = pBuffer;
       this->m_pFirstBuf = pBuffer;
-      CIOObject::AddRef((volatile LONG *)this);
+      CIOObject::AddRef(this);
       Buffers.len = pBuffer->m_dwSize;
       Buffers.buf = (CHAR *)pBuffer;
       if ( !WSASend(this->m_hSocket, &Buffers, 1u, &NumberOfBytesSent, 0, &this->m_overlappedWrite, 0)
@@ -9422,7 +9435,7 @@ void __thiscall CIOSocket::Write(CIOSocket *this, CIOBuffer *pBuffer)
         CIOCriticalSection::Leave(&this->m_lock);
         if ( v3 != 10038 && v3 != 10054 && v3 != 10053 && v3 != 10058 )
           LOG_ERR("CIOSocket::Write %x(%x) err=%d", this->m_hSocket, this, v3);
-        CIOObject::Release((volatile LONG *)this);
+        CIOObject::Release(this);
       }
     }
   }
@@ -9433,13 +9446,12 @@ void __thiscall CIOSocket::Write(CIOSocket *this, CIOBuffer *pBuffer)
 }
 
 //----- (0040BF80) --------------------------------------------------------
-_DWORD *__thiscall sub_40BF80(_DWORD *this)
+void __thiscall CIOServer::CIOServer(CIOServer *this)
 {
-  CIOObject::CIOObject((CIOObject *)this);
-  *this = &off_42B5F8;
-  this[4] = -1;
-  this[5] = 0;
-  return this;
+  CIOObject::CIOObject(this);
+  this->__vftable = (CIOServer_vtbl *)&off_42B5F8;
+  this->m_hSocket = -1;
+  this->m_hAcceptEvent = 0;
 }
 // 42B5F8: using guessed type int (__stdcall *off_42B5F8)(int);
 
@@ -9515,7 +9527,7 @@ BOOL __thiscall sub_40C1A0(HANDLE *this)
 }
 
 //----- (0040C1D0) --------------------------------------------------------
-int __thiscall sub_40C1D0(_DWORD *this)
+int __thiscall CIOServer::Stop(_DWORD *this)
 {
   SOCKET s; // [esp+4h] [ebp-4h]
 
@@ -9549,7 +9561,7 @@ void __thiscall CIOServer::OnIOCallback(CIOServer *this, int bSuccess, unsigned 
     if ( v7 )
     {
       CIOSocket::Initialize(v7);
-      CIOObject::Release((volatile LONG *)v7);
+      CIOObject::Release(v7);
     }
     else
     {
@@ -9580,7 +9592,7 @@ void __thiscall CIOSocket::Initialize(CIOSocket *this)
     v2 = this->m_hSocket;
     v1 = GetLastError();
     ELOG("CreateIoCompletionPort: %d %x %x\n", v1, v2, v3);
-    CIOSocket::Close((char *)this);
+    CIOSocket::Close(this);
   }
 }
 
@@ -9592,9 +9604,9 @@ void __thiscall CIOObject::OnFree(CIOObject *this)
 }
 
 //----- (0040C3C0) --------------------------------------------------------
-_DWORD *__thiscall CIOObject::`vector deleting destructor'(_DWORD *this, char a2)
+_DWORD *__thiscall CIOObject::`vftable'(_DWORD *this, char a2)
 {
-  CIOObject::~CIOObject(this);
+  CIOObject::~CIOObject((CIOObject *)this);
   if ( (a2 & 1) != 0 )
     operator delete((int)this);
   return this;
@@ -9609,32 +9621,31 @@ void __thiscall CIOSocket::CIOTimer::CIOTimer(CIOSocket::CIOTimer *this, CIOObje
 }
 
 //----- (0040C420) --------------------------------------------------------
-void __thiscall CIOObject::Release(volatile LONG *this)
+void __thiscall CIOObject::Release(CIOObject *this)
 {
-  CIOObject::Release((CIOObject *)this, this + 3);
+  CIOObject::Release(this, &this->m_nGeneralRef);
 }
 
 //----- (0040C440) --------------------------------------------------------
-BOOL __thiscall CIOObject::PostObject(void *this, DWORD dwNumberOfBytesTransferred)
+BOOL __thiscall CIOObject::PostObject(CIOObject *this, int nId)
 {
-  return PostQueuedCompletionStatus(CompletionPort, dwNumberOfBytesTransferred, (ULONG_PTR)this, 0);
+  return PostQueuedCompletionStatus(CompletionPort, nId, (ULONG_PTR)this, 0);
 }
 
 //----- (0040C4A0) --------------------------------------------------------
-CIOObject *__thiscall CIOObject::CIOObject(CIOObject *this)
+void __thiscall CIOObject::CIOObject(CIOObject *this)
 {
   this->__vftable = (CIOObject_vtbl *)&off_42B5BC;
   this->m_nRef = 1;
   this->m_nTimerRef = 0;
   this->m_nGeneralRef = 1;
-  return this;
 }
 // 42B5BC: using guessed type int (__stdcall *off_42B5BC)(int);
 
 //----- (0040C4E0) --------------------------------------------------------
-void __thiscall CIOObject::AddRef(volatile LONG *this)
+void __thiscall CIOObject::AddRef(CIOObject *this)
 {
-  CIOObject::AddRef((CIOObject *)this, this + 3);
+  CIOObject::AddRef(this, &this->m_nGeneralRef);
 }
 
 //----- (0040C500) --------------------------------------------------------
@@ -9669,13 +9680,13 @@ BOOL __thiscall sub_40C590(void *this)
 }
 
 //----- (0040C5B0) --------------------------------------------------------
-int __thiscall sub_40C5B0(void *this)
+int __thiscall std::priority_queue<CIOSocket::CIOTimer>::top(void *this)
 {
-  return sub_40C690((int *)this);
+  return std::vector<CIOSocket::CIOTimer>::front((int *)this);
 }
 
 //----- (0040C5D0) --------------------------------------------------------
-int *__thiscall sub_40C5D0(int this, int a2)
+int *__thiscall std::priority_queue<CIOSocket::CIOTimer>::push(int this, int a2)
 {
   int *v2; // eax
   int v4; // [esp-8h] [ebp-14h]
@@ -9689,7 +9700,7 @@ int *__thiscall sub_40C5D0(int this, int a2)
 }
 
 //----- (0040C620) --------------------------------------------------------
-int __thiscall sub_40C620(int this)
+int __thiscall std::priority_queue<CIOSocket::CIOTimer>::pop(int this)
 {
   int *v1; // eax
   int v3; // [esp-8h] [ebp-14h]
@@ -9711,7 +9722,7 @@ BOOL __thiscall std::vector<CIOSocket::CIOTimer>::empty(void *this)
 }
 
 //----- (0040C690) --------------------------------------------------------
-int __thiscall sub_40C690(int *this)
+int __thiscall std::vector<CIOSocket::CIOTimer>::front(int *this)
 {
   void *v1; // eax
   char v3[4]; // [esp+4h] [ebp-4h] BYREF
@@ -9819,7 +9830,10 @@ int __thiscall std::vector<CIOSocket::CIOTimer>::_Destroy(void *this, int a2, in
 //----- (0040C8A0) --------------------------------------------------------
 int __thiscall std::vector<CIOSocket::CIOTimer>::_Ufill(void *this, void *a2, int a3, int a4)
 {
-  sub_40CE50(a2, a3, a4);
+  std::_Uninitialized_fill_n<CIOSocket::CIOTimer *,unsigned int,CIOSocket::CIOTimer,std::allocator<CIOSocket::CIOTimer>>(
+    a2,
+    a3,
+    a4);
   return (int)a2 + 12 * a3;
 }
 
@@ -9864,14 +9878,14 @@ void *__thiscall std::vector<CIOSocket::CIOTimer>::_Insert_n(_DWORD *this, int a
       if ( (v15[2] - a2) / 12 >= a3 )
       {
         v16 = v15[2];
-        v10 = sub_40CE90(v15, v16 - 12 * a3, v16, (void *)v15[2]);
+        v10 = std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(v15, v16 - 12 * a3, v16, (void *)v15[2]);
         v15[2] = (int)v10;
-        sub_40CEF0(a2, v16 - 12 * a3, v16);
+        std::copy_backward<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(a2, v16 - 12 * a3, v16);
         result = std::fill<CIOSocket::CIOTimer *,CIOSocket::CIOTimer>((_DWORD *)a2, (_DWORD *)(a2 + 12 * a3), v20);
       }
       else
       {
-        sub_40CE90(v15, a2, v15[2], (void *)(a2 + 12 * a3));
+        std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(v15, a2, v15[2], (void *)(a2 + 12 * a3));
         v21 = 2;
         std::vector<CIOSocket::CIOTimer>::_Ufill(v15, (void *)v15[2], a3 - (v15[2] - a2) / 12, (int)v20);
         v21 = -1;
@@ -9894,11 +9908,11 @@ void *__thiscall std::vector<CIOSocket::CIOTimer>::_Insert_n(_DWORD *this, int a
       v17 = std::allocator<CIOSocket::CIOTimer>::allocate(v19);
       v18 = v17;
       v21 = 0;
-      v13 = sub_40CE90(v15, v15[1], a2, v17);
+      v13 = std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(v15, v15[1], a2, v17);
       v18 = v13;
       v12 = (void *)std::vector<CIOSocket::CIOTimer>::_Ufill(v15, v13, a3, (int)v20);
       v18 = v12;
-      sub_40CE90(v15, a2, v15[2], v12);
+      std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(v15, a2, v15[2], v12);
       v21 = -1;
       v22 = a3 + std::vector<CIOSocket::CIOTimer>::size(v15);
       if ( v15[1] )
@@ -10028,7 +10042,7 @@ int __cdecl std::_Destroy_range<CIOSocket::CIOTimer>(int a1, int a2)
 // 404F10: using guessed type int __cdecl unknown_libname_15(_DWORD, _DWORD);
 
 //----- (0040CE50) --------------------------------------------------------
-void *__cdecl sub_40CE50(void *a1, int a2, int a3)
+void *__cdecl std::_Uninitialized_fill_n<CIOSocket::CIOTimer *,unsigned int,CIOSocket::CIOTimer,std::allocator<CIOSocket::CIOTimer>>(void *a1, int a2, int a3)
 {
   unknown_libname_15(&a1, &a1);
   return std::_Uninit_fill_n<CIOSocket::CIOTimer *,unsigned int,CIOSocket::CIOTimer,std::allocator<CIOSocket::CIOTimer>>(
@@ -10039,9 +10053,12 @@ void *__cdecl sub_40CE50(void *a1, int a2, int a3)
 // 404F10: using guessed type int __cdecl unknown_libname_15(_DWORD, _DWORD);
 
 //----- (0040CE90) --------------------------------------------------------
-void *__thiscall sub_40CE90(void *this, int a2, int a3, void *a4)
+void *__thiscall std::vector<CIOSocket::CIOTimer>::_Ucopy<CIOSocket::CIOTimer *>(void *this, int a2, int a3, void *a4)
 {
-  return sub_40D180(a2, a3, a4);
+  return std::_Uninitialized_copy<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *,std::allocator<CIOSocket::CIOTimer>>(
+           a2,
+           a3,
+           a4);
 }
 
 //----- (0040CEC0) --------------------------------------------------------
@@ -10061,7 +10078,7 @@ _DWORD *__cdecl std::fill<CIOSocket::CIOTimer *,CIOSocket::CIOTimer>(_DWORD *a1,
 }
 
 //----- (0040CEF0) --------------------------------------------------------
-_DWORD *__cdecl sub_40CEF0(int a1, int a2, int a3)
+_DWORD *__cdecl std::copy_backward<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>(int a1, int a2, int a3)
 {
   unknown_libname_15(&a1, &a3);
   return std::_Copy_backward_opt<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *>((_DWORD *)a1, (_DWORD *)a2, (_DWORD *)a3);
@@ -10145,7 +10162,13 @@ int *std::_Pop_heap_0<std::vector<CIOSocket::CIOTimer>::iterator,CIOSocket::CIOT
   v9 = v15;
   v6 = *std::vector<CIOSocket::CIOTimer>::iterator::operator-(&a2, v11, 1);
   v4 = std::vector<CIOSocket::CIOTimer>::iterator::operator-(&a2, v10, 1);
-  return sub_40D340(a1, *v4, v6, v7, v8, v9);
+  return std::_Pop_heap<std::vector<CIOSocket::CIOTimer>::iterator,int,CIOSocket::CIOTimer,std::less<CIOSocket::CIOTimer>>(
+           a1,
+           *v4,
+           v6,
+           v7,
+           v8,
+           v9);
 }
 
 //----- (0040D0B0) --------------------------------------------------------
@@ -10182,7 +10205,7 @@ void *__cdecl std::_Uninit_fill_n<CIOSocket::CIOTimer *,unsigned int,CIOSocket::
 }
 
 //----- (0040D180) --------------------------------------------------------
-void *__cdecl sub_40D180(int a1, int a2, void *a3)
+void *__cdecl std::_Uninitialized_copy<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *,std::allocator<CIOSocket::CIOTimer>>(int a1, int a2, void *a3)
 {
   unknown_libname_15(&a1, &a3);
   return std::_Uninit_copy<CIOSocket::CIOTimer *,CIOSocket::CIOTimer *,std::allocator<CIOSocket::CIOTimer>>(a1, a2, a3);
@@ -10266,7 +10289,7 @@ int *__cdecl std::_Push_heap<std::vector<CIOSocket::CIOTimer>::iterator,int,CIOS
 }
 
 //----- (0040D340) --------------------------------------------------------
-int *__cdecl sub_40D340(int a1, int a2, int a3, int a4, int a5, int a6)
+int *__cdecl std::_Pop_heap<std::vector<CIOSocket::CIOTimer>::iterator,int,CIOSocket::CIOTimer,std::less<CIOSocket::CIOTimer>>(int a1, int a2, int a3, int a4, int a5, int a6)
 {
   _DWORD *v6; // esi
   _DWORD *v7; // eax
@@ -10424,14 +10447,14 @@ _DWORD *__thiscall std::vector<CIOSocket::CIOTimer>::vector<CIOSocket::CIOTimer>
   v3 = this;
   v2 = this;
   unknown_libname_9(&v2);
-  sub_40D710(v3, (char)v2);
-  sub_40D690(v3, 0);
+  std::_String_val<char>::_String_val<char>(v3, (char)v2);
+  std::vector<CIOSocket::CIOTimer>::_Buy(v3, 0);
   return v3;
 }
 // 403F50: using guessed type int __thiscall unknown_libname_9(_DWORD);
 
 //----- (0040D690) --------------------------------------------------------
-char __thiscall sub_40D690(_DWORD *this, unsigned int a2)
+char __thiscall std::vector<CIOSocket::CIOTimer>::_Buy(_DWORD *this, unsigned int a2)
 {
   this[1] = 0;
   this[2] = 0;
@@ -10447,7 +10470,7 @@ char __thiscall sub_40D690(_DWORD *this, unsigned int a2)
 }
 
 //----- (0040D710) --------------------------------------------------------
-void *__thiscall sub_40D710(void *this, char a2)
+void *__thiscall std::_String_val<char>::_String_val<char>(void *this, char a2)
 {
   unknown_libname_19(&a2);
   return this;
@@ -10455,18 +10478,17 @@ void *__thiscall sub_40D710(void *this, char a2)
 // 405580: using guessed type _DWORD __stdcall unknown_libname_19(_DWORD);
 
 //----- (0040D730) --------------------------------------------------------
-_DWORD *__thiscall sub_40D730(_DWORD *this)
+void __thiscall CIOSocket::CIOTimerInstance::CIOTimerInstance(CIOSocket::CIOTimerInstance *this)
 {
-  CIOObject::CIOObject((CIOObject *)this);
-  *this = &off_42B614;
-  return this;
+  CIOObject::CIOObject(this);
+  this->__vftable = (CIOSocket::CIOTimerInstance_vtbl *)&off_42B614;
 }
 // 42B614: using guessed type int (__stdcall *off_42B614)(int);
 
 //----- (0040D750) --------------------------------------------------------
-void *__thiscall CServer::`vector deleting destructor'(void *this, char a2)
+void *__thiscall CIOSocket::CIOTimerInstance::`vftable'(void *this, char a2)
 {
-  sub_41B660(this);
+  CPacket::~CPacket((CIOSocket::CIOTimerInstance *)this);
   if ( (a2 & 1) != 0 )
     operator delete((int)this);
   return this;
@@ -10555,7 +10577,7 @@ int __thiscall lisp::_cons::length(lisp::_cons *this)
 //----- (0040D920) --------------------------------------------------------
 _DWORD *__thiscall sub_40D920(_DWORD *this)
 {
-  sub_4020E0(this);
+  lisp::_object::_object(this);
   *this = off_42B62C;
   return this;
 }
@@ -10710,7 +10732,8 @@ void __cdecl LOG_PAY(int nLogType, int nID, int nPayType, int nValue)
 //----- (0040DE40) --------------------------------------------------------
 void __thiscall CMemory::CInit::CInit(CMemory::CInit *this)
 {
-  CMemory *v1; // [esp+0h] [ebp-20h]
+  CMemory *v1; // eax
+  CMemory *v2; // [esp+0h] [ebp-20h]
   CMemory *Block; // [esp+8h] [ebp-18h]
   int i; // [esp+10h] [ebp-10h]
 
@@ -10718,20 +10741,25 @@ void __thiscall CMemory::CInit::CInit(CMemory::CInit *this)
   {
     Block = (CMemory *)CNoMemoryObject::operator new(0x38u);
     if ( Block )
-      v1 = CMemory::CMemory(Block);
+    {
+      CMemory::CMemory(Block);
+      v2 = v1;
+    }
     else
-      v1 = 0;
-    g_pMemory[i] = v1;
+    {
+      v2 = 0;
+    }
+    g_pMemory[i] = v2;
   }
 }
+// 40DE98: variable 'v1' is possibly undefined
 
 //----- (0040DEE0) --------------------------------------------------------
-CMemory *__thiscall CMemory::CMemory(CMemory *this)
+void __thiscall CMemory::CMemory(CMemory *this)
 {
   InitializeCriticalSection(&this->_lock);
   this->__sbh_indGroupDefer = 0;
   CMemory::_heap_init(this);
-  return this;
 }
 
 //----- (0040DF30) --------------------------------------------------------
@@ -10783,17 +10811,17 @@ int __thiscall CMemory::__sbh_heap_init(CMemory *this, unsigned int threshold)
 }
 
 //----- (0040E0B0) --------------------------------------------------------
-CMemory **__cdecl CMemory::_malloc(size_t Size)
+CMemory **__cdecl CMemory::_malloc(unsigned int size)
 {
   CMemory *v2; // [esp+0h] [ebp-8h]
   CMemory **v3; // [esp+4h] [ebp-4h]
 
-  v2 = g_pMemory[InterlockedIncrement(&dword_444158) & 0xF];
-  v3 = (CMemory **)CMemory::_heap_alloc_base(v2, Size + 4);
+  v2 = g_pMemory[InterlockedIncrement(&g_nMemoryCount) & 0xF];
+  v3 = (CMemory **)CMemory::_heap_alloc_base(v2, size + 4);
   if ( v3 )
   {
     *v3++ = v2;
-    memset(v3, 252, Size);
+    memset(v3, 252, size);
   }
   return v3;
 }
@@ -10806,15 +10834,15 @@ void *__thiscall CMemory::_heap_alloc_base(CMemory *this, unsigned int size)
 
   if ( size <= this->__sbh_threshold )
   {
-    CMemory::_mlock((int)this);
+    CMemory::_mlock(this);
     v4 = CMemory::__sbh_alloc_block(this, size);
-    CMemory::_munlock((int)this);
+    CMemory::_munlock(this);
     if ( v4 )
       return v4;
   }
-  CMemory::_mlock((int)this);
+  CMemory::_mlock(this);
   v5 = HeapAlloc(this->_crtheap, 0, (size + 15) & 0xFFFFFFF0);
-  CMemory::_munlock((int)this);
+  CMemory::_munlock(this);
   return v5;
 }
 
@@ -11062,36 +11090,36 @@ int __thiscall CMemory::__sbh_alloc_new_group(CMemory *this, CMemory::tagHeader 
 //----- (0040E9E0) --------------------------------------------------------
 void __cdecl CMemory::_free(void *pBlock)
 {
-  HANDLE *v1; // [esp+0h] [ebp-8h]
+  CMemory *v1; // [esp+0h] [ebp-8h]
 
   if ( pBlock )
   {
-    v1 = (HANDLE *)*((_DWORD *)pBlock - 1);
+    v1 = (CMemory *)*((_DWORD *)pBlock - 1);
     *((_DWORD *)pBlock - 1) = 0;
     CMemory::_free_base(v1, (char *)pBlock - 4);
   }
 }
 
 //----- (0040EA20) --------------------------------------------------------
-void __thiscall CMemory::_free_base(HANDLE *this, LPCVOID lpMem)
+void __thiscall CMemory::_free_base(CMemory *this, void *pBlock)
 {
   SIZE_T v3; // [esp+4h] [ebp-Ch]
   CMemory::tagHeader *pHeader; // [esp+Ch] [ebp-4h]
 
-  CMemory::_mlock((int)this);
-  pHeader = CMemory::__sbh_find_block((CMemory *)this, (void *)lpMem);
+  CMemory::_mlock(this);
+  pHeader = CMemory::__sbh_find_block(this, pBlock);
   if ( pHeader )
   {
-    memset((void *)lpMem, 253, *((_DWORD *)lpMem - 1) - 9);
-    CMemory::__sbh_free_block((CMemory *)this, pHeader, (void *)lpMem);
+    memset(pBlock, 253, *((_DWORD *)pBlock - 1) - 9);
+    CMemory::__sbh_free_block(this, pHeader, pBlock);
   }
   else
   {
-    v3 = HeapSize(*this, 0, lpMem);
-    memset((void *)lpMem, 253, v3);
-    HeapFree(*this, 0, (LPVOID)lpMem);
+    v3 = HeapSize(this->_crtheap, 0, pBlock);
+    memset(pBlock, 253, v3);
+    HeapFree(this->_crtheap, 0, pBlock);
   }
-  CMemory::_munlock((int)this);
+  CMemory::_munlock(this);
 }
 
 //----- (0040EAD0) --------------------------------------------------------
@@ -11270,9 +11298,9 @@ void *__thiscall CMemory::_calloc_base(CMemory *this, unsigned int size)
   {
     if ( Size <= this->__sbh_threshold )
     {
-      CMemory::_mlock((int)this);
+      CMemory::_mlock(this);
       v5 = CMemory::__sbh_alloc_block(this, Size);
-      CMemory::_munlock((int)this);
+      CMemory::_munlock(this);
       if ( v5 )
         memset(v5, 0, Size);
     }
@@ -11324,7 +11352,7 @@ void *__thiscall CMemory::_realloc_base(CMemory *this, void *pBlock, unsigned in
   v8 = 0;
   if ( newsize <= 0xFFFFFFE0 )
   {
-    CMemory::_mlock((int)this);
+    CMemory::_mlock(this);
     pHeader = CMemory::__sbh_find_block(this, pBlock);
     if ( pHeader )
     {
@@ -11366,7 +11394,7 @@ void *__thiscall CMemory::_realloc_base(CMemory *this, void *pBlock, unsigned in
         }
       }
     }
-    CMemory::_munlock((int)this);
+    CMemory::_munlock(this);
     if ( !pHeader )
     {
       if ( !newsize )
@@ -11541,7 +11569,7 @@ void *__thiscall CMemory::_expand_base(CMemory *this, void *pBlock, unsigned int
 
   if ( newsize > 0xFFFFFFE0 )
     return 0;
-  CMemory::_mlock((int)this);
+  CMemory::_mlock(this);
   pHeader = CMemory::__sbh_find_block(this, pBlock);
   if ( pHeader )
   {
@@ -11552,7 +11580,7 @@ void *__thiscall CMemory::_expand_base(CMemory *this, void *pBlock, unsigned int
         v6 = pBlock;
     }
   }
-  CMemory::_munlock((int)this);
+  CMemory::_munlock(this);
   if ( !pHeader )
   {
     if ( !newsize )
@@ -11569,11 +11597,11 @@ unsigned int __thiscall CMemory::_msize_base(CMemory *this, void *pblock)
   CMemory::tagHeader *v4; // [esp+4h] [ebp-8h]
   unsigned int v5; // [esp+8h] [ebp-4h]
 
-  CMemory::_mlock((int)this);
+  CMemory::_mlock(this);
   v4 = CMemory::__sbh_find_block(this, pblock);
   if ( v4 )
     v5 = *((_DWORD *)pblock - 1) - 9;
-  CMemory::_munlock((int)this);
+  CMemory::_munlock(this);
   if ( !v4 )
     v5 = HeapSize(this->_crtheap, 0, pblock);
   return v5;
@@ -11593,15 +11621,15 @@ void __cdecl CNoMemoryObject::operator delete(void *Block)
 }
 
 //----- (0040FC10) --------------------------------------------------------
-void __thiscall CMemory::_mlock(int this)
+void __thiscall CMemory::_mlock(CMemory *this)
 {
-  EnterCriticalSection((LPCRITICAL_SECTION)(this + 32));
+  EnterCriticalSection(&this->_lock);
 }
 
 //----- (0040FC30) --------------------------------------------------------
-void __thiscall CMemory::_munlock(int this)
+void __thiscall CMemory::_munlock(CMemory *this)
 {
-  LeaveCriticalSection((LPCRITICAL_SECTION)(this + 32));
+  LeaveCriticalSection(&this->_lock);
 }
 
 //----- (0040FCF0) --------------------------------------------------------
@@ -11643,22 +11671,21 @@ LONG __thiscall sub_410170(volatile LONG *this)
 }
 
 //----- (00410190) --------------------------------------------------------
-char *__thiscall sub_410190(char *this)
+void __thiscall CScreen::CScreen(CScreen *this)
 {
-  CIOCriticalSection::CIOCriticalSection((struct _RTL_CRITICAL_SECTION *)(this + 20));
-  *((_DWORD *)this + 1) = 0;
-  *((_DWORD *)this + 2) = 0;
-  *((_DWORD *)this + 4) = 0;
-  *((_DWORD *)this + 3) = 0;
-  *(_DWORD *)this = 0;
-  return this;
+  CIOCriticalSection::CIOCriticalSection(&this->m_lock);
+  this->m_nWidth = 0;
+  this->m_nHeight = 0;
+  this->m_nPitch = 0;
+  this->m_nLine = 0;
+  this->m_pBuffer = 0;
 }
 
 //----- (004101E0) --------------------------------------------------------
-void __thiscall sub_4101E0(char *this)
+void __thiscall CScreen::~CScreen(CScreen *this)
 {
-  operator delete(*(_DWORD *)this);
-  CIOCriticalSection::~CIOCriticalSection((CIOCriticalSection *)(this + 20));
+  operator delete(this->m_pBuffer);
+  CIOCriticalSection::~CIOCriticalSection(&this->m_lock);
 }
 // 42036F: using guessed type _DWORD __cdecl operator delete(_DWORD);
 
@@ -11759,7 +11786,7 @@ void __thiscall CScreen::OnPaint(CScreen *this)
 // 40DE20: using guessed type int __thiscall Concurrency::details::_CancellationTokenCallback<_lambda_bd6029e2426d7ec37458070853043c08_>::_Exec(_DWORD);
 
 //----- (00410560) --------------------------------------------------------
-void sub_410560()
+void CServer::Start()
 {
   CIOServer::Start((CIOServer *)(&stru_4441A4 + 7), *(int *)&nPort);
   CLink::Initialize((CLink *)(&stru_4441A4 + 3));
@@ -11768,45 +11795,45 @@ void sub_410560()
 //----- (00410580) --------------------------------------------------------
 CIOSocket *__thiscall CServer::CreateSocket(CServer *this, unsigned int newSocket, sockaddr_in *addr)
 {
-  CSocket *v4; // [esp+0h] [ebp-1Ch]
-  CMemory **v5; // [esp+8h] [ebp-14h]
+  CIOSocket *v3; // eax
+  CSocket *v6; // [esp+8h] [ebp-14h]
 
-  v5 = operator new(0x78u);
-  if ( v5 )
-    v4 = CSocket::CSocket((CSocket *)v5, newSocket, addr->sin_addr.S_un.S_addr);
-  else
-    v4 = 0;
-  return v4;
+  v6 = (CSocket *)operator new(0x78u);
+  if ( !v6 )
+    return 0;
+  CSocket::CSocket(v6, newSocket, addr->sin_addr);
+  return v3;
 }
+// 4105CB: variable 'v3' is possibly undefined
 
 //----- (00410600) --------------------------------------------------------
-LONG __cdecl CServer::Add(int a1)
+void __cdecl CServer::Add(CSocket *pSocket)
 {
-  CIOSpinLock::Enter((volatile LONG *)&stru_4441A4 + 6);
-  CLink::Insert((CLink *)(a1 + 108), (CLink *)(&stru_4441A4 + 3));
+  CIOSpinLock::Enter((CIOSpinLock *)&stru_4441A4 + 6);
+  CLink::Insert(&pSocket->m_link, (CLink *)(&stru_4441A4 + 3));
   *(&stru_4441A4 + 2) = (CScreen *)((char *)*(&stru_4441A4 + 2) + 1);
-  return CIOSpinLock::Leave((volatile LONG *)&stru_4441A4 + 6);
+  CIOSpinLock::Leave((CIOSpinLock *)&stru_4441A4 + 6);
 }
 
 //----- (00410640) --------------------------------------------------------
-LONG __cdecl CServer::Remove(int a1)
+void __cdecl CServer::Remove(CSocket *pSocket)
 {
-  CIOSpinLock::Enter((volatile LONG *)&stru_4441A4 + 6);
-  CLink::Remove((CLink *)(a1 + 108));
+  CIOSpinLock::Enter((CIOSpinLock *)&stru_4441A4 + 6);
+  CLink::Remove(&pSocket->m_link);
   *(&stru_4441A4 + 2) = (CScreen *)((char *)*(&stru_4441A4 + 2) - 1);
-  return CIOSpinLock::Leave((volatile LONG *)&stru_4441A4 + 6);
+  CIOSpinLock::Leave((CIOSpinLock *)&stru_4441A4 + 6);
 }
 
 //----- (00410680) --------------------------------------------------------
-int CServer::Size()
+int __cdecl CServer::Size()
 {
   return (int)*(&stru_4441A4 + 2);
 }
 
 //----- (00410690) --------------------------------------------------------
-int CServer::Stop()
+void __stdcall CServer::Stop()
 {
-  return sub_40C1D0(&stru_4441A4 + 7);
+  CIOServer::Stop(&stru_4441A4 + 7);
 }
 
 //----- (004106A0) --------------------------------------------------------
@@ -11816,16 +11843,16 @@ void __stdcall CServer::Shutdown()
 
   while ( 1 )
   {
-    CIOSpinLock::Enter((volatile LONG *)&stru_4441A4 + 6);
+    CIOSpinLock::Enter((CIOSpinLock *)&stru_4441A4 + 6);
     v0 = (int)*(&stru_4441A4 + 3);
     if ( *(&stru_4441A4 + 3) == (CScreen *)(&stru_4441A4 + 3) )
       break;
-    CIOObject::AddRef((volatile LONG *)&(*(&stru_4441A4 + 3))[-3].m_lock.m_dwEIP[1]);
-    CIOSpinLock::Leave((volatile LONG *)&stru_4441A4 + 6);
-    CIOSocket::Close((char *)(v0 - 108));
-    CIOObject::Release((volatile LONG *)(v0 - 108));
+    CIOObject::AddRef((CIOObject *)&(*(&stru_4441A4 + 3))[-3].m_lock.m_dwEIP[1]);
+    CIOSpinLock::Leave((CIOSpinLock *)&stru_4441A4 + 6);
+    CIOSocket::Close((CIOSocket *)(v0 - 108));
+    CIOObject::Release((CIOObject *)(v0 - 108));
   }
-  CIOSpinLock::Leave((volatile LONG *)&stru_4441A4 + 6);
+  CIOSpinLock::Leave((CIOSpinLock *)&stru_4441A4 + 6);
 }
 
 //----- (00410700) --------------------------------------------------------
@@ -11836,7 +11863,7 @@ int __cdecl CServer::PendingWrite()
   CScreen **v3; // [esp+8h] [ebp-4h]
 
   v2 = 0;
-  CIOSpinLock::Enter((volatile LONG *)&stru_4441A4 + 6);
+  CIOSpinLock::Enter((CIOSpinLock *)&stru_4441A4 + 6);
   v3 = (CScreen **)*(&stru_4441A4 + 3);
   while ( v3 != &stru_4441A4 + 3 )
   {
@@ -11844,7 +11871,7 @@ int __cdecl CServer::PendingWrite()
     v3 = (CScreen **)*v3;
     v2 = Concurrency::details::UMSFreeVirtualProcessorRoot::GetExecutingProxy(v1);
   }
-  CIOSpinLock::Leave((volatile LONG *)&stru_4441A4 + 6);
+  CIOSpinLock::Leave((CIOSpinLock *)&stru_4441A4 + 6);
   return (int)v2;
 }
 
@@ -11874,7 +11901,7 @@ void __thiscall CLink::Remove(CLink *this)
 //----- (00410810) --------------------------------------------------------
 _DWORD *__thiscall sub_410810(_DWORD *this)
 {
-  sub_40BF80(this);
+  CIOServer::CIOServer((CIOServer *)this);
   *this = &off_42B738;
   return this;
 }
@@ -11883,37 +11910,35 @@ _DWORD *__thiscall sub_410810(_DWORD *this)
 //----- (00410830) --------------------------------------------------------
 void *__thiscall CSocket::`vector deleting destructor'(void *this, char a2)
 {
-  sub_410860(this);
+  CServer::~CServer((CServer *)this);
   if ( (a2 & 1) != 0 )
     operator delete((int)this);
   return this;
 }
 
 //----- (00410860) --------------------------------------------------------
-void __thiscall sub_410860(_DWORD *this)
+void __thiscall CServer::~CServer(CServer *this)
 {
-  CIOServer::~CIOServer((CIOServer *)this);
+  CIOServer::~CIOServer(this);
 }
 
 //----- (00410880) --------------------------------------------------------
-LONG __thiscall sub_410880(int this, int a2, int a3, int a4)
+void __thiscall CPacket::OnIOCallback(CPacket *this, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped)
 {
-  CSocket::Process(*(CSocket **)(this + 16), (DBPACKET *)a3);
-  CIOObject::Release(*(volatile LONG **)(this + 16));
-  CIOBuffer::Release(*(CIOBuffer **)(this + 20));
-  sub_41B4B0(this);
-  return InterlockedDecrement((volatile LONG *)&stru_4441A4 + 5);
+  CSocket::Process(*((CSocket **)this + 4), (DBPACKET *)dwTransferred);
+  CIOObject::Release(*((CIOObject **)this + 4));
+  CIOBuffer::Release(*((CIOBuffer **)this + 5));
+  CMemoryPool<CPacket>::Free((int)this);
+  InterlockedDecrement((volatile LONG *)&stru_4441A4 + 5);
 }
 
 //----- (004108D0) --------------------------------------------------------
 void __thiscall CSyncPacket::OnIOCallback(CSyncPacket *this, int bSuccess, unsigned int dwTransferred, _OVERLAPPED *lpOverlapped)
 {
-  int v4; // eax
+  IPAddrMask *v4; // eax
   int nSize; // [esp+0h] [ebp-1Ch]
-  CSocket *v7; // [esp+8h] [ebp-14h]
-  CIOBuffer *v8; // [esp+Ch] [ebp-10h]
-  DBPACKET *dbpacket; // [esp+10h] [ebp-Ch]
-  int v10; // [esp+14h] [ebp-8h]
+  IPAddrMask v7; // [esp+8h] [ebp-14h]
+  IPAddrMask dbpacket; // [esp+10h] [ebp-Ch]
 
   if ( dwTransferred )
     EBREAK();
@@ -11924,18 +11949,16 @@ void __thiscall CSyncPacket::OnIOCallback(CSyncPacket *this, int bSuccess, unsig
     CIOCriticalSection::Enter((CIOCriticalSection *)((char *)this + 40));
     if ( !std::_Tree<std::_Tmap_traits<int,std::string,std::less<int>,std::allocator<std::pair<int const,std::string>>,0>>::const_iterator::operator!=((int)this + 36) )
       EBREAK();
-    v4 = CSyncPacket::Front((char *)this);
-    v7 = *(CSocket **)v4;
-    v8 = *(CIOBuffer **)(v4 + 4);
-    dbpacket = *(DBPACKET **)(v4 + 8);
-    v10 = *(_DWORD *)(v4 + 12);
+    v4 = CSyncPacket::Front(this);
+    v7 = *v4;
+    dbpacket = v4[1];
     CSyncPacket::Pop(this);
     CIOCriticalSection::Leave((CIOCriticalSection *)((char *)this + 40));
-    if ( dbpacket && (this - (CSyncPacket *)&g_syncPacket) / 76 == (unsigned __int8)dbpacket->data[0] )
+    if ( dbpacket.m_nAddr && (this - (CSyncPacket *)&g_syncPacket) / 76 == *(unsigned __int8 *)(dbpacket.m_nAddr + 3) )
     {
-      CSocket::Process(v7, dbpacket);
-      CIOObject::Release((volatile LONG *)v7);
-      CIOBuffer::Release(v8);
+      CSocket::Process((CSocket *)v7.m_nAddr, (DBPACKET *)dbpacket.m_nAddr);
+      CIOObject::Release((CIOObject *)v7.m_nAddr);
+      CIOBuffer::Release((CIOBuffer *)v7.m_nMask);
     }
     else
     {
@@ -11945,21 +11968,24 @@ void __thiscall CSyncPacket::OnIOCallback(CSyncPacket *this, int bSuccess, unsig
         *((const void **)this + 8),
         *((const void **)this + 9),
         *((_DWORD *)this + 18),
-        dbpacket,
-        (unsigned __int8)v10,
-        BYTE1(v10),
-        BYTE2(v10),
-        HIBYTE(v10),
-        v8,
-        v7,
-        v8->m_nRef,
-        v8->m_dwSize);
-      LogPacket(dbpacket->byType, dbpacket->wSize, dbpacket->data);
-      if ( (char *)dbpacket - (char *)v8 >= 1024 )
+        (const void *)dbpacket.m_nAddr,
+        LOBYTE(dbpacket.m_nMask),
+        BYTE1(dbpacket.m_nMask),
+        BYTE2(dbpacket.m_nMask),
+        HIBYTE(dbpacket.m_nMask),
+        (const void *)v7.m_nMask,
+        (const void *)v7.m_nAddr,
+        *(_DWORD *)(v7.m_nMask + 8004),
+        *(_DWORD *)(v7.m_nMask + 8000));
+      LogPacket(
+        *(unsigned __int8 *)(dbpacket.m_nAddr + 2),
+        *(unsigned __int16 *)dbpacket.m_nAddr,
+        (char *)(dbpacket.m_nAddr + 3));
+      if ( dbpacket.m_nAddr - v7.m_nMask >= 1024 )
         nSize = 1024;
       else
-        nSize = (char *)dbpacket - (char *)v8;
-      LogPacket(-1, nSize, v8->m_buffer);
+        nSize = dbpacket.m_nAddr - v7.m_nMask;
+      LogPacket(-1, nSize, (char *)v7.m_nMask);
       EBREAK();
     }
     InterlockedDecrement((volatile LONG *)&stru_4441A4 + 5);
@@ -11968,20 +11994,19 @@ void __thiscall CSyncPacket::OnIOCallback(CSyncPacket *this, int bSuccess, unsig
 }
 
 //----- (00410A80) --------------------------------------------------------
-CSocket *__thiscall CSocket::CSocket(CSocket *this, int a2, int a3)
+void __thiscall CSocket::CSocket(CSocket *this, unsigned int socket, in_addr addr)
 {
-  CIOSocket::CIOSocket(this, a2);
+  CIOSocket::CIOSocket(this, socket);
   this->__vftable = (CSocket_vtbl *)&off_42F84C;
-  this->m_addr.S_un.S_addr = a3;
-  return this;
+  this->m_addr = addr;
 }
 // 42F84C: using guessed type int (__stdcall *off_42F84C)(int);
 
 //----- (00410AB0) --------------------------------------------------------
-void __thiscall sub_410AB0(_DWORD *this)
+void __thiscall CSocket::~CSocket(CSocket *this)
 {
-  *this = &off_42F84C;
-  CIOSocket::~CIOSocket((CIOSocket *)this);
+  this->__vftable = (CSocket_vtbl *)&off_42F84C;
+  CIOSocket::~CIOSocket(this);
 }
 // 42F84C: using guessed type int (__stdcall *off_42F84C)(int);
 
@@ -12001,7 +12026,7 @@ void __thiscall CSocket::OnCreate(CSocket *this)
   int TargetValue; // [esp+28h] [ebp-10h] BYREF
   int v13; // [esp+34h] [ebp-4h]
 
-  CServer::Add((int)this);
+  CServer::Add(this);
   CIOSocket::OnCreate(this);
   TargetValue = 0;
   v1 = inet_ntoa(this->m_addr);
@@ -12024,7 +12049,7 @@ void __thiscall CSocket::OnCreate(CSocket *this)
     {
       v5 = inet_ntoa(this->m_addr);
       LOG_NORMAL("IP %s is restricted", v5);
-      CIOSocket::Close((char *)this);
+      CIOSocket::Close(this);
     }
   }
   if ( CServer::Size() <= 1 )
@@ -12045,24 +12070,23 @@ void __thiscall CSocket::OnCreate(CSocket *this)
   }
   LOG_NORMAL("max item ID(%x)", TargetValue);
   CSocket::Write(
-    (int)this,
-    1,
+    this,
+    D2S_VERSION,
     "bddddb",
     6,
-    dword_43D97C,
+    CDBConfig::s_nTimeStamp,
     TargetValue,
     dword_43D974,
     CDBConfig::s_nSystem,
     CDBConfig::s_nEvent);
 }
 // 405110: using guessed type _DWORD __stdcall unknown_libname_18(_DWORD);
-// 43D97C: using guessed type int dword_43D97C;
 
 //----- (00410CD0) --------------------------------------------------------
 void __thiscall CSocket::OnRead(CSocket *this)
 {
-  _DWORD *v2; // [esp+4h] [ebp-2Ch]
-  CSyncPacket *v3; // [esp+8h] [ebp-28h]
+  CIOObject *v2; // [esp+4h] [ebp-2Ch]
+  CIOObject *v3; // [esp+8h] [ebp-28h]
   CSyncPacket::CElement element; // [esp+Ch] [ebp-24h] BYREF
   DWORD dwNumberOfBytesTransferred; // [esp+20h] [ebp-10h]
   size_t v6; // [esp+24h] [ebp-Ch]
@@ -12094,24 +12118,24 @@ void __thiscall CSocket::OnRead(CSocket *this)
       }
       else
       {
-        v2 = CMemoryPool<CPacket>::Alloc();
-        v2[5] = this->m_pReadBuf;
-        CIOBuffer::AddRef((volatile LONG *)this->m_pReadBuf->m_buffer);
-        v2[4] = this;
-        CIOObject::AddRef((volatile LONG *)this);
+        v2 = (CIOObject *)CMemoryPool<CPacket>::Alloc();
+        v2[1].m_nRef = (int)this->m_pReadBuf->m_buffer;
+        CIOBuffer::AddRef(this->m_pReadBuf);
+        v2[1].__vftable = (CIOObject_vtbl *)this;
+        CIOObject::AddRef(this);
         CIOObject::PostObject(v2, dwNumberOfBytesTransferred);
       }
     }
     else
     {
-      v3 = (CSyncPacket *)((char *)&g_syncPacket + 76 * *(unsigned __int8 *)(dwNumberOfBytesTransferred + 3));
+      v3 = (CIOObject *)((char *)&g_syncPacket + 76 * *(unsigned __int8 *)(dwNumberOfBytesTransferred + 3));
       CSyncPacket::CElement::CElement(&element, this, this->m_pReadBuf, (DBPACKET *)dwNumberOfBytesTransferred);
-      CIOBuffer::AddRef((volatile LONG *)this->m_pReadBuf->m_buffer);
-      CIOObject::AddRef((volatile LONG *)this);
-      CIOCriticalSection::Enter((CIOCriticalSection *)((char *)v3 + 40));
-      CSyncPacket::Push(v3, &element);
-      CIOCriticalSection::Leave((CIOCriticalSection *)((char *)v3 + 40));
-      if ( InterlockedIncrement((volatile LONG *)v3 + 18) == 1 )
+      CIOBuffer::AddRef(this->m_pReadBuf);
+      CIOObject::AddRef(this);
+      CIOCriticalSection::Enter((CIOCriticalSection *)&v3[2].m_nTimerRef);
+      CSyncPacket::Push((CSyncPacket *)v3, &element);
+      CIOCriticalSection::Leave((CIOCriticalSection *)&v3[2].m_nTimerRef);
+      if ( InterlockedIncrement(&v3[4].m_nTimerRef) == 1 )
         CIOObject::PostObject(v3, 0);
     }
   }
@@ -12123,23 +12147,21 @@ void __thiscall CSocket::OnClose(CSocket *this)
 {
   char *v1; // eax
 
-  CServer::Remove((int)this);
+  CServer::Remove(this);
   v1 = inet_ntoa(this->m_addr);
   LOG_NORMAL("close connection %s", v1);
 }
 
 //----- (00410EA0) --------------------------------------------------------
-void CSocket::Write(int a1, char a2, ...)
+void CSocket::Write(CSocket *this, D2S_PROTOCOL nType, const char *formal, ...)
 {
-  CIOBuffer *v5; // [esp+8h] [ebp-8h]
-  va_list va; // [esp+20h] [ebp+10h] BYREF
+  CIOBuffer *v3; // [esp+8h] [ebp-8h]
 
-  va_start(va, a2);
-  v5 = CIOBuffer::Alloc();
-  v5->m_buffer[2] = a2;
-  *(_WORD *)v5->m_buffer = (unsigned __int16)WritePacketV(&v5->m_buffer[3], va) - (_WORD)v5;
-  v5->m_dwSize = *(unsigned __int16 *)v5->m_buffer;
-  CIOSocket::Write((CIOSocket *)a1, v5);
+  v3 = CIOBuffer::Alloc();
+  v3->m_buffer[2] = nType;
+  *(_WORD *)v3->m_buffer = (unsigned __int16)WritePacketV(&v3->m_buffer[3], (char *)&formal) - (_WORD)v3;
+  v3->m_dwSize = *(unsigned __int16 *)v3->m_buffer;
+  CIOSocket::Write(this, v3);
 }
 
 //----- (00410F10) --------------------------------------------------------
@@ -12519,7 +12541,7 @@ void __thiscall CSocket::Process(CSocket *this, DBPACKET *dbpacket)
         sub_415790(this, v135, v136, Src);
       break;
     case 32:
-      CIOSocket::Close((char *)this);
+      CIOSocket::Close(this);
       break;
     case 33:
       ReadPacket((char *)Src, "dd", &v133, &v134);
@@ -12716,7 +12738,7 @@ void __thiscall CSocket::Process(CSocket *this, DBPACKET *dbpacket)
     case 79:
       ReadPacket((char *)Src, "ddd", &v6, &v8, &v7);
       v2 = sub_41AD90(v8, v7);
-      CSocket::Write((int)this, 30, "db", v6, v2);
+      CSocket::Write(this, D2S_GUILD_DELPLAYER|D2S_ANS_NEWPLAYER|0x10, "db", v6, v2);
       break;
     case 80:
       ReadPacket((char *)Src, "d", v4);
@@ -12810,7 +12832,7 @@ void __thiscall CSocket::DelPlayer(CSocket *this, int nPID, int nUID, int nId)
         v5 = time(0);
         CSocket::GuildSeceder(this, nPID, v5 + 259200);
       }
-      CSocket::Write((int)this, 12, "dd", nPID, nGID);
+      CSocket::Write(this, D2S_GUILD_DELPLAYER, "dd", nPID, nGID);
     }
     CDB::Reset(&v15);
     if ( CDB::Execute(&v15, "UPDATE Player SET [UID] = 0 WHERE [PID] = %d", nPID) )
@@ -12841,7 +12863,7 @@ void __thiscall CSocket::DelPlayer(CSocket *this, int nPID, int nUID, int nId)
     CDB::ExecuteNoData(&v15, "DELETE FROM MLMMsg WHERE [PID] = %d", nPID);
   }
 LABEL_32:
-  CSocket::Write((int)this, 3, "db", nId, v14);
+  CSocket::Write(this, D2S_ANS_DELPLAYER, "db", nId, v14);
   v16 = -1;
   CDB::~CDB(&v15);
 }
@@ -13840,36 +13862,36 @@ void __stdcall sub_415180(int a1, int a2, int a3, int a4)
 //----- (00415240) --------------------------------------------------------
 void __thiscall sub_415240(void *this, int a2, int a3, void *Src)
 {
-  int v8; // [esp+8h] [ebp-FCh] BYREF
-  unsigned __int8 v9; // [esp+Fh] [ebp-F5h] BYREF
+  int v5; // [esp+8h] [ebp-FCh] BYREF
+  unsigned __int8 v6; // [esp+Fh] [ebp-F5h] BYREF
   char TargetValue[184]; // [esp+10h] [ebp-F4h] BYREF
-  char v11[4]; // [esp+CCh] [ebp-38h] BYREF
-  char v12[4]; // [esp+D0h] [ebp-34h] BYREF
-  int v13; // [esp+D4h] [ebp-30h] BYREF
-  unsigned __int8 v14; // [esp+D9h] [ebp-2Bh] BYREF
-  unsigned __int8 v15; // [esp+DAh] [ebp-2Ah] BYREF
-  unsigned __int8 v16; // [esp+DBh] [ebp-29h] BYREF
-  int v17; // [esp+DCh] [ebp-28h] BYREF
-  const char *v18; // [esp+E0h] [ebp-24h] BYREF
-  int v19; // [esp+E4h] [ebp-20h] BYREF
-  CDB v20; // [esp+E8h] [ebp-1Ch] BYREF
-  int v21; // [esp+100h] [ebp-4h]
+  char v8[4]; // [esp+CCh] [ebp-38h] BYREF
+  char v9[4]; // [esp+D0h] [ebp-34h] BYREF
+  int v10; // [esp+D4h] [ebp-30h] BYREF
+  unsigned __int8 v11; // [esp+D9h] [ebp-2Bh] BYREF
+  unsigned __int8 v12; // [esp+DAh] [ebp-2Ah] BYREF
+  unsigned __int8 v13; // [esp+DBh] [ebp-29h] BYREF
+  int v14; // [esp+DCh] [ebp-28h] BYREF
+  const char *v15; // [esp+E0h] [ebp-24h] BYREF
+  int v16; // [esp+E4h] [ebp-20h] BYREF
+  CDB v17; // [esp+E8h] [ebp-1Ch] BYREF
+  int v18; // [esp+100h] [ebp-4h]
 
-  CDB::CDB(&v20);
-  v21 = 0;
+  CDB::CDB(&v17);
+  v18 = 0;
   switch ( a2 )
   {
     case 0:
-      ReadPacket((char *)Src, "ddbsbb", &v17, &v19, &v14, &v18, &v16, &v15);
-      CDB::Execute(&v20, "INSERT INTO MLM VALUES ( %d, %d, '%s', %d, %d, %d, %d)", a3, v14, v18, v17, v19, v16, v15);
+      ReadPacket((char *)Src, "ddbsbb", &v14, &v16, &v11, &v15, &v13, &v12);
+      CDB::Execute(&v17, "INSERT INTO MLM VALUES ( %d, %d, '%s', %d, %d, %d, %d)", a3, v11, v15, v14, v16, v13, v12);
       break;
     case 1:
-      ReadPacket((char *)Src, "d", &v13);
-      CDB::ExecuteNoData(&v20, "DELETE FROM MLM WHERE [PID] = %d AND [Relation] = %d AND [RPID] = %d", a3, 4, v13);
+      ReadPacket((char *)Src, "d", &v10);
+      CDB::ExecuteNoData(&v17, "DELETE FROM MLM WHERE [PID] = %d AND [Relation] = %d AND [RPID] = %d", a3, 4, v10);
       break;
     case 2:
       CDB::ExecuteNoData(
-        &v20,
+        &v17,
         "DELETE FROM MLM WHERE ( [PID] = %d AND [Relation] IN ( %d, %d, %d)) OR ( [Relation] = %d AND [RPID] = %d)",
         a3,
         1,
@@ -13877,115 +13899,115 @@ void __thiscall sub_415240(void *this, int a2, int a3, void *Src)
         3,
         3,
         a3);
-      CDB::Reset(&v20);
+      CDB::Reset(&v17);
       CDB::ExecuteNoData(
-        &v20,
+        &v17,
         "DELETE FROM MLM WHERE [PID] IN ( SELECT [RPID] FROM MLM WHERE [PID] = %d AND [Relation] = %d) AND [Relation] = %d",
         a3,
         4,
         1);
       break;
     case 3:
-      ReadPacket((char *)Src, "d", v12);
+      ReadPacket((char *)Src, "d", v9);
       if ( !CDB::ExecuteNoData(
-              &v20,
+              &v17,
               "UPDATE MLM SET [RPID] = [RPID] + %d WHERE [PID] = %d AND [Relation] = %d",
-              *(_DWORD *)v12,
+              *(_DWORD *)v9,
               a3,
               0) )
       {
-        CDB::Reset(&v20);
-        CDB::Execute(&v20, "INSERT INTO MLM VALUES ( %d, %d, '', %d, 0, 0, 0)", a3, 0, *(_DWORD *)v12);
+        CDB::Reset(&v17);
+        CDB::Execute(&v17, "INSERT INTO MLM VALUES ( %d, %d, '', %d, 0, 0, 0)", a3, 0, *(_DWORD *)v9);
       }
       break;
     case 4:
-      ReadPacket((char *)Src, "s", v11);
-      if ( !CDB::ExecuteNoData(&v20, "UPDATE MLMMsg SET [Msg] = '%s' WHERE [PID] = %d", *(const char **)v11, a3) )
+      ReadPacket((char *)Src, "s", v8);
+      if ( !CDB::ExecuteNoData(&v17, "UPDATE MLMMsg SET [Msg] = '%s' WHERE [PID] = %d", *(const char **)v8, a3) )
       {
-        CDB::Reset(&v20);
-        CDB::Execute(&v20, "INSERT INTO MLMMsg VALUES ( %d, '%s')", a3, *(const char **)v11);
+        CDB::Reset(&v17);
+        CDB::Execute(&v17, "INSERT INTO MLMMsg VALUES ( %d, '%s')", a3, *(const char **)v8);
       }
       break;
     case 5:
-      ReadPacket((char *)Src, "bd", &v9, &v8);
-      CDB::Bind(&v20, TargetValue, 181);
-      if ( CDB::Execute(&v20, "SELECT [Msg] FROM MLMMsg WHERE [PID] = %d", a3) && CDB::Fetch(&v20) )
-        CSocket::Write((int)this, 8, "dbbbs", v8, 5, 8, v9, TargetValue);
+      ReadPacket((char *)Src, "bd", &v6, &v5);
+      CDB::Bind(&v17, TargetValue, 181);
+      if ( CDB::Execute(&v17, "SELECT [Msg] FROM MLMMsg WHERE [PID] = %d", a3) && CDB::Fetch(&v17) )
+        CSocket::Write((CSocket *)this, D2S_EVENT, "dbbbs", v5, 5, 8, v6, TargetValue);
       break;
     default:
       break;
   }
-  v21 = -1;
-  CDB::~CDB(&v20);
+  v18 = -1;
+  CDB::~CDB(&v17);
 }
 
 //----- (00415500) --------------------------------------------------------
 void __thiscall sub_415500(void *this, int a2, int a3, void *Src)
 {
-  char *v7; // eax
+  char *v4; // eax
   char *packet; // [esp+8h] [ebp-64h]
   char str[20]; // [esp+Ch] [ebp-60h] BYREF
-  CIOBuffer *v11; // [esp+24h] [ebp-48h]
+  CIOBuffer *v8; // [esp+24h] [ebp-48h]
   int n; // [esp+28h] [ebp-44h] BYREF
-  int v13; // [esp+2Ch] [ebp-40h]
+  int v10; // [esp+2Ch] [ebp-40h]
   CIOBuffer *pBuffer; // [esp+30h] [ebp-3Ch]
   int i; // [esp+34h] [ebp-38h]
-  unsigned __int8 v16; // [esp+3Bh] [ebp-31h] BYREF
-  int v17; // [esp+3Ch] [ebp-30h] BYREF
-  const char *v18; // [esp+40h] [ebp-2Ch] BYREF
+  unsigned __int8 v13; // [esp+3Bh] [ebp-31h] BYREF
+  int v14; // [esp+3Ch] [ebp-30h] BYREF
+  const char *v15; // [esp+40h] [ebp-2Ch] BYREF
   int TargetValue; // [esp+44h] [ebp-28h] BYREF
-  const char *v20; // [esp+48h] [ebp-24h] BYREF
-  int v21; // [esp+4Ch] [ebp-20h] BYREF
-  CDB v22; // [esp+50h] [ebp-1Ch] BYREF
-  int v23; // [esp+68h] [ebp-4h]
+  const char *v17; // [esp+48h] [ebp-24h] BYREF
+  int v18; // [esp+4Ch] [ebp-20h] BYREF
+  CDB v19; // [esp+50h] [ebp-1Ch] BYREF
+  int v20; // [esp+68h] [ebp-4h]
   char *Srca; // [esp+7Ch] [ebp+10h]
 
-  CDB::CDB(&v22);
-  v23 = 0;
+  CDB::CDB(&v19);
+  v20 = 0;
   switch ( a2 )
   {
     case 0:
-      ReadPacket((char *)Src, "ds", &v21, &v20);
-      CDB::Execute(&v22, "INSERT INTO Friend VALUES ( %d, %d, '%s')", a3, v21, v20);
+      ReadPacket((char *)Src, "ds", &v18, &v17);
+      CDB::Execute(&v19, "INSERT INTO Friend VALUES ( %d, %d, '%s')", a3, v18, v17);
       break;
     case 1:
-      Srca = ReadPacket((char *)Src, "b", &v16);
-      for ( i = 0; i < v16; ++i )
+      Srca = ReadPacket((char *)Src, "b", &v13);
+      for ( i = 0; i < v13; ++i )
       {
-        Srca = ReadPacket(Srca, "d", &v17);
-        CDB::Execute(&v22, "DELETE Friend WHERE [PID] = %d AND [FPID] = %d", a3, v17);
+        Srca = ReadPacket(Srca, "d", &v14);
+        CDB::Execute(&v19, "DELETE Friend WHERE [PID] = %d AND [FPID] = %d", a3, v14);
       }
       break;
     case 2:
       TargetValue = 0;
-      ReadPacket((char *)Src, "s", &v18);
-      CDB::Bind(&v22, &TargetValue);
-      CDB::Execute(&v22, "SELECT [PID] FROM Player WHERE [Name] = '%s' AND [UID] <> 0", v18);
-      CDB::Fetch(&v22);
-      CSocket::Write((int)this, 24, "dbds", a3, 2, TargetValue, v18);
+      ReadPacket((char *)Src, "s", &v15);
+      CDB::Bind(&v19, &TargetValue);
+      CDB::Execute(&v19, "SELECT [PID] FROM Player WHERE [Name] = '%s' AND [UID] <> 0", v15);
+      CDB::Fetch(&v19);
+      CSocket::Write((CSocket *)this, (D2S_PROTOCOL)24, "dbds", a3, 2, TargetValue, v15);
       break;
     case 3:
       pBuffer = CIOBuffer::Alloc();
-      v11 = pBuffer;
+      v8 = pBuffer;
       pBuffer->m_buffer[2] = 24;
-      packet = &v11->m_buffer[9];
-      v13 = 0;
-      CDB::Bind(&v22, &n);
-      CDB::Bind(&v22, str, 17);
-      if ( CDB::Execute(&v22, "SELECT TOP %d [FPID], [FName] FROM Friend WHERE [PID] = %d", 30, a3) )
+      packet = &v8->m_buffer[9];
+      v10 = 0;
+      CDB::Bind(&v19, &n);
+      CDB::Bind(&v19, str, 17);
+      if ( CDB::Execute(&v19, "SELECT TOP %d [FPID], [FName] FROM Friend WHERE [PID] = %d", 30, a3) )
       {
-        while ( CDB::Fetch(&v22) )
+        while ( CDB::Fetch(&v19) )
         {
-          v7 = (char *)PutNumeric<int>(packet, n);
-          packet = PutString(v7, str);
-          ++v13;
+          v4 = (char *)PutNumeric<int>(packet, n);
+          packet = PutString(v4, str);
+          ++v10;
         }
       }
-      if ( v13 )
+      if ( v10 )
       {
-        WritePacket(&v11->m_buffer[3], "dbb", a3, 3, v13);
-        *(_WORD *)v11->m_buffer = (_WORD)packet - (_WORD)v11;
-        pBuffer->m_dwSize = *(unsigned __int16 *)v11->m_buffer;
+        WritePacket(&v8->m_buffer[3], "dbb", a3, 3, v10);
+        *(_WORD *)v8->m_buffer = (_WORD)packet - (_WORD)v8;
+        pBuffer->m_dwSize = *(unsigned __int16 *)v8->m_buffer;
         CIOSocket::Write((CIOSocket *)this, pBuffer);
       }
       else
@@ -13996,255 +14018,255 @@ void __thiscall sub_415500(void *this, int a2, int a3, void *Src)
     default:
       break;
   }
-  v23 = -1;
-  CDB::~CDB(&v22);
+  v20 = -1;
+  CDB::~CDB(&v19);
 }
 
 //----- (00415790) --------------------------------------------------------
 void __thiscall sub_415790(void *this, int a2, int a3, void *Src)
 {
-  __time32_t v7; // eax
-  __time32_t v8; // eax
-  int v9; // [esp-4h] [ebp-390h]
-  char v11; // [esp+Fh] [ebp-37Dh] BYREF
-  unsigned __int16 v12; // [esp+10h] [ebp-37Ch] BYREF
-  int v13; // [esp+14h] [ebp-378h] BYREF
-  int v14; // [esp+18h] [ebp-374h] BYREF
-  unsigned __int8 v15; // [esp+1Fh] [ebp-36Dh] BYREF
-  int v16; // [esp+20h] [ebp-36Ch] BYREF
-  unsigned __int8 v17; // [esp+27h] [ebp-365h] BYREF
-  int v18; // [esp+28h] [ebp-364h] BYREF
-  unsigned __int16 v19[2]; // [esp+2Ch] [ebp-360h] BYREF
-  unsigned __int8 v20; // [esp+31h] [ebp-35Bh] BYREF
-  unsigned __int8 v21; // [esp+32h] [ebp-35Ah] BYREF
-  unsigned __int8 v22; // [esp+33h] [ebp-359h] BYREF
-  int v23; // [esp+34h] [ebp-358h] BYREF
-  int v24; // [esp+38h] [ebp-354h] BYREF
-  unsigned __int8 v25; // [esp+3Fh] [ebp-34Dh] BYREF
-  unsigned __int8 v26; // [esp+40h] [ebp-34Ch] BYREF
-  unsigned __int8 v27; // [esp+41h] [ebp-34Bh] BYREF
-  unsigned __int8 v28; // [esp+42h] [ebp-34Ah] BYREF
-  unsigned __int8 v29; // [esp+43h] [ebp-349h] BYREF
-  unsigned __int8 v30; // [esp+44h] [ebp-348h] BYREF
-  unsigned __int8 v31; // [esp+45h] [ebp-347h] BYREF
-  unsigned __int8 v32; // [esp+46h] [ebp-346h] BYREF
-  unsigned __int8 v33; // [esp+47h] [ebp-345h] BYREF
-  int v34; // [esp+48h] [ebp-344h] BYREF
-  int v35[2]; // [esp+4Ch] [ebp-340h] BYREF
-  int v36; // [esp+54h] [ebp-338h] BYREF
-  int v37; // [esp+58h] [ebp-334h] BYREF
-  unsigned __int16 v38[2]; // [esp+5Ch] [ebp-330h] BYREF
-  unsigned __int8 v39; // [esp+61h] [ebp-32Bh] BYREF
-  unsigned __int8 v40; // [esp+62h] [ebp-32Ah] BYREF
-  unsigned __int8 v41; // [esp+63h] [ebp-329h] BYREF
-  int v42; // [esp+64h] [ebp-328h] BYREF
-  int v43; // [esp+68h] [ebp-324h] BYREF
-  unsigned __int8 v44; // [esp+6Fh] [ebp-31Dh] BYREF
-  unsigned __int8 v45; // [esp+70h] [ebp-31Ch] BYREF
-  unsigned __int8 v46; // [esp+71h] [ebp-31Bh] BYREF
-  unsigned __int8 v47; // [esp+72h] [ebp-31Ah] BYREF
-  unsigned __int8 v48; // [esp+73h] [ebp-319h] BYREF
-  unsigned __int8 v49; // [esp+74h] [ebp-318h] BYREF
-  unsigned __int8 v50; // [esp+75h] [ebp-317h] BYREF
-  unsigned __int8 v51; // [esp+76h] [ebp-316h] BYREF
-  unsigned __int8 v52; // [esp+77h] [ebp-315h] BYREF
-  char v53[520]; // [esp+78h] [ebp-314h] BYREF
+  __time32_t v4; // eax
+  __time32_t v5; // eax
+  int v6; // [esp-4h] [ebp-390h]
+  char v8; // [esp+Fh] [ebp-37Dh] BYREF
+  unsigned __int16 v9; // [esp+10h] [ebp-37Ch] BYREF
+  int v10; // [esp+14h] [ebp-378h] BYREF
+  int v11; // [esp+18h] [ebp-374h] BYREF
+  unsigned __int8 v12; // [esp+1Fh] [ebp-36Dh] BYREF
+  int v13; // [esp+20h] [ebp-36Ch] BYREF
+  unsigned __int8 v14; // [esp+27h] [ebp-365h] BYREF
+  int v15; // [esp+28h] [ebp-364h] BYREF
+  unsigned __int16 v16[2]; // [esp+2Ch] [ebp-360h] BYREF
+  unsigned __int8 v17; // [esp+31h] [ebp-35Bh] BYREF
+  unsigned __int8 v18; // [esp+32h] [ebp-35Ah] BYREF
+  unsigned __int8 v19; // [esp+33h] [ebp-359h] BYREF
+  int v20; // [esp+34h] [ebp-358h] BYREF
+  int v21; // [esp+38h] [ebp-354h] BYREF
+  unsigned __int8 v22; // [esp+3Fh] [ebp-34Dh] BYREF
+  unsigned __int8 v23; // [esp+40h] [ebp-34Ch] BYREF
+  unsigned __int8 v24; // [esp+41h] [ebp-34Bh] BYREF
+  unsigned __int8 v25; // [esp+42h] [ebp-34Ah] BYREF
+  unsigned __int8 v26; // [esp+43h] [ebp-349h] BYREF
+  unsigned __int8 v27; // [esp+44h] [ebp-348h] BYREF
+  unsigned __int8 v28; // [esp+45h] [ebp-347h] BYREF
+  unsigned __int8 v29; // [esp+46h] [ebp-346h] BYREF
+  unsigned __int8 v30; // [esp+47h] [ebp-345h] BYREF
+  int v31; // [esp+48h] [ebp-344h] BYREF
+  int v32[2]; // [esp+4Ch] [ebp-340h] BYREF
+  int v33; // [esp+54h] [ebp-338h] BYREF
+  int v34; // [esp+58h] [ebp-334h] BYREF
+  unsigned __int16 v35[2]; // [esp+5Ch] [ebp-330h] BYREF
+  unsigned __int8 v36; // [esp+61h] [ebp-32Bh] BYREF
+  unsigned __int8 v37; // [esp+62h] [ebp-32Ah] BYREF
+  unsigned __int8 v38; // [esp+63h] [ebp-329h] BYREF
+  int v39; // [esp+64h] [ebp-328h] BYREF
+  int v40; // [esp+68h] [ebp-324h] BYREF
+  unsigned __int8 v41; // [esp+6Fh] [ebp-31Dh] BYREF
+  unsigned __int8 v42; // [esp+70h] [ebp-31Ch] BYREF
+  unsigned __int8 v43; // [esp+71h] [ebp-31Bh] BYREF
+  unsigned __int8 v44; // [esp+72h] [ebp-31Ah] BYREF
+  unsigned __int8 v45; // [esp+73h] [ebp-319h] BYREF
+  unsigned __int8 v46; // [esp+74h] [ebp-318h] BYREF
+  unsigned __int8 v47; // [esp+75h] [ebp-317h] BYREF
+  unsigned __int8 v48; // [esp+76h] [ebp-316h] BYREF
+  unsigned __int8 v49; // [esp+77h] [ebp-315h] BYREF
+  char v50[520]; // [esp+78h] [ebp-314h] BYREF
   SQLINTEGER StrLen_or_Ind; // [esp+280h] [ebp-10Ch] BYREF
-  int v55; // [esp+284h] [ebp-108h] BYREF
-  unsigned __int8 v56; // [esp+28Bh] [ebp-101h] BYREF
-  __time32_t v57; // [esp+28Ch] [ebp-100h]
-  int v58; // [esp+290h] [ebp-FCh] BYREF
-  int v59; // [esp+294h] [ebp-F8h] BYREF
-  unsigned __int16 v60; // [esp+298h] [ebp-F4h] BYREF
-  int v61; // [esp+29Ch] [ebp-F0h] BYREF
-  int v62; // [esp+2A0h] [ebp-ECh] BYREF
+  int v52; // [esp+284h] [ebp-108h] BYREF
+  unsigned __int8 v53; // [esp+28Bh] [ebp-101h] BYREF
+  __time32_t v54; // [esp+28Ch] [ebp-100h]
+  int v55; // [esp+290h] [ebp-FCh] BYREF
+  int v56; // [esp+294h] [ebp-F8h] BYREF
+  unsigned __int16 v57; // [esp+298h] [ebp-F4h] BYREF
+  int v58; // [esp+29Ch] [ebp-F0h] BYREF
+  int v59; // [esp+2A0h] [ebp-ECh] BYREF
   char *packet; // [esp+2A4h] [ebp-E8h]
-  char v64; // [esp+2AAh] [ebp-E2h] BYREF
-  char v65; // [esp+2ABh] [ebp-E1h] BYREF
-  int v66; // [esp+2ACh] [ebp-E0h] BYREF
+  char v61; // [esp+2AAh] [ebp-E2h] BYREF
+  char v62; // [esp+2ABh] [ebp-E1h] BYREF
+  int v63; // [esp+2ACh] [ebp-E0h] BYREF
   char TargetValue; // [esp+2B3h] [ebp-D9h] BYREF
   char str[20]; // [esp+2B4h] [ebp-D8h] BYREF
-  char v69[20]; // [esp+2C8h] [ebp-C4h] BYREF
-  int v70; // [esp+2E0h] [ebp-ACh] BYREF
-  int v71; // [esp+2E4h] [ebp-A8h] BYREF
-  char v72; // [esp+2EBh] [ebp-A1h] BYREF
-  CIOBuffer *v73; // [esp+2ECh] [ebp-A0h]
-  char v74; // [esp+2F3h] [ebp-99h] BYREF
-  __time32_t v75; // [esp+2F4h] [ebp-98h]
-  int v76; // [esp+2F8h] [ebp-94h] BYREF
-  int v77; // [esp+2FCh] [ebp-90h]
-  int v78; // [esp+300h] [ebp-8Ch] BYREF
-  int v79; // [esp+304h] [ebp-88h] BYREF
+  char v66[20]; // [esp+2C8h] [ebp-C4h] BYREF
+  int v67; // [esp+2E0h] [ebp-ACh] BYREF
+  int v68; // [esp+2E4h] [ebp-A8h] BYREF
+  char v69; // [esp+2EBh] [ebp-A1h] BYREF
+  CIOBuffer *v70; // [esp+2ECh] [ebp-A0h]
+  char v71; // [esp+2F3h] [ebp-99h] BYREF
+  __time32_t v72; // [esp+2F4h] [ebp-98h]
+  int v73; // [esp+2F8h] [ebp-94h] BYREF
+  int v74; // [esp+2FCh] [ebp-90h]
+  int v75; // [esp+300h] [ebp-8Ch] BYREF
+  int v76; // [esp+304h] [ebp-88h] BYREF
   CIOBuffer *pBuffer; // [esp+308h] [ebp-84h]
-  unsigned __int16 v81; // [esp+30Ch] [ebp-80h] BYREF
-  int v82; // [esp+310h] [ebp-7Ch] BYREF
-  char v83; // [esp+317h] [ebp-75h] BYREF
-  int v84; // [esp+318h] [ebp-74h] BYREF
+  unsigned __int16 v78; // [esp+30Ch] [ebp-80h] BYREF
+  int v79; // [esp+310h] [ebp-7Ch] BYREF
+  char v80; // [esp+317h] [ebp-75h] BYREF
+  int v81; // [esp+318h] [ebp-74h] BYREF
   int nID2; // [esp+31Ch] [ebp-70h] BYREF
-  int v86; // [esp+320h] [ebp-6Ch] BYREF
-  unsigned __int8 v87; // [esp+327h] [ebp-65h] BYREF
-  int v88; // [esp+328h] [ebp-64h] BYREF
-  __time32_t v89; // [esp+32Ch] [ebp-60h]
+  int v83; // [esp+320h] [ebp-6Ch] BYREF
+  unsigned __int8 v84; // [esp+327h] [ebp-65h] BYREF
+  int v85; // [esp+328h] [ebp-64h] BYREF
+  __time32_t v86; // [esp+32Ch] [ebp-60h]
   SQLINTEGER pcbValue; // [esp+330h] [ebp-5Ch] BYREF
-  int v91; // [esp+334h] [ebp-58h]
+  int v88; // [esp+334h] [ebp-58h]
   char *Str; // [esp+338h] [ebp-54h] BYREF
-  __time32_t v93; // [esp+33Ch] [ebp-50h]
-  int v94; // [esp+340h] [ebp-4Ch] BYREF
-  unsigned __int16 v95; // [esp+344h] [ebp-48h] BYREF
+  __time32_t v90; // [esp+33Ch] [ebp-50h]
+  int v91; // [esp+340h] [ebp-4Ch] BYREF
+  unsigned __int16 v92; // [esp+344h] [ebp-48h] BYREF
   int nVal3; // [esp+348h] [ebp-44h] BYREF
-  unsigned __int8 v97; // [esp+34Eh] [ebp-3Eh] BYREF
-  unsigned __int8 v98; // [esp+34Fh] [ebp-3Dh] BYREF
-  const char *v99; // [esp+350h] [ebp-3Ch] BYREF
-  const char *v100; // [esp+354h] [ebp-38h] BYREF
-  int v101; // [esp+358h] [ebp-34h] BYREF
+  unsigned __int8 v94; // [esp+34Eh] [ebp-3Eh] BYREF
+  unsigned __int8 v95; // [esp+34Fh] [ebp-3Dh] BYREF
+  const char *v96; // [esp+350h] [ebp-3Ch] BYREF
+  const char *v97; // [esp+354h] [ebp-38h] BYREF
+  int v98; // [esp+358h] [ebp-34h] BYREF
   int nVal4; // [esp+35Ch] [ebp-30h] BYREF
   int n; // [esp+360h] [ebp-2Ch] BYREF
-  unsigned __int8 v104; // [esp+366h] [ebp-26h] BYREF
-  unsigned __int8 v105; // [esp+367h] [ebp-25h] BYREF
-  int v106; // [esp+368h] [ebp-24h]
+  unsigned __int8 v101; // [esp+366h] [ebp-26h] BYREF
+  unsigned __int8 v102; // [esp+367h] [ebp-25h] BYREF
+  int v103; // [esp+368h] [ebp-24h]
   int nIID; // [esp+36Ch] [ebp-20h] BYREF
-  CDB v108; // [esp+370h] [ebp-1Ch] BYREF
-  int v109; // [esp+388h] [ebp-4h]
+  CDB v105; // [esp+370h] [ebp-1Ch] BYREF
+  int v106; // [esp+388h] [ebp-4h]
   char *Srca; // [esp+39Ch] [ebp+10h]
 
-  CDB::CDB(&v108);
-  v109 = 0;
+  CDB::CDB(&v105);
+  v106 = 0;
   switch ( a2 )
   {
     case 0:
-      Srca = ReadPacket((char *)Src, "bbssdbwbdd", &v98, &v105, &v99, &v100, &nIID, &v104, &v95, &v97, &nVal3, &nVal4);
-      v101 = 0;
-      v106 = 0;
+      Srca = ReadPacket((char *)Src, "bbssdbwbdd", &v95, &v102, &v96, &v97, &nIID, &v101, &v92, &v94, &nVal3, &nVal4);
+      v98 = 0;
+      v103 = 0;
       n = 0;
-      CDB::Bind(&v108, &n);
-      if ( CDB::Execute(&v108, " SELECT [PID] FROM Player WHERE [Name] = '%s'", v100) && CDB::Fetch(&v108) )
+      CDB::Bind(&v105, &n);
+      if ( CDB::Execute(&v105, " SELECT [PID] FROM Player WHERE [Name] = '%s'", v97) && CDB::Fetch(&v105) )
       {
-        v94 = 0;
-        if ( v105 != 4 && v105 != 3 )
+        v91 = 0;
+        if ( v102 != 4 && v102 != 3 )
         {
-          CDB::Reset(&v108);
-          CDB::Bind(&v108, &v94);
-          v7 = time(0);
-          CDB::Execute(&v108, " SELECT COUNT(*) FROM Mail WHERE [RPID] = %d AND [TimetE] > %d", n, v7);
-          CDB::Fetch(&v108);
+          CDB::Reset(&v105);
+          CDB::Bind(&v105, &v91);
+          v4 = time(0);
+          CDB::Execute(&v105, " SELECT COUNT(*) FROM Mail WHERE [RPID] = %d AND [TimetE] > %d", n, v4);
+          CDB::Fetch(&v105);
         }
-        if ( v94 >= 100 )
+        if ( v91 >= 100 )
         {
-          v106 = 1;
+          v103 = 1;
         }
         else
         {
-          v91 = 2;
-          v89 = time(0);
-          v93 = v89;
-          switch ( v105 )
+          v88 = 2;
+          v86 = time(0);
+          v90 = v86;
+          switch ( v102 )
           {
             case 0u:
             case 4u:
-              v93 += 2592000;
+              v90 += 2592000;
               break;
             case 1u:
-              v93 += nVal4 != 0 ? 3600 : 172800;
+              v90 += nVal4 != 0 ? 3600 : 172800;
               break;
             case 3u:
-              v93 = 0x7FFFFFFF;
-              v91 = 0;
+              v90 = 0x7FFFFFFF;
+              v88 = 0;
               break;
             default:
               break;
           }
           ReadPacket(Srca, "s", &Str);
           pcbValue = strlen(Str);
-          CDB::Reset(&v108);
-          sub_41B310(&v108.m_hStmt, 1u, 1, -2, -3, 0x200u, 0, Str, 512, &pcbValue);
+          CDB::Reset(&v105);
+          sub_41B310(&v105.m_hStmt, 1u, 1, -2, -3, 0x200u, 0, Str, 512, &pcbValue);
           CDB::Execute(
-            &v108,
+            &v105,
             "INSERT INTO Mail ([TimetS], [TimetE], [Priority], [Type], [Status], [SPID], [SName], [RPID], [RName], [IID],"
             " [Ver], [Index], [Prefix], [Num], [Pay], [Msg])VALUES ( %d, %d, %d, %d, %d, %d, '%s', %d, '%s', %d, %d, %d, %d, %d, %d, ?)",
-            v89,
-            v93,
-            v98,
-            v105,
-            v91,
-            a3,
-            v99,
-            n,
-            v100,
-            v95 == 0 ? nIID : 0,
-            v104,
+            v86,
+            v90,
             v95,
+            v102,
+            v88,
+            a3,
+            v96,
+            n,
             v97,
+            v92 == 0 ? nIID : 0,
+            v101,
+            v92,
+            v94,
             nVal3,
             nVal4);
-          CDB::Reset(&v108);
-          CDB::Bind(&v108, &v101);
-          if ( CDB::Execute(&v108, "SELECT @@IDENTITY") && CDB::Fetch(&v108) )
-            v106 = 0;
-          if ( !v101 )
+          CDB::Reset(&v105);
+          CDB::Bind(&v105, &v98);
+          if ( CDB::Execute(&v105, "SELECT @@IDENTITY") && CDB::Fetch(&v105) )
+            v103 = 0;
+          if ( !v98 )
           {
             LOG_ERR(
               "CSocket::MAILProcess():MAIL_D_SEND:  not get mid  mailInfo(%d %s %s %d %d %d)",
-              v105,
-              v99,
-              v100,
+              v102,
+              v96,
+              v97,
               nIID,
-              v95,
+              v92,
               nVal3);
-            v106 = 5;
+            v103 = 5;
           }
         }
       }
       else
       {
-        v106 = 2;
+        v103 = 2;
       }
-      if ( v105 == 3 )
-        LOG_DB(14, 48, a3, n, nIID, v105, v95, nVal3, nVal4);
+      if ( v102 == 3 )
+        LOG_DB(14, 48, a3, n, nIID, v102, v92, nVal3, nVal4);
       else
         CSocket::Write(
-          (int)this,
-          25,
+          (CSocket *)this,
+          D2S_GUILD_CREATE_SECEDECHECK|0x10,
           "dbdbbdsdbwbdd",
           a3,
           1,
-          v101,
-          v105,
-          v106,
+          v98,
+          v102,
+          v103,
           n,
-          v100,
-          nIID,
-          v104,
-          v95,
           v97,
+          nIID,
+          v101,
+          v92,
+          v94,
           nVal3,
           nVal4);
       goto LABEL_67;
     case 1:
-      ReadPacket((char *)Src, "dbbddwdd", &v84, &v83, &v87, &nID2, &v88, &v81, &v82, &v86);
-      if ( v83 )
+      ReadPacket((char *)Src, "dbbddwdd", &v81, &v80, &v84, &nID2, &v85, &v78, &v79, &v83);
+      if ( v80 )
       {
-        CDB::Execute(&v108, "DELETE Mail WHERE [MID] = %d", v84);
+        CDB::Execute(&v105, "DELETE Mail WHERE [MID] = %d", v81);
       }
       else
       {
         CDB::Execute(
-          &v108,
+          &v105,
           "UPDATE Mail SET [Status] = %d, [IID] = %d, [Index] = %d WHERE [MID] = %d",
           0,
-          v81 == 0 ? v88 : 0,
-          v81,
-          v84);
-        LOG_DB(14, 48, a3, nID2, v88, v87, v81, v82, v86);
+          v78 == 0 ? v85 : 0,
+          v78,
+          v81);
+        LOG_DB(14, 48, a3, nID2, v85, v84, v78, v79, v83);
       }
       goto LABEL_67;
     case 2:
       pBuffer = CIOBuffer::Alloc();
-      v73 = pBuffer;
+      v70 = pBuffer;
       pBuffer->m_buffer[2] = 25;
-      packet = &v73->m_buffer[9];
-      v75 = time(0);
+      packet = &v70->m_buffer[9];
+      v72 = time(0);
       CDB::ExecuteNoData(
-        &v108,
+        &v105,
         "UPDATE Mail SET [Type] = %d, [Status] = %d, [SPID] = [RPID], [SName] = [RName], [RPID] = [SPID], [RName] = [SNam"
         "e], [TimetE] = %d, [Pay] = %d WHERE ([SPID] = %d OR [RPID] = %d) AND [Type] = %d AND [TimetE] <= %d AND [Status] IN( %d, %d)",
         2,
@@ -14254,63 +14276,63 @@ void __thiscall sub_415790(void *this, int a2, int a3, void *Src)
         a3,
         a3,
         1,
-        v75,
+        v72,
         0,
         1);
-      v77 = 0;
-      CDB::Reset(&v108);
-      CDB::Bind(&v108, &v66);
+      v74 = 0;
+      CDB::Reset(&v105);
+      CDB::Bind(&v105, &v63);
       CDB::Bind(&TargetValue);
-      CDB::Bind(&v74);
-      CDB::Bind(&v64);
-      CDB::Bind(&v108, &v61);
-      CDB::Bind(&v108, str, 17);
-      CDB::Bind(&v108, &v70);
-      CDB::Bind(&v108, v69, 17);
-      CDB::Bind(&v108, &v76);
-      CDB::Bind(&v108, &v78);
-      CDB::Bind(&v108, &v79);
-      CDB::Bind(&v72);
-      CDB::Bind(&v108, &v60);
-      CDB::Bind(&v65);
-      CDB::Bind(&v108, &v62);
-      CDB::Bind(&v108, &v71);
+      CDB::Bind(&v71);
+      CDB::Bind(&v61);
+      CDB::Bind(&v105, &v58);
+      CDB::Bind(&v105, str, 17);
+      CDB::Bind(&v105, &v67);
+      CDB::Bind(&v105, v66, 17);
+      CDB::Bind(&v105, &v73);
+      CDB::Bind(&v105, &v75);
+      CDB::Bind(&v105, &v76);
+      CDB::Bind(&v69);
+      CDB::Bind(&v105, &v57);
+      CDB::Bind(&v62);
+      CDB::Bind(&v105, &v59);
+      CDB::Bind(&v105, &v68);
       if ( CDB::Execute(
-             &v108,
+             &v105,
              "SELECT TOP %d [MID], [Priority], [Type], [Status], [SPID], [SName], [RPID], [RName], [TimetS], [TimetE], [I"
              "ID] , [Ver], [Index], [Prefix], [Num], [Pay] FROM Mail WHERE [RPID] = %d AND [TimetE] > %d AND [Status] IN( %d, %d)",
              50,
              a3,
-             v75,
+             v72,
              0,
              1) )
       {
-        while ( CDB::Fetch(&v108) )
+        while ( CDB::Fetch(&v105) )
         {
-          packet = (char *)PutNumeric<int>(packet, v66);
+          packet = (char *)PutNumeric<int>(packet, v63);
           packet = PutNumeric<unsigned char>(packet, TargetValue);
-          packet = PutNumeric<unsigned char>(packet, v74);
-          packet = PutNumeric<unsigned char>(packet, v64);
-          packet = (char *)PutNumeric<int>(packet, v61);
+          packet = PutNumeric<unsigned char>(packet, v71);
+          packet = PutNumeric<unsigned char>(packet, v61);
+          packet = (char *)PutNumeric<int>(packet, v58);
           packet = PutString(packet, str);
-          packet = (char *)PutNumeric<int>(packet, v70);
-          packet = PutString(packet, v69);
+          packet = (char *)PutNumeric<int>(packet, v67);
+          packet = PutString(packet, v66);
+          packet = (char *)PutNumeric<int>(packet, v73);
+          packet = (char *)PutNumeric<int>(packet, v75);
           packet = (char *)PutNumeric<int>(packet, v76);
-          packet = (char *)PutNumeric<int>(packet, v78);
-          packet = (char *)PutNumeric<int>(packet, v79);
-          packet = PutNumeric<unsigned char>(packet, v72);
-          packet = (char *)PutNumeric<short>(packet, v60);
-          packet = PutNumeric<unsigned char>(packet, v65);
-          packet = (char *)PutNumeric<int>(packet, v62);
-          packet = (char *)PutNumeric<int>(packet, v71);
-          ++v77;
+          packet = PutNumeric<unsigned char>(packet, v69);
+          packet = (char *)PutNumeric<short>(packet, v57);
+          packet = PutNumeric<unsigned char>(packet, v62);
+          packet = (char *)PutNumeric<int>(packet, v59);
+          packet = (char *)PutNumeric<int>(packet, v68);
+          ++v74;
         }
       }
-      if ( v77 )
+      if ( v74 )
       {
-        WritePacket(&v73->m_buffer[3], "dbb", a3, 3, v77);
-        *(_WORD *)v73->m_buffer = (_WORD)packet - (_WORD)v73;
-        pBuffer->m_dwSize = *(unsigned __int16 *)v73->m_buffer;
+        WritePacket(&v70->m_buffer[3], "dbb", a3, 3, v74);
+        *(_WORD *)v70->m_buffer = (_WORD)packet - (_WORD)v70;
+        pBuffer->m_dwSize = *(unsigned __int16 *)v70->m_buffer;
         CIOSocket::Write((CIOSocket *)this, pBuffer);
       }
       else
@@ -14319,242 +14341,253 @@ void __thiscall sub_415790(void *this, int a2, int a3, void *Src)
       }
       goto LABEL_67;
     case 3:
-      ReadPacket((char *)Src, "d", &v59);
+      ReadPacket((char *)Src, "d", &v56);
       CDB::ExecuteNoData(
-        &v108,
+        &v105,
         "UPDATE Mail SET [Type] = %d, [Status] = %d, [SPID] = [RPID], [SName] = [RName] , [RPID] = [SPID], [RName] = [SNa"
         "me], [TimetE] = %d, [Pay] = %d WHERE [MID] = %d AND [RPID] = %d AND [Type] = %d AND [Status] IN( %d, %d)",
         2,
         0,
         0x7FFFFFFF,
         0,
-        v59,
+        v56,
         a3,
         1,
         0,
         1);
       goto LABEL_67;
     case 4:
-      ReadPacket((char *)Src, "dbd", &v55, &v56, &v58);
-      v57 = time(0);
-      if ( v56 == 2 || v56 == 3 )
+      ReadPacket((char *)Src, "dbd", &v52, &v53, &v55);
+      v54 = time(0);
+      if ( v53 == 2 || v53 == 3 )
         CDB::ExecuteNoData(
-          &v108,
+          &v105,
           "UPDATE Mail SET [Status] = %d WHERE [MID] = %d AND [Type] IN( %d, %d) AND [Status] = %d",
           1,
-          v55,
+          v52,
           2,
           3,
           0);
       else
         CDB::ExecuteNoData(
-          &v108,
+          &v105,
           "UPDATE Mail SET [Status] = %d, [TimetE] = %d WHERE [MID] = %d AND [Type] IN( %d, %d, %d) AND [Status] = %d",
           1,
-          v57 + 3600,
-          v55,
+          v54 + 3600,
+          v52,
           0,
           1,
           4,
           0);
-      CDB::Reset(&v108);
+      CDB::Reset(&v105);
       StrLen_or_Ind = 0;
-      sub_41B2B0((int)&v108, -2, v53, 512, &StrLen_or_Ind);
-      if ( CDB::Execute(&v108, "SELECT [Msg] FROM Mail WHERE [MID] = %d AND [RPID] = %d", v55, a3) && CDB::Fetch(&v108) )
+      sub_41B2B0((int)&v105, -2, v50, 512, &StrLen_or_Ind);
+      if ( CDB::Execute(&v105, "SELECT [Msg] FROM Mail WHERE [MID] = %d AND [RPID] = %d", v52, a3) && CDB::Fetch(&v105) )
       {
-        if ( v58 )
+        if ( v55 )
         {
-          CDB::Reset(&v108);
+          CDB::Reset(&v105);
           Concurrency::details::ExternalStatistics::IncrementDequeuedTaskCounter(
-            (Concurrency::details::ExternalStatistics *)&v108,
+            (Concurrency::details::ExternalStatistics *)&v105,
             2u);
-          CDB::Bind(&v108, v38);
-          CDB::Bind(&v46);
-          CDB::Bind(&v108, &v42);
-          CDB::Bind(&v108, &v43);
+          CDB::Bind(&v105, v35);
+          CDB::Bind(&v43);
+          CDB::Bind(&v105, &v39);
+          CDB::Bind(&v105, &v40);
+          CDB::Bind(&v41);
           CDB::Bind(&v44);
           CDB::Bind(&v47);
-          CDB::Bind(&v50);
+          CDB::Bind(&v42);
+          CDB::Bind(&v36);
           CDB::Bind(&v45);
-          CDB::Bind(&v39);
-          CDB::Bind(&v48);
+          CDB::Bind(&v46);
+          CDB::Bind(&v37);
           CDB::Bind(&v49);
-          CDB::Bind(&v40);
-          CDB::Bind(&v52);
-          CDB::Bind(&v51);
-          CDB::Bind(&v41);
-          if ( CDB::Execute(&v108, "SELECT * FROM Item WHERE [IID] = %d", v58) && CDB::Fetch(&v108) )
+          CDB::Bind(&v48);
+          CDB::Bind(&v38);
+          if ( CDB::Execute(&v105, "SELECT * FROM Item WHERE [IID] = %d", v55) && CDB::Fetch(&v105) )
             CSocket::Write(
-              (int)this,
-              25,
+              (CSocket *)this,
+              D2S_GUILD_CREATE_SECEDECHECK|0x10,
               "dbdbdwmwbddbbbbbbbbbbb",
               a3,
               7,
-              v55,
-              v56,
-              v58,
-              StrLen_or_Ind,
+              v52,
               v53,
+              v55,
               StrLen_or_Ind,
-              v38[0],
-              v46,
-              v42,
+              v50,
+              StrLen_or_Ind,
+              v35[0],
               v43,
+              v39,
+              v40,
+              v41,
               v44,
               v47,
-              v50,
+              v42,
+              v36,
               v45,
-              v39,
-              v48,
+              v46,
+              v37,
               v49,
-              v40,
-              v52,
-              v51,
-              v41);
+              v48,
+              v38);
         }
         else
         {
-          CSocket::Write((int)this, 25, "dbdbdwm", a3, 7, v55, v56, 0, StrLen_or_Ind, v53, StrLen_or_Ind);
+          CSocket::Write(
+            (CSocket *)this,
+            D2S_GUILD_CREATE_SECEDECHECK|0x10,
+            "dbdbdwm",
+            a3,
+            7,
+            v52,
+            v53,
+            0,
+            StrLen_or_Ind,
+            v50,
+            StrLen_or_Ind);
         }
       }
       else
       {
-        CSocket::Write((int)this, 25, "dbdb", a3, 5, v55, 2);
+        CSocket::Write((CSocket *)this, D2S_GUILD_CREATE_SECEDECHECK|0x10, "dbdb", a3, 5, v52, 2);
       }
       goto LABEL_67;
     case 6:
-      ReadPacket((char *)Src, "d", &v37);
-      CDB::Execute(&v108, "DELETE Mail WHERE [MID] = %d AND [RPID] = %d", v37, a3);
+      ReadPacket((char *)Src, "d", &v34);
+      CDB::Execute(&v105, "DELETE Mail WHERE [MID] = %d AND [RPID] = %d", v34, a3);
       goto LABEL_67;
     case 7:
-      ReadPacket((char *)Src, "dd", &v34, &v36);
-      CDB::Reset(&v108);
-      CDB::Bind(&v108, v35);
-      if ( CDB::Execute(&v108, "SELECT [Status] FROM Mail WHERE [MID] = %d AND [RPID] = %d", v34, a3)
-        && CDB::Fetch(&v108) )
+      ReadPacket((char *)Src, "dd", &v31, &v33);
+      CDB::Reset(&v105);
+      CDB::Bind(&v105, v32);
+      if ( CDB::Execute(&v105, "SELECT [Status] FROM Mail WHERE [MID] = %d AND [RPID] = %d", v31, a3)
+        && CDB::Fetch(&v105) )
       {
-        if ( v35[0] == 3 )
+        if ( v32[0] == 3 )
         {
-          CSocket::Write((int)this, 25, "dbdb", a3, 5, v34, 3);
-          v109 = -1;
-          CDB::~CDB(&v108);
+          CSocket::Write((CSocket *)this, D2S_GUILD_CREATE_SECEDECHECK|0x10, "dbdb", a3, 5, v31, 3);
+          v106 = -1;
+          CDB::~CDB(&v105);
           return;
         }
       }
       else
       {
-        CSocket::Write((int)this, 25, "dbdb", a3, 5, v34, 2);
+        CSocket::Write((CSocket *)this, D2S_GUILD_CREATE_SECEDECHECK|0x10, "dbdb", a3, 5, v31, 2);
       }
-      v35[1] = time(0);
-      CDB::Reset(&v108);
+      v32[1] = time(0);
+      CDB::Reset(&v105);
       CDB::ExecuteNoData(
-        &v108,
+        &v105,
         "UPDATE Mail Set [Status] = %d WHERE [MID] = %d AND [RPID] = %d AND [Type] IN( %d, %d, %d) AND [TimetE] > %d",
         3,
-        v34,
+        v31,
         a3,
         1,
         2,
         3,
         3);
-      CDB::Reset(&v108);
-      CDB::Bind(&v108, v35);
-      if ( CDB::Execute(&v108, "SELECT [Status] FROM Mail WHERE [MID] = %d AND [RPID] = %d", v34, a3)
-        && CDB::Fetch(&v108) )
+      CDB::Reset(&v105);
+      CDB::Bind(&v105, v32);
+      if ( CDB::Execute(&v105, "SELECT [Status] FROM Mail WHERE [MID] = %d AND [RPID] = %d", v31, a3)
+        && CDB::Fetch(&v105) )
       {
-        if ( v35[0] != 3 )
+        if ( v32[0] != 3 )
         {
-          CSocket::Write((int)this, 25, "dbdb", a3, 5, v34, 2);
-          v109 = -1;
-          CDB::~CDB(&v108);
+          CSocket::Write((CSocket *)this, D2S_GUILD_CREATE_SECEDECHECK|0x10, "dbdb", a3, 5, v31, 2);
+          v106 = -1;
+          CDB::~CDB(&v105);
           return;
         }
-        if ( v36 )
+        if ( v33 )
         {
-          CDB::Reset(&v108);
+          CDB::Reset(&v105);
           Concurrency::details::ExternalStatistics::IncrementDequeuedTaskCounter(
-            (Concurrency::details::ExternalStatistics *)&v108,
+            (Concurrency::details::ExternalStatistics *)&v105,
             2u);
-          CDB::Bind(&v108, v19);
-          CDB::Bind(&v27);
-          CDB::Bind(&v108, &v23);
-          CDB::Bind(&v108, &v24);
+          CDB::Bind(&v105, v16);
+          CDB::Bind(&v24);
+          CDB::Bind(&v105, &v20);
+          CDB::Bind(&v105, &v21);
+          CDB::Bind(&v22);
           CDB::Bind(&v25);
           CDB::Bind(&v28);
-          CDB::Bind(&v31);
+          CDB::Bind(&v23);
+          CDB::Bind(&v17);
           CDB::Bind(&v26);
-          CDB::Bind(&v20);
-          CDB::Bind(&v29);
+          CDB::Bind(&v27);
+          CDB::Bind(&v18);
           CDB::Bind(&v30);
-          CDB::Bind(&v21);
-          CDB::Bind(&v33);
-          CDB::Bind(&v32);
-          CDB::Bind(&v22);
-          if ( CDB::Execute(&v108, "SELECT * FROM Item WHERE [IID] = %d", v36) && CDB::Fetch(&v108) )
+          CDB::Bind(&v29);
+          CDB::Bind(&v19);
+          if ( CDB::Execute(&v105, "SELECT * FROM Item WHERE [IID] = %d", v33) && CDB::Fetch(&v105) )
             CSocket::Write(
-              (int)this,
-              25,
+              (CSocket *)this,
+              D2S_GUILD_CREATE_SECEDECHECK|0x10,
               "dbddwdbddbbbbbbbbbbb",
               a3,
               11,
-              v34,
-              v36,
-              v19[0],
-              v36,
-              v27,
-              v23,
+              v31,
+              v33,
+              v16[0],
+              v33,
               v24,
+              v20,
+              v21,
+              v22,
               v25,
               v28,
-              v31,
+              v23,
+              v17,
               v26,
-              v20,
-              v29,
+              v27,
+              v18,
               v30,
-              v21,
-              v33,
-              v32,
-              v22);
+              v29,
+              v19);
         }
         else
         {
-          CSocket::Write((int)this, 25, "dbdd", a3, 11, v34, 0);
+          CSocket::Write((CSocket *)this, D2S_GUILD_CREATE_SECEDECHECK|0x10, "dbdd", a3, 11, v31, 0);
         }
       }
       else
       {
-        CSocket::Write((int)this, 25, "dbdb", a3, 5, v34, 2);
+        CSocket::Write((CSocket *)this, D2S_GUILD_CREATE_SECEDECHECK|0x10, "dbdb", a3, 5, v31, 2);
       }
 LABEL_67:
-      v109 = -1;
-      CDB::~CDB(&v108);
+      v106 = -1;
+      CDB::~CDB(&v105);
       return;
     case 8:
-      ReadPacket((char *)Src, "dbbddwbd", &v16, &v11, &v17, &v13, &v18, &v12, &v15, &v14);
-      if ( v11 )
+      ReadPacket((char *)Src, "dbbddwbd", &v13, &v8, &v14, &v10, &v15, &v9, &v12, &v11);
+      if ( v8 )
       {
-        CDB::Reset(&v108);
-        CDB::Execute(&v108, "UPDATE Mail SET [Status] = %d WHERE [MID] = %d", 1, v16);
+        CDB::Reset(&v105);
+        CDB::Execute(&v105, "UPDATE Mail SET [Status] = %d WHERE [MID] = %d", 1, v13);
       }
       else
       {
-        CDB::Reset(&v108);
-        v9 = v16;
-        v8 = time(0);
+        CDB::Reset(&v105);
+        v6 = v13;
+        v5 = time(0);
         CDB::Execute(
-          &v108,
+          &v105,
           "UPDATE Mail SET [Type] = %d, [Status] = %d, [TimetE] = %d, [IID] = %d, [Index] = %d, [Prefix] = %d, [Num] = %d"
           ", [Pay] = %d WHERE [MID] = %d",
           0,
           1,
-          v8 + 86400,
+          v5 + 86400,
           0,
           0,
           0,
           0,
           0,
-          v9);
-        LOG_DB(14, 51, a3, v13, v18, v17, v12, v15, v14);
+          v6);
+        LOG_DB(14, 51, a3, v10, v15, v14, v9, v12, v11);
       }
       goto LABEL_67;
     default:
@@ -14565,152 +14598,152 @@ LABEL_67:
 //----- (004168C0) --------------------------------------------------------
 void __thiscall sub_4168C0(void *this, int a2, int a3)
 {
-  int v6; // [esp+0h] [ebp-C0h]
-  char v8[20]; // [esp+8h] [ebp-B8h] BYREF
-  int v9; // [esp+1Ch] [ebp-A4h] BYREF
-  char v10; // [esp+22h] [ebp-9Eh] BYREF
-  char v11; // [esp+23h] [ebp-9Dh] BYREF
-  int v12; // [esp+24h] [ebp-9Ch]
+  int v3; // [esp+0h] [ebp-C0h]
+  char v5[20]; // [esp+8h] [ebp-B8h] BYREF
+  int v6; // [esp+1Ch] [ebp-A4h] BYREF
+  char v7; // [esp+22h] [ebp-9Eh] BYREF
+  char v8; // [esp+23h] [ebp-9Dh] BYREF
+  int v9; // [esp+24h] [ebp-9Ch]
   CIOBuffer *pBuffer; // [esp+28h] [ebp-98h]
-  CIOBuffer *v14; // [esp+2Ch] [ebp-94h]
-  char v15; // [esp+33h] [ebp-8Dh] BYREF
-  CDB v16; // [esp+34h] [ebp-8Ch] BYREF
-  _BYTE *v17; // [esp+44h] [ebp-7Ch]
-  unsigned __int16 v18; // [esp+48h] [ebp-78h] BYREF
-  CDB v19; // [esp+4Ch] [ebp-74h] BYREF
-  char v20; // [esp+5Eh] [ebp-62h] BYREF
-  char v21; // [esp+5Fh] [ebp-61h] BYREF
-  int v22; // [esp+60h] [ebp-60h] BYREF
+  CIOBuffer *v11; // [esp+2Ch] [ebp-94h]
+  char v12; // [esp+33h] [ebp-8Dh] BYREF
+  CDB v13; // [esp+34h] [ebp-8Ch] BYREF
+  _BYTE *v14; // [esp+44h] [ebp-7Ch]
+  unsigned __int16 v15; // [esp+48h] [ebp-78h] BYREF
+  CDB v16; // [esp+4Ch] [ebp-74h] BYREF
+  char v17; // [esp+5Eh] [ebp-62h] BYREF
+  char v18; // [esp+5Fh] [ebp-61h] BYREF
+  int v19; // [esp+60h] [ebp-60h] BYREF
   char *packet; // [esp+64h] [ebp-5Ch]
-  char v24; // [esp+6Ah] [ebp-56h] BYREF
-  char v25; // [esp+6Bh] [ebp-55h] BYREF
+  char v21; // [esp+6Ah] [ebp-56h] BYREF
+  char v22; // [esp+6Bh] [ebp-55h] BYREF
   int n; // [esp+6Ch] [ebp-54h] BYREF
   char TargetValue; // [esp+72h] [ebp-4Eh] BYREF
-  char v28; // [esp+73h] [ebp-4Dh] BYREF
+  char v25; // [esp+73h] [ebp-4Dh] BYREF
   char str[20]; // [esp+74h] [ebp-4Ch] BYREF
-  char v30; // [esp+8Eh] [ebp-32h] BYREF
-  char v31; // [esp+8Fh] [ebp-31h] BYREF
-  int v32; // [esp+90h] [ebp-30h]
-  int v33; // [esp+94h] [ebp-2Ch]
-  char v34; // [esp+9Bh] [ebp-25h] BYREF
-  CDB v35; // [esp+9Ch] [ebp-24h] BYREF
-  char v36[4]; // [esp+ACh] [ebp-14h]
+  char v27; // [esp+8Eh] [ebp-32h] BYREF
+  char v28; // [esp+8Fh] [ebp-31h] BYREF
+  int v29; // [esp+90h] [ebp-30h]
+  int v30; // [esp+94h] [ebp-2Ch]
+  char v31; // [esp+9Bh] [ebp-25h] BYREF
+  CDB v32; // [esp+9Ch] [ebp-24h] BYREF
+  char v33[4]; // [esp+ACh] [ebp-14h]
   void *Src; // [esp+B0h] [ebp-10h]
-  int v38; // [esp+BCh] [ebp-4h]
+  int v35; // [esp+BCh] [ebp-4h]
 
   Src = CIOBuffer::Alloc();
-  v32 = (int)Src;
+  v29 = (int)Src;
   *((_BYTE *)Src + 2) = 0;
-  packet = (char *)(v32 + 10);
-  v33 = 0;
-  CDB::CDB(&v35);
-  v38 = 0;
-  CDB::Bind(&v35, &n);
-  CDB::Bind(&v35, str, 17);
+  packet = (char *)(v29 + 10);
+  v30 = 0;
+  CDB::CDB(&v32);
+  v35 = 0;
+  CDB::Bind(&v32, &n);
+  CDB::Bind(&v32, str, 17);
   CDB::Bind(&TargetValue);
-  CDB::Bind(&v24);
-  CDB::Bind(&v35, &v22);
-  CDB::Bind(&v34);
-  CDB::Bind(&v30);
-  CDB::Bind(&v28);
-  CDB::Bind(&v20);
   CDB::Bind(&v21);
+  CDB::Bind(&v32, &v19);
   CDB::Bind(&v31);
+  CDB::Bind(&v27);
   CDB::Bind(&v25);
+  CDB::Bind(&v17);
+  CDB::Bind(&v18);
+  CDB::Bind(&v28);
+  CDB::Bind(&v22);
   if ( !CDBConfig::s_nEvent || CDBConfig::s_nEvent == 1 )
-    v6 = 5;
+    v3 = 5;
   else
-    v6 = 3;
-  *(_DWORD *)v36 = v6;
+    v3 = 3;
+  *(_DWORD *)v33 = v3;
   LOG_ERR(
     "SELECT TOP %d [PID], [Name], [Class], [Level], [GID], [Strength], [Health], [Intelligence], [Wisdom], [Dexterity], ["
     "Face], [Hair] FROM Player WHERE UID = %d ORDER BY [Level]",
-    v6,
+    v3,
     a3);
   if ( CDB::Execute(
-         &v35,
+         &v32,
          "SELECT TOP %d [PID], [Name], [Class], [Level], [GID], [Strength], [Health], [Intelligence], [Wisdom], [Dexterit"
          "y], [Face], [Hair] FROM Player WHERE UID = %d ORDER BY [Level]",
-         *(_DWORD *)v36,
+         *(_DWORD *)v33,
          a3) )
   {
-    while ( CDB::Fetch(&v35) )
+    while ( CDB::Fetch(&v32) )
     {
       packet = (char *)PutNumeric<int>(packet, n);
       packet = PutString(packet, str);
       packet = PutNumeric<unsigned char>(packet, TargetValue);
-      packet = PutNumeric<unsigned char>(packet, v24);
-      packet = (char *)PutNumeric<int>(packet, v22);
-      packet = PutNumeric<unsigned char>(packet, v34);
-      packet = PutNumeric<unsigned char>(packet, v30);
-      packet = PutNumeric<unsigned char>(packet, v28);
-      packet = PutNumeric<unsigned char>(packet, v20);
       packet = PutNumeric<unsigned char>(packet, v21);
+      packet = (char *)PutNumeric<int>(packet, v19);
       packet = PutNumeric<unsigned char>(packet, v31);
-      v17 = PutNumeric<unsigned char>(packet, v25);
-      packet = v17 + 1;
-      *v17 = 0;
-      CDB::CDB(&v19);
-      LOBYTE(v38) = 1;
-      CDB::Bind(&v19, &v18);
+      packet = PutNumeric<unsigned char>(packet, v27);
+      packet = PutNumeric<unsigned char>(packet, v25);
+      packet = PutNumeric<unsigned char>(packet, v17);
+      packet = PutNumeric<unsigned char>(packet, v18);
+      packet = PutNumeric<unsigned char>(packet, v28);
+      v14 = PutNumeric<unsigned char>(packet, v22);
+      packet = v14 + 1;
+      *v14 = 0;
+      CDB::CDB(&v16);
+      LOBYTE(v35) = 1;
+      CDB::Bind(&v16, &v15);
       LOG_ERR("SELECT TOP 13 [Index] FROM Item WHERE [PID] = %d AND ( [Info] & %d) = %d", n, 17, 1);
-      if ( CDB::Execute(&v19, "SELECT TOP 13 [Index] FROM Item WHERE [PID] = %d AND ( [Info] & %d) = %d", n, 17, 1) )
+      if ( CDB::Execute(&v16, "SELECT TOP 13 [Index] FROM Item WHERE [PID] = %d AND ( [Info] & %d) = %d", n, 17, 1) )
       {
-        while ( CDB::Fetch(&v19) )
+        while ( CDB::Fetch(&v16) )
         {
-          packet = (char *)PutNumeric<short>(packet, v18);
-          ++*v17;
+          packet = (char *)PutNumeric<short>(packet, v15);
+          ++*v14;
         }
       }
-      LOBYTE(v38) = 0;
-      CDB::~CDB(&v19);
-      ++v33;
+      LOBYTE(v35) = 0;
+      CDB::~CDB(&v16);
+      ++v30;
     }
   }
-  WritePacket((char *)(v32 + 3), "dbw", a2, v33, &packet[-v32 - 10]);
-  *(_WORD *)v32 = (_WORD)packet - v32;
-  *((_DWORD *)Src + 2000) = *(unsigned __int16 *)v32;
+  WritePacket((char *)(v29 + 3), "dbw", a2, v30, &packet[-v29 - 10]);
+  *(_WORD *)v29 = (_WORD)packet - v29;
+  *((_DWORD *)Src + 2000) = *(unsigned __int16 *)v29;
   CIOSocket::Write((CIOSocket *)this, (CIOBuffer *)Src);
   pBuffer = CIOBuffer::Alloc();
-  v14 = pBuffer;
+  v11 = pBuffer;
   pBuffer->m_buffer[2] = 29;
-  packet = &v14->m_buffer[10];
-  v12 = 0;
-  CDB::CDB(&v16);
-  LOBYTE(v38) = 2;
-  CDB::Bind(&v16, &v9);
-  CDB::Bind(&v16, v8, 17);
-  CDB::Bind(&v10);
-  CDB::Bind(&v11);
-  CDB::Bind(&v15);
+  packet = &v11->m_buffer[10];
+  v9 = 0;
+  CDB::CDB(&v13);
+  LOBYTE(v35) = 2;
+  CDB::Bind(&v13, &v6);
+  CDB::Bind(&v13, v5, 17);
+  CDB::Bind(&v7);
+  CDB::Bind(&v8);
+  CDB::Bind(&v12);
   LOG_ERR(
     "SELECT TOP 5 PlayerDeleted.PID, Name, [Level], Class, DayLeft = 14-datediff(dd, DeletedTime, getdate()) FROM PlayerD"
     "eleted, Player WHERE PlayerDeleted.UID = %d AND PlayerDeleted.PID= Player.PID ORDER BY DayLeft DESC",
     a3);
   if ( CDB::Execute(
-         &v16,
+         &v13,
          "SELECT TOP 5 PlayerDeleted.PID, Name, [Level], Class, DayLeft = 14-datediff(dd, DeletedTime, getdate()) FROM Pl"
          "ayerDeleted, Player WHERE PlayerDeleted.UID = %d AND PlayerDeleted.PID= Player.PID ORDER BY DayLeft DESC",
          a3) )
   {
-    while ( CDB::Fetch(&v16) && v12 <= 5 )
+    while ( CDB::Fetch(&v13) && v9 <= 5 )
     {
-      packet = (char *)PutNumeric<int>(packet, v9);
-      packet = PutString(packet, v8);
-      packet = PutNumeric<unsigned char>(packet, v10);
-      packet = PutNumeric<unsigned char>(packet, v11);
-      packet = PutNumeric<unsigned char>(packet, v15);
-      ++v12;
+      packet = (char *)PutNumeric<int>(packet, v6);
+      packet = PutString(packet, v5);
+      packet = PutNumeric<unsigned char>(packet, v7);
+      packet = PutNumeric<unsigned char>(packet, v8);
+      packet = PutNumeric<unsigned char>(packet, v12);
+      ++v9;
     }
   }
-  WritePacket(&v14->m_buffer[3], "dbw", a2, v12, packet - &v14->m_buffer[10]);
-  *(_WORD *)v14->m_buffer = (_WORD)packet - (_WORD)v14;
-  pBuffer->m_dwSize = *(unsigned __int16 *)v14->m_buffer;
+  WritePacket(&v11->m_buffer[3], "dbw", a2, v9, packet - &v11->m_buffer[10]);
+  *(_WORD *)v11->m_buffer = (_WORD)packet - (_WORD)v11;
+  pBuffer->m_dwSize = *(unsigned __int16 *)v11->m_buffer;
   CIOSocket::Write((CIOSocket *)this, pBuffer);
-  LOBYTE(v38) = 0;
-  CDB::~CDB(&v16);
-  v38 = -1;
-  CDB::~CDB(&v35);
+  LOBYTE(v35) = 0;
+  CDB::~CDB(&v13);
+  v35 = -1;
+  CDB::~CDB(&v32);
 }
 
 //----- (00416E20) --------------------------------------------------------
@@ -14755,7 +14788,7 @@ void __thiscall CSocket::NewPlayer(CSocket *this, char *packet)
       && CDB::Fetch(&v26)
       && TargetValue >= v27 )
     {
-      CSocket::Write((int)this, 2, "db", v6, 3);
+      CSocket::Write(this, D2S_ANS_NEWPLAYER, "db", v6, 3);
       v29 = -1;
       CDB::~CDB(&v26);
     }
@@ -14767,7 +14800,7 @@ void __thiscall CSocket::NewPlayer(CSocket *this, char *packet)
         && CDB::Fetch(&v26)
         && TargetValue > 0 )
       {
-        CSocket::Write((int)this, 2, "db", v6, 6);
+        CSocket::Write(this, D2S_ANS_NEWPLAYER, "db", v6, 6);
         v29 = -1;
         CDB::~CDB(&v26);
       }
@@ -14779,7 +14812,7 @@ void __thiscall CSocket::NewPlayer(CSocket *this, char *packet)
           && CDB::Fetch(&v26)
           && TargetValue > 0 )
         {
-          CSocket::Write((int)this, 2, "db", v6, 4);
+          CSocket::Write(this, D2S_ANS_NEWPLAYER, "db", v6, 4);
           v29 = -1;
           CDB::~CDB(&v26);
         }
@@ -14826,7 +14859,7 @@ void __thiscall CSocket::NewPlayer(CSocket *this, char *packet)
                    v15,
                    v8) )
             {
-              CSocket::Write((int)this, 2, "db", v6, 0);
+              CSocket::Write(this, D2S_ANS_NEWPLAYER, "db", v6, 0);
             }
             else
             {
@@ -14854,11 +14887,11 @@ void __thiscall CSocket::NewPlayer(CSocket *this, char *packet)
                 }
                 CDB::Reset(&v26);
                 CDB::Execute(&v26, "INSERT INTO Quest VALUES (%d, 9001, 1, 0)", n);
-                CSocket::Write((int)this, 2, "dbdb", v6, 1, n, v14);
+                CSocket::Write(this, D2S_ANS_NEWPLAYER, "dbdb", v6, 1, n, v14);
               }
               else
               {
-                CSocket::Write((int)this, 2, "db", v6, 0);
+                CSocket::Write(this, D2S_ANS_NEWPLAYER, "db", v6, 0);
               }
             }
             v29 = -1;
@@ -14866,7 +14899,7 @@ void __thiscall CSocket::NewPlayer(CSocket *this, char *packet)
           }
           else
           {
-            CSocket::Write((int)this, 2, "db", v6, 5);
+            CSocket::Write(this, D2S_ANS_NEWPLAYER, "db", v6, 5);
             v29 = -1;
             CDB::~CDB(&v26);
           }
@@ -14876,7 +14909,7 @@ void __thiscall CSocket::NewPlayer(CSocket *this, char *packet)
   }
   else
   {
-    CSocket::Write((int)this, 2, "db", v6, 2);
+    CSocket::Write(this, D2S_ANS_NEWPLAYER, "db", v6, 2);
   }
 }
 // 43C4D8: using guessed type int dword_43C4D8[];
@@ -14995,7 +15028,7 @@ void __thiscall CSocket::ProcessEvent(CSocket *this, int nId, int nEventCode, ch
     CDB::Bind(&v7, &TargetValue);
     if ( !CDB::Execute(&v7, "SELECT [UID] FROM Player WHERE [Name] = '%s'", v5) || !CDB::Fetch(&v7) )
       v6 = 6;
-    CSocket::Write((int)this, 8, "dbbbd", nId, 3, 0, v6, TargetValue);
+    CSocket::Write(this, D2S_EVENT, "dbbbd", nId, 3, 0, v6, TargetValue);
     v9 = -1;
     CDB::~CDB(&v7);
   }
@@ -15023,7 +15056,7 @@ void __thiscall CSocket::GuildCreateSecedeCheck(CSocket *this, int nPlayer, int 
     {
       if ( (dword_43D974 & 0x100) == 0 && TargetValue > time(0) )
       {
-        CSocket::Write((int)this, 9, "ddd", nPlayer, *(_DWORD *)v7, TargetValue);
+        CSocket::Write(this, D2S_GUILD_CREATE_SECEDECHECK, "ddd", nPlayer, *(_DWORD *)v7, TargetValue);
         v10 = -1;
         CDB::~CDB(&v9);
         return;
@@ -15032,7 +15065,7 @@ void __thiscall CSocket::GuildCreateSecedeCheck(CSocket *this, int nPlayer, int 
       CDB::Execute(&v9, "DELETE FROM GuildMember WHERE PID=%d", *(_DWORD *)v7);
     }
   }
-  CSocket::Write((int)this, 9, "ddd", nPlayer, 0, 0);
+  CSocket::Write(this, D2S_GUILD_CREATE_SECEDECHECK, "ddd", nPlayer, 0, 0);
   v10 = -1;
   CDB::~CDB(&v9);
 }
@@ -15052,7 +15085,7 @@ void __thiscall CSocket::GuildSecedeCheck(CSocket *this, int nPlayer, int nPID, 
   {
     if ( (dword_43D974 & 0x100) == 0 && TargetValue > time(0) )
     {
-      CSocket::Write((int)this, 10, "ddd", nPlayer, nGID, TargetValue);
+      CSocket::Write(this, D2S_GUILD_SECEDECHECK, "ddd", nPlayer, nGID, TargetValue);
       v7 = -1;
       CDB::~CDB(&v6);
       return;
@@ -15060,7 +15093,7 @@ void __thiscall CSocket::GuildSecedeCheck(CSocket *this, int nPlayer, int nPID, 
     CDB::Reset(&v6);
     CDB::Execute(&v6, "DELETE FROM GuildMember WHERE PID=%d", nPID);
   }
-  CSocket::Write((int)this, 10, "ddd", nPlayer, nGID, 0);
+  CSocket::Write(this, D2S_GUILD_SECEDECHECK, "ddd", nPlayer, nGID, 0);
   v7 = -1;
   CDB::~CDB(&v6);
 }
@@ -15077,7 +15110,7 @@ void __thiscall CSocket::GuildSameNameCheck(CSocket *this, int nPlayer, char *sz
   CDB::Bind(&v5, &TargetValue);
   if ( !CDB::Execute(&v5, "SELECT COUNT(*) FROM Guild WHERE Name='%s'", szGuildName) || !CDB::Fetch(&v5) )
     TargetValue = 2;
-  CSocket::Write((int)this, 11, "dbs", nPlayer, (unsigned __int8)TargetValue, szGuildName);
+  CSocket::Write(this, D2S_GUILD_SAMENAMECHECK, "dbs", nPlayer, (unsigned __int8)TargetValue, szGuildName);
   v6 = -1;
   CDB::~CDB(&v5);
 }
@@ -15365,134 +15398,134 @@ void __stdcall sub_4183A0(int a1, int a2)
 //----- (00418430) --------------------------------------------------------
 void __thiscall sub_418430(void *this)
 {
-  int v5; // [esp+4h] [ebp-40h] BYREF
-  int v6; // [esp+8h] [ebp-3Ch] BYREF
-  _BYTE *v7; // [esp+Ch] [ebp-38h]
-  unsigned __int16 *v8; // [esp+10h] [ebp-34h]
-  char v9; // [esp+17h] [ebp-2Dh] BYREF
-  int v10; // [esp+18h] [ebp-2Ch]
+  int v2; // [esp+4h] [ebp-40h] BYREF
+  int v3; // [esp+8h] [ebp-3Ch] BYREF
+  _BYTE *v4; // [esp+Ch] [ebp-38h]
+  unsigned __int16 *v5; // [esp+10h] [ebp-34h]
+  char v6; // [esp+17h] [ebp-2Dh] BYREF
+  int v7; // [esp+18h] [ebp-2Ch]
   int n; // [esp+1Ch] [ebp-28h] BYREF
   char TargetValue; // [esp+23h] [ebp-21h] BYREF
-  CDB v13; // [esp+24h] [ebp-20h] BYREF
+  CDB v10; // [esp+24h] [ebp-20h] BYREF
   void *Src; // [esp+34h] [ebp-10h]
-  int v15; // [esp+40h] [ebp-4h]
+  int v12; // [esp+40h] [ebp-4h]
 
-  v10 = 1;
-  CDB::CDB(&v13);
-  v15 = 0;
-  CDB::Bind(&v13, &n);
-  CDB::Bind(&v13, &v5);
-  CDB::Bind(&v13, &v6);
+  v7 = 1;
+  CDB::CDB(&v10);
+  v12 = 0;
+  CDB::Bind(&v10, &n);
+  CDB::Bind(&v10, &v2);
+  CDB::Bind(&v10, &v3);
   CDB::Bind(&TargetValue);
-  CDB::Bind(&v9);
-  CDB::Execute(&v13, "SELECT * FROM GuildCastle");
-  while ( CDB::Fetch(&v13) )
+  CDB::Bind(&v6);
+  CDB::Execute(&v10, "SELECT * FROM GuildCastle");
+  while ( CDB::Fetch(&v10) )
   {
     Src = CIOBuffer::Alloc();
-    v8 = (unsigned __int16 *)Src;
+    v5 = (unsigned __int16 *)Src;
     *((_BYTE *)Src + 2) = 17;
-    v7 = v8 + 2;
-    v7 = PutNumeric<int>((_DWORD *)v8 + 1, n);
-    v7 = PutNumeric<int>(v7, v5);
-    v7 = PutNumeric<int>(v7, v6);
-    v7 = PutNumeric<unsigned char>(v7, TargetValue);
-    v7 = PutNumeric<unsigned char>(v7, v9);
-    if ( v5 )
-      v7 = sub_418BA0(v5, 1, v7);
-    WritePacket((char *)v8 + 3, "b", (unsigned __int8)v10);
-    *v8 = (_WORD)v7 - (_WORD)v8;
-    *((_DWORD *)Src + 2000) = *v8;
+    v4 = v5 + 2;
+    v4 = PutNumeric<int>((_DWORD *)v5 + 1, n);
+    v4 = PutNumeric<int>(v4, v2);
+    v4 = PutNumeric<int>(v4, v3);
+    v4 = PutNumeric<unsigned char>(v4, TargetValue);
+    v4 = PutNumeric<unsigned char>(v4, v6);
+    if ( v2 )
+      v4 = sub_418BA0(v2, 1, v4);
+    WritePacket((char *)v5 + 3, "b", (unsigned __int8)v7);
+    *v5 = (_WORD)v4 - (_WORD)v5;
+    *((_DWORD *)Src + 2000) = *v5;
     CIOSocket::Write((CIOSocket *)this, (CIOBuffer *)Src);
   }
-  CSocket::Write((int)this, 17, "b", 0);
-  v15 = -1;
-  CDB::~CDB(&v13);
+  CSocket::Write((CSocket *)this, (D2S_PROTOCOL)17, "b", 0);
+  v12 = -1;
+  CDB::~CDB(&v10);
 }
 
 //----- (004185D0) --------------------------------------------------------
 void __thiscall sub_4185D0(void *this)
 {
   int n; // [esp+4h] [ebp-74h] BYREF
-  char v6[4]; // [esp+8h] [ebp-70h] BYREF
-  CDB v7; // [esp+Ch] [ebp-6Ch] BYREF
+  char v3[4]; // [esp+8h] [ebp-70h] BYREF
+  CDB v4; // [esp+Ch] [ebp-6Ch] BYREF
   char *packet; // [esp+1Ch] [ebp-5Ch]
   char str[20]; // [esp+20h] [ebp-58h] BYREF
-  char v10[20]; // [esp+34h] [ebp-44h] BYREF
-  char *v11; // [esp+4Ch] [ebp-2Ch]
-  int v12; // [esp+50h] [ebp-28h]
+  char v7[20]; // [esp+34h] [ebp-44h] BYREF
+  char *v8; // [esp+4Ch] [ebp-2Ch]
+  int v9; // [esp+50h] [ebp-28h]
   int TargetValue; // [esp+54h] [ebp-24h] BYREF
-  CDB v14; // [esp+58h] [ebp-20h] BYREF
+  CDB v11; // [esp+58h] [ebp-20h] BYREF
   void *Src; // [esp+68h] [ebp-10h]
-  int v16; // [esp+74h] [ebp-4h]
+  int v13; // [esp+74h] [ebp-4h]
 
   Src = CIOBuffer::Alloc();
-  v11 = (char *)Src;
+  v8 = (char *)Src;
   *((_BYTE *)Src + 2) = 18;
-  packet = v11 + 4;
-  v12 = 0;
-  CDB::CDB(&v14);
-  v16 = 0;
-  CDB::CDB(&v7);
-  LOBYTE(v16) = 1;
-  CDB::Bind(&v14, &TargetValue);
-  CDB::Bind(&v14, &n);
-  CDB::Bind(&v14, (int *)v6);
-  CDB::Execute(&v14, "SELECT * FROM GuildWar");
-  while ( CDB::Fetch(&v14) )
+  packet = v8 + 4;
+  v9 = 0;
+  CDB::CDB(&v11);
+  v13 = 0;
+  CDB::CDB(&v4);
+  LOBYTE(v13) = 1;
+  CDB::Bind(&v11, &TargetValue);
+  CDB::Bind(&v11, &n);
+  CDB::Bind(&v11, (int *)v3);
+  CDB::Execute(&v11, "SELECT * FROM GuildWar");
+  while ( CDB::Fetch(&v11) )
   {
-    ++v12;
+    ++v9;
     packet = (char *)PutNumeric<int>(packet, TargetValue);
     packet = (char *)PutNumeric<int>(packet, n);
-    packet = (char *)PutNumeric<int>(packet, *(int *)v6);
-    CDB::Bind(&v7, str, 17);
-    if ( !CDB::Execute(&v7, "SELECT [Name] FROM Guild WHERE GID=%d", *(_DWORD *)v6) || !CDB::Fetch(&v7) )
+    packet = (char *)PutNumeric<int>(packet, *(int *)v3);
+    CDB::Bind(&v4, str, 17);
+    if ( !CDB::Execute(&v4, "SELECT [Name] FROM Guild WHERE GID=%d", *(_DWORD *)v3) || !CDB::Fetch(&v4) )
     {
-      LOG_ERR("CSocket::WarInit() guild not find (gid:%d)", *(_DWORD *)v6);
-      CIOBuffer::Free(Src);
-      LOBYTE(v16) = 0;
-      CDB::~CDB(&v7);
-      v16 = -1;
-      CDB::~CDB(&v14);
+      LOG_ERR("CSocket::WarInit() guild not find (gid:%d)", *(_DWORD *)v3);
+      CIOBuffer::Free((CIOBuffer *)Src);
+      LOBYTE(v13) = 0;
+      CDB::~CDB(&v4);
+      v13 = -1;
+      CDB::~CDB(&v11);
       return;
     }
     packet = PutString(packet, str);
-    CDB::Reset(&v7);
-    CDB::Bind(&v7, v10, 17);
-    if ( !CDB::Execute(&v7, "SELECT [Name] FROM Player WHERE PID=%d", *(_DWORD *)v6) || !CDB::Fetch(&v7) )
+    CDB::Reset(&v4);
+    CDB::Bind(&v4, v7, 17);
+    if ( !CDB::Execute(&v4, "SELECT [Name] FROM Player WHERE PID=%d", *(_DWORD *)v3) || !CDB::Fetch(&v4) )
     {
-      LOG_ERR("CSocket::WarInit() Leader not find (gid:%d)", *(_DWORD *)v6);
-      CIOBuffer::Free(Src);
-      LOBYTE(v16) = 0;
-      CDB::~CDB(&v7);
-      v16 = -1;
-      CDB::~CDB(&v14);
+      LOG_ERR("CSocket::WarInit() Leader not find (gid:%d)", *(_DWORD *)v3);
+      CIOBuffer::Free((CIOBuffer *)Src);
+      LOBYTE(v13) = 0;
+      CDB::~CDB(&v4);
+      v13 = -1;
+      CDB::~CDB(&v11);
       return;
     }
-    packet = PutString(packet, v10);
-    CDB::Reset(&v7);
-    if ( v12 >= 150 )
+    packet = PutString(packet, v7);
+    CDB::Reset(&v4);
+    if ( v9 >= 150 )
     {
-      WritePacket(v11 + 3, "b", (unsigned __int8)v12);
-      *(_WORD *)v11 = (_WORD)packet - (_WORD)v11;
-      *((_DWORD *)Src + 2000) = *(unsigned __int16 *)v11;
+      WritePacket(v8 + 3, "b", (unsigned __int8)v9);
+      *(_WORD *)v8 = (_WORD)packet - (_WORD)v8;
+      *((_DWORD *)Src + 2000) = *(unsigned __int16 *)v8;
       CIOSocket::Write((CIOSocket *)this, (CIOBuffer *)Src);
-      v12 = 0;
+      v9 = 0;
       Src = CIOBuffer::Alloc();
-      v11 = (char *)Src;
+      v8 = (char *)Src;
       *((_BYTE *)Src + 2) = 18;
-      packet = v11 + 4;
+      packet = v8 + 4;
     }
   }
-  WritePacket(v11 + 3, "b", (unsigned __int8)v12);
-  *(_WORD *)v11 = (_WORD)packet - (_WORD)v11;
-  *((_DWORD *)Src + 2000) = *(unsigned __int16 *)v11;
+  WritePacket(v8 + 3, "b", (unsigned __int8)v9);
+  *(_WORD *)v8 = (_WORD)packet - (_WORD)v8;
+  *((_DWORD *)Src + 2000) = *(unsigned __int16 *)v8;
   CIOSocket::Write((CIOSocket *)this, (CIOBuffer *)Src);
-  if ( v12 )
-    CSocket::Write((int)this, 18, "b", 0);
-  LOBYTE(v16) = 0;
-  CDB::~CDB(&v7);
-  v16 = -1;
-  CDB::~CDB(&v14);
+  if ( v9 )
+    CSocket::Write((CSocket *)this, (D2S_PROTOCOL)18, "b", 0);
+  LOBYTE(v13) = 0;
+  CDB::~CDB(&v4);
+  v13 = -1;
+  CDB::~CDB(&v11);
 }
 
 //----- (004188D0) --------------------------------------------------------
@@ -15750,94 +15783,92 @@ _BYTE *__stdcall sub_418BA0(int a1, int a2, _BYTE *a3)
 //----- (004191C0) --------------------------------------------------------
 void __thiscall sub_4191C0(void *this, int a2, int a3, int a4)
 {
-  _BYTE *v8; // [esp+4h] [ebp-30h]
+  _BYTE *v5; // [esp+4h] [ebp-30h]
   char TargetValue[4]; // [esp+8h] [ebp-2Ch] BYREF
-  char *v10; // [esp+Ch] [ebp-28h]
-  int v11; // [esp+10h] [ebp-24h]
-  CDB v12; // [esp+14h] [ebp-20h] BYREF
+  char *v7; // [esp+Ch] [ebp-28h]
+  int v8; // [esp+10h] [ebp-24h]
+  CDB v9; // [esp+14h] [ebp-20h] BYREF
   void *Src; // [esp+24h] [ebp-10h]
-  int v14; // [esp+30h] [ebp-4h]
+  int v11; // [esp+30h] [ebp-4h]
 
   Src = CIOBuffer::Alloc();
-  v10 = (char *)Src;
+  v7 = (char *)Src;
   *((_BYTE *)Src + 2) = 20;
-  v8 = v10 + 11;
+  v5 = v7 + 11;
+  v8 = 0;
+  CDB::CDB(&v9);
   v11 = 0;
-  CDB::CDB(&v12);
-  v14 = 0;
-  CDB::Bind(&v12, (int *)TargetValue);
-  if ( CDB::Execute(&v12, "SELECT [Standard] FROM Guild WHERE ( [Standard] & 0xff00) = %d", a4) )
+  CDB::Bind(&v9, (int *)TargetValue);
+  if ( CDB::Execute(&v9, "SELECT [Standard] FROM Guild WHERE ( [Standard] & 0xff00) = %d", a4) )
   {
-    while ( CDB::Fetch(&v12) )
+    while ( CDB::Fetch(&v9) )
     {
-      v8 = PutNumeric<unsigned char>(v8, TargetValue[0]);
-      ++v11;
+      v5 = PutNumeric<unsigned char>(v5, TargetValue[0]);
+      ++v8;
     }
   }
-  WritePacket(v10 + 3, "dd", a2, v11);
-  *(_WORD *)v10 = (_WORD)v8 - (_WORD)v10;
-  *((_DWORD *)Src + 2000) = *(unsigned __int16 *)v10;
+  WritePacket(v7 + 3, "dd", a2, v8);
+  *(_WORD *)v7 = (_WORD)v5 - (_WORD)v7;
+  *((_DWORD *)Src + 2000) = *(unsigned __int16 *)v7;
   CIOSocket::Write((CIOSocket *)this, (CIOBuffer *)Src);
-  v14 = -1;
-  CDB::~CDB(&v12);
+  v11 = -1;
+  CDB::~CDB(&v9);
 }
 
 //----- (004192D0) --------------------------------------------------------
 void __thiscall sub_4192D0(void *this, int a2, int a3, int a4)
 {
-  int v8; // [esp+4h] [ebp-24h]
+  int v5; // [esp+4h] [ebp-24h]
   int TargetValue; // [esp+8h] [ebp-20h] BYREF
-  CDB v10; // [esp+Ch] [ebp-1Ch] BYREF
-  int v11; // [esp+24h] [ebp-4h]
+  CDB v7; // [esp+Ch] [ebp-1Ch] BYREF
+  int v8; // [esp+24h] [ebp-4h]
 
+  v5 = 0;
+  CDB::CDB(&v7);
   v8 = 0;
-  CDB::CDB(&v10);
-  v11 = 0;
-  CDB::Bind(&v10, &TargetValue);
-  if ( CDB::Execute(&v10, "SELECT COUNT(*) FROM Guild WHERE [Standard] = %d", a4) && CDB::Fetch(&v10) && !TargetValue )
+  CDB::Bind(&v7, &TargetValue);
+  if ( CDB::Execute(&v7, "SELECT COUNT(*) FROM Guild WHERE [Standard] = %d", a4) && CDB::Fetch(&v7) && !TargetValue )
   {
-    CDB::Reset(&v10);
-    CDB::Execute(&v10, "UPDATE Guild SET [Standard] = %d WHERE [GID] = %d", a4, a3);
-    v8 = 1;
+    CDB::Reset(&v7);
+    CDB::Execute(&v7, "UPDATE Guild SET [Standard] = %d WHERE [GID] = %d", a4, a3);
+    v5 = 1;
   }
-  CSocket::Write((int)this, 21, "dbdd", a2, v8, a3, a4);
-  v11 = -1;
-  CDB::~CDB(&v10);
+  CSocket::Write((CSocket *)this, RESVD_D2S_LOADSKILL|0x10, "dbdd", a2, v5, a3, a4);
+  v8 = -1;
+  CDB::~CDB(&v7);
 }
 
 //----- (004193B0) --------------------------------------------------------
 void __thiscall sub_4193B0(void *this, int a2, int a3, int a4, int a5, const char *a6)
 {
   int TargetValue; // [esp+4h] [ebp-20h] BYREF
-  CDB v11; // [esp+8h] [ebp-1Ch] BYREF
-  int v12; // [esp+20h] [ebp-4h]
+  CDB v8; // [esp+8h] [ebp-1Ch] BYREF
+  int v9; // [esp+20h] [ebp-4h]
 
-  CDB::CDB(&v11);
-  v12 = 0;
-  CDB::Bind(&v11, &TargetValue);
-  if ( CDB::Execute(&v11, "SELECT COUNT(*) FROM Player WHERE [UID] = %d", a4) && CDB::Fetch(&v11) && TargetValue > 2 )
+  CDB::CDB(&v8);
+  v9 = 0;
+  CDB::Bind(&v8, &TargetValue);
+  if ( CDB::Execute(&v8, "SELECT COUNT(*) FROM Player WHERE [UID] = %d", a4) && CDB::Fetch(&v8) && TargetValue > 2 )
   {
-    CSocket::Write((int)this, 13, "dbbss", a2, 3, a3, &unk_42ED6E, &unk_42ED6D);
-    v12 = -1;
-    CDB::~CDB(&v11);
+    CSocket::Write((CSocket *)this, D2S_END, "dbbss", a2, 3, a3, &unk_42ED6E, &unk_42ED6D);
+    v9 = -1;
+    CDB::~CDB(&v8);
   }
   else
   {
-    CDB::Reset(&v11);
-    CDB::Bind(&v11, &TargetValue);
-    if ( CDB::Execute(&v11, "SELECT COUNT(*) FROM Player WHERE [Name] = '%s'", a6)
-      && CDB::Fetch(&v11)
-      && TargetValue > 0 )
+    CDB::Reset(&v8);
+    CDB::Bind(&v8, &TargetValue);
+    if ( CDB::Execute(&v8, "SELECT COUNT(*) FROM Player WHERE [Name] = '%s'", a6) && CDB::Fetch(&v8) && TargetValue > 0 )
     {
-      CSocket::Write((int)this, 13, "dbbss", a2, 4, a3, &unk_42EDA9, &unk_42EDA8);
-      v12 = -1;
-      CDB::~CDB(&v11);
+      CSocket::Write((CSocket *)this, D2S_END, "dbbss", a2, 4, a3, &unk_42EDA9, &unk_42EDA8);
+      v9 = -1;
+      CDB::~CDB(&v8);
     }
     else
     {
-      CSocket::Write((int)this, 13, "dbbss", a2, 2, a3, a5, a6);
-      v12 = -1;
-      CDB::~CDB(&v11);
+      CSocket::Write((CSocket *)this, D2S_END, "dbbss", a2, 2, a3, a5, a6);
+      v9 = -1;
+      CDB::~CDB(&v8);
     }
   }
 }
@@ -15845,222 +15876,222 @@ void __thiscall sub_4193B0(void *this, int a2, int a3, int a4, int a5, const cha
 //----- (00419510) --------------------------------------------------------
 void __thiscall sub_419510(void *this, int a2, int a3, int a4, const char *a5, int a6)
 {
+  char *v7; // [esp+4h] [ebp-A8h]
+  char *v8; // [esp+4h] [ebp-A8h]
+  char *v9; // [esp+4h] [ebp-A8h]
   char *v10; // [esp+4h] [ebp-A8h]
-  char *v11; // [esp+4h] [ebp-A8h]
-  char *v12; // [esp+4h] [ebp-A8h]
-  char *v13; // [esp+4h] [ebp-A8h]
-  __int16 v14[3]; // [esp+8h] [ebp-A4h] BYREF
-  char v15; // [esp+Fh] [ebp-9Dh] BYREF
-  char v16; // [esp+10h] [ebp-9Ch] BYREF
-  char v17; // [esp+11h] [ebp-9Bh] BYREF
-  char v18; // [esp+12h] [ebp-9Ah] BYREF
-  char v19; // [esp+13h] [ebp-99h] BYREF
-  int v20; // [esp+14h] [ebp-98h] BYREF
-  int v21; // [esp+18h] [ebp-94h] BYREF
-  char *v22; // [esp+1Ch] [ebp-90h]
-  char v23; // [esp+23h] [ebp-89h] BYREF
-  char v24; // [esp+24h] [ebp-88h] BYREF
-  char v25; // [esp+25h] [ebp-87h] BYREF
-  char v26; // [esp+26h] [ebp-86h] BYREF
-  char v27; // [esp+27h] [ebp-85h] BYREF
-  char v28; // [esp+28h] [ebp-84h] BYREF
-  char v29; // [esp+29h] [ebp-83h] BYREF
-  char v30; // [esp+2Ah] [ebp-82h] BYREF
-  char v31; // [esp+2Bh] [ebp-81h] BYREF
-  unsigned __int16 v32; // [esp+2Ch] [ebp-80h] BYREF
-  char v33; // [esp+30h] [ebp-7Ch] BYREF
-  char v34; // [esp+31h] [ebp-7Bh] BYREF
-  char v35; // [esp+32h] [ebp-7Ah] BYREF
-  char v36; // [esp+33h] [ebp-79h] BYREF
-  unsigned __int16 v37; // [esp+34h] [ebp-78h] BYREF
-  int v38; // [esp+38h] [ebp-74h] BYREF
+  __int16 v11[3]; // [esp+8h] [ebp-A4h] BYREF
+  char v12; // [esp+Fh] [ebp-9Dh] BYREF
+  char v13; // [esp+10h] [ebp-9Ch] BYREF
+  char v14; // [esp+11h] [ebp-9Bh] BYREF
+  char v15; // [esp+12h] [ebp-9Ah] BYREF
+  char v16; // [esp+13h] [ebp-99h] BYREF
+  int v17; // [esp+14h] [ebp-98h] BYREF
+  int v18; // [esp+18h] [ebp-94h] BYREF
+  char *v19; // [esp+1Ch] [ebp-90h]
+  char v20; // [esp+23h] [ebp-89h] BYREF
+  char v21; // [esp+24h] [ebp-88h] BYREF
+  char v22; // [esp+25h] [ebp-87h] BYREF
+  char v23; // [esp+26h] [ebp-86h] BYREF
+  char v24; // [esp+27h] [ebp-85h] BYREF
+  char v25; // [esp+28h] [ebp-84h] BYREF
+  char v26; // [esp+29h] [ebp-83h] BYREF
+  char v27; // [esp+2Ah] [ebp-82h] BYREF
+  char v28; // [esp+2Bh] [ebp-81h] BYREF
+  unsigned __int16 v29; // [esp+2Ch] [ebp-80h] BYREF
+  char v30; // [esp+30h] [ebp-7Ch] BYREF
+  char v31; // [esp+31h] [ebp-7Bh] BYREF
+  char v32; // [esp+32h] [ebp-7Ah] BYREF
+  char v33; // [esp+33h] [ebp-79h] BYREF
+  unsigned __int16 v34; // [esp+34h] [ebp-78h] BYREF
+  int v35; // [esp+38h] [ebp-74h] BYREF
   int n; // [esp+3Ch] [ebp-70h] BYREF
-  int v40; // [esp+40h] [ebp-6Ch] BYREF
+  int v37; // [esp+40h] [ebp-6Ch] BYREF
   char *packet; // [esp+44h] [ebp-68h]
-  char v42; // [esp+4Bh] [ebp-61h] BYREF
-  unsigned __int16 v43; // [esp+4Ch] [ebp-60h] BYREF
-  unsigned __int16 v44; // [esp+50h] [ebp-5Ch] BYREF
-  __int16 v45[3]; // [esp+54h] [ebp-58h] BYREF
-  char v46; // [esp+5Bh] [ebp-51h] BYREF
-  int v47; // [esp+5Ch] [ebp-50h] BYREF
-  char v48; // [esp+62h] [ebp-4Ah] BYREF
-  char v49; // [esp+63h] [ebp-49h] BYREF
-  __int16 v50[2]; // [esp+64h] [ebp-48h] BYREF
-  char v51; // [esp+69h] [ebp-43h] BYREF
-  char v52; // [esp+6Ah] [ebp-42h] BYREF
-  char v53; // [esp+6Bh] [ebp-41h] BYREF
-  char *v54; // [esp+6Ch] [ebp-40h]
-  int v55; // [esp+70h] [ebp-3Ch]
-  int v56; // [esp+74h] [ebp-38h] BYREF
-  __int64 v57; // [esp+78h] [ebp-34h] BYREF
-  char v58; // [esp+85h] [ebp-27h] BYREF
-  char v59; // [esp+86h] [ebp-26h] BYREF
+  char v39; // [esp+4Bh] [ebp-61h] BYREF
+  unsigned __int16 v40; // [esp+4Ch] [ebp-60h] BYREF
+  unsigned __int16 v41; // [esp+50h] [ebp-5Ch] BYREF
+  __int16 v42[3]; // [esp+54h] [ebp-58h] BYREF
+  char v43; // [esp+5Bh] [ebp-51h] BYREF
+  int v44; // [esp+5Ch] [ebp-50h] BYREF
+  char v45; // [esp+62h] [ebp-4Ah] BYREF
+  char v46; // [esp+63h] [ebp-49h] BYREF
+  __int16 v47[2]; // [esp+64h] [ebp-48h] BYREF
+  char v48; // [esp+69h] [ebp-43h] BYREF
+  char v49; // [esp+6Ah] [ebp-42h] BYREF
+  char v50; // [esp+6Bh] [ebp-41h] BYREF
+  char *v51; // [esp+6Ch] [ebp-40h]
+  int v52; // [esp+70h] [ebp-3Ch]
+  int v53; // [esp+74h] [ebp-38h] BYREF
+  __int64 v54; // [esp+78h] [ebp-34h] BYREF
+  char v55; // [esp+85h] [ebp-27h] BYREF
+  char v56; // [esp+86h] [ebp-26h] BYREF
   char TargetValue; // [esp+87h] [ebp-25h] BYREF
-  CDB v61; // [esp+88h] [ebp-24h] BYREF
+  CDB v58; // [esp+88h] [ebp-24h] BYREF
   void *Src; // [esp+98h] [ebp-14h]
-  char v63; // [esp+9Eh] [ebp-Eh] BYREF
-  char v64; // [esp+9Fh] [ebp-Dh] BYREF
-  int v65; // [esp+A8h] [ebp-4h]
+  char v60; // [esp+9Eh] [ebp-Eh] BYREF
+  char v61; // [esp+9Fh] [ebp-Dh] BYREF
+  int v62; // [esp+A8h] [ebp-4h]
 
   Src = CIOBuffer::Alloc();
-  v54 = (char *)Src;
+  v51 = (char *)Src;
   *((_BYTE *)Src + 2) = 14;
-  packet = v54 + 12;
-  v55 = 0;
-  CDB::CDB(&v61);
-  v65 = 0;
-  CDB::Bind(&v61, &n);
-  CDB::Bind(&v61, &v47);
+  packet = v51 + 12;
+  v52 = 0;
+  CDB::CDB(&v58);
+  v62 = 0;
+  CDB::Bind(&v58, &n);
+  CDB::Bind(&v58, &v44);
   CDB::Bind(&TargetValue);
-  CDB::Skip(&v61);
-  CDB::Bind(&v48);
-  CDB::Bind(&v63);
-  CDB::Bind(&v42);
-  CDB::Bind(&v61, (unsigned __int16 *)v50);
-  CDB::Bind(&v61, &v57);
+  CDB::Skip(&v58);
+  CDB::Bind(&v45);
+  CDB::Bind(&v60);
+  CDB::Bind(&v39);
+  CDB::Bind(&v58, (unsigned __int16 *)v47);
+  CDB::Bind(&v58, &v54);
   Concurrency::details::ExternalStatistics::IncrementDequeuedTaskCounter(
-    (Concurrency::details::ExternalStatistics *)&v61,
+    (Concurrency::details::ExternalStatistics *)&v58,
     2u);
-  CDB::Bind(&v58);
-  CDB::Bind(&v52);
-  CDB::Bind(&v51);
-  CDB::Bind(&v35);
-  CDB::Bind(&v36);
-  CDB::Bind(&v61, &v43);
-  CDB::Bind(&v61, &v37);
-  CDB::Bind(&v61, &v44);
-  CDB::Bind(&v61, (unsigned __int16 *)v45);
-  CDB::Bind(&v64);
+  CDB::Bind(&v55);
   CDB::Bind(&v49);
-  CDB::Bind(&v61, &v56);
-  CDB::Bind(&v61, &v38);
-  CDB::Bind(&v61, &v40);
-  CDB::Bind(&v53);
+  CDB::Bind(&v48);
+  CDB::Bind(&v32);
+  CDB::Bind(&v33);
+  CDB::Bind(&v58, &v40);
+  CDB::Bind(&v58, &v34);
+  CDB::Bind(&v58, &v41);
+  CDB::Bind(&v58, (unsigned __int16 *)v42);
+  CDB::Bind(&v61);
   CDB::Bind(&v46);
-  CDB::Bind(&v59);
-  if ( CDB::Execute(&v61, "SELECT * FROM Player WHERE [Name] = '%s'", a5) && CDB::Fetch(&v61) && a4 == n )
+  CDB::Bind(&v58, &v53);
+  CDB::Bind(&v58, &v35);
+  CDB::Bind(&v58, &v37);
+  CDB::Bind(&v50);
+  CDB::Bind(&v43);
+  CDB::Bind(&v56);
+  if ( CDB::Execute(&v58, "SELECT * FROM Player WHERE [Name] = '%s'", a5) && CDB::Fetch(&v58) && a4 == n )
   {
     if ( TargetValue == 1 )
     {
-      v55 = 7;
+      v52 = 7;
     }
     else
     {
-      v10 = packet++;
-      v22 = packet;
+      v7 = packet++;
+      v19 = packet;
       packet = PutString(packet, (const char *)a6);
       packet = PutNumeric<unsigned char>(packet, TargetValue);
-      packet = PutNumeric<unsigned char>(packet, v48);
-      packet = PutNumeric<unsigned char>(packet, v63);
-      packet = PutNumeric<unsigned char>(packet, v42);
-      packet = (char *)PutNumeric<short>(packet, v50[0]);
-      packet = (char *)PutNumeric<__int64>(packet, v57, SHIDWORD(v57));
-      packet = PutNumeric<unsigned char>(packet, v58);
-      packet = PutNumeric<unsigned char>(packet, v52);
-      packet = PutNumeric<unsigned char>(packet, v51);
-      packet = PutNumeric<unsigned char>(packet, v35);
-      packet = PutNumeric<unsigned char>(packet, v36);
-      packet = (char *)PutNumeric<short>(packet, v43);
-      packet = (char *)PutNumeric<short>(packet, v37);
-      packet = (char *)PutNumeric<short>(packet, v44);
-      packet = (char *)PutNumeric<short>(packet, v45[0]);
-      packet = PutNumeric<unsigned char>(packet, v64);
+      packet = PutNumeric<unsigned char>(packet, v45);
+      packet = PutNumeric<unsigned char>(packet, v60);
+      packet = PutNumeric<unsigned char>(packet, v39);
+      packet = (char *)PutNumeric<short>(packet, v47[0]);
+      packet = (char *)PutNumeric<__int64>(packet, v54, SHIDWORD(v54));
+      packet = PutNumeric<unsigned char>(packet, v55);
       packet = PutNumeric<unsigned char>(packet, v49);
-      packet = (char *)PutNumeric<int>(packet, v56);
-      packet = (char *)PutNumeric<int>(packet, v38);
-      packet = (char *)PutNumeric<int>(packet, v40);
-      packet = PutNumeric<unsigned char>(packet, v53);
+      packet = PutNumeric<unsigned char>(packet, v48);
+      packet = PutNumeric<unsigned char>(packet, v32);
+      packet = PutNumeric<unsigned char>(packet, v33);
+      packet = (char *)PutNumeric<short>(packet, v40);
+      packet = (char *)PutNumeric<short>(packet, v34);
+      packet = (char *)PutNumeric<short>(packet, v41);
+      packet = (char *)PutNumeric<short>(packet, v42[0]);
+      packet = PutNumeric<unsigned char>(packet, v61);
       packet = PutNumeric<unsigned char>(packet, v46);
-      packet = PutNumeric<unsigned char>(packet, v59);
-      *v10 = (_BYTE)packet - (_BYTE)v22;
-      v11 = packet++;
-      *v11 = 0;
-      CDB::Reset(&v61);
+      packet = (char *)PutNumeric<int>(packet, v53);
+      packet = (char *)PutNumeric<int>(packet, v35);
+      packet = (char *)PutNumeric<int>(packet, v37);
+      packet = PutNumeric<unsigned char>(packet, v50);
+      packet = PutNumeric<unsigned char>(packet, v43);
+      packet = PutNumeric<unsigned char>(packet, v56);
+      *v7 = (_BYTE)packet - (_BYTE)v19;
+      v8 = packet++;
+      *v8 = 0;
+      CDB::Reset(&v58);
       Concurrency::details::ExternalStatistics::IncrementDequeuedTaskCounter(
-        (Concurrency::details::ExternalStatistics *)&v61,
+        (Concurrency::details::ExternalStatistics *)&v58,
         2u);
-      CDB::Bind(&v61, (unsigned __int16 *)v14);
-      CDB::Bind(&v26);
-      CDB::Bind(&v61, &v20);
-      CDB::Bind(&v61, &v21);
+      CDB::Bind(&v58, (unsigned __int16 *)v11);
       CDB::Bind(&v23);
-      CDB::Bind(&v27);
-      CDB::Bind(&v30);
+      CDB::Bind(&v58, &v17);
+      CDB::Bind(&v58, &v18);
+      CDB::Bind(&v20);
       CDB::Bind(&v24);
-      CDB::Bind(&v17);
-      CDB::Bind(&v28);
-      CDB::Bind(&v29);
-      CDB::Bind(&v18);
-      CDB::Bind(&v34);
+      CDB::Bind(&v27);
+      CDB::Bind(&v21);
+      CDB::Bind(&v14);
+      CDB::Bind(&v25);
+      CDB::Bind(&v26);
+      CDB::Bind(&v15);
       CDB::Bind(&v31);
-      CDB::Bind(&v19);
-      if ( CDB::Execute(&v61, "SELECT TOP %d * FROM Item WHERE [PID] = %d AND ( [Info] & %d) = 0", 72, v47, 16) )
+      CDB::Bind(&v28);
+      CDB::Bind(&v16);
+      if ( CDB::Execute(&v58, "SELECT TOP %d * FROM Item WHERE [PID] = %d AND ( [Info] & %d) = 0", 72, v44, 16) )
       {
-        while ( CDB::Fetch(&v61) )
+        while ( CDB::Fetch(&v58) )
         {
           packet = (char *)PutNumeric<int>(packet, 0);
-          packet = (char *)PutNumeric<short>(packet, v14[0]);
-          packet = PutNumeric<unsigned char>(packet, v26);
-          packet = (char *)PutNumeric<int>(packet, v20);
-          packet = (char *)PutNumeric<int>(packet, v21);
+          packet = (char *)PutNumeric<short>(packet, v11[0]);
           packet = PutNumeric<unsigned char>(packet, v23);
-          packet = PutNumeric<unsigned char>(packet, v27);
-          packet = PutNumeric<unsigned char>(packet, v30);
+          packet = (char *)PutNumeric<int>(packet, v17);
+          packet = (char *)PutNumeric<int>(packet, v18);
+          packet = PutNumeric<unsigned char>(packet, v20);
           packet = PutNumeric<unsigned char>(packet, v24);
-          packet = PutNumeric<unsigned char>(packet, v17);
-          packet = PutNumeric<unsigned char>(packet, v28);
-          packet = PutNumeric<unsigned char>(packet, v29);
-          packet = PutNumeric<unsigned char>(packet, v18);
-          packet = PutNumeric<unsigned char>(packet, v34);
-          packet = PutNumeric<unsigned char>(packet, v31);
-          packet = PutNumeric<unsigned char>(packet, v19);
-          ++*v11;
-        }
-      }
-      v12 = packet++;
-      *v12 = 0;
-      CDB::Reset(&v61);
-      CDB::Bind(&v15);
-      CDB::Bind(&v25);
-      if ( CDB::Execute(&v61, "SELECT TOP 64 [Index], [Level] FROM Skill WHERE [PID] = %d", v47) )
-      {
-        while ( CDB::Fetch(&v61) )
-        {
-          packet = PutNumeric<unsigned char>(packet, v15);
+          packet = PutNumeric<unsigned char>(packet, v27);
+          packet = PutNumeric<unsigned char>(packet, v21);
+          packet = PutNumeric<unsigned char>(packet, v14);
           packet = PutNumeric<unsigned char>(packet, v25);
-          ++*v12;
-        }
-      }
-      v13 = packet++;
-      *v13 = 0;
-      CDB::Reset(&v61);
-      CDB::Skip(&v61);
-      CDB::Bind(&v61, &v32);
-      CDB::Bind(&v16);
-      CDB::Bind(&v33);
-      if ( CDB::Execute(&v61, "SELECT * FROM Quest WHERE [PID] = %d", v47) )
-      {
-        while ( CDB::Fetch(&v61) )
-        {
-          packet = (char *)PutNumeric<short>(packet, v32);
+          packet = PutNumeric<unsigned char>(packet, v26);
+          packet = PutNumeric<unsigned char>(packet, v15);
+          packet = PutNumeric<unsigned char>(packet, v31);
+          packet = PutNumeric<unsigned char>(packet, v28);
           packet = PutNumeric<unsigned char>(packet, v16);
-          packet = PutNumeric<unsigned char>(packet, v33);
-          ++*v13;
+          ++*v8;
         }
       }
-      v55 = 1;
+      v9 = packet++;
+      *v9 = 0;
+      CDB::Reset(&v58);
+      CDB::Bind(&v12);
+      CDB::Bind(&v22);
+      if ( CDB::Execute(&v58, "SELECT TOP 64 [Index], [Level] FROM Skill WHERE [PID] = %d", v44) )
+      {
+        while ( CDB::Fetch(&v58) )
+        {
+          packet = PutNumeric<unsigned char>(packet, v12);
+          packet = PutNumeric<unsigned char>(packet, v22);
+          ++*v9;
+        }
+      }
+      v10 = packet++;
+      *v10 = 0;
+      CDB::Reset(&v58);
+      CDB::Skip(&v58);
+      CDB::Bind(&v58, &v29);
+      CDB::Bind(&v13);
+      CDB::Bind(&v30);
+      if ( CDB::Execute(&v58, "SELECT * FROM Quest WHERE [PID] = %d", v44) )
+      {
+        while ( CDB::Fetch(&v58) )
+        {
+          packet = (char *)PutNumeric<short>(packet, v29);
+          packet = PutNumeric<unsigned char>(packet, v13);
+          packet = PutNumeric<unsigned char>(packet, v30);
+          ++*v10;
+        }
+      }
+      v52 = 1;
     }
   }
   else
   {
-    v55 = 6;
+    v52 = 6;
   }
-  WritePacket(v54 + 3, "ddb", a2, a3, v55);
-  *(_WORD *)v54 = (_WORD)packet - (_WORD)v54;
-  *((_DWORD *)Src + 2000) = *(unsigned __int16 *)v54;
+  WritePacket(v51 + 3, "ddb", a2, a3, v52);
+  *(_WORD *)v51 = (_WORD)packet - (_WORD)v51;
+  *((_DWORD *)Src + 2000) = *(unsigned __int16 *)v51;
   CIOSocket::Write((CIOSocket *)this, (CIOBuffer *)Src);
-  v65 = -1;
-  CDB::~CDB(&v61);
+  v62 = -1;
+  CDB::~CDB(&v58);
 }
 // 41B150: using guessed type int __thiscall CDB::Skip(_DWORD);
 
@@ -16070,209 +16101,209 @@ void __thiscall sub_419D90(void *this, int a2, int a3, void *Src)
   int k; // [esp+4h] [ebp-A4h]
   int j; // [esp+8h] [ebp-A0h]
   int i; // [esp+Ch] [ebp-9Ch]
-  unsigned __int16 v11[3]; // [esp+10h] [ebp-98h] BYREF
-  unsigned __int8 v12; // [esp+16h] [ebp-92h] BYREF
-  unsigned __int8 v13; // [esp+17h] [ebp-91h] BYREF
-  unsigned __int8 v14; // [esp+18h] [ebp-90h] BYREF
-  unsigned __int8 v15; // [esp+19h] [ebp-8Fh] BYREF
-  unsigned __int8 v16; // [esp+1Ah] [ebp-8Eh] BYREF
-  unsigned __int8 v17; // [esp+1Bh] [ebp-8Dh] BYREF
-  int v18; // [esp+1Ch] [ebp-8Ch] BYREF
-  int v19; // [esp+20h] [ebp-88h] BYREF
-  unsigned __int8 v20; // [esp+24h] [ebp-84h] BYREF
-  unsigned __int8 v21; // [esp+25h] [ebp-83h] BYREF
-  unsigned __int8 v22; // [esp+26h] [ebp-82h] BYREF
-  unsigned __int8 v23; // [esp+27h] [ebp-81h] BYREF
-  unsigned __int8 v24; // [esp+28h] [ebp-80h] BYREF
-  unsigned __int8 v25; // [esp+29h] [ebp-7Fh] BYREF
-  unsigned __int8 v26; // [esp+2Ah] [ebp-7Eh] BYREF
-  unsigned __int8 v27; // [esp+2Bh] [ebp-7Dh] BYREF
-  unsigned __int16 v28[3]; // [esp+2Ch] [ebp-7Ch] BYREF
-  unsigned __int8 v29; // [esp+33h] [ebp-75h] BYREF
-  int v30; // [esp+34h] [ebp-74h] BYREF
-  unsigned __int8 v31; // [esp+3Ah] [ebp-6Eh] BYREF
-  unsigned __int8 v32; // [esp+3Bh] [ebp-6Dh] BYREF
+  unsigned __int16 v8[3]; // [esp+10h] [ebp-98h] BYREF
+  unsigned __int8 v9; // [esp+16h] [ebp-92h] BYREF
+  unsigned __int8 v10; // [esp+17h] [ebp-91h] BYREF
+  unsigned __int8 v11; // [esp+18h] [ebp-90h] BYREF
+  unsigned __int8 v12; // [esp+19h] [ebp-8Fh] BYREF
+  unsigned __int8 v13; // [esp+1Ah] [ebp-8Eh] BYREF
+  unsigned __int8 v14; // [esp+1Bh] [ebp-8Dh] BYREF
+  int v15; // [esp+1Ch] [ebp-8Ch] BYREF
+  int v16; // [esp+20h] [ebp-88h] BYREF
+  unsigned __int8 v17; // [esp+24h] [ebp-84h] BYREF
+  unsigned __int8 v18; // [esp+25h] [ebp-83h] BYREF
+  unsigned __int8 v19; // [esp+26h] [ebp-82h] BYREF
+  unsigned __int8 v20; // [esp+27h] [ebp-81h] BYREF
+  unsigned __int8 v21; // [esp+28h] [ebp-80h] BYREF
+  unsigned __int8 v22; // [esp+29h] [ebp-7Fh] BYREF
+  unsigned __int8 v23; // [esp+2Ah] [ebp-7Eh] BYREF
+  unsigned __int8 v24; // [esp+2Bh] [ebp-7Dh] BYREF
+  unsigned __int16 v25[3]; // [esp+2Ch] [ebp-7Ch] BYREF
+  unsigned __int8 v26; // [esp+33h] [ebp-75h] BYREF
+  int v27; // [esp+34h] [ebp-74h] BYREF
+  unsigned __int8 v28; // [esp+3Ah] [ebp-6Eh] BYREF
+  unsigned __int8 v29; // [esp+3Bh] [ebp-6Dh] BYREF
   int n; // [esp+3Ch] [ebp-6Ch] BYREF
-  unsigned __int8 v34; // [esp+42h] [ebp-66h] BYREF
-  unsigned __int8 v35; // [esp+43h] [ebp-65h] BYREF
-  unsigned __int16 v36; // [esp+44h] [ebp-64h] BYREF
-  int v37; // [esp+48h] [ebp-60h] BYREF
-  int v38; // [esp+4Ch] [ebp-5Ch] BYREF
-  unsigned __int8 v39; // [esp+52h] [ebp-56h] BYREF
-  unsigned __int8 v40; // [esp+53h] [ebp-55h] BYREF
-  unsigned __int16 v41; // [esp+54h] [ebp-54h] BYREF
-  unsigned __int16 v42; // [esp+58h] [ebp-50h] BYREF
-  unsigned __int16 v43[2]; // [esp+5Ch] [ebp-4Ch] BYREF
-  unsigned __int8 v44; // [esp+61h] [ebp-47h] BYREF
-  unsigned __int8 v45; // [esp+62h] [ebp-46h] BYREF
-  unsigned __int8 v46; // [esp+63h] [ebp-45h] BYREF
-  unsigned __int16 v47; // [esp+64h] [ebp-44h] BYREF
-  const char *v48; // [esp+68h] [ebp-40h] BYREF
-  unsigned __int8 v49; // [esp+6Eh] [ebp-3Ah] BYREF
-  unsigned __int8 v50; // [esp+6Fh] [ebp-39h] BYREF
-  int v51; // [esp+70h] [ebp-38h] BYREF
+  unsigned __int8 v31; // [esp+42h] [ebp-66h] BYREF
+  unsigned __int8 v32; // [esp+43h] [ebp-65h] BYREF
+  unsigned __int16 v33; // [esp+44h] [ebp-64h] BYREF
+  int v34; // [esp+48h] [ebp-60h] BYREF
+  int v35; // [esp+4Ch] [ebp-5Ch] BYREF
+  unsigned __int8 v36; // [esp+52h] [ebp-56h] BYREF
+  unsigned __int8 v37; // [esp+53h] [ebp-55h] BYREF
+  unsigned __int16 v38; // [esp+54h] [ebp-54h] BYREF
+  unsigned __int16 v39; // [esp+58h] [ebp-50h] BYREF
+  unsigned __int16 v40[2]; // [esp+5Ch] [ebp-4Ch] BYREF
+  unsigned __int8 v41; // [esp+61h] [ebp-47h] BYREF
+  unsigned __int8 v42; // [esp+62h] [ebp-46h] BYREF
+  unsigned __int8 v43; // [esp+63h] [ebp-45h] BYREF
+  unsigned __int16 v44; // [esp+64h] [ebp-44h] BYREF
+  const char *v45; // [esp+68h] [ebp-40h] BYREF
+  unsigned __int8 v46; // [esp+6Eh] [ebp-3Ah] BYREF
+  unsigned __int8 v47; // [esp+6Fh] [ebp-39h] BYREF
+  int v48; // [esp+70h] [ebp-38h] BYREF
   int TargetValue; // [esp+74h] [ebp-34h] BYREF
-  unsigned __int8 v53; // [esp+7Ah] [ebp-2Eh] BYREF
-  unsigned __int8 v54; // [esp+7Bh] [ebp-2Dh] BYREF
-  __int64 v55; // [esp+7Ch] [ebp-2Ch] BYREF
-  CDB v56; // [esp+88h] [ebp-20h] BYREF
-  unsigned __int8 v57; // [esp+99h] [ebp-Fh] BYREF
-  unsigned __int8 v58; // [esp+9Ah] [ebp-Eh] BYREF
-  unsigned __int8 v59; // [esp+9Bh] [ebp-Dh] BYREF
-  int v60; // [esp+A4h] [ebp-4h]
+  unsigned __int8 v50; // [esp+7Ah] [ebp-2Eh] BYREF
+  unsigned __int8 v51; // [esp+7Bh] [ebp-2Dh] BYREF
+  __int64 v52; // [esp+7Ch] [ebp-2Ch] BYREF
+  CDB v53; // [esp+88h] [ebp-20h] BYREF
+  unsigned __int8 v54; // [esp+99h] [ebp-Fh] BYREF
+  unsigned __int8 v55; // [esp+9Ah] [ebp-Eh] BYREF
+  unsigned __int8 v56; // [esp+9Bh] [ebp-Dh] BYREF
+  int v57; // [esp+A4h] [ebp-4h]
   char *Srca; // [esp+B8h] [ebp+10h]
   char *Srcb; // [esp+B8h] [ebp+10h]
   char *Srcc; // [esp+B8h] [ebp+10h]
   char *Srcd; // [esp+B8h] [ebp+10h]
   char *Srce; // [esp+B8h] [ebp+10h]
 
-  CDB::CDB(&v56);
-  v60 = 0;
-  Srca = ReadPacket((char *)Src, "s", &v48);
-  CDB::Bind(&v56, &TargetValue);
-  if ( CDB::Execute(&v56, "SELECT COUNT(*) FROM Player WHERE [Name] = '%s'", v48) && CDB::Fetch(&v56) && TargetValue > 0 )
+  CDB::CDB(&v53);
+  v57 = 0;
+  Srca = ReadPacket((char *)Src, "s", &v45);
+  CDB::Bind(&v53, &TargetValue);
+  if ( CDB::Execute(&v53, "SELECT COUNT(*) FROM Player WHERE [Name] = '%s'", v45) && CDB::Fetch(&v53) && TargetValue > 0 )
   {
-    CSocket::Write((int)this, 15, "db", a2, 4);
-    v60 = -1;
-    CDB::~CDB(&v56);
+    CSocket::Write((CSocket *)this, D2S_END|D2S_ANS_NEWPLAYER, "db", a2, 4);
+    v57 = -1;
+    CDB::~CDB(&v53);
   }
   else
   {
-    CDB::Reset(&v56);
+    CDB::Reset(&v53);
     Srcb = ReadPacket(
              Srca,
              "bbbbwIbbbbbwwwwbbdddbbb",
-             &v57,
-             &v44,
-             &v58,
-             &v39,
-             &v47,
+             &v54,
+             &v41,
              &v55,
-             &v53,
-             &v49,
+             &v36,
+             &v44,
+             &v52,
+             &v50,
              &v46,
+             &v43,
+             &v31,
+             &v32,
+             &v38,
+             &v33,
+             &v39,
+             v40,
+             &v56,
+             &v42,
+             &v48,
              &v34,
              &v35,
-             &v41,
-             &v36,
-             &v42,
-             v43,
-             &v59,
-             &v45,
-             &v51,
+             &v47,
              &v37,
-             &v38,
-             &v50,
-             &v40,
-             &v54);
+             &v51);
     if ( CDB::ExecuteInsertUnique(
-           &v56,
+           &v53,
            "INSERT INTO Player ( [UID], [Admin], [Name], [Class], [Specialty], [Level], [Contribute], [Exp], [Strength], "
            "[Health], [Intelligence], [Wisdom], [Dexterity], [CurHP], [CurMP], [PUPoint], [SUPoint], [Killed], [Map], [X]"
            ", [Y], [Z], [Face], [Hair], [RevivalId]) VALUES ( %d, %d, '%s', %d, %d, %d, %d, %I64d, %d, %d, %d, %d, %d, %d"
            ", %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d)",
            a3,
-           v57,
-           v48,
-           v44,
-           v58,
-           v39,
-           v47,
+           v54,
+           v45,
+           v41,
            v55,
-           v53,
-           v49,
+           v36,
+           v44,
+           v52,
+           v50,
            v46,
+           v43,
+           v31,
+           v32,
+           v38,
+           v33,
+           v39,
+           v40[0],
+           v56,
+           v42,
+           v48,
            v34,
            v35,
-           v41,
-           v36,
-           v42,
-           v43[0],
-           v59,
-           v45,
-           v51,
+           v47,
            v37,
-           v38,
-           v50,
-           v40,
-           v54) )
+           v51) )
     {
-      CSocket::Write((int)this, 15, "db", a2, 0);
+      CSocket::Write((CSocket *)this, D2S_END|D2S_ANS_NEWPLAYER, "db", a2, 0);
     }
     else
     {
-      CDB::Reset(&v56);
-      CDB::Bind(&v56, &n);
-      if ( CDB::Execute(&v56, "SELECT [PID] FROM Player WHERE [Name] = '%s'", v48) && CDB::Fetch(&v56) )
+      CDB::Reset(&v53);
+      CDB::Bind(&v53, &n);
+      if ( CDB::Execute(&v53, "SELECT [PID] FROM Player WHERE [Name] = '%s'", v45) && CDB::Fetch(&v53) )
       {
-        Srcc = GetNumeric<unsigned char>(Srcb, &v15);
-        for ( i = 0; i < v15; ++i )
+        Srcc = GetNumeric<unsigned char>(Srcb, &v12);
+        for ( i = 0; i < v12; ++i )
         {
           Srcc = ReadPacket(
                    Srcc,
                    "dwbddbbbbbbbbbbb",
-                   &v30,
-                   v11,
-                   &v22,
-                   &v18,
+                   &v27,
+                   v8,
                    &v19,
+                   &v15,
+                   &v16,
+                   &v17,
                    &v20,
                    &v23,
-                   &v26,
+                   &v18,
+                   &v11,
                    &v21,
-                   &v14,
+                   &v22,
+                   &v13,
+                   &v28,
                    &v24,
-                   &v25,
-                   &v16,
-                   &v31,
-                   &v27,
-                   &v17);
-          CSocket::s_nIID = v30;
-          CDB::Reset(&v56);
+                   &v14);
+          CSocket::s_nIID = v27;
+          CDB::Reset(&v53);
           CDB::Execute(
-            &v56,
+            &v53,
             "INSERT INTO Item VALUES ( %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d)",
             n,
-            v30,
-            v11[0],
-            v22,
-            v18,
+            v27,
+            v8[0],
             v19,
+            v15,
+            v16,
+            v17,
             v20,
             v23,
-            v26,
+            v18,
+            v11,
             v21,
-            v14,
+            v22,
+            v13,
+            v28,
             v24,
-            v25,
-            v16,
-            v31,
-            v27,
-            v17);
+            v14);
         }
-        Srcd = GetNumeric<unsigned char>(Srcc, &v15);
-        for ( j = 0; j < v15; ++j )
+        Srcd = GetNumeric<unsigned char>(Srcc, &v12);
+        for ( j = 0; j < v12; ++j )
         {
-          Srcd = ReadPacket(Srcd, "bb", &v12, &v32);
-          CDB::Reset(&v56);
-          CDB::Execute(&v56, "INSERT INTO Skill VALUES ( %d, %d, %d)", n, v12, v32);
+          Srcd = ReadPacket(Srcd, "bb", &v9, &v29);
+          CDB::Reset(&v53);
+          CDB::Execute(&v53, "INSERT INTO Skill VALUES ( %d, %d, %d)", n, v9, v29);
         }
-        Srce = GetNumeric<unsigned char>(Srcd, &v15);
-        for ( k = 0; k < v15; ++k )
+        Srce = GetNumeric<unsigned char>(Srcd, &v12);
+        for ( k = 0; k < v12; ++k )
         {
-          Srce = ReadPacket(Srce, "wbb", v28, &v13, &v29);
-          CDB::Reset(&v56);
-          CDB::Execute(&v56, "INSERT INTO Quest VALUES ( %d, %d, %d, %d)", n, v28[0], v13, v29);
+          Srce = ReadPacket(Srce, "wbb", v25, &v10, &v26);
+          CDB::Reset(&v53);
+          CDB::Execute(&v53, "INSERT INTO Quest VALUES ( %d, %d, %d, %d)", n, v25[0], v10, v26);
         }
-        CSocket::Write((int)this, 15, "db", a2, 1);
+        CSocket::Write((CSocket *)this, D2S_END|D2S_ANS_NEWPLAYER, "db", a2, 1);
       }
       else
       {
-        CSocket::Write((int)this, 15, "db", a2, 0);
+        CSocket::Write((CSocket *)this, D2S_END|D2S_ANS_NEWPLAYER, "db", a2, 0);
       }
     }
-    v60 = -1;
-    CDB::~CDB(&v56);
+    v57 = -1;
+    CDB::~CDB(&v53);
   }
 }
 
@@ -16293,42 +16324,42 @@ void __stdcall sub_41A280(const char *a1, const char *a2, const char *a3)
 void __thiscall sub_41A2F0(void *this)
 {
   char TargetValue[20]; // [esp+4h] [ebp-6Ch] BYREF
-  char *v6; // [esp+18h] [ebp-58h]
+  char *v3; // [esp+18h] [ebp-58h]
   char *packet; // [esp+1Ch] [ebp-54h]
-  unsigned __int16 *v8; // [esp+20h] [ebp-50h]
+  unsigned __int16 *v5; // [esp+20h] [ebp-50h]
   char str[20]; // [esp+24h] [ebp-4Ch] BYREF
-  char v10[20]; // [esp+38h] [ebp-38h] BYREF
-  CDB v11; // [esp+50h] [ebp-20h] BYREF
+  char v7[20]; // [esp+38h] [ebp-38h] BYREF
+  CDB v8; // [esp+50h] [ebp-20h] BYREF
   void *Src; // [esp+60h] [ebp-10h]
-  int v13; // [esp+6Ch] [ebp-4h]
+  int v10; // [esp+6Ch] [ebp-4h]
 
   Src = CIOBuffer::Alloc();
-  v8 = (unsigned __int16 *)Src;
+  v5 = (unsigned __int16 *)Src;
   *((_BYTE *)Src + 2) = 16;
-  packet = (char *)v8 + 3;
-  CDB::CDB(&v11);
-  v13 = 0;
-  CDB::Bind(&v11, TargetValue, 17);
-  CDB::Bind(&v11, str, 17);
-  CDB::Bind(&v11, v10, 17);
-  v6 = packet++;
-  *v6 = 0;
+  packet = (char *)v5 + 3;
+  CDB::CDB(&v8);
+  v10 = 0;
+  CDB::Bind(&v8, TargetValue, 17);
+  CDB::Bind(&v8, str, 17);
+  CDB::Bind(&v8, v7, 17);
+  v3 = packet++;
+  *v3 = 0;
   if ( CDB::Execute(
-         &v11,
+         &v8,
          "SELECT TOP %d [NameGuild], [NameCatch], [NameAssassin] FROM PKBulletin ORDER BY [Index] DESC",
          20) )
   {
-    while ( CDB::Fetch(&v11) )
+    while ( CDB::Fetch(&v8) )
     {
       packet = PutString(packet, TargetValue);
       packet = PutString(packet, str);
-      packet = PutString(packet, v10);
-      ++*v6;
+      packet = PutString(packet, v7);
+      ++*v3;
     }
-    if ( *v6 )
+    if ( *v3 )
     {
-      *v8 = (_WORD)packet - (_WORD)v8;
-      *((_DWORD *)Src + 2000) = *v8;
+      *v5 = (_WORD)packet - (_WORD)v5;
+      *((_DWORD *)Src + 2000) = *v5;
       CIOSocket::Write((CIOSocket *)this, (CIOBuffer *)Src);
     }
     else
@@ -16336,197 +16367,197 @@ void __thiscall sub_41A2F0(void *this)
       CIOBuffer::Release((CIOBuffer *)Src);
     }
   }
-  v13 = -1;
-  CDB::~CDB(&v11);
+  v10 = -1;
+  CDB::~CDB(&v8);
 }
 
 //----- (0041A450) --------------------------------------------------------
 void __thiscall sub_41A450(void *this, int a2, int a3, void *Src)
 {
-  int v8; // [esp+4h] [ebp-50h] BYREF
+  int v5; // [esp+4h] [ebp-50h] BYREF
   char TargetValue[40]; // [esp+8h] [ebp-4Ch] BYREF
   SQLINTEGER StrLen_or_Ind; // [esp+34h] [ebp-20h] BYREF
-  CDB v11; // [esp+38h] [ebp-1Ch] BYREF
-  int v12; // [esp+50h] [ebp-4h]
+  CDB v8; // [esp+38h] [ebp-1Ch] BYREF
+  int v9; // [esp+50h] [ebp-4h]
 
   StrLen_or_Ind = 0;
-  CDB::CDB(&v11);
-  v12 = 0;
+  CDB::CDB(&v8);
+  v9 = 0;
   if ( a2 )
   {
     ReadPacket((char *)Src, "m", TargetValue, 40);
     StrLen_or_Ind = 40;
-    sub_41B310(&v11.m_hStmt, 1u, 1, -2, -3, 0x28u, 0, TargetValue, 40, &StrLen_or_Ind);
-    if ( !CDB::ExecuteNoData(&v11, "UPDATE Shortcut SET [Keys] = ? WHERE [PID] = %d", a3) )
-      CDB::ExecuteInsertUnique(&v11, "INSERT INTO Shortcut VALUES ( %d, ?)", a3);
+    sub_41B310(&v8.m_hStmt, 1u, 1, -2, -3, 0x28u, 0, TargetValue, 40, &StrLen_or_Ind);
+    if ( !CDB::ExecuteNoData(&v8, "UPDATE Shortcut SET [Keys] = ? WHERE [PID] = %d", a3) )
+      CDB::ExecuteInsertUnique(&v8, "INSERT INTO Shortcut VALUES ( %d, ?)", a3);
   }
   else
   {
-    ReadPacket((char *)Src, "d", &v8);
-    sub_41B2B0((int)&v11, -2, TargetValue, 40, &StrLen_or_Ind);
-    if ( CDB::Execute(&v11, "SELECT [Keys] FROM Shortcut WHERE [PID] = %d", a3) && CDB::Fetch(&v11) )
-      CSocket::Write((int)this, 19, "dbm", v8, 1, TargetValue, 40);
+    ReadPacket((char *)Src, "d", &v5);
+    sub_41B2B0((int)&v8, -2, TargetValue, 40, &StrLen_or_Ind);
+    if ( CDB::Execute(&v8, "SELECT [Keys] FROM Shortcut WHERE [PID] = %d", a3) && CDB::Fetch(&v8) )
+      CSocket::Write((CSocket *)this, D2S_ANS_DELPLAYER|0x10, "dbm", v5, 1, TargetValue, 40);
     else
-      CSocket::Write((int)this, 19, "db", v8, 0);
+      CSocket::Write((CSocket *)this, D2S_ANS_DELPLAYER|0x10, "db", v5, 0);
   }
-  v12 = -1;
-  CDB::~CDB(&v11);
+  v9 = -1;
+  CDB::~CDB(&v8);
 }
 
 //----- (0041A5B0) --------------------------------------------------------
 void __thiscall sub_41A5B0(void *this, int a2, int a3)
 {
   char str[24]; // [esp+4h] [ebp-58h] BYREF
-  int v8; // [esp+20h] [ebp-3Ch] BYREF
-  int v9; // [esp+24h] [ebp-38h] BYREF
+  int v5; // [esp+20h] [ebp-3Ch] BYREF
+  int v6; // [esp+24h] [ebp-38h] BYREF
   char *packet; // [esp+28h] [ebp-34h]
   char TargetValue; // [esp+2Fh] [ebp-2Dh] BYREF
-  char *v12; // [esp+30h] [ebp-2Ch]
+  char *v9; // [esp+30h] [ebp-2Ch]
   int n; // [esp+34h] [ebp-28h] BYREF
-  int v14; // [esp+38h] [ebp-24h]
-  CDB v15; // [esp+3Ch] [ebp-20h] BYREF
+  int v11; // [esp+38h] [ebp-24h]
+  CDB v12; // [esp+3Ch] [ebp-20h] BYREF
   void *Src; // [esp+4Ch] [ebp-10h]
-  int v17; // [esp+58h] [ebp-4h]
+  int v14; // [esp+58h] [ebp-4h]
 
   Src = CIOBuffer::Alloc();
-  v12 = (char *)Src;
+  v9 = (char *)Src;
   *((_BYTE *)Src + 2) = 22;
-  packet = v12 + 8;
+  packet = v9 + 8;
+  v11 = 0;
+  CDB::CDB(&v12);
   v14 = 0;
-  CDB::CDB(&v15);
-  v17 = 0;
-  CDB::Skip(&v15);
-  CDB::Bind(&v15, str, 21);
+  CDB::Skip(&v12);
+  CDB::Bind(&v12, str, 21);
   CDB::Bind(&TargetValue);
-  CDB::Bind(&v15, &n);
-  CDB::Bind(&v15, &v8);
-  CDB::Bind(&v15, &v9);
-  if ( CDB::Execute(&v15, "SELECT * FROM Teleport WHERE [PID] = %d", a3) )
+  CDB::Bind(&v12, &n);
+  CDB::Bind(&v12, &v5);
+  CDB::Bind(&v12, &v6);
+  if ( CDB::Execute(&v12, "SELECT * FROM Teleport WHERE [PID] = %d", a3) )
   {
-    while ( CDB::Fetch(&v15) )
+    while ( CDB::Fetch(&v12) )
     {
       packet = PutString(packet, str);
       packet = PutNumeric<unsigned char>(packet, TargetValue);
       packet = (char *)PutNumeric<int>(packet, n);
-      packet = (char *)PutNumeric<int>(packet, v8);
-      packet = (char *)PutNumeric<int>(packet, v9);
-      ++v14;
+      packet = (char *)PutNumeric<int>(packet, v5);
+      packet = (char *)PutNumeric<int>(packet, v6);
+      ++v11;
     }
   }
-  WritePacket(v12 + 3, "db", a2, v14);
-  *(_WORD *)v12 = (_WORD)packet - (_WORD)v12;
-  *((_DWORD *)Src + 2000) = *(unsigned __int16 *)v12;
+  WritePacket(v9 + 3, "db", a2, v11);
+  *(_WORD *)v9 = (_WORD)packet - (_WORD)v9;
+  *((_DWORD *)Src + 2000) = *(unsigned __int16 *)v9;
   CIOSocket::Write((CIOSocket *)this, (CIOBuffer *)Src);
-  v17 = -1;
-  CDB::~CDB(&v15);
+  v14 = -1;
+  CDB::~CDB(&v12);
 }
 // 41B150: using guessed type int __thiscall CDB::Skip(_DWORD);
 
 //----- (0041A750) --------------------------------------------------------
 void __thiscall sub_41A750(void *this, int a2, int a3, int a4, void *Src)
 {
-  char v9[4]; // [esp+8h] [ebp-34h] BYREF
-  __int16 v10; // [esp+Ch] [ebp-30h]
-  int v11; // [esp+10h] [ebp-2Ch] BYREF
-  int v12; // [esp+14h] [ebp-28h] BYREF
-  unsigned __int8 v13; // [esp+1Bh] [ebp-21h] BYREF
-  int v14; // [esp+1Ch] [ebp-20h] BYREF
-  CDB v15; // [esp+20h] [ebp-1Ch] BYREF
-  int v16; // [esp+38h] [ebp-4h]
+  char v6[4]; // [esp+8h] [ebp-34h] BYREF
+  __int16 v7; // [esp+Ch] [ebp-30h]
+  int v8; // [esp+10h] [ebp-2Ch] BYREF
+  int v9; // [esp+14h] [ebp-28h] BYREF
+  unsigned __int8 v10; // [esp+1Bh] [ebp-21h] BYREF
+  int v11; // [esp+1Ch] [ebp-20h] BYREF
+  CDB v12; // [esp+20h] [ebp-1Ch] BYREF
+  int v13; // [esp+38h] [ebp-4h]
 
-  CDB::CDB(&v15);
-  v16 = 0;
+  CDB::CDB(&v12);
+  v13 = 0;
   if ( a3 )
   {
     if ( a3 == 1 )
     {
-      CDB::ExecuteNoData(&v15, "DELETE FROM Teleport WHERE [PID] = %d AND [LocName] = '%s'", a2, (const char *)a4);
+      CDB::ExecuteNoData(&v12, "DELETE FROM Teleport WHERE [PID] = %d AND [LocName] = '%s'", a2, (const char *)a4);
     }
     else if ( a3 == 2 )
     {
-      ReadPacket((char *)Src, "s", v9);
+      ReadPacket((char *)Src, "s", v6);
       CDB::ExecuteNoData(
-        &v15,
+        &v12,
         "UPDATE Teleport SET [LocName] = '%s' WHERE [PID] = %d AND [LocName] = '%s'",
-        *(const char **)v9,
+        *(const char **)v6,
         a2,
         (const char *)a4);
     }
   }
   else
   {
-    ReadPacket((char *)Src, "bddd", &v13, &v14, &v11, &v12);
-    v10 = CDB::ExecuteInsertUnique(
-            &v15,
-            "INSERT INTO Teleport VALUES ( %d, '%s', %d, %d, %d, %d)",
-            a2,
-            (const char *)a4,
-            v13,
-            v14,
-            v11,
-            v12);
-    CSocket::Write((int)this, 23, "dbbs", a2, 0, v10 == 0, a4);
+    ReadPacket((char *)Src, "bddd", &v10, &v11, &v8, &v9);
+    v7 = CDB::ExecuteInsertUnique(
+           &v12,
+           "INSERT INTO Teleport VALUES ( %d, '%s', %d, %d, %d, %d)",
+           a2,
+           (const char *)a4,
+           v10,
+           v11,
+           v8,
+           v9);
+    CSocket::Write((CSocket *)this, D2S_STORAGEINFO|0x10, "dbbs", a2, 0, v7 == 0, a4);
   }
-  v16 = -1;
-  CDB::~CDB(&v15);
+  v13 = -1;
+  CDB::~CDB(&v12);
 }
 
 //----- (0041A890) --------------------------------------------------------
 void __thiscall sub_41A890(void *this, int a2, int a3, const char *a4, const char *a5)
 {
-  CDB v9; // [esp+4h] [ebp-1Ch] BYREF
-  int v10; // [esp+1Ch] [ebp-4h]
+  CDB v6; // [esp+4h] [ebp-1Ch] BYREF
+  int v7; // [esp+1Ch] [ebp-4h]
 
-  CDB::CDB(&v9);
-  v10 = 0;
-  if ( CDB::ExecuteInsertUnique(&v9, "UPDATE Player SET [Name] = '%s' WHERE [PID] = %d", a5, a3) )
+  CDB::CDB(&v6);
+  v7 = 0;
+  if ( CDB::ExecuteInsertUnique(&v6, "UPDATE Player SET [Name] = '%s' WHERE [PID] = %d", a5, a3) )
   {
-    CSocket::Write((int)this, 26, "dbs", a2, 0, a5);
+    CSocket::Write((CSocket *)this, D2S_GUILD_SECEDECHECK|0x10, "dbs", a2, 0, a5);
   }
   else
   {
-    CDB::Reset(&v9);
-    CDB::ExecuteNoData(&v9, "UPDATE MLM SET [Name] = '%s' WHERE [RPID] = %d AND [Relation] <> 0", a5, a3);
-    CDB::Reset(&v9);
-    CDB::ExecuteNoData(&v9, "UPDATE PKBulletin SET [NameCatch] = '%s' WHERE [NameCatch] = '%s'", a5, a4);
-    CDB::Reset(&v9);
-    CDB::ExecuteNoData(&v9, "UPDATE PKBulletin SET [NameAssassin] = '%s' WHERE [NameAssassin] = '%s'", a5, a4);
-    CDB::Reset(&v9);
-    CDB::ExecuteNoData(&v9, "UPDATE Friend SET [FName] = '%s' WHERE [FPID] = %d", a5, a3);
-    CDB::Reset(&v9);
-    CDB::ExecuteNoData(&v9, "UPDATE Mail SET [SName] = '%s' WHERE [SPID] = %d", a5, a3);
-    CDB::Reset(&v9);
-    CDB::ExecuteNoData(&v9, "UPDATE Mail SET [RName] = '%s' WHERE [RPID] = %d", a5, a3);
-    CDB::Reset(&v9);
-    CDB::Execute(&v9, "INSERT INTO NameChanged VALUES (GETDATE(), 0, %d, '%s', '%s')", a3, a4, a5);
-    CSocket::Write((int)this, 26, "dbs", a2, 1, a5);
+    CDB::Reset(&v6);
+    CDB::ExecuteNoData(&v6, "UPDATE MLM SET [Name] = '%s' WHERE [RPID] = %d AND [Relation] <> 0", a5, a3);
+    CDB::Reset(&v6);
+    CDB::ExecuteNoData(&v6, "UPDATE PKBulletin SET [NameCatch] = '%s' WHERE [NameCatch] = '%s'", a5, a4);
+    CDB::Reset(&v6);
+    CDB::ExecuteNoData(&v6, "UPDATE PKBulletin SET [NameAssassin] = '%s' WHERE [NameAssassin] = '%s'", a5, a4);
+    CDB::Reset(&v6);
+    CDB::ExecuteNoData(&v6, "UPDATE Friend SET [FName] = '%s' WHERE [FPID] = %d", a5, a3);
+    CDB::Reset(&v6);
+    CDB::ExecuteNoData(&v6, "UPDATE Mail SET [SName] = '%s' WHERE [SPID] = %d", a5, a3);
+    CDB::Reset(&v6);
+    CDB::ExecuteNoData(&v6, "UPDATE Mail SET [RName] = '%s' WHERE [RPID] = %d", a5, a3);
+    CDB::Reset(&v6);
+    CDB::Execute(&v6, "INSERT INTO NameChanged VALUES (GETDATE(), 0, %d, '%s', '%s')", a3, a4, a5);
+    CSocket::Write((CSocket *)this, D2S_GUILD_SECEDECHECK|0x10, "dbs", a2, 1, a5);
   }
-  v10 = -1;
-  CDB::~CDB(&v9);
+  v7 = -1;
+  CDB::~CDB(&v6);
 }
 
 //----- (0041AA30) --------------------------------------------------------
 void __thiscall sub_41AA30(void *this, int a2, int a3, const char *a4, const char *a5)
 {
-  CDB v9; // [esp+4h] [ebp-1Ch] BYREF
-  int v10; // [esp+1Ch] [ebp-4h]
+  CDB v6; // [esp+4h] [ebp-1Ch] BYREF
+  int v7; // [esp+1Ch] [ebp-4h]
 
-  CDB::CDB(&v9);
-  v10 = 0;
-  if ( CDB::ExecuteInsertUnique(&v9, "UPDATE Guild SET [Name] = '%s' WHERE [GID] = %d", a5, a3) )
+  CDB::CDB(&v6);
+  v7 = 0;
+  if ( CDB::ExecuteInsertUnique(&v6, "UPDATE Guild SET [Name] = '%s' WHERE [GID] = %d", a5, a3) )
   {
-    CSocket::Write((int)this, 27, "dbs", a2, 0, a5);
+    CSocket::Write((CSocket *)this, D2S_GUILD_SAMENAMECHECK|0x10, "dbs", a2, 0, a5);
   }
   else
   {
-    CDB::Reset(&v9);
-    CDB::ExecuteNoData(&v9, "UPDATE PKBulletin SET [NameGuild] = '%s' WHERE [NameGuild] = '%s'", a5, a4);
-    CDB::Reset(&v9);
-    CDB::Execute(&v9, "INSERT INTO NameChanged VALUES (GETDATE(), 1, %d, '%s', '%s')", a3, a4, a5);
-    CSocket::Write((int)this, 27, "dbs", a2, 1, a5);
+    CDB::Reset(&v6);
+    CDB::ExecuteNoData(&v6, "UPDATE PKBulletin SET [NameGuild] = '%s' WHERE [NameGuild] = '%s'", a5, a4);
+    CDB::Reset(&v6);
+    CDB::Execute(&v6, "INSERT INTO NameChanged VALUES (GETDATE(), 1, %d, '%s', '%s')", a3, a4, a5);
+    CSocket::Write((CSocket *)this, D2S_GUILD_SAMENAMECHECK|0x10, "dbs", a2, 1, a5);
   }
-  v10 = -1;
-  CDB::~CDB(&v9);
+  v7 = -1;
+  CDB::~CDB(&v6);
 }
 
 //----- (0041AB20) --------------------------------------------------------
@@ -16579,19 +16610,19 @@ void __stdcall sub_41AC30(int a1, int a2, int a3)
 void __thiscall sub_41AC50(void *this, int a2, int a3)
 {
   int TargetValue; // [esp+4h] [ebp-20h] BYREF
-  CDB v8; // [esp+8h] [ebp-1Ch] BYREF
-  int v9; // [esp+20h] [ebp-4h]
+  CDB v5; // [esp+8h] [ebp-1Ch] BYREF
+  int v6; // [esp+20h] [ebp-4h]
 
   TargetValue = 0;
-  CDB::CDB(&v8);
-  v9 = 0;
-  CDB::Bind(&v8, &TargetValue);
-  if ( CDB::Execute(&v8, "SELECT Event FROM Event_PID WHERE [PID] = %d", a2) && CDB::Fetch(&v8) )
-    CSocket::Write((int)this, 28, "ddd", a2, TargetValue, a3);
+  CDB::CDB(&v5);
+  v6 = 0;
+  CDB::Bind(&v5, &TargetValue);
+  if ( CDB::Execute(&v5, "SELECT Event FROM Event_PID WHERE [PID] = %d", a2) && CDB::Fetch(&v5) )
+    CSocket::Write((CSocket *)this, D2S_GUILD_DELPLAYER|0x10, "ddd", a2, TargetValue, a3);
   else
-    CSocket::Write((int)this, 28, "ddd", a2, 0, a3);
-  v9 = -1;
-  CDB::~CDB(&v8);
+    CSocket::Write((CSocket *)this, D2S_GUILD_DELPLAYER|0x10, "ddd", a2, 0, a3);
+  v6 = -1;
+  CDB::~CDB(&v5);
 }
 
 //----- (0041AD20) --------------------------------------------------------
@@ -16697,24 +16728,24 @@ void __thiscall CSyncPacket::CElement::CElement(CSyncPacket::CElement *this, CSo
 }
 
 //----- (0041AFE0) --------------------------------------------------------
-int __thiscall CSyncPacket::Front(char *this)
+IPAddrMask *__thiscall CSyncPacket::Front(CSyncPacket *this)
 {
-  return std::vector<CSyncPacket::CElement>::iterator::operator*(this + 32);
+  return (IPAddrMask *)std::vector<CSyncPacket::CElement>::iterator::operator*((char *)this + 32);
 }
 
 //----- (0041B000) --------------------------------------------------------
-_DWORD *__thiscall CIOSocket::CIOTimerInstance::`scalar deleting destructor'(_DWORD *this, char a2)
+_DWORD *__thiscall CSocket::`vftable'(_DWORD *this, char a2)
 {
-  sub_410AB0(this);
+  CSocket::~CSocket((CSocket *)this);
   if ( (a2 & 1) != 0 )
     operator delete((int)this);
   return this;
 }
 
 //----- (0041B030) --------------------------------------------------------
-LONG __thiscall CIOBuffer::AddRef(volatile LONG *this)
+void __thiscall CIOBuffer::AddRef(CIOBuffer *this)
 {
-  return InterlockedIncrement(this + 2001);
+  InterlockedIncrement(&this->m_nRef);
 }
 
 //----- (0041B050) --------------------------------------------------------
@@ -16741,7 +16772,7 @@ void __thiscall CSyncPacket::Push(CSyncPacket *this, CSyncPacket::CElement *elem
                                          (int)v6,
                                          *((_DWORD *)this + 9),
                                          v2);
-    *((_DWORD *)this + 8) = *sub_41B5C0((int *)this + 9, v5, 1);
+    *((_DWORD *)this + 8) = *std::vector<CSyncPacket::CElement>::iterator::operator+((int *)this + 9, v5, 1);
   }
 }
 // 41B0F1: variable 'v2' is possibly undefined
@@ -16814,46 +16845,53 @@ BOOL __thiscall std::vector<IPAddrMask>::empty(_DWORD *this)
 _DWORD *CMemoryPool<CPacket>::Alloc()
 {
   _DWORD *result; // eax
-  _DWORD *v1; // [esp+0h] [ebp-1Ch]
-  CMemory **v2; // [esp+4h] [ebp-18h]
-  _DWORD *v3; // [esp+Ch] [ebp-10h]
+  _DWORD *v1; // eax
+  _DWORD *v2; // [esp+0h] [ebp-1Ch]
+  CPacket *v3; // [esp+4h] [ebp-18h]
+  _DWORD *v4; // [esp+Ch] [ebp-10h]
 
-  CIOSpinLock::Enter(&dword_448DE4);
-  v3 = (_DWORD *)dword_448DE0;
-  if ( dword_448DE0 )
+  CIOSpinLock::Enter((CIOSpinLock *)&dword_448DE4);
+  v4 = (_DWORD *)CMemoryPool<CPacket>::s_pool;
+  if ( CMemoryPool<CPacket>::s_pool )
   {
-    dword_448DE0 = *(_DWORD *)(dword_448DE0 + 16);
-    CIOSpinLock::Leave(&dword_448DE4);
-    result = v3;
+    CMemoryPool<CPacket>::s_pool = *(_DWORD *)(CMemoryPool<CPacket>::s_pool + 16);
+    CIOSpinLock::Leave((CIOSpinLock *)&dword_448DE4);
+    result = v4;
   }
   else
   {
-    CIOSpinLock::Leave(&dword_448DE4);
-    v2 = operator new(0x18u);
-    if ( v2 )
-      v1 = sub_41B640(v2);
+    CIOSpinLock::Leave((CIOSpinLock *)&dword_448DE4);
+    v3 = (CPacket *)operator new(0x18u);
+    if ( v3 )
+    {
+      CPacket::CPacket(v3);
+      v2 = v1;
+    }
     else
-      v1 = 0;
-    result = v1;
+    {
+      v2 = 0;
+    }
+    result = v2;
   }
   return result;
 }
-// 448DE0: using guessed type int dword_448DE0;
+// 41B47A: variable 'v1' is possibly undefined
+// 448DE0: using guessed type int CMemoryPool<CPacket>::s_pool;
 
 //----- (0041B4B0) --------------------------------------------------------
-LONG __cdecl sub_41B4B0(int a1)
+void __cdecl CMemoryPool<CPacket>::Free(int a1)
 {
-  CIOSpinLock::Enter(&dword_448DE4);
-  *(_DWORD *)(a1 + 16) = dword_448DE0;
-  dword_448DE0 = a1;
-  return CIOSpinLock::Leave(&dword_448DE4);
+  CIOSpinLock::Enter((CIOSpinLock *)&dword_448DE4);
+  *(_DWORD *)(a1 + 16) = CMemoryPool<CPacket>::s_pool;
+  CMemoryPool<CPacket>::s_pool = a1;
+  CIOSpinLock::Leave((CIOSpinLock *)&dword_448DE4);
 }
-// 448DE0: using guessed type int dword_448DE0;
+// 448DE0: using guessed type int CMemoryPool<CPacket>::s_pool;
 
 //----- (0041B4E0) --------------------------------------------------------
 void *__thiscall std::vector<CSyncPacket::CElement>::begin(int *this, void *a2)
 {
-  sub_403E30(a2, this[1]);
+  std::vector<CSyncPacket::CElement>::iterator::iterator(a2, this[1]);
   return a2;
 }
 
@@ -16881,7 +16919,7 @@ int __thiscall std::vector<CSyncPacket::CElement>::insert(int *this, int a2, int
   std::vector<CSyncPacket::CElement>::_Insert_n(this, a3, 1u, (int *)a4);
   v7 = v12;
   v5 = (int *)std::vector<CSyncPacket::CElement>::begin(this, v10);
-  sub_41B5C0(v5, (_DWORD *)a2, v7);
+  std::vector<CSyncPacket::CElement>::iterator::operator+(v5, (_DWORD *)a2, v7);
   return a2;
 }
 
@@ -16900,7 +16938,7 @@ _DWORD *__thiscall std::vector<CSyncPacket::CElement>::iterator::operator++(_DWO
 }
 
 //----- (0041B5C0) --------------------------------------------------------
-_DWORD *__thiscall sub_41B5C0(int *this, _DWORD *a1, int a2)
+_DWORD *__thiscall std::vector<CSyncPacket::CElement>::iterator::operator+(int *this, _DWORD *a1, int a2)
 {
   int v4; // [esp+4h] [ebp-4h] BYREF
 
@@ -16928,18 +16966,17 @@ _DWORD *__thiscall std::vector<IPAddrMask>::iterator::operator++(int *this, _DWO
 // 4050E0: using guessed type int __thiscall unknown_libname_16(_DWORD);
 
 //----- (0041B640) --------------------------------------------------------
-_DWORD *__thiscall sub_41B640(_DWORD *this)
+void __thiscall CPacket::CPacket(CPacket *this)
 {
   CIOObject::CIOObject((CIOObject *)this);
-  *this = &off_42F870;
-  return this;
+  *(_DWORD *)this = &off_42F870;
 }
 // 42F870: using guessed type int (__stdcall *off_42F870)(int);
 
 //----- (0041B660) --------------------------------------------------------
-_DWORD *__thiscall sub_41B660(_DWORD *this)
+void __thiscall CPacket::~CPacket(CIOSocket::CIOTimerInstance *this)
 {
-  return CIOObject::~CIOObject(this);
+  CIOObject::~CIOObject(this);
 }
 
 //----- (0041B680) --------------------------------------------------------
@@ -17002,7 +17039,7 @@ void *__thiscall std::vector<CSyncPacket::CElement>::_Insert_n(_DWORD *this, int
                 v16,
                 (void *)v15[2]);
         v15[2] = (int)v10;
-        sub_41BD10(a2, v16 - 16 * a3, v16);
+        std::copy_backward<CSyncPacket::CElement *,CSyncPacket::CElement *>(a2, v16 - 16 * a3, v16);
         result = std::fill<CSyncPacket::CElement *,CSyncPacket::CElement>((_DWORD *)a2, (_DWORD *)(a2 + 16 * a3), v20);
       }
       else
@@ -17091,13 +17128,16 @@ int __thiscall std::vector<CSyncPacket::CElement>::max_size(void *this)
 //----- (0041BAB0) --------------------------------------------------------
 int __thiscall std::vector<CSyncPacket::CElement>::_Destroy(void *this, int a2, int a3)
 {
-  return sub_41BD50(a2, a3);
+  return std::_Destroy_range<CSyncPacket::CElement>(a2, a3);
 }
 
 //----- (0041BAE0) --------------------------------------------------------
 int __thiscall std::vector<CSyncPacket::CElement>::_Ufill(void *this, void *a2, int a3, int a4)
 {
-  sub_41BD90(a2, a3, a4);
+  std::_Uninitialized_fill_n<CSyncPacket::CElement *,unsigned int,CSyncPacket::CElement,std::allocator<CSyncPacket::CElement>>(
+    a2,
+    a3,
+    a4);
   return (int)a2 + 16 * a3;
 }
 
@@ -17117,7 +17157,7 @@ void __noreturn std::vector<CSyncPacket::CElement>::_Xlen()
 //----- (0041BB70) --------------------------------------------------------
 CMemory **__stdcall std::allocator<CSyncPacket::CElement>::allocate(int a1)
 {
-  return sub_41BDD0(a1);
+  return std::_Allocate<CSyncPacket::CElement>(a1);
 }
 
 //----- (0041BB90) --------------------------------------------------------
@@ -17178,7 +17218,10 @@ _DWORD *__cdecl GetNumeric<int>(_DWORD *a1, _DWORD *a2)
 //----- (0041BCA0) --------------------------------------------------------
 void *__thiscall std::vector<CSyncPacket::CElement>::_Ucopy<CSyncPacket::CElement *>(void *this, int a2, int a3, void *a4)
 {
-  return sub_41BDF0(a2, a3, a4);
+  return std::_Uninitialized_copy<CSyncPacket::CElement *,CSyncPacket::CElement *,std::allocator<CSyncPacket::CElement>>(
+           a2,
+           a3,
+           a4);
 }
 
 //----- (0041BCD0) --------------------------------------------------------
@@ -17199,7 +17242,7 @@ _DWORD *__cdecl std::fill<CSyncPacket::CElement *,CSyncPacket::CElement>(_DWORD 
 }
 
 //----- (0041BD10) --------------------------------------------------------
-_DWORD *__cdecl sub_41BD10(int a1, int a2, int a3)
+_DWORD *__cdecl std::copy_backward<CSyncPacket::CElement *,CSyncPacket::CElement *>(int a1, int a2, int a3)
 {
   unknown_libname_15(&a1, &a3);
   return std::_Copy_backward_opt<CSyncPacket::CElement *,CSyncPacket::CElement *>(
@@ -17210,7 +17253,7 @@ _DWORD *__cdecl sub_41BD10(int a1, int a2, int a3)
 // 404F10: using guessed type int __cdecl unknown_libname_15(_DWORD, _DWORD);
 
 //----- (0041BD50) --------------------------------------------------------
-int __cdecl sub_41BD50(int a1, int a2)
+int __cdecl std::_Destroy_range<CSyncPacket::CElement>(int a1, int a2)
 {
   unknown_libname_15(&a1, &a2);
   return std::_Destroy_range<CSyncPacket::CElement>(a1, a2);
@@ -17218,7 +17261,7 @@ int __cdecl sub_41BD50(int a1, int a2)
 // 404F10: using guessed type int __cdecl unknown_libname_15(_DWORD, _DWORD);
 
 //----- (0041BD90) --------------------------------------------------------
-void *__cdecl sub_41BD90(void *a1, int a2, int a3)
+void *__cdecl std::_Uninitialized_fill_n<CSyncPacket::CElement *,unsigned int,CSyncPacket::CElement,std::allocator<CSyncPacket::CElement>>(void *a1, int a2, int a3)
 {
   unknown_libname_15(&a1, &a1);
   return std::_Uninit_fill_n<CSyncPacket::CElement *,unsigned int,CSyncPacket::CElement,std::allocator<CSyncPacket::CElement>>(
@@ -17229,13 +17272,13 @@ void *__cdecl sub_41BD90(void *a1, int a2, int a3)
 // 404F10: using guessed type int __cdecl unknown_libname_15(_DWORD, _DWORD);
 
 //----- (0041BDD0) --------------------------------------------------------
-CMemory **__cdecl sub_41BDD0(int a1)
+CMemory **__cdecl std::_Allocate<CSyncPacket::CElement>(int a1)
 {
   return operator new(16 * a1);
 }
 
 //----- (0041BDF0) --------------------------------------------------------
-void *__cdecl sub_41BDF0(int a1, int a2, void *a3)
+void *__cdecl std::_Uninitialized_copy<CSyncPacket::CElement *,CSyncPacket::CElement *,std::allocator<CSyncPacket::CElement>>(int a1, int a2, void *a3)
 {
   unknown_libname_15(&a1, &a3);
   return std::_Uninit_copy<CSyncPacket::CElement *,CSyncPacket::CElement *,std::allocator<CSyncPacket::CElement>>(
@@ -17286,7 +17329,7 @@ void *__cdecl std::_Uninit_fill_n<CSyncPacket::CElement *,unsigned int,CSyncPack
   v4[7] = 0;
   while ( a2 )
   {
-    result = sub_41BF40(a1, a3);
+    result = std::allocator<CSyncPacket::CElement>::construct(a1, a3);
     --a2;
     a1 = (char *)a1 + 16;
   }
@@ -17294,7 +17337,7 @@ void *__cdecl std::_Uninit_fill_n<CSyncPacket::CElement *,unsigned int,CSyncPack
 }
 
 //----- (0041BF40) --------------------------------------------------------
-_DWORD *__stdcall sub_41BF40(void *a1, int a2)
+_DWORD *__stdcall std::allocator<CSyncPacket::CElement>::construct(void *a1, int a2)
 {
   return std::_Construct<CSyncPacket::CElement,CSyncPacket::CElement>(a1, a2);
 }
@@ -17309,7 +17352,7 @@ void *__cdecl std::_Uninit_copy<CSyncPacket::CElement *,CSyncPacket::CElement *,
   v4[7] = 0;
   while ( a1 != a2 )
   {
-    sub_41BF40(a3, a1);
+    std::allocator<CSyncPacket::CElement>::construct(a3, a1);
     a3 = (char *)a3 + 16;
     a1 += 16;
   }
@@ -17352,7 +17395,7 @@ void __thiscall CSyncPacket::CSyncPacket(CSyncPacket *this)
   sub_41C1C0((char *)this + 16);
   sub_41C210((char *)this + 32);
   sub_41C210((char *)this + 36);
-  CIOCriticalSection::CIOCriticalSection((struct _RTL_CRITICAL_SECTION *)((char *)this + 40));
+  CIOCriticalSection::CIOCriticalSection((CIOCriticalSection *)((char *)this + 40));
   LOBYTE(v8) = 2;
   *((_DWORD *)this + 18) = 0;
   Concurrency::details::UMSFreeVirtualProcessorRoot::~UMSFreeVirtualProcessorRoot((Concurrency::details::UMSFreeVirtualProcessorRoot *)v7);
@@ -17378,7 +17421,7 @@ void __thiscall CSyncPacket::~CSyncPacket(CSyncPacket *this)
 {
   CIOCriticalSection::~CIOCriticalSection((CIOCriticalSection *)((char *)this + 40));
   std::vector<CSyncPacket::CElement>::~vector<CSyncPacket::CElement>((char *)this + 16);
-  CIOObject::~CIOObject(this);
+  CIOObject::~CIOObject((CIOObject *)this);
 }
 
 //----- (0041C1C0) --------------------------------------------------------
@@ -17390,7 +17433,7 @@ _DWORD *__thiscall sub_41C1C0(void *this)
   v3 = this;
   v2 = this;
   unknown_libname_9(&v2);
-  sub_40D710(v3, (char)v2);
+  std::_String_val<char>::_String_val<char>(v3, (char)v2);
   sub_41C230(v3, 0);
   return v3;
 }
@@ -17452,29 +17495,29 @@ char *__thiscall sub_41C320(char *this)
 // 403080: using guessed type int __thiscall unknown_libname_7(_DWORD);
 
 //----- (0041C340) --------------------------------------------------------
-LONG __thiscall CMemoryPool<CPacket>::CPool::~CPool(void *this)
+void __thiscall CMemoryPool<CPacket>::CPool::~CPool(void *this)
 {
-  return CMemoryPool<CPacket>::FreeAll();
+  CMemoryPool<CPacket>::FreeAll();
 }
 
 //----- (0041C350) --------------------------------------------------------
-LONG CMemoryPool<CPacket>::FreeAll()
+void CMemoryPool<CPacket>::FreeAll()
 {
-  void (__thiscall ***v1)(_DWORD, int); // [esp+Ch] [ebp-4h]
+  void (__thiscall ***v0)(_DWORD, int); // [esp+Ch] [ebp-4h]
 
-  CIOSpinLock::Enter(&dword_448DE4);
+  CIOSpinLock::Enter((CIOSpinLock *)&dword_448DE4);
   while ( 1 )
   {
-    v1 = (void (__thiscall ***)(_DWORD, int))dword_448DE0;
-    if ( !dword_448DE0 )
+    v0 = (void (__thiscall ***)(_DWORD, int))CMemoryPool<CPacket>::s_pool;
+    if ( !CMemoryPool<CPacket>::s_pool )
       break;
-    dword_448DE0 = *(_DWORD *)(dword_448DE0 + 16);
-    if ( v1 )
-      (**v1)(v1, 1);
+    CMemoryPool<CPacket>::s_pool = *(_DWORD *)(CMemoryPool<CPacket>::s_pool + 16);
+    if ( v0 )
+      (**v0)(v0, 1);
   }
-  return CIOSpinLock::Leave(&dword_448DE4);
+  CIOSpinLock::Leave((CIOSpinLock *)&dword_448DE4);
 }
-// 448DE0: using guessed type int dword_448DE0;
+// 448DE0: using guessed type int CMemoryPool<CPacket>::s_pool;
 
 //----- (0041C3C0) --------------------------------------------------------
 BOOL __stdcall CStatus::Update()
@@ -18048,15 +18091,14 @@ void *__thiscall exception::`vector deleting destructor'(void *this, char a2)
 }
 
 //----- (0041F848) --------------------------------------------------------
-int __cdecl _set_security_error_handler(int a1)
+void (__cdecl *__cdecl _set_security_error_handler(void (__cdecl *handler)(int, void *)))(int, void *)
 {
-  int result; // eax
+  void (__cdecl *result)(int, void *); // eax
 
-  result = dword_448FDC;
-  dword_448FDC = a1;
+  result = user_handler;
+  user_handler = handler;
   return result;
 }
-// 448FDC: using guessed type int dword_448FDC;
 
 //----- (0041FE1C) --------------------------------------------------------
 unsigned int __cdecl fwrite_0(const void *buffer, unsigned int size, unsigned int count, _iobuf *stream)
@@ -18110,79 +18152,79 @@ void __cdecl _RTC_Terminate()
 }
 
 //----- (00429900) --------------------------------------------------------
-int sub_429900()
+void __cdecl _E5()
 {
-  return std::string::~string(CDBConfig::s_strODBC);
+  std::string::~string(CDBConfig::s_strODBC);
 }
 
 //----- (00429910) --------------------------------------------------------
-int sub_429910()
+void __cdecl _E2()
 {
-  return std::string::~string(CDBConfig::s_strMailServer);
+  std::string::~string(CDBConfig::s_strMailServer);
 }
 
 //----- (00429920) --------------------------------------------------------
-int sub_429920()
+void __cdecl _E8()
 {
-  return std::string::~string(CDBConfig::s_strMailFrom);
+  std::string::~string(CDBConfig::s_strMailFrom);
 }
 
 //----- (00429930) --------------------------------------------------------
-int sub_429930()
+void __cdecl _E11()
 {
-  return std::string::~string(CDBConfig::s_strMailTo);
+  std::string::~string(CDBConfig::s_strMailTo);
 }
 
 //----- (00429940) --------------------------------------------------------
-int *sub_429940()
+void __cdecl _E14()
 {
-  return std::vector<IPAddrMask>::~vector<IPAddrMask>(CDBConfig::s_vSubNet);
+  std::vector<IPAddrMask>::~vector<IPAddrMask>(CDBConfig::s_vSubNet);
 }
 
 //----- (00429950) --------------------------------------------------------
-int sub_429950()
+void __cdecl _E17()
 {
-  return std::map<int,std::string>::~map<int,std::string>(dword_43DA08);
+  std::map<int,std::string>::~map<int,std::string>(CDBConfig::s_LanguageMap);
 }
 
 //----- (00429960) --------------------------------------------------------
-void sub_429960()
+void __cdecl _E2_0()
 {
   CIOException::CInit::~CInit(&unk_443E04);
 }
 
 //----- (00429970) --------------------------------------------------------
-void sub_429970()
+void __cdecl _E2_1()
 {
-  CIOCriticalSection::~CIOCriticalSection(&stru_444038);
+  CIOCriticalSection::~CIOCriticalSection(&g_lockTimer);
 }
 
 //----- (00429980) --------------------------------------------------------
-int sub_429980()
+void sub_429980()
 {
-  return sub_40ACE0(&unk_444058);
+  CIOSocket::CInit::~CInit(&unk_444058);
 }
 
 //----- (00429990) --------------------------------------------------------
-int *sub_429990()
+void __cdecl _E8_0()
 {
-  return std::priority_queue<CIOSocket::CIOTimer>::~priority_queue<CIOSocket::CIOTimer,std::vector<CIOSocket::CIOTimer>,std::less<CIOSocket::CIOTimer>>(&unk_44405C);
+  std::priority_queue<CIOSocket::CIOTimer>::~priority_queue<CIOSocket::CIOTimer,std::vector<CIOSocket::CIOTimer>,std::less<CIOSocket::CIOTimer>>(&g_timerQueue);
 }
 
 //----- (004299A0) --------------------------------------------------------
-_DWORD *sub_4299A0()
+void __cdecl _E11_0()
 {
-  return sub_41B660(&g_instance);
+  CPacket::~CPacket(&g_instance);
 }
 
 //----- (004299B0) --------------------------------------------------------
 void sub_4299B0()
 {
-  sub_4101E0((char *)&CScreen::s_pScreen);
+  CScreen::~CScreen((CScreen *)&CScreen::s_pScreen);
 }
 
 //----- (004299C0) --------------------------------------------------------
-void sub_4299C0()
+void __cdecl _E5_1()
 {
   CLog::CInit::~CInit(&unk_444154);
 }
@@ -18190,26 +18232,26 @@ void sub_4299C0()
 //----- (004299D0) --------------------------------------------------------
 void sub_4299D0()
 {
-  sub_410860(&stru_4441A4 + 7);
+  CServer::~CServer((CServer *)(&stru_4441A4 + 7));
 }
 
 //----- (004299E0) --------------------------------------------------------
-void sub_4299E0()
+void __cdecl _E2_3()
 {
   `eh vector destructor iterator'(&g_syncPacket, 0x4Cu, 256, (void (__thiscall *)(void *))CSyncPacket::~CSyncPacket);
 }
 
 //----- (00429A00) --------------------------------------------------------
-LONG sub_429A00()
+void __cdecl _E5_2()
 {
-  return CMemoryPool<CPacket>::CPool::~CPool(&dword_448DE0);
+  CMemoryPool<CPacket>::CPool::~CPool(&CMemoryPool<CPacket>::s_pool);
 }
-// 448DE0: using guessed type int dword_448DE0;
+// 448DE0: using guessed type int CMemoryPool<CPacket>::s_pool;
 
 //----- (00429A10) --------------------------------------------------------
-void sub_429A10()
+void __cdecl _E2_4()
 {
-  sub_4101E0((char *)&CStatus::s_screen);
+  CScreen::~CScreen(&CStatus::s_screen);
 }
 
 // nfuncs=920 queued=593 decompiled=593 lumina nreq=0 worse=0 better=0
